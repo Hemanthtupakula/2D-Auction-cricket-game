@@ -1,0 +1,39 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: auction-xi-backend
+  main:
+    banner-mode: off
+
+  datasource:
+    url: ${SUPABASE_DB_URL:jdbc:h2:mem:auction_xi;DB_CLOSE_DELAY=-1;MODE=PostgreSQL;CASE_INSENSITIVE_IDENTIFIERS=TRUE}
+    username: ${SUPABASE_DB_USERNAME:sa}
+    password: ${SUPABASE_DB_PASSWORD:}
+    driver-class-name: ${SUPABASE_DB_DRIVER:org.h2.Driver}
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      idle-timeout: 300000
+      connection-timeout: 20000
+
+  jpa:
+    hibernate:
+      ddl-auto: ${JPA_DDL_AUTO:update}
+    database-platform: ${SUPABASE_DB_DIALECT:org.hibernate.dialect.H2Dialect}
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+
+  flyway:
+    enabled: ${FLYWAY_ENABLED:false}
+    locations: classpath:db/migration
+    baseline-on-migrate: false
+
+logging:
+  level:
+    com.auctionxi: INFO
+    org.springframework.web: INFO
+    org.flywaydb: INFO

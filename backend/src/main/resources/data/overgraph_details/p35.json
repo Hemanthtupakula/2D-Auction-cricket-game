@@ -1,0 +1,90 @@
+{
+  "playerId": "p35",
+  "fullName": "Avesh Khan",
+  "overGraphSlug": "avesh-khan",
+  "matches": 82,
+  "runs": 68,
+  "strikeRate": 158.1,
+  "average": 17.0,
+  "wickets": 93,
+  "economy": 9.3,
+  "highestScore": "19",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 7,
+  "sixes": 4,
+  "catches": 13,
+  "seasonsTimeline": [
+    {
+      "season": "2019",
+      "matches": 10,
+      "runs": 5,
+      "strikeRate": 145.5,
+      "average": 15.3,
+      "wickets": 11
+    },
+    {
+      "season": "2020",
+      "matches": 10,
+      "runs": 5,
+      "strikeRate": 147.4,
+      "average": 15.6,
+      "wickets": 11
+    },
+    {
+      "season": "2021",
+      "matches": 10,
+      "runs": 6,
+      "strikeRate": 149.4,
+      "average": 15.9,
+      "wickets": 11
+    },
+    {
+      "season": "2022",
+      "matches": 10,
+      "runs": 6,
+      "strikeRate": 151.4,
+      "average": 16.3,
+      "wickets": 11
+    },
+    {
+      "season": "2023",
+      "matches": 10,
+      "runs": 7,
+      "strikeRate": 153.4,
+      "average": 16.6,
+      "wickets": 11
+    },
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 7,
+      "strikeRate": 155.3,
+      "average": 16.9,
+      "wickets": 11
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 8,
+      "strikeRate": 157.3,
+      "average": 17.2,
+      "wickets": 11
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 8,
+      "strikeRate": 159.3,
+      "average": 17.5,
+      "wickets": 11
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 86,
+    "consistency": 40,
+    "tempo": 78
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

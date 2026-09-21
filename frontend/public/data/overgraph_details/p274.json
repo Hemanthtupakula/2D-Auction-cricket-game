@@ -1,0 +1,89 @@
+{
+  "playerId": "p274",
+  "fullName": "Tirumalasetti Suman",
+  "overGraphSlug": "tl-suman",
+  "matches": 43,
+  "runs": 676,
+  "strikeRate": 117.6,
+  "average": 21.1,
+  "wickets": 6,
+  "economy": 7.9,
+  "highestScore": "78",
+  "fifties": 2,
+  "hundreds": 0,
+  "fours": 55,
+  "sixes": 26,
+  "catches": 10,
+  "seasonsTimeline": [
+    {
+      "season": "2023",
+      "matches": 10,
+      "runs": 101,
+      "strikeRate": 108.2,
+      "average": 19.0,
+      "wickets": 1
+    },
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 123,
+      "strikeRate": 111.1,
+      "average": 19.8,
+      "wickets": 1
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 146,
+      "strikeRate": 114.1,
+      "average": 20.6,
+      "wickets": 1
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 169,
+      "strikeRate": 117.0,
+      "average": 21.4,
+      "wickets": 1
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#5",
+      "innings": 12,
+      "runs": 202,
+      "average": 17.9,
+      "strikeRate": 123.5,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "78"
+    },
+    {
+      "position": "#6",
+      "innings": 17,
+      "runs": 270,
+      "average": 20.0,
+      "strikeRate": 123.5,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "78"
+    },
+    {
+      "position": "#7",
+      "innings": 12,
+      "runs": 202,
+      "average": 17.9,
+      "strikeRate": 123.5,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "78"
+    }
+  ],
+  "radarMetrics": {
+    "power": 64,
+    "consistency": 40,
+    "tempo": 62
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

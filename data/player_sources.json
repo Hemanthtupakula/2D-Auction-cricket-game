@@ -1,0 +1,72 @@
+[
+  {
+    "id": "src-ipl-official",
+    "source_name": "Official IPL Auction Register & Website",
+    "source_type": "OFFICIAL",
+    "base_url": "https://www.iplt20.com",
+    "license_url": "https://www.iplt20.com/terms-of-use",
+    "last_checked_at": "2026-09-12T00:00:00Z",
+    "trust_level": "PRIMARY",
+    "notes": "Authoritative registry for player IDs, base prices, sets, lots, capped status, and career stats."
+  },
+  {
+    "id": "src-bcci-official",
+    "source_name": "Board of Control for Cricket in India (BCCI)",
+    "source_type": "OFFICIAL",
+    "base_url": "https://www.bcci.tv",
+    "license_url": "https://www.bcci.tv/terms-and-conditions",
+    "last_checked_at": "2026-09-12T00:00:00Z",
+    "trust_level": "PRIMARY",
+    "notes": "Official governing body registration data and international cap figures."
+  },
+  {
+    "id": "src-wikimedia-commons",
+    "source_name": "Wikimedia Commons Open Cricket Media",
+    "source_type": "OPEN_COMMONS",
+    "base_url": "https://commons.wikimedia.org",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "last_checked_at": "2026-09-12T00:00:00Z",
+    "trust_level": "VERIFIED_MEDIA",
+    "notes": "Freely usable high-resolution player portraits licensed under CC BY, CC BY-SA, or Public Domain."
+  },
+  {
+    "id": "src-espncricinfo",
+    "source_name": "ESPNcricinfo Player Records & Stats",
+    "source_type": "REPUTABLE_STATISTICS",
+    "base_url": "https://www.espncricinfo.com",
+    "license_url": "https://www.espncricinfo.com/terms-of-use",
+    "last_checked_at": "2026-09-12T00:00:00Z",
+    "trust_level": "SECONDARY_VERIFICATION",
+    "notes": "Cross-verification for career figures, strike rates, bowling averages, and historical records."
+  },
+  {
+    "id": "src-cricbuzz",
+    "source_name": "Cricbuzz Player Profiles",
+    "source_type": "REPUTABLE_STATISTICS",
+    "base_url": "https://www.cricbuzz.com",
+    "license_url": "https://www.cricbuzz.com/terms",
+    "last_checked_at": "2026-09-12T00:00:00Z",
+    "trust_level": "SECONDARY_VERIFICATION",
+    "notes": "Secondary confirmation for recent match statistics and domestic tournament numbers."
+  },
+  {
+    "id": "src-franchise-media",
+    "source_name": "IPL Franchise Press & Media Portals",
+    "source_type": "FRANCHISE_OFFICIAL",
+    "base_url": "https://www.iplt20.com/teams",
+    "license_url": "https://www.iplt20.com/privacy-policy",
+    "last_checked_at": "2026-09-12T00:00:00Z",
+    "trust_level": "PRIMARY_MEDIA",
+    "notes": "Official team press releases, roster profiles, and media kits."
+  },
+  {
+    "id": "src-google-discovery",
+    "source_name": "Google Image Discovery",
+    "source_type": "DISCOVERY_ONLY",
+    "base_url": "https://images.google.com",
+    "license_url": "https://policies.google.com/terms",
+    "last_checked_at": "2026-09-12T00:00:00Z",
+    "trust_level": "DISCOVERY_REQUIRES_RIGHTS_VALIDATION",
+    "notes": "Used only for discovering source page candidates. Assets are never ingested without verified rights."
+  }
+]

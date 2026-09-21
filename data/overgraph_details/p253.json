@@ -1,0 +1,34 @@
+{
+  "playerId": "p253",
+  "fullName": "Pat Cummins",
+  "overGraphSlug": "p-cummins",
+  "matches": 58,
+  "runs": 515,
+  "strikeRate": 149.3,
+  "average": 18.4,
+  "wickets": 63,
+  "economy": 8.7,
+  "highestScore": "56*",
+  "fifties": 2,
+  "hundreds": 0,
+  "fours": 35,
+  "sixes": 34,
+  "catches": 21,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 14,
+      "runs": 77,
+      "strikeRate": 149.3,
+      "average": 18.4,
+      "wickets": 63
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 74,
+    "consistency": 36,
+    "tempo": 84
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

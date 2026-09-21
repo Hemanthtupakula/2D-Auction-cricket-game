@@ -1,0 +1,42 @@
+{
+  "playerId": "p188",
+  "fullName": "Xavier Bartlett",
+  "overGraphSlug": "xc-bartlett",
+  "matches": 13,
+  "runs": 40,
+  "strikeRate": 142.9,
+  "average": 20.0,
+  "wickets": 7,
+  "economy": 11.1,
+  "highestScore": "18",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 3,
+  "sixes": 2,
+  "catches": 15,
+  "seasonsTimeline": [
+    {
+      "season": "2025",
+      "matches": 6,
+      "runs": 12,
+      "strikeRate": 131.5,
+      "average": 18.0,
+      "wickets": 3
+    },
+    {
+      "season": "2026",
+      "matches": 6,
+      "runs": 20,
+      "strikeRate": 138.6,
+      "average": 19.5,
+      "wickets": 3
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 78,
+    "consistency": 40,
+    "tempo": 73
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

@@ -1,0 +1,66 @@
+{
+  "playerId": "p190",
+  "fullName": "Tim Southee",
+  "overGraphSlug": "tg-southee",
+  "matches": 54,
+  "runs": 120,
+  "strikeRate": 112.2,
+  "average": 9.2,
+  "wickets": 47,
+  "economy": 8.7,
+  "highestScore": "36",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 8,
+  "sixes": 4,
+  "catches": 21,
+  "seasonsTimeline": [
+    {
+      "season": "2022",
+      "matches": 10,
+      "runs": 14,
+      "strikeRate": 103.2,
+      "average": 8.3,
+      "wickets": 9
+    },
+    {
+      "season": "2023",
+      "matches": 10,
+      "runs": 16,
+      "strikeRate": 105.5,
+      "average": 8.6,
+      "wickets": 9
+    },
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 19,
+      "strikeRate": 107.7,
+      "average": 8.8,
+      "wickets": 9
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 21,
+      "strikeRate": 110.0,
+      "average": 9.1,
+      "wickets": 9
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 24,
+      "strikeRate": 112.2,
+      "average": 9.4,
+      "wickets": 9
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 61,
+    "consistency": 40,
+    "tempo": 54
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

@@ -1,0 +1,153 @@
+{
+  "playerId": "p282",
+  "fullName": "Deepak Niwas Hooda",
+  "overGraphSlug": "dj-hooda",
+  "matches": 125,
+  "runs": 1496,
+  "strikeRate": 127.7,
+  "average": 17.6,
+  "wickets": 10,
+  "economy": 8.6,
+  "highestScore": "64",
+  "fifties": 8,
+  "hundreds": 0,
+  "fours": 98,
+  "sixes": 62,
+  "catches": 56,
+  "seasonsTimeline": [
+    {
+      "season": "2015",
+      "matches": 10,
+      "runs": 74,
+      "strikeRate": 117.5,
+      "average": 15.8,
+      "wickets": 0
+    },
+    {
+      "season": "2016",
+      "matches": 10,
+      "runs": 79,
+      "strikeRate": 118.5,
+      "average": 16.1,
+      "wickets": 0
+    },
+    {
+      "season": "2017",
+      "matches": 10,
+      "runs": 83,
+      "strikeRate": 119.6,
+      "average": 16.3,
+      "wickets": 0
+    },
+    {
+      "season": "2018",
+      "matches": 10,
+      "runs": 88,
+      "strikeRate": 120.7,
+      "average": 16.5,
+      "wickets": 0
+    },
+    {
+      "season": "2019",
+      "matches": 10,
+      "runs": 92,
+      "strikeRate": 121.7,
+      "average": 16.7,
+      "wickets": 0
+    },
+    {
+      "season": "2020",
+      "matches": 10,
+      "runs": 97,
+      "strikeRate": 122.8,
+      "average": 16.9,
+      "wickets": 0
+    },
+    {
+      "season": "2021",
+      "matches": 10,
+      "runs": 102,
+      "strikeRate": 123.9,
+      "average": 17.2,
+      "wickets": 0
+    },
+    {
+      "season": "2022",
+      "matches": 10,
+      "runs": 106,
+      "strikeRate": 124.9,
+      "average": 17.4,
+      "wickets": 0
+    },
+    {
+      "season": "2023",
+      "matches": 10,
+      "runs": 111,
+      "strikeRate": 126.0,
+      "average": 17.6,
+      "wickets": 0
+    },
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 115,
+      "strikeRate": 127.1,
+      "average": 17.8,
+      "wickets": 0
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 120,
+      "strikeRate": 128.1,
+      "average": 18.0,
+      "wickets": 0
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 124,
+      "strikeRate": 129.2,
+      "average": 18.3,
+      "wickets": 0
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#5",
+      "innings": 37,
+      "runs": 448,
+      "average": 15.0,
+      "strikeRate": 134.1,
+      "fifties": 2,
+      "hundreds": 0,
+      "highestScore": "64"
+    },
+    {
+      "position": "#6",
+      "innings": 50,
+      "runs": 598,
+      "average": 16.7,
+      "strikeRate": 134.1,
+      "fifties": 3,
+      "hundreds": 0,
+      "highestScore": "64"
+    },
+    {
+      "position": "#7",
+      "innings": 37,
+      "runs": 448,
+      "average": 15.0,
+      "strikeRate": 134.1,
+      "fifties": 2,
+      "hundreds": 0,
+      "highestScore": "64"
+    }
+  ],
+  "radarMetrics": {
+    "power": 70,
+    "consistency": 40,
+    "tempo": 65
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

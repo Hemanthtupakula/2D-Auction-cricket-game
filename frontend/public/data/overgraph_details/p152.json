@@ -1,0 +1,25 @@
+{
+  "playerId": "p152",
+  "fullName": "Raghav Goyal",
+  "overGraphSlug": "r-goyal",
+  "matches": 1,
+  "runs": 0,
+  "strikeRate": 0.0,
+  "average": null,
+  "wickets": 0,
+  "economy": 8.3,
+  "highestScore": "0",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 0,
+  "sixes": 0,
+  "catches": 1,
+  "seasonsTimeline": [],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 66,
+    "consistency": 45,
+    "tempo": 65
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

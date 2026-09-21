@@ -1,0 +1,34 @@
+{
+  "playerId": "p329",
+  "fullName": "Jofra Archer",
+  "overGraphSlug": "j-archer",
+  "matches": 40,
+  "runs": 195,
+  "strikeRate": 157.3,
+  "average": 15.0,
+  "wickets": 48,
+  "economy": 7.44,
+  "highestScore": "27*",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 9,
+  "sixes": 16,
+  "catches": 14,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 14,
+      "runs": 29,
+      "strikeRate": 157.3,
+      "average": 15.0,
+      "wickets": 48
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 78,
+    "consistency": 30,
+    "tempo": 88
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

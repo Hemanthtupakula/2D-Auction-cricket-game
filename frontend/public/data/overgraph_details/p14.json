@@ -1,0 +1,91 @@
+{
+  "playerId": "p14",
+  "fullName": "Devon Conway",
+  "overGraphSlug": "dp-conway",
+  "matches": 29,
+  "runs": 1080,
+  "strikeRate": 139.7,
+  "average": 43.2,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "92",
+  "fifties": 11,
+  "hundreds": 0,
+  "fours": 117,
+  "sixes": 34,
+  "catches": 10,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 9,
+      "runs": 216,
+      "strikeRate": 128.5,
+      "average": 38.9,
+      "wickets": null
+    },
+    {
+      "season": "2025",
+      "matches": 9,
+      "runs": 288,
+      "strikeRate": 133.2,
+      "average": 41.0,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 9,
+      "runs": 360,
+      "strikeRate": 137.8,
+      "average": 43.2,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#1",
+      "innings": 11,
+      "runs": 432,
+      "average": 41.0,
+      "strikeRate": 136.9,
+      "fifties": 4,
+      "hundreds": 0,
+      "highestScore": "92"
+    },
+    {
+      "position": "#2",
+      "innings": 11,
+      "runs": 432,
+      "average": 41.0,
+      "strikeRate": 136.9,
+      "fifties": 4,
+      "hundreds": 0,
+      "highestScore": "92"
+    },
+    {
+      "position": "#3",
+      "innings": 4,
+      "runs": 162,
+      "average": 36.7,
+      "strikeRate": 136.9,
+      "fifties": 1,
+      "hundreds": 0,
+      "highestScore": "92"
+    },
+    {
+      "position": "#4",
+      "innings": 1,
+      "runs": 54,
+      "average": 36.7,
+      "strikeRate": 136.9,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "92"
+    }
+  ],
+  "radarMetrics": {
+    "power": 76,
+    "consistency": 77,
+    "tempo": 82
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

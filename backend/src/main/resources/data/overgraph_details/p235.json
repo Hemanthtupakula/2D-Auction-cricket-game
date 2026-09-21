@@ -1,0 +1,91 @@
+{
+  "playerId": "p235",
+  "fullName": "Umran Malik",
+  "overGraphSlug": "umran-malik",
+  "matches": 26,
+  "runs": 23,
+  "strikeRate": 143.8,
+  "average": 23.0,
+  "wickets": 29,
+  "economy": 9.4,
+  "highestScore": "19",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 1,
+  "sixes": 2,
+  "catches": 4,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 8,
+      "runs": 4,
+      "strikeRate": 132.3,
+      "average": 20.7,
+      "wickets": null
+    },
+    {
+      "season": "2025",
+      "matches": 8,
+      "runs": 6,
+      "strikeRate": 137.1,
+      "average": 21.9,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 8,
+      "runs": 7,
+      "strikeRate": 141.9,
+      "average": 23.0,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 5,
+      "runs": 4,
+      "average": 19.6,
+      "strikeRate": 140.9,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "19"
+    },
+    {
+      "position": "#4",
+      "innings": 10,
+      "runs": 9,
+      "average": 21.8,
+      "strikeRate": 140.9,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "19"
+    },
+    {
+      "position": "#5",
+      "innings": 7,
+      "runs": 6,
+      "average": 19.6,
+      "strikeRate": 151.0,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "19"
+    },
+    {
+      "position": "#6",
+      "innings": 2,
+      "runs": 2,
+      "average": 19.6,
+      "strikeRate": 151.0,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "19"
+    }
+  ],
+  "radarMetrics": {
+    "power": 79,
+    "consistency": 41,
+    "tempo": 75
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

@@ -1,0 +1,89 @@
+{
+  "playerId": "p165",
+  "fullName": "Romario Shepherd",
+  "overGraphSlug": "r-shepherd",
+  "matches": 33,
+  "runs": 268,
+  "strikeRate": 175.2,
+  "average": 24.4,
+  "wickets": 17,
+  "economy": 11.8,
+  "highestScore": "53",
+  "fifties": 1,
+  "hundreds": 0,
+  "fours": 18,
+  "sixes": 22,
+  "catches": 7,
+  "seasonsTimeline": [
+    {
+      "season": "2023",
+      "matches": 8,
+      "runs": 40,
+      "strikeRate": 161.2,
+      "average": 22.0,
+      "wickets": 4
+    },
+    {
+      "season": "2024",
+      "matches": 8,
+      "runs": 49,
+      "strikeRate": 165.6,
+      "average": 22.9,
+      "wickets": 4
+    },
+    {
+      "season": "2025",
+      "matches": 8,
+      "runs": 58,
+      "strikeRate": 169.9,
+      "average": 23.8,
+      "wickets": 4
+    },
+    {
+      "season": "2026",
+      "matches": 8,
+      "runs": 67,
+      "strikeRate": 174.3,
+      "average": 24.7,
+      "wickets": 4
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#5",
+      "innings": 9,
+      "runs": 80,
+      "average": 20.7,
+      "strikeRate": 184.0,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "53"
+    },
+    {
+      "position": "#6",
+      "innings": 13,
+      "runs": 107,
+      "average": 23.2,
+      "strikeRate": 184.0,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "53"
+    },
+    {
+      "position": "#7",
+      "innings": 9,
+      "runs": 80,
+      "average": 20.7,
+      "strikeRate": 184.0,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "53"
+    }
+  ],
+  "radarMetrics": {
+    "power": 96,
+    "consistency": 43,
+    "tempo": 89
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

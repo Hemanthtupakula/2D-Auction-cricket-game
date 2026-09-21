@@ -1,0 +1,42 @@
+{
+  "playerId": "p69",
+  "fullName": "Simarjeet Singh",
+  "overGraphSlug": "simarjeet-singh",
+  "matches": 14,
+  "runs": 10,
+  "strikeRate": 66.7,
+  "average": 3.3,
+  "wickets": 11,
+  "economy": 10.0,
+  "highestScore": "3",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 0,
+  "sixes": 0,
+  "catches": 3,
+  "seasonsTimeline": [
+    {
+      "season": "2025",
+      "matches": 7,
+      "runs": 3,
+      "strikeRate": 61.4,
+      "average": 3.0,
+      "wickets": 5
+    },
+    {
+      "season": "2026",
+      "matches": 7,
+      "runs": 5,
+      "strikeRate": 64.7,
+      "average": 3.2,
+      "wickets": 5
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 40,
+    "consistency": 40,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

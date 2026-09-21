@@ -1,0 +1,58 @@
+{
+  "playerId": "p241",
+  "fullName": "Suyash Sharma",
+  "overGraphSlug": "suyash-sharma",
+  "matches": 39,
+  "runs": 0,
+  "strikeRate": 0.0,
+  "average": null,
+  "wickets": 27,
+  "economy": 8.9,
+  "highestScore": "0",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 0,
+  "sixes": 0,
+  "catches": 2,
+  "seasonsTimeline": [
+    {
+      "season": "2023",
+      "matches": 9,
+      "runs": null,
+      "strikeRate": 0.0,
+      "wickets": 6,
+      "economy": 8.46
+    },
+    {
+      "season": "2024",
+      "matches": 9,
+      "runs": null,
+      "strikeRate": 0.0,
+      "wickets": 6,
+      "economy": 8.57
+    },
+    {
+      "season": "2025",
+      "matches": 9,
+      "runs": null,
+      "strikeRate": 0.0,
+      "wickets": 6,
+      "economy": 8.68
+    },
+    {
+      "season": "2026",
+      "matches": 9,
+      "runs": null,
+      "strikeRate": 0.0,
+      "wickets": 6,
+      "economy": 8.79
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 66,
+    "consistency": 45,
+    "tempo": 65
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

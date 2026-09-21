@@ -1,0 +1,83 @@
+{
+  "playerId": "p45",
+  "fullName": "Ayush Mhatre",
+  "overGraphSlug": "a-mhatre",
+  "matches": 13,
+  "runs": 441,
+  "strikeRate": 183.8,
+  "average": 33.9,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "94",
+  "fifties": 3,
+  "hundreds": 0,
+  "fours": 51,
+  "sixes": 23,
+  "catches": 4,
+  "seasonsTimeline": [
+    {
+      "season": "2025",
+      "matches": 6,
+      "runs": 132,
+      "strikeRate": 169.1,
+      "average": 30.5,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 6,
+      "runs": 220,
+      "strikeRate": 178.3,
+      "average": 33.1,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#1",
+      "innings": 5,
+      "runs": 176,
+      "average": 32.2,
+      "strikeRate": 180.1,
+      "fifties": 1,
+      "hundreds": 0,
+      "highestScore": "94"
+    },
+    {
+      "position": "#2",
+      "innings": 5,
+      "runs": 176,
+      "average": 32.2,
+      "strikeRate": 180.1,
+      "fifties": 1,
+      "hundreds": 0,
+      "highestScore": "94"
+    },
+    {
+      "position": "#3",
+      "innings": 1,
+      "runs": 66,
+      "average": 28.8,
+      "strikeRate": 180.1,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "94"
+    },
+    {
+      "position": "#4",
+      "innings": 1,
+      "runs": 22,
+      "average": 28.8,
+      "strikeRate": 180.1,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "94"
+    }
+  ],
+  "radarMetrics": {
+    "power": 99,
+    "consistency": 61,
+    "tempo": 97
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

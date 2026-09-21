@@ -1,0 +1,50 @@
+{
+  "matches" : [ {
+    "matchId" : "69a115ea",
+    "homeFranchise" : "MI",
+    "awayFranchise" : "RCB",
+    "homeRuns" : 15,
+    "homeWickets" : 2,
+    "homeBalls" : 12,
+    "awayRuns" : 20,
+    "awayWickets" : 0,
+    "awayBalls" : 7,
+    "winnerFranchise" : "RCB",
+    "resultText" : "RCB won by 4 wickets — MI 15/2 vs RCB 20/0",
+    "overs" : 2,
+    "fixtureId" : "",
+    "completedAt" : "2026-09-17T19:19:49.509427600Z",
+    "players" : [ {
+      "playerId" : "p289",
+      "name" : "Axar Patel",
+      "team" : "MI",
+      "runs" : 2,
+      "wickets" : 0
+    }, {
+      "playerId" : "p236",
+      "name" : "MS Dhoni",
+      "team" : "MI",
+      "runs" : 2,
+      "wickets" : 0
+    }, {
+      "playerId" : "p301",
+      "name" : "Varun Chakaravarthy",
+      "team" : "RCB",
+      "runs" : 0,
+      "wickets" : 1
+    }, {
+      "playerId" : "p327",
+      "name" : "Ben Stokes",
+      "team" : "MI",
+      "runs" : 11,
+      "wickets" : 0
+    }, {
+      "playerId" : "p294",
+      "name" : "Shivam Dube",
+      "team" : "RCB",
+      "runs" : 20,
+      "wickets" : 1
+    } ]
+  } ],
+  "achievements" : [ ]
+}

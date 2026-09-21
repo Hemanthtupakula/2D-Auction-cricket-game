@@ -1,0 +1,163 @@
+{
+  "playerId": "p3",
+  "fullName": "Rishabh Pant",
+  "overGraphSlug": "rr-pant",
+  "matches": 139,
+  "runs": 3865,
+  "strikeRate": 146.8,
+  "average": 33.6,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "128",
+  "fifties": 20,
+  "hundreds": 2,
+  "fours": 350,
+  "sixes": 181,
+  "catches": 90,
+  "seasonsTimeline": [
+    {
+      "season": "2015",
+      "matches": 11,
+      "runs": 193,
+      "strikeRate": 135.1,
+      "average": 30.2,
+      "wickets": null
+    },
+    {
+      "season": "2016",
+      "matches": 11,
+      "runs": 204,
+      "strikeRate": 136.3,
+      "average": 30.7,
+      "wickets": null
+    },
+    {
+      "season": "2017",
+      "matches": 11,
+      "runs": 216,
+      "strikeRate": 137.5,
+      "average": 31.1,
+      "wickets": null
+    },
+    {
+      "season": "2018",
+      "matches": 11,
+      "runs": 228,
+      "strikeRate": 138.7,
+      "average": 31.5,
+      "wickets": null
+    },
+    {
+      "season": "2019",
+      "matches": 11,
+      "runs": 240,
+      "strikeRate": 139.9,
+      "average": 31.9,
+      "wickets": null
+    },
+    {
+      "season": "2020",
+      "matches": 11,
+      "runs": 251,
+      "strikeRate": 141.2,
+      "average": 32.3,
+      "wickets": null
+    },
+    {
+      "season": "2021",
+      "matches": 11,
+      "runs": 263,
+      "strikeRate": 142.4,
+      "average": 32.8,
+      "wickets": null
+    },
+    {
+      "season": "2022",
+      "matches": 11,
+      "runs": 275,
+      "strikeRate": 143.6,
+      "average": 33.2,
+      "wickets": null
+    },
+    {
+      "season": "2023",
+      "matches": 11,
+      "runs": 286,
+      "strikeRate": 144.8,
+      "average": 33.6,
+      "wickets": null
+    },
+    {
+      "season": "2024",
+      "matches": 11,
+      "runs": 298,
+      "strikeRate": 146.1,
+      "average": 34.0,
+      "wickets": null
+    },
+    {
+      "season": "2025",
+      "matches": 11,
+      "runs": 310,
+      "strikeRate": 147.3,
+      "average": 34.4,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 11,
+      "runs": 322,
+      "strikeRate": 148.5,
+      "average": 34.9,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 27,
+      "runs": 773,
+      "average": 28.6,
+      "strikeRate": 143.9,
+      "fifties": 4,
+      "hundreds": 0,
+      "highestScore": "128"
+    },
+    {
+      "position": "#4",
+      "innings": 55,
+      "runs": 1546,
+      "average": 31.9,
+      "strikeRate": 143.9,
+      "fifties": 8,
+      "hundreds": 0,
+      "highestScore": "128"
+    },
+    {
+      "position": "#5",
+      "innings": 41,
+      "runs": 1159,
+      "average": 28.6,
+      "strikeRate": 154.1,
+      "fifties": 6,
+      "hundreds": 0,
+      "highestScore": "128"
+    },
+    {
+      "position": "#6",
+      "innings": 13,
+      "runs": 386,
+      "average": 28.6,
+      "strikeRate": 154.1,
+      "fifties": 2,
+      "hundreds": 0,
+      "highestScore": "128"
+    }
+  ],
+  "radarMetrics": {
+    "power": 80,
+    "consistency": 60,
+    "tempo": 81
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

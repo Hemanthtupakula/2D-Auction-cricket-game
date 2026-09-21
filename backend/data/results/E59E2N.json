@@ -1,0 +1,276 @@
+{
+  "matches" : [ {
+    "matchId" : "f809be94",
+    "homeFranchise" : "RCB",
+    "awayFranchise" : "MI",
+    "homeRuns" : 18,
+    "homeWickets" : 0,
+    "homeBalls" : 12,
+    "awayRuns" : 3,
+    "awayWickets" : 1,
+    "awayBalls" : 12,
+    "winnerFranchise" : "RCB",
+    "resultText" : "RCB won by 15 runs — RCB 18/0 vs MI 3/1",
+    "overs" : 2,
+    "fixtureId" : "",
+    "completedAt" : "2026-09-18T05:19:12.500791900Z",
+    "players" : [ {
+      "playerId" : "p299",
+      "name" : "Sunil Narine",
+      "team" : "RCB",
+      "runs" : 0,
+      "wickets" : 1
+    }, {
+      "playerId" : "p287",
+      "name" : "Rashid Khan",
+      "team" : "RCB",
+      "runs" : 13,
+      "wickets" : 0
+    }, {
+      "playerId" : "p253",
+      "name" : "Pat Cummins",
+      "team" : "MI",
+      "runs" : 1,
+      "wickets" : 0
+    }, {
+      "playerId" : "p294",
+      "name" : "Shivam Dube",
+      "team" : "MI",
+      "runs" : 2,
+      "wickets" : 0
+    } ]
+  }, {
+    "matchId" : "e068f2ca",
+    "homeFranchise" : "MI",
+    "awayFranchise" : "RCB",
+    "homeRuns" : 9,
+    "homeWickets" : 2,
+    "homeBalls" : 12,
+    "awayRuns" : 14,
+    "awayWickets" : 1,
+    "awayBalls" : 9,
+    "winnerFranchise" : "RCB",
+    "resultText" : "RCB won by 9 wickets — MI 9/2 vs RCB 14/1",
+    "overs" : 2,
+    "fixtureId" : "",
+    "completedAt" : "2026-09-18T05:22:04.892481700Z",
+    "players" : [ {
+      "playerId" : "p34",
+      "name" : "Josh Hazlewood",
+      "team" : "MI",
+      "runs" : 0,
+      "wickets" : 1
+    }, {
+      "playerId" : "p299",
+      "name" : "Sunil Narine",
+      "team" : "RCB",
+      "runs" : 0,
+      "wickets" : 2
+    }, {
+      "playerId" : "p287",
+      "name" : "Rashid Khan",
+      "team" : "RCB",
+      "runs" : 2,
+      "wickets" : 0
+    }, {
+      "playerId" : "p253",
+      "name" : "Pat Cummins",
+      "team" : "MI",
+      "runs" : 3,
+      "wickets" : 0
+    }, {
+      "playerId" : "p301",
+      "name" : "Varun Chakaravarthy",
+      "team" : "RCB",
+      "runs" : 6,
+      "wickets" : 0
+    }, {
+      "playerId" : "p294",
+      "name" : "Shivam Dube",
+      "team" : "MI",
+      "runs" : 2,
+      "wickets" : 0
+    } ]
+  }, {
+    "matchId" : "21b6f9bc",
+    "homeFranchise" : "MI",
+    "awayFranchise" : "RCB",
+    "homeRuns" : 5,
+    "homeWickets" : 1,
+    "homeBalls" : 12,
+    "awayRuns" : 10,
+    "awayWickets" : 1,
+    "awayBalls" : 5,
+    "winnerFranchise" : "RCB",
+    "resultText" : "RCB won by 8 wickets — MI 5/1 vs RCB 10/1",
+    "overs" : 2,
+    "fixtureId" : "",
+    "completedAt" : "2026-09-18T05:24:14.762225900Z",
+    "players" : [ {
+      "playerId" : "p45",
+      "name" : "Ayush Mhatre",
+      "team" : "RCB",
+      "runs" : 8,
+      "wickets" : 0
+    }, {
+      "playerId" : "p34",
+      "name" : "Josh Hazlewood",
+      "team" : "MI",
+      "runs" : 0,
+      "wickets" : 1
+    }, {
+      "playerId" : "p287",
+      "name" : "Rashid Khan",
+      "team" : "RCB",
+      "runs" : 0,
+      "wickets" : 1
+    }, {
+      "playerId" : "p286",
+      "name" : "Travis Head",
+      "team" : "RCB",
+      "runs" : 2,
+      "wickets" : 0
+    }, {
+      "playerId" : "p294",
+      "name" : "Shivam Dube",
+      "team" : "MI",
+      "runs" : 5,
+      "wickets" : 0
+    } ]
+  }, {
+    "matchId" : "4195383b",
+    "homeFranchise" : "RCB",
+    "awayFranchise" : "MI",
+    "homeRuns" : 22,
+    "homeWickets" : 1,
+    "homeBalls" : 12,
+    "awayRuns" : 6,
+    "awayWickets" : 3,
+    "awayBalls" : 12,
+    "winnerFranchise" : "RCB",
+    "resultText" : "RCB won by 16 runs — RCB 22/1 vs MI 6/3",
+    "overs" : 2,
+    "fixtureId" : "",
+    "completedAt" : "2026-09-18T05:26:28.911955Z",
+    "players" : [ {
+      "playerId" : "p45",
+      "name" : "Ayush Mhatre",
+      "team" : "RCB",
+      "runs" : 21,
+      "wickets" : 0
+    }, {
+      "playerId" : "p34",
+      "name" : "Josh Hazlewood",
+      "team" : "MI",
+      "runs" : 0,
+      "wickets" : 1
+    }, {
+      "playerId" : "p299",
+      "name" : "Sunil Narine",
+      "team" : "RCB",
+      "runs" : 0,
+      "wickets" : 2
+    }, {
+      "playerId" : "p287",
+      "name" : "Rashid Khan",
+      "team" : "RCB",
+      "runs" : 0,
+      "wickets" : 1
+    }, {
+      "playerId" : "p286",
+      "name" : "Travis Head",
+      "team" : "RCB",
+      "runs" : 1,
+      "wickets" : 0
+    }, {
+      "playerId" : "p253",
+      "name" : "Pat Cummins",
+      "team" : "MI",
+      "runs" : 1,
+      "wickets" : 0
+    }, {
+      "playerId" : "p241",
+      "name" : "Hardik Pandya",
+      "team" : "MI",
+      "runs" : 2,
+      "wickets" : 0
+    }, {
+      "playerId" : "p294",
+      "name" : "Shivam Dube",
+      "team" : "MI",
+      "runs" : 3,
+      "wickets" : 0
+    } ]
+  }, {
+    "matchId" : "a7902217",
+    "homeFranchise" : "MI",
+    "awayFranchise" : "RCB",
+    "homeRuns" : 31,
+    "homeWickets" : 3,
+    "homeBalls" : 30,
+    "awayRuns" : 33,
+    "awayWickets" : 1,
+    "awayBalls" : 16,
+    "winnerFranchise" : "RCB",
+    "resultText" : "RCB won by 9 wickets — MI 31/3 vs RCB 33/1",
+    "overs" : 5,
+    "fixtureId" : "",
+    "completedAt" : "2026-09-18T05:30:46.985042100Z",
+    "players" : [ {
+      "playerId" : "p45",
+      "name" : "Ayush Mhatre",
+      "team" : "RCB",
+      "runs" : 28,
+      "wickets" : 0
+    }, {
+      "playerId" : "p34",
+      "name" : "Josh Hazlewood",
+      "team" : "MI",
+      "runs" : 0,
+      "wickets" : 1
+    }, {
+      "playerId" : "p331",
+      "name" : "Cameron Green",
+      "team" : "MI",
+      "runs" : 2,
+      "wickets" : 0
+    }, {
+      "playerId" : "p287",
+      "name" : "Rashid Khan",
+      "team" : "RCB",
+      "runs" : 0,
+      "wickets" : 2
+    }, {
+      "playerId" : "p253",
+      "name" : "Pat Cummins",
+      "team" : "MI",
+      "runs" : 1,
+      "wickets" : 0
+    }, {
+      "playerId" : "p286",
+      "name" : "Travis Head",
+      "team" : "RCB",
+      "runs" : 5,
+      "wickets" : 0
+    }, {
+      "playerId" : "p231",
+      "name" : "Jasprit Bumrah",
+      "team" : "RCB",
+      "runs" : 0,
+      "wickets" : 1
+    }, {
+      "playerId" : "p241",
+      "name" : "Hardik Pandya",
+      "team" : "MI",
+      "runs" : 14,
+      "wickets" : 0
+    }, {
+      "playerId" : "p294",
+      "name" : "Shivam Dube",
+      "team" : "MI",
+      "runs" : 14,
+      "wickets" : 0
+    } ]
+  } ],
+  "achievements" : [ ]
+}

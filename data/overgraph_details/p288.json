@@ -1,0 +1,34 @@
+{
+  "playerId": "p288",
+  "fullName": "Nicholas Pooran",
+  "overGraphSlug": "n-pooran",
+  "matches": 76,
+  "runs": 1769,
+  "strikeRate": 162.3,
+  "average": 32.2,
+  "wickets": 0,
+  "economy": null,
+  "highestScore": "77",
+  "fifties": 9,
+  "hundreds": 0,
+  "fours": 113,
+  "sixes": 129,
+  "catches": 32,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 14,
+      "runs": 265,
+      "strikeRate": 162.3,
+      "average": 32.2,
+      "wickets": 0
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 81,
+    "consistency": 64,
+    "tempo": 91
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

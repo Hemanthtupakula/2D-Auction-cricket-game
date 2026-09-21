@@ -1,0 +1,34 @@
+{
+  "playerId": "p310",
+  "fullName": "Dhruv Jurel",
+  "overGraphSlug": "d-jurel",
+  "matches": 28,
+  "runs": 347,
+  "strikeRate": 151.5,
+  "average": 23.1,
+  "wickets": 0,
+  "economy": null,
+  "highestScore": "56*",
+  "fifties": 2,
+  "hundreds": 0,
+  "fours": 24,
+  "sixes": 18,
+  "catches": 14,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 14,
+      "runs": 52,
+      "strikeRate": 151.5,
+      "average": 23.1,
+      "wickets": 0
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 75,
+    "consistency": 46,
+    "tempo": 85
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

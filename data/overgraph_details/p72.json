@@ -1,0 +1,42 @@
+{
+  "playerId": "p72",
+  "fullName": "Kumar Kartikeya",
+  "overGraphSlug": "k-kartikeya",
+  "matches": 16,
+  "runs": 12,
+  "strikeRate": 70.6,
+  "average": 3.0,
+  "wickets": 12,
+  "economy": 8.7,
+  "highestScore": "6",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 1,
+  "sixes": 0,
+  "catches": 1,
+  "seasonsTimeline": [
+    {
+      "season": "2025",
+      "matches": 8,
+      "runs": 3,
+      "strikeRate": 65.0,
+      "average": 2.7,
+      "wickets": 6
+    },
+    {
+      "season": "2026",
+      "matches": 8,
+      "runs": 6,
+      "strikeRate": 68.5,
+      "average": 2.9,
+      "wickets": 6
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 40,
+    "consistency": 40,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

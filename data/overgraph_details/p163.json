@@ -1,0 +1,73 @@
+{
+  "playerId": "p163",
+  "fullName": "Daryl Mitchell",
+  "overGraphSlug": "dj-mitchell",
+  "matches": 15,
+  "runs": 351,
+  "strikeRate": 131.5,
+  "average": 27.0,
+  "wickets": 1,
+  "economy": 12.1,
+  "highestScore": "63",
+  "fifties": 2,
+  "hundreds": 0,
+  "fours": 28,
+  "sixes": 10,
+  "catches": 11,
+  "seasonsTimeline": [
+    {
+      "season": "2025",
+      "matches": 7,
+      "runs": 105,
+      "strikeRate": 121.0,
+      "average": 24.3,
+      "wickets": 0
+    },
+    {
+      "season": "2026",
+      "matches": 7,
+      "runs": 175,
+      "strikeRate": 127.6,
+      "average": 26.3,
+      "wickets": 0
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#5",
+      "innings": 4,
+      "runs": 105,
+      "average": 22.9,
+      "strikeRate": 138.1,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "63"
+    },
+    {
+      "position": "#6",
+      "innings": 6,
+      "runs": 140,
+      "average": 25.6,
+      "strikeRate": 138.1,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "63"
+    },
+    {
+      "position": "#7",
+      "innings": 4,
+      "runs": 105,
+      "average": 22.9,
+      "strikeRate": 138.1,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "63"
+    }
+  ],
+  "radarMetrics": {
+    "power": 72,
+    "consistency": 48,
+    "tempo": 71
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

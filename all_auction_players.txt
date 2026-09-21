@@ -1,0 +1,1465 @@
+====================================================================================================
+                AUCTION XI — COMPLETE OFFICIAL CANONICAL PLAYER REGISTRY
+                        ALL 369 PLAYERS DEFINED BY AUCTION LIST / SET
+====================================================================================================
+
+TOTAL PLAYERS IN POOL   : 369
+TOTAL AUCTION CATEGORIES: 40
+AUCTION FORMAT          : 10 Official Franchises | ₹100.0 Cr Starting Purse | Zero AI
+AUCTION PROGRESSION     : STAR Category (Lots 1-30) -> Marquee Sets -> Capped Sets -> Uncapped Sets -> Accelerated Sets
+
+----------------------------------------------------------------------------------------------------
+                      SUMMARY OF AUCTION CATEGORIES & LISTS
+----------------------------------------------------------------------------------------------------
+No.  | Set Code | Category Description                 | Count  | Lot Range       | Base Price Range
+----------------------------------------------------------------------------------------------------
+1    | STAR     | Star & Retained Superstars           | 30     | #1 - #30        | ₹1.50 Cr - ₹2.00 Cr
+2    | M1       | Marquee Players Set 1                | 6      | #31 - #36       | ₹2.00 Cr        
+3    | M2       | Marquee Players Set 2                | 6      | #37 - #42       | ₹1.50 Cr - ₹2.00 Cr
+4    | BA1      | Capped Batters Set 1                 | 7      | #43 - #49       | ₹75 Lakh - ₹2.00 Cr
+5    | AL1      | Capped All-Rounders Set 1            | 6      | #50 - #55       | ₹2.00 Cr        
+6    | WK1      | Capped Wicket-Keepers Set 1          | 6      | #56 - #61       | ₹1.00 Cr - ₹2.00 Cr
+7    | FA1      | Capped Fast Bowlers Set 1            | 7      | #62 - #68       | ₹2.00 Cr        
+8    | SP1      | Capped Spin Bowlers Set 1            | 6      | #69 - #74       | ₹75 Lakh - ₹2.00 Cr
+9    | UBA1     | Uncapped Batters Set 1               | 7      | #75 - #81       | ₹30 Lakh        
+10   | UAL1     | Uncapped All-Rounders Set 1          | 6      | #82 - #87       | ₹30 Lakh - ₹50 Lakh
+11   | UWK1     | Uncapped Wicket-Keepers Set 1        | 6      | #88 - #93       | ₹30 Lakh        
+12   | UFA1     | Uncapped Fast Bowlers Set 1          | 6      | #94 - #99       | ₹30 Lakh - ₹50 Lakh
+13   | USP1     | Uncapped Spin Bowlers Set 1          | 6      | #100 - #105     | ₹30 Lakh        
+14   | BA2      | Capped Batters Set 2                 | 6      | #106 - #117     | ₹1.00 Cr - ₹2.00 Cr
+15   | AL2      | Capped All-Rounders Set 2            | 6      | #111 - #116     | ₹75 Lakh - ₹2.00 Cr
+16   | WK2      | Capped Wicket-Keepers Set 2          | 3      | #118 - #120     | ₹75 Lakh - ₹1.25 Cr
+17   | FA2      | Capped Fast Bowlers Set 2            | 5      | #121 - #125     | ₹1.00 Cr - ₹2.00 Cr
+18   | SP2      | Capped Spin Bowlers Set 2            | 2      | #126 - #127     | ₹50 Lakh - ₹75 Lakh
+19   | UBA2     | Uncapped Batters Set 2               | 7      | #128 - #156     | ₹30 Lakh        
+20   | UAL2     | Uncapped All-Rounders Set 2          | 7      | #129 - #157     | ₹30 Lakh        
+21   | BA3      | Capped Batters Set 3                 | 9      | #130 - #232     | ₹30 Lakh - ₹2.00 Cr
+22   | AL3      | Capped All-Rounders Set 3            | 16     | #131 - #231     | ₹50 Lakh - ₹2.00 Cr
+23   | FA3      | Capped Fast Bowlers Set 3            | 25     | #132 - #236     | ₹30 Lakh - ₹2.00 Cr
+24   | SP3      | Capped Spin Bowlers Set 3            | 7      | #135 - #206     | ₹30 Lakh - ₹2.00 Cr
+25   | UFA2     | Uncapped Fast Bowlers Set 2          | 4      | #141 - #154     | ₹30 Lakh        
+26   | USP2     | Uncapped Spin Bowlers Set 2          | 3      | #143 - #152     | ₹30 Lakh        
+27   | UWK2     | Uncapped Wicket-Keepers Set 2        | 2      | #155 - #158     | ₹30 Lakh        
+28   | UBA3     | Uncapped Batters Set 3               | 6      | #159 - #169     | ₹30 Lakh        
+29   | UAL3     | Uncapped All-Rounders Set 3          | 7      | #160 - #173     | ₹30 Lakh        
+30   | UFA3     | Uncapped Fast Bowlers Set 3          | 8      | #161 - #179     | ₹30 Lakh        
+31   | USP3     | Uncapped Spin Bowlers Set 3          | 2      | #180 - #181     | ₹30 Lakh        
+32   | UWK3     | Uncapped Wicket-Keepers Set 3        | 5      | #182 - #186     | ₹30 Lakh        
+33   | WK3      | Capped Wicket-Keepers Set 3          | 1      | #222 - #222     | ₹75 Lakh        
+34   | ACC7     | Accelerated Auction Set 7            | 2      | #237 - #238     | ₹30 Lakh        
+35   | ACC8     | Accelerated Auction Set 8            | 27     | #239 - #265     | ₹30 Lakh        
+36   | ACC9     | Accelerated Auction Set 9            | 23     | #266 - #288     | ₹30 Lakh        
+37   | ACC10    | Accelerated Auction Set 10           | 22     | #289 - #310     | ₹30 Lakh        
+38   | ACC11    | Accelerated Auction Set 11           | 21     | #311 - #331     | ₹30 Lakh - ₹50 Lakh
+39   | ACC12    | Accelerated Auction Set 12           | 28     | #332 - #359     | ₹50 Lakh - ₹75 Lakh
+40   | ACC13    | Accelerated Auction Set 13           | 10     | #360 - #369     | ₹50 Lakh - ₹75 Lakh
+----------------------------------------------------------------------------------------------------
+
+
+====================================================================================================
+                 SECTION 1: DETAILED PLAYERS LIST BY AUCTION CATEGORY
+====================================================================================================
+
+
+====================================================================================================
+[01] CATEGORY: STAR — STAR & RETAINED SUPERSTARS (30 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#1     | Virat Kohli                | Batter         | India        | ₹2.00 Cr   | Capped   | 252M | 8004R | 4W | SR 131.9
+#2     | Rohit Sharma               | Batter         | India        | ₹2.00 Cr   | Capped   | 257M | 6628R | 15W | SR 131.1
+#3     | Jasprit Bumrah             | Bowler         | India        | ₹2.00 Cr   | Capped   | 133M | 69R | 165W | SR 98.6
+#4     | MS Dhoni                   | Wicketkeeper   | India        | ₹2.00 Cr   | Capped   | 264M | 5243R | 0W | SR 137.5
+#5     | Hardik Pandya              | All-Rounder    | India        | ₹2.00 Cr   | Capped   | 137M | 2525R | 64W | SR 145.9
+#6     | Suryakumar Yadav           | Batter         | India        | ₹2.00 Cr   | Capped   | 150M | 3594R | 0W | SR 145.3
+#7     | Ravindra Jadeja            | All-Rounder    | India        | ₹2.00 Cr   | Capped   | 240M | 2959R | 160W | SR 129.5
+#8     | Ruturaj Gaikwad            | Batter         | India        | ₹2.00 Cr   | Capped   | 66M | 2380R | 0W | SR 136.9
+#9     | Sanju Samson               | Wicketkeeper   | India        | ₹2.00 Cr   | Capped   | 167M | 4419R | 0W | SR 138.9
+#10    | Pat Cummins                | All-Rounder    | Australia    | ₹2.00 Cr   | Capped   | 58M | 515R | 63W | SR 149.3
+#11    | Heinrich Klaasen           | Wicketkeeper   | South Afric  | ₹2.00 Cr   | Capped   | 35M | 993R | 0W | SR 168.3
+#12    | Travis Head                | Batter         | Australia    | ₹2.00 Cr   | Capped   | 25M | 772R | 2W | SR 178.7
+#13    | Rashid Khan                | Bowler         | Afghanistan  | ₹2.00 Cr   | Capped   | 121M | 543R | 149W | SR 142.9
+#14    | Nicholas Pooran            | Wicketkeeper   | West Indies  | ₹2.00 Cr   | Capped   | 76M | 1769R | 0W | SR 162.4
+#15    | Axar Patel                 | All-Rounder    | India        | ₹2.00 Cr   | Capped   | 150M | 1653R | 123W | SR 130.8
+#16    | Kuldeep Yadav              | Bowler         | India        | ₹2.00 Cr   | Capped   | 84M | 147R | 87W | SR 85.0
+#17    | Shivam Dube                | All-Rounder    | India        | ₹2.00 Cr   | Capped   | 65M | 1502R | 5W | SR 159.2
+#18    | Andre Russell              | All-Rounder    | West Indies  | ₹2.00 Cr   | Capped   | 127M | 2484R | 115W | SR 174.9
+#19    | Sunil Narine               | All-Rounder    | West Indies  | ₹2.00 Cr   | Capped   | 177M | 1534R | 180W | SR 165.8
+#20    | Varun Chakaravarthy        | Bowler         | India        | ₹2.00 Cr   | Capped   | 71M | 27R | 83W | SR 58.7
+#21    | Shimron Hetmyer            | Batter         | West Indies  | ₹2.00 Cr   | Capped   | 72M | 1243R | 0W | SR 152.7
+#22    | Dhruv Jurel                | Wicketkeeper   | India        | ₹1.50 Cr   | Capped   | 28M | 347R | 0W | SR 151.5
+#23    | Sai Sudharsan              | Batter         | India        | ₹1.50 Cr   | Capped   | 25M | 1034R | 0W | SR 139.2
+#24    | Tilak Varma                | Batter         | India        | ₹1.50 Cr   | Capped   | 38M | 1156R | 0W | SR 146.3
+#25    | Rajat Patidar              | Batter         | India        | ₹1.50 Cr   | Capped   | 27M | 799R | 0W | SR 158.5
+#26    | Steve Smith                | Batter         | Australia    | ₹2.00 Cr   | Capped   | 103M | 2485R | 9W | SR 128.1
+#27    | Ben Stokes                 | All-Rounder    | England      | ₹2.00 Cr   | Capped   | 45M | 935R | 28W | SR 133.9
+#28    | Jofra Archer               | Bowler         | England      | ₹2.00 Cr   | Capped   | 40M | 195R | 48W | SR 157.3
+#29    | Cameron Green              | All-Rounder    | Australia    | ₹2.00 Cr   | Capped   | 29M | 707R | 16W | SR 153.7
+#30    | Joe Root                   | Batter         | England      | ₹1.50 Cr   | Capped   | 3M | 10R | 0W | SR 66.7
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[02] CATEGORY: M1 — MARQUEE PLAYERS SET 1 (6 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#31    | Jos Buttler                | Wicketkeeper   | England      | ₹2.00 Cr   | Capped   | 107M | 3582R | 0W | SR 147.53
+#32    | Shreyas Iyer               | Batter         | India        | ₹2.00 Cr   | Capped   | 115M | 3127R | 0W | SR 127.42
+#33    | Rishabh Pant               | Wicketkeeper   | India        | ₹2.00 Cr   | Capped   | 111M | 3284R | 0W | SR 148.53
+#34    | Kagiso Rabada              | Bowler         | South Afric  | ₹2.00 Cr   | Capped   | 80M | 186R | 117W | SR 104.49
+#35    | Arshdeep Singh             | Bowler         | India        | ₹2.00 Cr   | Capped   | 65M | 39R | 76W | SR 81.25
+#36    | Mitchell Starc             | Bowler         | Australia    | ₹2.00 Cr   | Capped   | 41M | 122R | 51W | SR 95.31
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[03] CATEGORY: M2 — MARQUEE PLAYERS SET 2 (6 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#37    | Yuzvendra Chahal           | Bowler         | India        | ₹2.00 Cr   | Capped   | 160M | 48R | 205W | SR 42.85
+#38    | Liam Livingstone           | All-Rounder    | England      | ₹2.00 Cr   | Capped   | 39M | 939R | 11W | SR 165.31
+#39    | David Miller               | Batter         | South Afric  | ₹1.50 Cr   | Capped   | 130M | 2924R | 0W | SR 138.64
+#40    | KL Rahul                   | Wicketkeeper   | India        | ₹2.00 Cr   | Capped   | 132M | 4683R | 0W | SR 134.6
+#41    | Mohammed Shami             | Bowler         | India        | ₹2.00 Cr   | Capped   | 110M | 79R | 127W | SR 68.69
+#42    | Mohammed Siraj             | Bowler         | India        | ₹2.00 Cr   | Capped   | 93M | 108R | 93W | SR 87.09
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[04] CATEGORY: BA1 — CAPPED BATTERS SET 1 (7 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#43    | Harry Brook                | Batter         | England      | ₹2.00 Cr   | Capped   | 11M | 190R | 0W | SR 123.37
+#44    | Devon Conway               | Batter         | New Zealand  | ₹2.00 Cr   | Capped   | 23M | 924R | 0W | SR 141.28
+#45    | Jake Fraser-McGurk         | Batter         | Australia    | ₹2.00 Cr   | Capped   | 9M | 330R | 0W | SR 234.04
+#46    | Aiden Markram              | Batter         | South Afric  | ₹2.00 Cr   | Capped   | 44M | 995R | 2W | SR 129.05
+#47    | Devdutt Padikkal           | Batter         | India        | ₹2.00 Cr   | Capped   | 64M | 1559R | 0W | SR 122.85
+#48    | Rahul Tripathi             | Batter         | India        | ₹75 Lakh   | Capped   | 95M | 2236R | 0W | SR 139.22
+#49    | David Warner               | Batter         | Australia    | ₹2.00 Cr   | Capped   | 184M | 6565R | 0W | SR 139.71
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[05] CATEGORY: AL1 — CAPPED ALL-ROUNDERS SET 1 (6 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#50    | Ravichandran Ashwin        | All-Rounder    | India        | ₹2.00 Cr   | Capped   | 212M | 800R | 180W | SR 118.87
+#51    | Venkatesh Iyer             | All-Rounder    | India        | ₹2.00 Cr   | Capped   | 51M | 1326R | 3W | SR 137.12
+#52    | Mitchell Marsh             | All-Rounder    | Australia    | ₹2.00 Cr   | Capped   | 42M | 666R | 37W | SR 125.18
+#53    | Glenn Maxwell              | All-Rounder    | Australia    | ₹2.00 Cr   | Capped   | 134M | 2771R | 37W | SR 156.73
+#54    | Harshal Patel              | All-Rounder    | India        | ₹2.00 Cr   | Capped   | 105M | 260R | 135W | SR 130
+#55    | Marcus Stoinis             | All-Rounder    | Australia    | ₹2.00 Cr   | Capped   | 96M | 1866R | 43W | SR 142
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[06] CATEGORY: WK1 — CAPPED WICKET-KEEPERS SET 1 (6 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#56    | Jonny Bairstow             | Wicketkeeper   | England      | ₹2.00 Cr   | Capped   | 50M | 1589R | 0W | SR 144.71
+#57    | Quinton de Kock            | Wicketkeeper   | South Afric  | ₹2.00 Cr   | Capped   | 107M | 3157R | 0W | SR 134.22
+#58    | Rahmanullah Gurbaz         | Wicketkeeper   | Afghanistan  | ₹2.00 Cr   | Capped   | 13M | 289R | 0W | SR 133.79
+#59    | Ishan Kishan               | Wicketkeeper   | India        | ₹2.00 Cr   | Capped   | 105M | 2644R | 0W | SR 135.86
+#60    | Phil Salt                  | Wicketkeeper   | England      | ₹2.00 Cr   | Capped   | 21M | 653R | 0W | SR 175.53
+#61    | Jitesh Sharma              | Wicketkeeper   | India        | ₹1.00 Cr   | Capped   | 40M | 730R | 0W | SR 151.13
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[07] CATEGORY: FA1 — CAPPED FAST BOWLERS SET 1 (7 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#62    | Khaleel Ahmed              | Bowler         | India        | ₹2.00 Cr   | Capped   | 57M | 18R | 74W | SR 72
+#63    | Trent Boult                | Bowler         | New Zealand  | ₹2.00 Cr   | Capped   | 104M | 75R | 121W | SR 69.44
+#64    | Josh Hazlewood             | Bowler         | Australia    | ₹2.00 Cr   | Capped   | 27M | 18R | 35W | SR 72
+#65    | Avesh Khan                 | Bowler         | India        | ₹2.00 Cr   | Capped   | 63M | 46R | 75W | SR 88.46
+#66    | Prasidh Krishna            | Bowler         | India        | ₹2.00 Cr   | Capped   | 51M | 12R | 49W | SR 60
+#67    | T Natarajan                | Bowler         | India        | ₹2.00 Cr   | Capped   | 61M | 13R | 67W | SR 52
+#68    | Anrich Nortje              | Bowler         | South Afric  | ₹2.00 Cr   | Capped   | 46M | 38R | 60W | SR 84.44
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[08] CATEGORY: SP1 — CAPPED SPIN BOWLERS SET 1 (6 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#69    | Noor Ahmad                 | Bowler         | Afghanistan  | ₹2.00 Cr   | Capped   | 23M | 7R | 24W | SR 58.33
+#70    | Rahul Chahar               | Bowler         | India        | ₹1.00 Cr   | Capped   | 79M | 105R | 75W | SR 103.96
+#71    | Wanindu Hasaranga          | All-Rounder    | Sri Lanka    | ₹2.00 Cr   | Capped   | 26M | 72R | 35W | SR 98.63
+#72    | Maheesh Theekshana         | Bowler         | Sri Lanka    | ₹2.00 Cr   | Capped   | 27M | 11R | 25W | SR 73.33
+#73    | Waqar Salamkheil           | Bowler         | Afghanistan  | ₹75 Lakh   | Capped   | Debut / No IPL recorded
+#74    | Adam Zampa                 | Bowler         | Australia    | ₹2.00 Cr   | Capped   | 20M | 13R | 29W | SR 72.22
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[09] CATEGORY: UBA1 — UNCAPPED BATTERS SET 1 (7 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#75    | Ayush Mhatre               | Batter         | India        | ₹30 Lakh   | Uncapped | 13M | 441R | 0W | SR 183.8
+#76    | Angkrish Raghuvanshi       | Batter         | India        | ₹30 Lakh   | Uncapped | 10M | 163R | 0W | SR 155.23
+#77    | Nehal Wadhera              | Batter         | India        | ₹30 Lakh   | Uncapped | 20M | 350R | 0W | SR 145.22
+#78    | Sameer Rizvi               | Batter         | India        | ₹30 Lakh   | Uncapped | 8M | 51R | 0W | SR 118.6
+#79    | Ashutosh Sharma            | Batter         | India        | ₹30 Lakh   | Uncapped | 11M | 189R | 0W | SR 167.25
+#80    | Abhinav Manohar            | Batter         | India        | ₹30 Lakh   | Uncapped | 17M | 231R | 0W | SR 140.85
+#81    | Karun Nair                 | Batter         | India        | ₹30 Lakh   | Capped   | 76M | 1496R | 0W | SR 127.75
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[10] CATEGORY: UAL1 — UNCAPPED ALL-ROUNDERS SET 1 (6 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#82    | Naman Dhir                 | All-Rounder    | India        | ₹30 Lakh   | Uncapped | 7M | 140R | 0W | SR 177.21
+#83    | Mahipal Lomror             | All-Rounder    | India        | ₹50 Lakh   | Uncapped | 40M | 527R | 1W | SR 139.05
+#84    | Ramandeep Singh            | All-Rounder    | India        | ₹50 Lakh   | Capped   | 20M | 170R | 6W | SR 182.79
+#85    | Nishant Sindhu             | All-Rounder    | India        | ₹30 Lakh   | Uncapped | 8M | 63R | 0W | SR 126.0
+#86    | Vipraj Nigam               | All-Rounder    | India        | ₹30 Lakh   | Uncapped | 19M | 157R | 13W | SR 176.4
+#87    | Harsh Tyagi                | All-Rounder    | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[11] CATEGORY: UWK1 — UNCAPPED WICKET-KEEPERS SET 1 (6 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#88    | Kumar Kushagra             | Wicketkeeper   | India        | ₹30 Lakh   | Uncapped | 4M | 3R | 0W | SR 37.5
+#89    | Robin Minz                 | Wicketkeeper   | India        | ₹30 Lakh   | Uncapped | 4M | 12R | 0W | SR 63.2
+#90    | Anuj Rawat                 | Wicketkeeper   | India        | ₹30 Lakh   | Uncapped | 24M | 318R | 0W | SR 119.1
+#91    | Luvnith Sisodia            | Wicketkeeper   | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#92    | Vishnu Vinod               | Wicketkeeper   | India        | ₹30 Lakh   | Uncapped | 6M | 56R | 0W | SR 124.44
+#93    | Urvil Patel                | Wicketkeeper   | India        | ₹30 Lakh   | Uncapped | 10M | 197R | 0W | SR 205.2
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[12] CATEGORY: UFA1 — UNCAPPED FAST BOWLERS SET 1 (6 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#94    | Vaibhav Arora              | Bowler         | India        | ₹30 Lakh   | Uncapped | 20M | 12R | 19W | SR 60
+#95    | Rasikh Salam               | Bowler         | India        | ₹30 Lakh   | Uncapped | 11M | 18R | 9W | SR 81.81
+#96    | Vijaykumar Vyshak          | Bowler         | India        | ₹30 Lakh   | Uncapped | 11M | 2R | 13W | SR 40
+#97    | Yash Dayal                 | Bowler         | India        | ₹50 Lakh   | Capped   | 29M | 0R | 28W | SR 0
+#98    | Mohsin Khan                | Bowler         | India        | ₹30 Lakh   | Uncapped | 24M | 23R | 27W | SR 82.14
+#99    | Simarjeet Singh            | Bowler         | India        | ₹30 Lakh   | Uncapped | 10M | 7R | 9W | SR 175
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[13] CATEGORY: USP1 — UNCAPPED SPIN BOWLERS SET 1 (6 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#100   | Suyash Sharma              | Bowler         | India        | ₹30 Lakh   | Uncapped | 13M | 0R | 10W | SR 0
+#101   | Manav Suthar               | Bowler         | India        | ₹30 Lakh   | Uncapped | 1M | 1R | 0W | SR 50
+#102   | Kumar Kartikeya            | Bowler         | India        | ₹30 Lakh   | Uncapped | 12M | 9R | 10W | SR 69.23
+#103   | Shreyas Gopal              | All-Rounder    | India        | ₹30 Lakh   | Uncapped | 52M | 180R | 52W | SR 104.65
+#104   | M Siddharth                | Bowler         | India        | ₹30 Lakh   | Uncapped | 3M | 0R | 1W | SR -
+#105   | Tanush Kotian              | All-Rounder    | India        | ₹30 Lakh   | Uncapped | 1M | 24R | 0W | SR 77.41
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[14] CATEGORY: BA2 — CAPPED BATTERS SET 2 (6 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#106   | Kane Williamson            | Batter         | New Zealand  | ₹2.00 Cr   | Capped   | 79M | 2128R | 0W | SR 126
+#107   | Glenn Phillips             | All-Rounder    | New Zealand  | ₹2.00 Cr   | Capped   | 8M | 110R | 2W | SR 126.43
+#108   | Faf du Plessis             | Batter         | South Afric  | ₹2.00 Cr   | Capped   | 145M | 4571R | 0W | SR 136.28
+#109   | Mayank Agarwal             | Batter         | India        | ₹1.00 Cr   | Capped   | 127M | 2661R | 0W | SR 133.51
+#110   | Ajinkya Rahane             | Batter         | India        | ₹1.50 Cr   | Capped   | 185M | 4642R | 1W | SR 123.39
+#117   | Nitish Rana                | Batter         | India        | ₹1.50 Cr   | Capped   | 107M | 2636R | 10W | SR 135.04
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[15] CATEGORY: AL2 — CAPPED ALL-ROUNDERS SET 2 (6 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#111   | Deepak Hooda               | All-Rounder    | India        | ₹75 Lakh   | Capped   | 118M | 1465R | 10W | SR 130.45
+#112   | Sam Curran                 | All-Rounder    | England      | ₹2.00 Cr   | Capped   | 59M | 883R | 58W | SR 135.42
+#113   | Krunal Pandya              | All-Rounder    | India        | ₹2.00 Cr   | Capped   | 127M | 1647R | 76W | SR 132.82
+#114   | Washington Sundar          | All-Rounder    | India        | ₹2.00 Cr   | Capped   | 60M | 378R | 37W | SR 116.3
+#115   | Shardul Thakur             | All-Rounder    | India        | ₹2.00 Cr   | Capped   | 95M | 303R | 94W | SR 140.27
+#116   | Marco Jansen               | All-Rounder    | South Afric  | ₹1.25 Cr   | Capped   | 35M | 214R | 26W | SR 158.51
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[16] CATEGORY: WK2 — CAPPED WICKET-KEEPERS SET 2 (3 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#118   | KS Bharat                  | Wicketkeeper   | India        | ₹75 Lakh   | Capped   | 10M | 199R | 0W | SR 122.08
+#119   | Ryan Rickelton             | Wicketkeeper   | South Afric  | ₹1.00 Cr   | Capped   | 26M | 836R | 0W | SR 168.2
+#120   | Shai Hope                  | Wicketkeeper   | West Indies  | ₹1.25 Cr   | Capped   | 9M | 183R | 0W | SR 130.71
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[17] CATEGORY: FA2 — CAPPED FAST BOWLERS SET 2 (5 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#121   | Deepak Chahar              | Bowler         | India        | ₹2.00 Cr   | Capped   | 81M | 82R | 77W | SR 136.66
+#122   | Lockie Ferguson            | Bowler         | New Zealand  | ₹2.00 Cr   | Capped   | 45M | 75R | 46W | SR 110.29
+#123   | Bhuvneshwar Kumar          | Bowler         | India        | ₹2.00 Cr   | Capped   | 176M | 309R | 181W | SR 99.03
+#124   | Mukesh Kumar               | Bowler         | India        | ₹2.00 Cr   | Capped   | 20M | 8R | 24W | SR 66.66
+#125   | Akash Deep                 | Bowler         | India        | ₹1.00 Cr   | Capped   | 8M | 17R | 7W | SR 170
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[18] CATEGORY: SP2 — CAPPED SPIN BOWLERS SET 2 (2 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#126   | Karn Sharma                | Bowler         | India        | ₹50 Lakh   | Capped   | 84M | 345R | 76W | SR 118.96
+#127   | Sai Kishore                | Bowler         | India        | ₹75 Lakh   | Capped   | 10M | 14R | 13W | SR 116.66
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[19] CATEGORY: UBA2 — UNCAPPED BATTERS SET 2 (7 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#128   | Suyash Prabhudessai        | Batter         | India        | ₹30 Lakh   | Uncapped | 11M | 140R | 0W | SR 121.73
+#140   | Saurav Chuahan             | Batter         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#146   | Swastik Chikara            | Batter         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#147   | Rohan Kunnummal            | Batter         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#148   | Priyansh Arya              | Batter         | India        | ₹30 Lakh   | Uncapped | 31M | 909R | 0W | SR 193.0
+#151   | Uday Saharan               | Batter         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#156   | Ricky Bhui                 | Batter         | India        | ₹30 Lakh   | Uncapped | 4M | 10R | 0W | SR 38.5
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[20] CATEGORY: UAL2 — UNCAPPED ALL-ROUNDERS SET 2 (7 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#129   | Prerak Mankad              | All-Rounder    | India        | ₹30 Lakh   | Uncapped | 6M | 101R | 0W | SR 134.66
+#138   | Manoj Bhandage             | All-Rounder    | India        | ₹30 Lakh   | Uncapped | 1M | 1R | 0W | SR 25.0
+#139   | Swapnil Singh              | All-Rounder    | India        | ₹30 Lakh   | Uncapped | 14M | 51R | 7W | SR 113.3
+#145   | Shivalik Sharma            | All-Rounder    | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#149   | Arshin Kulkarni            | All-Rounder    | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#150   | Musheer Khan               | All-Rounder    | India        | ₹30 Lakh   | Uncapped | 1M | 0R | 1W | SR 0.0
+#157   | Ripal Patel                | All-Rounder    | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[21] CATEGORY: BA3 — CAPPED BATTERS SET 3 (9 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#130   | Manan Vohra                | Batter         | India        | ₹30 Lakh   | Capped   | 56M | 1083R | 0W | SR 130.63
+#187   | Rovman Powell              | Batter         | West Indies  | ₹1.50 Cr   | Capped   | 39M | 555R | 1W | SR 142.3
+#188   | Sherfane Rutherford        | Batter         | West Indies  | ₹1.50 Cr   | Capped   | 31M | 520R | 1W | SR 142.9
+#189   | Rassie van der Dussen      | Batter         | South Afric  | ₹1.50 Cr   | Capped   | Debut / No IPL recorded
+#190   | Finn Allen                 | Batter         | New Zealand  | ₹2.00 Cr   | Capped   | Debut / No IPL recorded
+#213   | Ashton Turner              | Batter         | Australia    | ₹1.00 Cr   | Capped   | 6M | 24R | 0W | SR 85.7
+#221   | Pathum Nissanka            | Batter         | Sri Lanka    | ₹75 Lakh   | Capped   | 10M | 278R | 0W | SR 158.9
+#223   | Charith Asalanka           | Batter         | Sri Lanka    | ₹75 Lakh   | Capped   | Debut / No IPL recorded
+#232   | Mandeep Singh              | Batter         | India        | ₹50 Lakh   | Capped   | 111M | 1706R | 0W | SR 122.9
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[22] CATEGORY: AL3 — CAPPED ALL-ROUNDERS SET 3 (16 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#131   | Gurkeerat Singh Mann       | All-Rounder    | India        | ₹50 Lakh   | Capped   | 41M | 511R | 5W | SR 121.09
+#191   | Michael Bracewell          | All-Rounder    | New Zealand  | ₹1.50 Cr   | Capped   | Debut / No IPL recorded
+#192   | Daryl Mitchell             | All-Rounder    | New Zealand  | ₹2.00 Cr   | Capped   | 15M | 351R | 1W | SR 131.5
+#193   | Kyle Mayers                | All-Rounder    | West Indies  | ₹1.50 Cr   | Capped   | 13M | 379R | 0W | SR 144.1
+#194   | Romario Shepherd           | All-Rounder    | West Indies  | ₹1.50 Cr   | Capped   | 33M | 268R | 17W | SR 175.2
+#195   | Jason Holder               | All-Rounder    | West Indies  | ₹2.00 Cr   | Capped   | 57M | 324R | 70W | SR 123.2
+#210   | Tom Curran                 | All-Rounder    | England      | ₹1.50 Cr   | Capped   | Debut / No IPL recorded
+#211   | Daniel Sams                | All-Rounder    | Australia    | ₹1.00 Cr   | Capped   | 16M | 44R | 14W | SR 100.0
+#212   | Sean Abbott                | All-Rounder    | Australia    | ₹2.00 Cr   | Capped   | Debut / No IPL recorded
+#214   | Matthew Short              | All-Rounder    | Australia    | ₹1.50 Cr   | Capped   | Debut / No IPL recorded
+#215   | Aaron Hardie               | All-Rounder    | Australia    | ₹1.25 Cr   | Capped   | Debut / No IPL recorded
+#224   | Dasun Shanaka              | All-Rounder    | Sri Lanka    | ₹75 Lakh   | Capped   | 10M | 89R | 1W | SR 123.6
+#228   | Vijay Shankar              | All-Rounder    | India        | ₹75 Lakh   | Capped   | 78M | 1233R | 9W | SR 129.8
+#229   | Shahbaz Ahmed              | All-Rounder    | India        | ₹1.00 Cr   | Capped   | 63M | 603R | 27W | SR 123.3
+#230   | Lalit Yadav                | All-Rounder    | India        | ₹50 Lakh   | Capped   | 27M | 305R | 10W | SR 105.2
+#231   | Pawan Negi                 | All-Rounder    | India        | ₹50 Lakh   | Capped   | 50M | 365R | 34W | SR 126.3
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[23] CATEGORY: FA3 — CAPPED FAST BOWLERS SET 3 (25 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#132   | Sandeep Sharma             | Bowler         | India        | ₹50 Lakh   | Capped   | 127M | 135R | 137W | SR 84.37
+#133   | Umesh Yadav                | Bowler         | India        | ₹1.00 Cr   | Capped   | 148M | 190R | 144W | SR 131.03
+#134   | Chetan Sakariya            | Bowler         | India        | ₹50 Lakh   | Capped   | 19M | 16R | 20W | SR 64
+#137   | Ankit Rajpoot              | Bowler         | India        | ₹30 Lakh   | Capped   | 29M | 29R | 24W | SR 90.62
+#196   | Alzarri Joseph             | Bowler         | West Indies  | ₹1.50 Cr   | Capped   | Debut / No IPL recorded
+#197   | Naveen-ul-Haq              | Bowler         | Afghanistan  | ₹2.00 Cr   | Capped   | 18M | 18R | 25W | SR 72.0
+#198   | Fazalhaq Farooqi           | Bowler         | Afghanistan  | ₹1.50 Cr   | Capped   | 12M | 5R | 6W | SR 33.3
+#199   | Spencer Johnson            | Bowler         | Australia    | ₹2.00 Cr   | Capped   | Debut / No IPL recorded
+#200   | Jhye Richardson            | Bowler         | Australia    | ₹1.50 Cr   | Capped   | Debut / No IPL recorded
+#201   | Nathan Ellis               | Bowler         | Australia    | ₹1.25 Cr   | Capped   | 17M | 19R | 19W | SR 76.0
+#207   | Gus Atkinson               | Bowler         | England      | ₹2.00 Cr   | Capped   | Debut / No IPL recorded
+#208   | Reece Topley               | Bowler         | England      | ₹1.00 Cr   | Capped   | 6M | 3R | 5W | SR 50.0
+#209   | Luke Wood                  | Bowler         | England      | ₹75 Lakh   | Capped   | 2M | 9R | 1W | SR 300.0
+#216   | Lance Morris               | Bowler         | Australia    | ₹75 Lakh   | Capped   | Debut / No IPL recorded
+#217   | Xavier Bartlett            | Bowler         | Australia    | ₹75 Lakh   | Capped   | 13M | 40R | 7W | SR 142.9
+#218   | Matt Henry                 | Bowler         | New Zealand  | ₹1.50 Cr   | Capped   | 9M | 7R | 4W | SR 70.0
+#219   | Tim Southee                | Bowler         | New Zealand  | ₹1.50 Cr   | Capped   | 54M | 120R | 47W | SR 112.2
+#220   | Adam Milne                 | Bowler         | New Zealand  | ₹1.00 Cr   | Capped   | 11M | 25R | 7W | SR 80.7
+#225   | Dilshan Madushanka         | Bowler         | Sri Lanka    | ₹75 Lakh   | Capped   | 1M | 0R | 1W | SR 0.0
+#226   | Nuwan Thushara             | Bowler         | Sri Lanka    | ₹75 Lakh   | Capped   | 8M | 0R | 9W | SR 0.0
+#227   | Matheesha Pathirana        | Bowler         | Sri Lanka    | ₹2.00 Cr   | Capped   | 33M | 0R | 47W | SR 0.0
+#233   | Siddarth Kaul              | Bowler         | India        | ₹50 Lakh   | Capped   | 55M | 20R | 58W | SR 55.6
+#234   | Barinder Sran              | Bowler         | India        | ₹50 Lakh   | Capped   | 24M | 10R | 18W | SR 71.4
+#235   | Jaydev Unadkat             | Bowler         | India        | ₹1.00 Cr   | Capped   | 116M | 201R | 114W | SR 118.9
+#236   | Mohit Sharma               | Bowler         | India        | ₹50 Lakh   | Capped   | Debut / No IPL recorded
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[24] CATEGORY: SP3 — CAPPED SPIN BOWLERS SET 3 (7 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#135   | Piyush Chawla              | Bowler         | India        | ₹50 Lakh   | Capped   | 192M | 624R | 192W | SR 111.42
+#136   | Murugan Ashwin             | Bowler         | India        | ₹30 Lakh   | Capped   | 44M | 38R | 35W | SR 86.36
+#202   | Tabraiz Shamsi             | Bowler         | South Afric  | ₹1.00 Cr   | Capped   | 5M | 2R | 3W | SR 50.0
+#203   | Keshav Maharaj             | Bowler         | South Afric  | ₹75 Lakh   | Capped   | 2M | 1R | 2W | SR 50.0
+#204   | Ish Sodhi                  | Bowler         | New Zealand  | ₹75 Lakh   | Capped   | Debut / No IPL recorded
+#205   | Mujeeb Ur Rahman           | Bowler         | Afghanistan  | ₹2.00 Cr   | Capped   | 20M | 12R | 20W | SR 80.0
+#206   | Akeal Hosein               | Bowler         | West Indies  | ₹1.50 Cr   | Capped   | 8M | 21R | 9W | SR 161.5
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[25] CATEGORY: UFA2 — UNCAPPED FAST BOWLERS SET 2 (4 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#141   | Ashwani Kumar              | Bowler         | India        | ₹30 Lakh   | Uncapped | 10M | 1R | 17W | SR 16.7
+#142   | Gurnoor Brar               | Bowler         | India        | ₹30 Lakh   | Uncapped | 1M | 0R | 0W | SR 0.0
+#153   | Raj Limbani                | Bowler         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#154   | Naman Tiwari               | Bowler         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[26] CATEGORY: USP2 — UNCAPPED SPIN BOWLERS SET 2 (3 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#143   | Prince Choudhary           | Bowler         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#144   | Jhathavedh Subramanyan     | Bowler         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#152   | Saumy Pandey               | Bowler         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[27] CATEGORY: UWK2 — UNCAPPED WICKET-KEEPERS SET 2 (2 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#155   | Aravelly Avanish           | Wicketkeeper   | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#158   | Harvik Desai               | Wicketkeeper   | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[28] CATEGORY: UBA3 — UNCAPPED BATTERS SET 3 (6 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#159   | B Indrajith                | Batter         | India        | ₹30 Lakh   | Uncapped | 3M | 21R | 0W | SR 70.0
+#165   | Himmat Singh               | Batter         | India        | ₹30 Lakh   | Uncapped | 9M | 92R | 0W | SR 133.3
+#166   | Subhranshu Senapati        | Batter         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#167   | Tanmay Agarwal             | Batter         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#168   | Akshat Raghuwanshi         | Batter         | India        | ₹30 Lakh   | Uncapped | 3M | 29R | 0W | SR 116.0
+#169   | Pradosh Ranjan Paul        | Batter         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[29] CATEGORY: UAL3 — UNCAPPED ALL-ROUNDERS SET 3 (7 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#160   | B Aparajith                | All-Rounder    | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#162   | Atit Sheth                 | All-Rounder    | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#164   | Akash Vasisht              | All-Rounder    | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#170   | Sanvir Singh               | All-Rounder    | India        | ₹30 Lakh   | Uncapped | 6M | 25R | 0W | SR 119.1
+#171   | Vivrant Sharma             | All-Rounder    | India        | ₹30 Lakh   | Uncapped | 3M | 69R | 0W | SR 146.8
+#172   | Samarth Vyas               | All-Rounder    | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#173   | Sanjay Yadav               | All-Rounder    | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[30] CATEGORY: UFA3 — UNCAPPED FAST BOWLERS SET 3 (8 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#161   | Lukman Meriwala            | Bowler         | India        | ₹30 Lakh   | Uncapped | 1M | 0R | 1W | SR 0.0
+#163   | Chama Milind               | Bowler         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#174   | Dhrushant Soni             | Bowler         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#175   | Kuldip Yadav               | Bowler         | India        | ₹30 Lakh   | Uncapped | 3M | 0R | 2W | SR 0.0
+#176   | Vidwath Kaverappa          | Bowler         | India        | ₹30 Lakh   | Uncapped | 1M | 0R | 2W | SR 0.0
+#177   | Baltej Singh               | Bowler         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#178   | Kulwant Khejroliya         | Bowler         | India        | ₹30 Lakh   | Uncapped | 9M | 0R | 6W | SR 0.0
+#179   | Ishan Porel                | Bowler         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[31] CATEGORY: USP3 — UNCAPPED SPIN BOWLERS SET 3 (2 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#180   | Pravin Dubey               | Bowler         | India        | ₹30 Lakh   | Uncapped | 5M | 23R | 2W | SR 69.7
+#181   | Raghav Goyal               | Bowler         | India        | ₹30 Lakh   | Uncapped | 1M | 0R | 0W | SR 0.0
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[32] CATEGORY: UWK3 — UNCAPPED WICKET-KEEPERS SET 3 (5 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#182   | Dinesh Bana                | Wicketkeeper   | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#183   | Upendra Yadav              | Wicketkeeper   | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#184   | Bipin Saurabh              | Wicketkeeper   | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#185   | Sumit Kumar                | Wicketkeeper   | India        | ₹30 Lakh   | Uncapped | 4M | 18R | 0W | SR 75.0
+#186   | Sheldon Jackson            | Wicketkeeper   | India        | ₹30 Lakh   | Uncapped | 9M | 61R | 0W | SR 107.0
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[33] CATEGORY: WK3 — CAPPED WICKET-KEEPERS SET 3 (1 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#222   | Kusal Mendis               | Wicketkeeper   | Sri Lanka    | ₹75 Lakh   | Capped   | Debut / No IPL recorded
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[34] CATEGORY: ACC7 — ACCELERATED AUCTION SET 7 (2 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#237   | Tanay Thyagarajan          | Batter         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#238   | Akash Madhwal              | Bowler         | India        | ₹30 Lakh   | Uncapped | 17M | 8R | 23W | SR 57.1
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[35] CATEGORY: ACC8 — ACCELERATED AUCTION SET 8 (27 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#239   | Rishi Dhawan               | All-Rounder    | India        | ₹30 Lakh   | Uncapped | 39M | 210R | 25W | SR 112.3
+#240   | Wriddhiman Saha            | Wicketkeeper   | India        | ₹30 Lakh   | Uncapped | 169M | 2934R | 0W | SR 127.6
+#241   | Suresh Raina               | Batter         | India        | ₹30 Lakh   | Uncapped | 204M | 5528R | 25W | SR 136.7
+#242   | Robin Uthappa              | All-Rounder    | India        | ₹30 Lakh   | Uncapped | 205M | 4952R | 0W | SR 130.4
+#243   | Dhawal Kulkarni            | Wicketkeeper   | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#244   | Parvez Rasool              | Batter         | India        | ₹30 Lakh   | Uncapped | 11M | 17R | 4W | SR 85.0
+#245   | Pawan Suyal                | Bowler         | India        | ₹30 Lakh   | Uncapped | 5M | 0R | 2W | SR 0.0
+#246   | Nathu Singh                | All-Rounder    | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#247   | Sudhesan Midhun            | Wicketkeeper   | India        | ₹30 Lakh   | Uncapped | 1M | 0R | 0W | SR 0.0
+#248   | Tejas Baroka               | Batter         | India        | ₹30 Lakh   | Uncapped | 1M | 0R | 0W | SR 0.0
+#249   | Shashank Singh             | Bowler         | India        | ₹30 Lakh   | Uncapped | 54M | 905R | 5W | SR 161.6
+#250   | Prabhsimran Singh          | Wicketkeeper   | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#251   | Harpreet Brar              | All-Rounder    | India        | ₹30 Lakh   | Uncapped | 51M | 249R | 37W | SR 120.9
+#252   | Shahrukh Khan              | All-Rounder    | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#253   | Atharva Taide              | Batter         | India        | ₹30 Lakh   | Uncapped | 10M | 260R | 0W | SR 146.9
+#254   | Shivam Mavi                | Bowler         | India        | ₹30 Lakh   | Uncapped | 32M | 51R | 30W | SR 91.1
+#255   | Kamlesh Nagarkoti          | Bowler         | India        | ₹30 Lakh   | Uncapped | 12M | 22R | 5W | SR 66.7
+#256   | Kartik Tyagi               | Bowler         | India        | ₹30 Lakh   | Uncapped | 34M | 24R | 33W | SR 92.3
+#257   | Ravi Bishnoi               | Bowler         | India        | ₹30 Lakh   | Uncapped | 86M | 45R | 83W | SR 65.2
+#258   | Arshad Khan                | All-Rounder    | India        | ₹30 Lakh   | Uncapped | 26M | 142R | 18W | SR 149.5
+#259   | Hrithik Shokeen            | All-Rounder    | India        | ₹30 Lakh   | Uncapped | 13M | 66R | 5W | SR 101.5
+#260   | Akash Vashisht             | Bowler         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#261   | Abdul Samad                | All-Rounder    | India        | ₹30 Lakh   | Uncapped | 71M | 857R | 2W | SR 148.8
+#262   | Umran Malik                | Bowler         | India        | ₹30 Lakh   | Uncapped | 26M | 23R | 29W | SR 143.8
+#263   | Nitish Kumar Reddy         | All-Rounder    | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#264   | Anukul Roy                 | All-Rounder    | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#265   | Rinku Singh                | Batter         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[36] CATEGORY: ACC9 — ACCELERATED AUCTION SET 9 (23 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#266   | Harshit Rana               | Bowler         | India        | ₹30 Lakh   | Uncapped | 33M | 59R | 40W | SR 105.4
+#267   | Kuldeep Sen                | Bowler         | India        | ₹30 Lakh   | Uncapped | 12M | 0R | 14W | SR 0.0
+#268   | Navdeep Saini              | Bowler         | India        | ₹30 Lakh   | Uncapped | 33M | 33R | 23W | SR 89.2
+#269   | Yash Thakur                | Bowler         | India        | ₹30 Lakh   | Uncapped | 22M | 0R | 27W | SR 0.0
+#270   | Mayank Yadav               | Bowler         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#271   | Yudhvir Singh Charak       | All-Rounder    | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#272   | Ayush Badoni               | Batter         | India        | ₹30 Lakh   | Uncapped | 66M | 1178R | 4W | SR 140.9
+#273   | Karan Sharma               | Wicketkeeper   | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#274   | Himanshu Sharma            | All-Rounder    | India        | ₹30 Lakh   | Uncapped | 2M | 0R | 0W | SR 0.0
+#275   | Rajan Kumar                | Batter         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#276   | Avinash Rao                | Bowler         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#277   | Sumeet Verma               | All-Rounder    | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#278   | Pukhraj Mann               | Wicketkeeper   | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#279   | Shubham Garhwal            | Batter         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#280   | Karan Shinde               | Bowler         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#281   | Aman Khan                  | All-Rounder    | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#282   | Praveen Kumar              | Bowler         | India        | ₹30 Lakh   | Uncapped | 119M | 340R | 90W | SR 108.3
+#283   | Pradeep Sangwan            | Batter         | India        | ₹30 Lakh   | Uncapped | 42M | 26R | 38W | SR 59.1
+#284   | Ashok Dinda                | Bowler         | India        | ₹30 Lakh   | Uncapped | 78M | 26R | 69W | SR 54.2
+#285   | Manpreet Gony              | All-Rounder    | India        | ₹30 Lakh   | Uncapped | 44M | 99R | 37W | SR 139.4
+#286   | Praveen Tambe              | Bowler         | India        | ₹30 Lakh   | Uncapped | 33M | 18R | 28W | SR 46.2
+#287   | Iqbal Abdulla              | Batter         | India        | ₹30 Lakh   | Uncapped | 49M | 88R | 40W | SR 104.8
+#288   | Shadab Jakati              | Bowler         | India        | ₹30 Lakh   | Uncapped | 59M | 28R | 47W | SR 96.6
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[37] CATEGORY: ACC10 — ACCELERATED AUCTION SET 10 (22 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#289   | Manvinder Bisla            | Wicketkeeper   | India        | ₹30 Lakh   | Uncapped | 39M | 798R | 0W | SR 113.7
+#290   | Paul Valthaty              | Batter         | India        | ₹30 Lakh   | Uncapped | 23M | 505R | 7W | SR 120.8
+#291   | Swapnil Asnodkar           | Batter         | India        | ₹30 Lakh   | Uncapped | 20M | 423R | 0W | SR 124.8
+#292   | Kamran Khan                | Bowler         | India        | ₹30 Lakh   | Uncapped | 9M | 3R | 9W | SR 60.0
+#293   | Tirumalasetti Suman        | All-Rounder    | India        | ₹30 Lakh   | Uncapped | 43M | 676R | 6W | SR 117.6
+#294   | Saurabh Tiwary             | Batter         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#295   | Abhimanyu Mithun           | Bowler         | India        | ₹30 Lakh   | Uncapped | 16M | 34R | 7W | SR 130.8
+#296   | Sreenath Aravind           | Bowler         | India        | ₹30 Lakh   | Uncapped | 38M | 59R | 45W | SR 103.5
+#297   | Harmeet Singh              | All-Rounder    | India        | ₹30 Lakh   | Uncapped | 28M | 18R | 27W | SR 150.0
+#298   | Unmukt Chand               | Batter         | USA          | ₹30 Lakh   | Uncapped | 21M | 300R | 0W | SR 100.0
+#299   | Baba Aparajith             | Batter         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#300   | Vijay Zol                  | Bowler         | India        | ₹30 Lakh   | Uncapped | 3M | 29R | 0W | SR 111.5
+#301   | Deepak Niwas Hooda         | All-Rounder    | India        | ₹30 Lakh   | Uncapped | 125M | 1496R | 10W | SR 127.7
+#302   | Akshdeep Nath              | Wicketkeeper   | India        | ₹30 Lakh   | Uncapped | 14M | 90R | 0W | SR 91.8
+#303   | Sarfaraz Khan              | Batter         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#304   | Armaan Jaffer              | Bowler         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#305   | Abhishek Sharma            | All-Rounder    | India        | ₹30 Lakh   | Uncapped | 92M | 2379R | 11W | SR 171.3
+#306   | Shubman Gill               | Wicketkeeper   | India        | ₹30 Lakh   | Uncapped | 134M | 4598R | 0W | SR 142.1
+#307   | Prithvi Shaw               | Batter         | India        | ₹30 Lakh   | Uncapped | 79M | 1892R | 0W | SR 147.5
+#308   | Riyan Parag                | Wicketkeeper   | India        | ₹30 Lakh   | Uncapped | 97M | 1875R | 9W | SR 144.2
+#309   | Aryan Juyal                | Bowler         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#310   | Yashasvi Jaiswal           | All-Rounder    | India        | ₹30 Lakh   | Uncapped | 82M | 2593R | 0W | SR 152.8
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[38] CATEGORY: ACC11 — ACCELERATED AUCTION SET 11 (21 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#311   | Priyam Garg                | Batter         | India        | ₹30 Lakh   | Uncapped | 23M | 273R | 0W | SR 113.3
+#312   | Atharva Ankolekar          | All-Rounder    | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#313   | Sushant Mishra             | Wicketkeeper   | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#314   | Akash Singh                | Batter         | India        | ₹30 Lakh   | Uncapped | 12M | 0R | 13W | SR 0.0
+#315   | Divyansh Joshi             | Bowler         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#316   | Yash Dhull                 | All-Rounder    | India        | ₹30 Lakh   | Uncapped | 4M | 16R | 0W | SR 69.6
+#317   | Harnoor Singh              | Wicketkeeper   | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#318   | Shaik Rasheed              | Batter         | India        | ₹30 Lakh   | Uncapped | 5M | 71R | 0W | SR 112.7
+#319   | Raj Angad Bawa             | Wicketkeeper   | India        | ₹30 Lakh   | Uncapped | 8M | 35R | 2W | SR 109.4
+#320   | Vicky Ostwal               | Batter         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#321   | Aneeshwar Gautam           | Bowler         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#322   | Garv Sangwan               | All-Rounder    | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#323   | Kaushal Tambe              | Wicketkeeper   | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#324   | Siddharth Yadav            | Batter         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#325   | Murugan Abhishek           | Wicketkeeper   | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#326   | Innesh Mahajan             | Batter         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#327   | Priyanshu Moliya           | All-Rounder    | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#328   | Rudra Patel                | Wicketkeeper   | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#329   | Sachin Dhas                | Batter         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#330   | Dhanush Gowda              | Bowler         | India        | ₹30 Lakh   | Uncapped | Debut / No IPL recorded
+#331   | Anshul Kamboj              | Batter         | Sri Lanka    | ₹50 Lakh   | Capped   | 25M | 74R | 31W | SR 142.3
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[39] CATEGORY: ACC12 — ACCELERATED AUCTION SET 12 (28 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#332   | Adarsh Singh               | All-Rounder    | England      | ₹50 Lakh   | Capped   | 23M | 2R | 28W | SR 20.0
+#333   | Bas de Leede               | Bowler         | West Indies  | ₹75 Lakh   | Capped   | Debut / No IPL recorded
+#334   | Logan van Beek             | All-Rounder    | Afghanistan  | ₹50 Lakh   | Capped   | Debut / No IPL recorded
+#335   | Paul van Meekeren          | Wicketkeeper   | Sri Lanka    | ₹75 Lakh   | Capped   | Debut / No IPL recorded
+#336   | Max O'Dowd                 | Batter         | Australia    | ₹50 Lakh   | Capped   | Debut / No IPL recorded
+#337   | Scott Edwards              | Bowler         | England      | ₹75 Lakh   | Capped   | Debut / No IPL recorded
+#338   | Roelof van der Merwe       | All-Rounder    | South Afric  | ₹50 Lakh   | Capped   | 21M | 159R | 21W | SR 112.8
+#339   | Colin Ackermann            | Wicketkeeper   | New Zealand  | ₹75 Lakh   | Capped   | Debut / No IPL recorded
+#340   | Teja Nidamanuru            | Batter         | West Indies  | ₹50 Lakh   | Capped   | Debut / No IPL recorded
+#341   | Aryan Dutt                 | Bowler         | Afghanistan  | ₹75 Lakh   | Capped   | Debut / No IPL recorded
+#342   | Syb Sybrand                | All-Rounder    | Sri Lanka    | ₹50 Lakh   | Capped   | Debut / No IPL recorded
+#343   | Gerhard Erasmus            | Wicketkeeper   | Australia    | ₹75 Lakh   | Capped   | Debut / No IPL recorded
+#344   | Ruben Trumpelmann          | Batter         | England      | ₹50 Lakh   | Capped   | Debut / No IPL recorded
+#345   | David Wiese                | Bowler         | South Afric  | ₹75 Lakh   | Capped   | 18M | 148R | 16W | SR 146.5
+#346   | Bernard Scholtz            | All-Rounder    | New Zealand  | ₹50 Lakh   | Capped   | Debut / No IPL recorded
+#347   | JJ Smit                    | Wicketkeeper   | West Indies  | ₹75 Lakh   | Capped   | Debut / No IPL recorded
+#348   | Jan Frylinck               | Batter         | Afghanistan  | ₹50 Lakh   | Capped   | Debut / No IPL recorded
+#349   | Michael van Lingen         | Bowler         | Sri Lanka    | ₹75 Lakh   | Capped   | Debut / No IPL recorded
+#350   | Zane Green                 | All-Rounder    | Australia    | ₹50 Lakh   | Capped   | Debut / No IPL recorded
+#351   | Tangeni Lungameni          | Wicketkeeper   | England      | ₹75 Lakh   | Capped   | Debut / No IPL recorded
+#352   | Ben Shikongo               | Batter         | South Afric  | ₹50 Lakh   | Capped   | Debut / No IPL recorded
+#353   | George Munsey              | Bowler         | New Zealand  | ₹75 Lakh   | Capped   | Debut / No IPL recorded
+#354   | Richie Berrington          | All-Rounder    | West Indies  | ₹50 Lakh   | Capped   | Debut / No IPL recorded
+#355   | Matthew Cross              | Wicketkeeper   | Afghanistan  | ₹75 Lakh   | Capped   | Debut / No IPL recorded
+#356   | Michael Leask              | Batter         | Sri Lanka    | ₹50 Lakh   | Capped   | Debut / No IPL recorded
+#357   | Mark Watt                  | Bowler         | Australia    | ₹75 Lakh   | Capped   | Debut / No IPL recorded
+#358   | Safyaan Sharif             | All-Rounder    | England      | ₹50 Lakh   | Capped   | Debut / No IPL recorded
+#359   | Chris Greaves              | Wicketkeeper   | South Afric  | ₹75 Lakh   | Capped   | Debut / No IPL recorded
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+[40] CATEGORY: ACC13 — ACCELERATED AUCTION SET 13 (10 Players)
+====================================================================================================
+Lot #  | Player Name                | Role           | Country      | Base Price | Status   | IPL Stats (M / R / W / SR)
+----------------------------------------------------------------------------------------------------
+#360   | Brad Wheal                 | Batter         | New Zealand  | ₹50 Lakh   | Capped   | Debut / No IPL recorded
+#361   | Brandon McMullen           | Bowler         | West Indies  | ₹75 Lakh   | Capped   | Debut / No IPL recorded
+#362   | Jack Jarvis                | All-Rounder    | Afghanistan  | ₹50 Lakh   | Capped   | Debut / No IPL recorded
+#363   | Monank Patel               | Wicketkeeper   | Sri Lanka    | ₹75 Lakh   | Capped   | Debut / No IPL recorded
+#364   | Steven Taylor              | Batter         | Australia    | ₹50 Lakh   | Capped   | Debut / No IPL recorded
+#365   | Aaron Jones                | Bowler         | England      | ₹75 Lakh   | Capped   | Debut / No IPL recorded
+#366   | Saurabh Netravalkar        | All-Rounder    | South Afric  | ₹50 Lakh   | Capped   | Debut / No IPL recorded
+#367   | Ali Khan                   | Wicketkeeper   | New Zealand  | ₹75 Lakh   | Capped   | Debut / No IPL recorded
+#368   | Nosthush Kenjige           | Batter         | West Indies  | ₹50 Lakh   | Capped   | Debut / No IPL recorded
+#369   | Jessy Singh                | Bowler         | Afghanistan  | ₹75 Lakh   | Capped   | Debut / No IPL recorded
+----------------------------------------------------------------------------------------------------
+
+
+====================================================================================================
+                   SECTION 2: COMPLETE MASTER ROSTER (LOTS #1 TO #369)
+====================================================================================================
+Lot #  | Player Name                | Set    | Role           | Country      | Base Price | Batting Style     
+----------------------------------------------------------------------------------------------------
+#1     | Virat Kohli                | STAR   | Batter         | India        | ₹2.00 Cr   | Right-hand bat    
+#2     | Rohit Sharma               | STAR   | Batter         | India        | ₹2.00 Cr   | Right-hand bat    
+#3     | Jasprit Bumrah             | STAR   | Bowler         | India        | ₹2.00 Cr   | Right-hand bat    
+#4     | MS Dhoni                   | STAR   | Wicketkeeper   | India        | ₹2.00 Cr   | Right-hand bat    
+#5     | Hardik Pandya              | STAR   | All-Rounder    | India        | ₹2.00 Cr   | Right-hand bat    
+#6     | Suryakumar Yadav           | STAR   | Batter         | India        | ₹2.00 Cr   | Right-hand bat    
+#7     | Ravindra Jadeja            | STAR   | All-Rounder    | India        | ₹2.00 Cr   | Left-hand bat     
+#8     | Ruturaj Gaikwad            | STAR   | Batter         | India        | ₹2.00 Cr   | Right-hand bat    
+#9     | Sanju Samson               | STAR   | Wicketkeeper   | India        | ₹2.00 Cr   | Right-hand bat    
+#10    | Pat Cummins                | STAR   | All-Rounder    | Australia    | ₹2.00 Cr   | Right-hand bat    
+#11    | Heinrich Klaasen           | STAR   | Wicketkeeper   | South Afric  | ₹2.00 Cr   | Right-hand bat    
+#12    | Travis Head                | STAR   | Batter         | Australia    | ₹2.00 Cr   | Left-hand bat     
+#13    | Rashid Khan                | STAR   | Bowler         | Afghanistan  | ₹2.00 Cr   | Right-hand bat    
+#14    | Nicholas Pooran            | STAR   | Wicketkeeper   | West Indies  | ₹2.00 Cr   | Left-hand bat     
+#15    | Axar Patel                 | STAR   | All-Rounder    | India        | ₹2.00 Cr   | Left-hand bat     
+#16    | Kuldeep Yadav              | STAR   | Bowler         | India        | ₹2.00 Cr   | Left-hand bat     
+#17    | Shivam Dube                | STAR   | All-Rounder    | India        | ₹2.00 Cr   | Left-hand bat     
+#18    | Andre Russell              | STAR   | All-Rounder    | West Indies  | ₹2.00 Cr   | Right-hand bat    
+#19    | Sunil Narine               | STAR   | All-Rounder    | West Indies  | ₹2.00 Cr   | Left-hand bat     
+#20    | Varun Chakaravarthy        | STAR   | Bowler         | India        | ₹2.00 Cr   | Right-hand bat    
+#21    | Shimron Hetmyer            | STAR   | Batter         | West Indies  | ₹2.00 Cr   | Left-hand bat     
+#22    | Dhruv Jurel                | STAR   | Wicketkeeper   | India        | ₹1.50 Cr   | Right-hand bat    
+#23    | Sai Sudharsan              | STAR   | Batter         | India        | ₹1.50 Cr   | Left-hand bat     
+#24    | Tilak Varma                | STAR   | Batter         | India        | ₹1.50 Cr   | Left-hand bat     
+#25    | Rajat Patidar              | STAR   | Batter         | India        | ₹1.50 Cr   | Right-hand bat    
+#26    | Steve Smith                | STAR   | Batter         | Australia    | ₹2.00 Cr   | Right-hand bat    
+#27    | Ben Stokes                 | STAR   | All-Rounder    | England      | ₹2.00 Cr   | Left-hand bat     
+#28    | Jofra Archer               | STAR   | Bowler         | England      | ₹2.00 Cr   | Right-hand bat    
+#29    | Cameron Green              | STAR   | All-Rounder    | Australia    | ₹2.00 Cr   | Right-hand bat    
+#30    | Joe Root                   | STAR   | Batter         | England      | ₹1.50 Cr   | Right-hand bat    
+#31    | Jos Buttler                | M1     | Wicketkeeper   | England      | ₹2.00 Cr   | Right-hand bat    
+#32    | Shreyas Iyer               | M1     | Batter         | India        | ₹2.00 Cr   | Right-hand bat    
+#33    | Rishabh Pant               | M1     | Wicketkeeper   | India        | ₹2.00 Cr   | Left-hand bat     
+#34    | Kagiso Rabada              | M1     | Bowler         | South Afric  | ₹2.00 Cr   | Left-hand bat     
+#35    | Arshdeep Singh             | M1     | Bowler         | India        | ₹2.00 Cr   | Left-hand bat     
+#36    | Mitchell Starc             | M1     | Bowler         | Australia    | ₹2.00 Cr   | Left-hand bat     
+#37    | Yuzvendra Chahal           | M2     | Bowler         | India        | ₹2.00 Cr   | Right-hand bat    
+#38    | Liam Livingstone           | M2     | All-Rounder    | England      | ₹2.00 Cr   | Right-hand bat    
+#39    | David Miller               | M2     | Batter         | South Afric  | ₹1.50 Cr   | Left-hand bat     
+#40    | KL Rahul                   | M2     | Wicketkeeper   | India        | ₹2.00 Cr   | Right-hand bat    
+#41    | Mohammed Shami             | M2     | Bowler         | India        | ₹2.00 Cr   | Right-hand bat    
+#42    | Mohammed Siraj             | M2     | Bowler         | India        | ₹2.00 Cr   | Right-hand bat    
+#43    | Harry Brook                | BA1    | Batter         | England      | ₹2.00 Cr   | Right-hand bat    
+#44    | Devon Conway               | BA1    | Batter         | New Zealand  | ₹2.00 Cr   | Left-hand bat     
+#45    | Jake Fraser-McGurk         | BA1    | Batter         | Australia    | ₹2.00 Cr   | Right-hand bat    
+#46    | Aiden Markram              | BA1    | Batter         | South Afric  | ₹2.00 Cr   | Right-hand bat    
+#47    | Devdutt Padikkal           | BA1    | Batter         | India        | ₹2.00 Cr   | Left-hand bat     
+#48    | Rahul Tripathi             | BA1    | Batter         | India        | ₹75 Lakh   | Right-hand bat    
+#49    | David Warner               | BA1    | Batter         | Australia    | ₹2.00 Cr   | Left-hand bat     
+#50    | Ravichandran Ashwin        | AL1    | All-Rounder    | India        | ₹2.00 Cr   | Right-hand bat    
+#51    | Venkatesh Iyer             | AL1    | All-Rounder    | India        | ₹2.00 Cr   | Left-hand bat     
+#52    | Mitchell Marsh             | AL1    | All-Rounder    | Australia    | ₹2.00 Cr   | Right-hand bat    
+#53    | Glenn Maxwell              | AL1    | All-Rounder    | Australia    | ₹2.00 Cr   | Right-hand bat    
+#54    | Harshal Patel              | AL1    | All-Rounder    | India        | ₹2.00 Cr   | Right-hand bat    
+#55    | Marcus Stoinis             | AL1    | All-Rounder    | Australia    | ₹2.00 Cr   | Right-hand bat    
+#56    | Jonny Bairstow             | WK1    | Wicketkeeper   | England      | ₹2.00 Cr   | Right-hand bat    
+#57    | Quinton de Kock            | WK1    | Wicketkeeper   | South Afric  | ₹2.00 Cr   | Left-hand bat     
+#58    | Rahmanullah Gurbaz         | WK1    | Wicketkeeper   | Afghanistan  | ₹2.00 Cr   | Right-hand bat    
+#59    | Ishan Kishan               | WK1    | Wicketkeeper   | India        | ₹2.00 Cr   | Left-hand bat     
+#60    | Phil Salt                  | WK1    | Wicketkeeper   | England      | ₹2.00 Cr   | Right-hand bat    
+#61    | Jitesh Sharma              | WK1    | Wicketkeeper   | India        | ₹1.00 Cr   | Right-hand bat    
+#62    | Khaleel Ahmed              | FA1    | Bowler         | India        | ₹2.00 Cr   | Right-hand bat    
+#63    | Trent Boult                | FA1    | Bowler         | New Zealand  | ₹2.00 Cr   | Right-hand bat    
+#64    | Josh Hazlewood             | FA1    | Bowler         | Australia    | ₹2.00 Cr   | Left-hand bat     
+#65    | Avesh Khan                 | FA1    | Bowler         | India        | ₹2.00 Cr   | Right-hand bat    
+#66    | Prasidh Krishna            | FA1    | Bowler         | India        | ₹2.00 Cr   | Right-hand bat    
+#67    | T Natarajan                | FA1    | Bowler         | India        | ₹2.00 Cr   | Left-hand bat     
+#68    | Anrich Nortje              | FA1    | Bowler         | South Afric  | ₹2.00 Cr   | Right-hand bat    
+#69    | Noor Ahmad                 | SP1    | Bowler         | Afghanistan  | ₹2.00 Cr   | Right-hand bat    
+#70    | Rahul Chahar               | SP1    | Bowler         | India        | ₹1.00 Cr   | Right-hand bat    
+#71    | Wanindu Hasaranga          | SP1    | All-Rounder    | Sri Lanka    | ₹2.00 Cr   | Right-hand bat    
+#72    | Maheesh Theekshana         | SP1    | Bowler         | Sri Lanka    | ₹2.00 Cr   | Right-hand bat    
+#73    | Waqar Salamkheil           | SP1    | Bowler         | Afghanistan  | ₹75 Lakh   | Right-hand bat    
+#74    | Adam Zampa                 | SP1    | Bowler         | Australia    | ₹2.00 Cr   | Right-hand bat    
+#75    | Ayush Mhatre               | UBA1   | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#76    | Angkrish Raghuvanshi       | UBA1   | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#77    | Nehal Wadhera              | UBA1   | Batter         | India        | ₹30 Lakh   | Left-hand bat     
+#78    | Sameer Rizvi               | UBA1   | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#79    | Ashutosh Sharma            | UBA1   | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#80    | Abhinav Manohar            | UBA1   | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#81    | Karun Nair                 | UBA1   | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#82    | Naman Dhir                 | UAL1   | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#83    | Mahipal Lomror             | UAL1   | All-Rounder    | India        | ₹50 Lakh   | Left-hand bat     
+#84    | Ramandeep Singh            | UAL1   | All-Rounder    | India        | ₹50 Lakh   | Right-hand bat    
+#85    | Nishant Sindhu             | UAL1   | All-Rounder    | India        | ₹30 Lakh   | Left-hand bat     
+#86    | Vipraj Nigam               | UAL1   | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#87    | Harsh Tyagi                | UAL1   | All-Rounder    | India        | ₹30 Lakh   | Left-hand bat     
+#88    | Kumar Kushagra             | UWK1   | Wicketkeeper   | India        | ₹30 Lakh   | Right-hand bat    
+#89    | Robin Minz                 | UWK1   | Wicketkeeper   | India        | ₹30 Lakh   | Left-hand bat     
+#90    | Anuj Rawat                 | UWK1   | Wicketkeeper   | India        | ₹30 Lakh   | Left-hand bat     
+#91    | Luvnith Sisodia            | UWK1   | Wicketkeeper   | India        | ₹30 Lakh   | Left-hand bat     
+#92    | Vishnu Vinod               | UWK1   | Wicketkeeper   | India        | ₹30 Lakh   | Right-hand bat    
+#93    | Urvil Patel                | UWK1   | Wicketkeeper   | India        | ₹30 Lakh   | Right-hand bat    
+#94    | Vaibhav Arora              | UFA1   | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#95    | Rasikh Salam               | UFA1   | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#96    | Vijaykumar Vyshak          | UFA1   | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#97    | Yash Dayal                 | UFA1   | Bowler         | India        | ₹50 Lakh   | Left-hand bat     
+#98    | Mohsin Khan                | UFA1   | Bowler         | India        | ₹30 Lakh   | Left-hand bat     
+#99    | Simarjeet Singh            | UFA1   | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#100   | Suyash Sharma              | USP1   | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#101   | Manav Suthar               | USP1   | Bowler         | India        | ₹30 Lakh   | Left-hand bat     
+#102   | Kumar Kartikeya            | USP1   | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#103   | Shreyas Gopal              | USP1   | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#104   | M Siddharth                | USP1   | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#105   | Tanush Kotian              | USP1   | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#106   | Kane Williamson            | BA2    | Batter         | New Zealand  | ₹2.00 Cr   | Right-hand bat    
+#107   | Glenn Phillips             | BA2    | All-Rounder    | New Zealand  | ₹2.00 Cr   | Right-hand bat    
+#108   | Faf du Plessis             | BA2    | Batter         | South Afric  | ₹2.00 Cr   | Right-hand bat    
+#109   | Mayank Agarwal             | BA2    | Batter         | India        | ₹1.00 Cr   | Right-hand bat    
+#110   | Ajinkya Rahane             | BA2    | Batter         | India        | ₹1.50 Cr   | Right-hand bat    
+#111   | Deepak Hooda               | AL2    | All-Rounder    | India        | ₹75 Lakh   | Right-hand bat    
+#112   | Sam Curran                 | AL2    | All-Rounder    | England      | ₹2.00 Cr   | Left-hand bat     
+#113   | Krunal Pandya              | AL2    | All-Rounder    | India        | ₹2.00 Cr   | Left-hand bat     
+#114   | Washington Sundar          | AL2    | All-Rounder    | India        | ₹2.00 Cr   | Left-hand bat     
+#115   | Shardul Thakur             | AL2    | All-Rounder    | India        | ₹2.00 Cr   | Right-hand bat    
+#116   | Marco Jansen               | AL2    | All-Rounder    | South Afric  | ₹1.25 Cr   | Right-hand bat    
+#117   | Nitish Rana                | BA2    | Batter         | India        | ₹1.50 Cr   | Left-hand bat     
+#118   | KS Bharat                  | WK2    | Wicketkeeper   | India        | ₹75 Lakh   | Right-hand bat    
+#119   | Ryan Rickelton             | WK2    | Wicketkeeper   | South Afric  | ₹1.00 Cr   | Left-hand bat     
+#120   | Shai Hope                  | WK2    | Wicketkeeper   | West Indies  | ₹1.25 Cr   | Right-hand bat    
+#121   | Deepak Chahar              | FA2    | Bowler         | India        | ₹2.00 Cr   | Right-hand bat    
+#122   | Lockie Ferguson            | FA2    | Bowler         | New Zealand  | ₹2.00 Cr   | Right-hand bat    
+#123   | Bhuvneshwar Kumar          | FA2    | Bowler         | India        | ₹2.00 Cr   | Right-hand bat    
+#124   | Mukesh Kumar               | FA2    | Bowler         | India        | ₹2.00 Cr   | Right-hand bat    
+#125   | Akash Deep                 | FA2    | Bowler         | India        | ₹1.00 Cr   | Right-hand bat    
+#126   | Karn Sharma                | SP2    | Bowler         | India        | ₹50 Lakh   | Left-hand bat     
+#127   | Sai Kishore                | SP2    | Bowler         | India        | ₹75 Lakh   | Left-hand bat     
+#128   | Suyash Prabhudessai        | UBA2   | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#129   | Prerak Mankad              | UAL2   | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#130   | Manan Vohra                | BA3    | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#131   | Gurkeerat Singh Mann       | AL3    | All-Rounder    | India        | ₹50 Lakh   | Right-hand bat    
+#132   | Sandeep Sharma             | FA3    | Bowler         | India        | ₹50 Lakh   | Right-hand bat    
+#133   | Umesh Yadav                | FA3    | Bowler         | India        | ₹1.00 Cr   | Right-hand bat    
+#134   | Chetan Sakariya            | FA3    | Bowler         | India        | ₹50 Lakh   | Left-hand bat     
+#135   | Piyush Chawla              | SP3    | Bowler         | India        | ₹50 Lakh   | Left-hand bat     
+#136   | Murugan Ashwin             | SP3    | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#137   | Ankit Rajpoot              | FA3    | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#138   | Manoj Bhandage             | UAL2   | All-Rounder    | India        | ₹30 Lakh   | Left-hand bat     
+#139   | Swapnil Singh              | UAL2   | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#140   | Saurav Chuahan             | UBA2   | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#141   | Ashwani Kumar              | UFA2   | Bowler         | India        | ₹30 Lakh   | Left-hand bat     
+#142   | Gurnoor Brar               | UFA2   | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#143   | Prince Choudhary           | USP2   | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#144   | Jhathavedh Subramanyan     | USP2   | Bowler         | India        | ₹30 Lakh   | Left-hand bat     
+#145   | Shivalik Sharma            | UAL2   | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#146   | Swastik Chikara            | UBA2   | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#147   | Rohan Kunnummal            | UBA2   | Batter         | India        | ₹30 Lakh   | Left-hand bat     
+#148   | Priyansh Arya              | UBA2   | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#149   | Arshin Kulkarni            | UAL2   | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#150   | Musheer Khan               | UAL2   | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#151   | Uday Saharan               | UBA2   | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#152   | Saumy Pandey               | USP2   | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#153   | Raj Limbani                | UFA2   | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#154   | Naman Tiwari               | UFA2   | Bowler         | India        | ₹30 Lakh   | Left-hand bat     
+#155   | Aravelly Avanish           | UWK2   | Wicketkeeper   | India        | ₹30 Lakh   | Left-hand bat     
+#156   | Ricky Bhui                 | UBA2   | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#157   | Ripal Patel                | UAL2   | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#158   | Harvik Desai               | UWK2   | Wicketkeeper   | India        | ₹30 Lakh   | Right-hand bat    
+#159   | B Indrajith                | UBA3   | Batter         | India        | ₹30 Lakh   | Left-hand bat     
+#160   | B Aparajith                | UAL3   | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#161   | Lukman Meriwala            | UFA3   | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#162   | Atit Sheth                 | UAL3   | All-Rounder    | India        | ₹30 Lakh   | Left-hand bat     
+#163   | Chama Milind               | UFA3   | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#164   | Akash Vasisht              | UAL3   | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#165   | Himmat Singh               | UBA3   | Batter         | India        | ₹30 Lakh   | Left-hand bat     
+#166   | Subhranshu Senapati        | UBA3   | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#167   | Tanmay Agarwal             | UBA3   | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#168   | Akshat Raghuwanshi         | UBA3   | Batter         | India        | ₹30 Lakh   | Left-hand bat     
+#169   | Pradosh Ranjan Paul        | UBA3   | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#170   | Sanvir Singh               | UAL3   | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#171   | Vivrant Sharma             | UAL3   | All-Rounder    | India        | ₹30 Lakh   | Left-hand bat     
+#172   | Samarth Vyas               | UAL3   | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#173   | Sanjay Yadav               | UAL3   | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#174   | Dhrushant Soni             | UFA3   | Bowler         | India        | ₹30 Lakh   | Left-hand bat     
+#175   | Kuldip Yadav               | UFA3   | Bowler         | India        | ₹30 Lakh   | Left-hand bat     
+#176   | Vidwath Kaverappa          | UFA3   | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#177   | Baltej Singh               | UFA3   | Bowler         | India        | ₹30 Lakh   | Left-hand bat     
+#178   | Kulwant Khejroliya         | UFA3   | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#179   | Ishan Porel                | UFA3   | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#180   | Pravin Dubey               | USP3   | Bowler         | India        | ₹30 Lakh   | Left-hand bat     
+#181   | Raghav Goyal               | USP3   | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#182   | Dinesh Bana                | UWK3   | Wicketkeeper   | India        | ₹30 Lakh   | Right-hand bat    
+#183   | Upendra Yadav              | UWK3   | Wicketkeeper   | India        | ₹30 Lakh   | Right-hand bat    
+#184   | Bipin Saurabh              | UWK3   | Wicketkeeper   | India        | ₹30 Lakh   | Right-hand bat    
+#185   | Sumit Kumar                | UWK3   | Wicketkeeper   | India        | ₹30 Lakh   | Left-hand bat     
+#186   | Sheldon Jackson            | UWK3   | Wicketkeeper   | India        | ₹30 Lakh   | Right-hand bat    
+#187   | Rovman Powell              | BA3    | Batter         | West Indies  | ₹1.50 Cr   | Right-hand bat    
+#188   | Sherfane Rutherford        | BA3    | Batter         | West Indies  | ₹1.50 Cr   | Left-hand bat     
+#189   | Rassie van der Dussen      | BA3    | Batter         | South Afric  | ₹1.50 Cr   | Right-hand bat    
+#190   | Finn Allen                 | BA3    | Batter         | New Zealand  | ₹2.00 Cr   | Right-hand bat    
+#191   | Michael Bracewell          | AL3    | All-Rounder    | New Zealand  | ₹1.50 Cr   | Left-hand bat     
+#192   | Daryl Mitchell             | AL3    | All-Rounder    | New Zealand  | ₹2.00 Cr   | Right-hand bat    
+#193   | Kyle Mayers                | AL3    | All-Rounder    | West Indies  | ₹1.50 Cr   | Right-hand bat    
+#194   | Romario Shepherd           | AL3    | All-Rounder    | West Indies  | ₹1.50 Cr   | Left-hand bat     
+#195   | Jason Holder               | AL3    | All-Rounder    | West Indies  | ₹2.00 Cr   | Right-hand bat    
+#196   | Alzarri Joseph             | FA3    | Bowler         | West Indies  | ₹1.50 Cr   | Right-hand bat    
+#197   | Naveen-ul-Haq              | FA3    | Bowler         | Afghanistan  | ₹2.00 Cr   | Left-hand bat     
+#198   | Fazalhaq Farooqi           | FA3    | Bowler         | Afghanistan  | ₹1.50 Cr   | Right-hand bat    
+#199   | Spencer Johnson            | FA3    | Bowler         | Australia    | ₹2.00 Cr   | Right-hand bat    
+#200   | Jhye Richardson            | FA3    | Bowler         | Australia    | ₹1.50 Cr   | Left-hand bat     
+#201   | Nathan Ellis               | FA3    | Bowler         | Australia    | ₹1.25 Cr   | Right-hand bat    
+#202   | Tabraiz Shamsi             | SP3    | Bowler         | South Afric  | ₹1.00 Cr   | Right-hand bat    
+#203   | Keshav Maharaj             | SP3    | Bowler         | South Afric  | ₹75 Lakh   | Left-hand bat     
+#204   | Ish Sodhi                  | SP3    | Bowler         | New Zealand  | ₹75 Lakh   | Right-hand bat    
+#205   | Mujeeb Ur Rahman           | SP3    | Bowler         | Afghanistan  | ₹2.00 Cr   | Right-hand bat    
+#206   | Akeal Hosein               | SP3    | Bowler         | West Indies  | ₹1.50 Cr   | Left-hand bat     
+#207   | Gus Atkinson               | FA3    | Bowler         | England      | ₹2.00 Cr   | Right-hand bat    
+#208   | Reece Topley               | FA3    | Bowler         | England      | ₹1.00 Cr   | Right-hand bat    
+#209   | Luke Wood                  | FA3    | Bowler         | England      | ₹75 Lakh   | Left-hand bat     
+#210   | Tom Curran                 | AL3    | All-Rounder    | England      | ₹1.50 Cr   | Right-hand bat    
+#211   | Daniel Sams                | AL3    | All-Rounder    | Australia    | ₹1.00 Cr   | Right-hand bat    
+#212   | Sean Abbott                | AL3    | All-Rounder    | Australia    | ₹2.00 Cr   | Left-hand bat     
+#213   | Ashton Turner              | BA3    | Batter         | Australia    | ₹1.00 Cr   | Right-hand bat    
+#214   | Matthew Short              | AL3    | All-Rounder    | Australia    | ₹1.50 Cr   | Right-hand bat    
+#215   | Aaron Hardie               | AL3    | All-Rounder    | Australia    | ₹1.25 Cr   | Left-hand bat     
+#216   | Lance Morris               | FA3    | Bowler         | Australia    | ₹75 Lakh   | Right-hand bat    
+#217   | Xavier Bartlett            | FA3    | Bowler         | Australia    | ₹75 Lakh   | Right-hand bat    
+#218   | Matt Henry                 | FA3    | Bowler         | New Zealand  | ₹1.50 Cr   | Left-hand bat     
+#219   | Tim Southee                | FA3    | Bowler         | New Zealand  | ₹1.50 Cr   | Right-hand bat    
+#220   | Adam Milne                 | FA3    | Bowler         | New Zealand  | ₹1.00 Cr   | Right-hand bat    
+#221   | Pathum Nissanka            | BA3    | Batter         | Sri Lanka    | ₹75 Lakh   | Left-hand bat     
+#222   | Kusal Mendis               | WK3    | Wicketkeeper   | Sri Lanka    | ₹75 Lakh   | Right-hand bat    
+#223   | Charith Asalanka           | BA3    | Batter         | Sri Lanka    | ₹75 Lakh   | Right-hand bat    
+#224   | Dasun Shanaka              | AL3    | All-Rounder    | Sri Lanka    | ₹75 Lakh   | Left-hand bat     
+#225   | Dilshan Madushanka         | FA3    | Bowler         | Sri Lanka    | ₹75 Lakh   | Right-hand bat    
+#226   | Nuwan Thushara             | FA3    | Bowler         | Sri Lanka    | ₹75 Lakh   | Right-hand bat    
+#227   | Matheesha Pathirana        | FA3    | Bowler         | Sri Lanka    | ₹2.00 Cr   | Left-hand bat     
+#228   | Vijay Shankar              | AL3    | All-Rounder    | India        | ₹75 Lakh   | Right-hand bat    
+#229   | Shahbaz Ahmed              | AL3    | All-Rounder    | India        | ₹1.00 Cr   | Right-hand bat    
+#230   | Lalit Yadav                | AL3    | All-Rounder    | India        | ₹50 Lakh   | Left-hand bat     
+#231   | Pawan Negi                 | AL3    | All-Rounder    | India        | ₹50 Lakh   | Right-hand bat    
+#232   | Mandeep Singh              | BA3    | Batter         | India        | ₹50 Lakh   | Right-hand bat    
+#233   | Siddarth Kaul              | FA3    | Bowler         | India        | ₹50 Lakh   | Left-hand bat     
+#234   | Barinder Sran              | FA3    | Bowler         | India        | ₹50 Lakh   | Right-hand bat    
+#235   | Jaydev Unadkat             | FA3    | Bowler         | India        | ₹1.00 Cr   | Right-hand bat    
+#236   | Mohit Sharma               | FA3    | Bowler         | India        | ₹50 Lakh   | Left-hand bat     
+#237   | Tanay Thyagarajan          | ACC7   | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#238   | Akash Madhwal              | ACC7   | Bowler         | India        | ₹30 Lakh   | Left-hand bat     
+#239   | Rishi Dhawan               | ACC8   | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#240   | Wriddhiman Saha            | ACC8   | Wicketkeeper   | India        | ₹30 Lakh   | Left-hand bat     
+#241   | Suresh Raina               | ACC8   | Batter         | India        | ₹30 Lakh   | Left-hand bat     
+#242   | Robin Uthappa              | ACC8   | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#243   | Dhawal Kulkarni            | ACC8   | Wicketkeeper   | India        | ₹30 Lakh   | Left-hand bat     
+#244   | Parvez Rasool              | ACC8   | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#245   | Pawan Suyal                | ACC8   | Bowler         | India        | ₹30 Lakh   | Left-hand bat     
+#246   | Nathu Singh                | ACC8   | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#247   | Sudhesan Midhun            | ACC8   | Wicketkeeper   | India        | ₹30 Lakh   | Left-hand bat     
+#248   | Tejas Baroka               | ACC8   | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#249   | Shashank Singh             | ACC8   | Bowler         | India        | ₹30 Lakh   | Left-hand bat     
+#250   | Prabhsimran Singh          | ACC8   | Wicketkeeper   | India        | ₹30 Lakh   | Right-hand bat    
+#251   | Harpreet Brar              | ACC8   | All-Rounder    | India        | ₹30 Lakh   | Left-hand bat     
+#252   | Shahrukh Khan              | ACC8   | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#253   | Atharva Taide              | ACC8   | Batter         | India        | ₹30 Lakh   | Left-hand bat     
+#254   | Shivam Mavi                | ACC8   | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#255   | Kamlesh Nagarkoti          | ACC8   | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#256   | Kartik Tyagi               | ACC8   | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#257   | Ravi Bishnoi               | ACC8   | Bowler         | India        | ₹30 Lakh   | Left-hand bat     
+#258   | Arshad Khan                | ACC8   | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#259   | Hrithik Shokeen            | ACC8   | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#260   | Akash Vashisht             | ACC8   | Bowler         | India        | ₹30 Lakh   | Left-hand bat     
+#261   | Abdul Samad                | ACC8   | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#262   | Umran Malik                | ACC8   | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#263   | Nitish Kumar Reddy         | ACC8   | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#264   | Anukul Roy                 | ACC8   | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#265   | Rinku Singh                | ACC8   | Batter         | India        | ₹30 Lakh   | Left-hand bat     
+#266   | Harshit Rana               | ACC9   | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#267   | Kuldeep Sen                | ACC9   | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#268   | Navdeep Saini              | ACC9   | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#269   | Yash Thakur                | ACC9   | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#270   | Mayank Yadav               | ACC9   | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#271   | Yudhvir Singh Charak       | ACC9   | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#272   | Ayush Badoni               | ACC9   | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#273   | Karan Sharma               | ACC9   | Wicketkeeper   | India        | ₹30 Lakh   | Left-hand bat     
+#274   | Himanshu Sharma            | ACC9   | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#275   | Rajan Kumar                | ACC9   | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#276   | Avinash Rao                | ACC9   | Bowler         | India        | ₹30 Lakh   | Left-hand bat     
+#277   | Sumeet Verma               | ACC9   | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#278   | Pukhraj Mann               | ACC9   | Wicketkeeper   | India        | ₹30 Lakh   | Left-hand bat     
+#279   | Shubham Garhwal            | ACC9   | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#280   | Karan Shinde               | ACC9   | Bowler         | India        | ₹30 Lakh   | Left-hand bat     
+#281   | Aman Khan                  | ACC9   | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#282   | Praveen Kumar              | ACC9   | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#283   | Pradeep Sangwan            | ACC9   | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#284   | Ashok Dinda                | ACC9   | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#285   | Manpreet Gony              | ACC9   | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#286   | Praveen Tambe              | ACC9   | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#287   | Iqbal Abdulla              | ACC9   | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#288   | Shadab Jakati              | ACC9   | Bowler         | India        | ₹30 Lakh   | Left-hand bat     
+#289   | Manvinder Bisla            | ACC10  | Wicketkeeper   | India        | ₹30 Lakh   | Right-hand bat    
+#290   | Paul Valthaty              | ACC10  | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#291   | Swapnil Asnodkar           | ACC10  | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#292   | Kamran Khan                | ACC10  | Bowler         | India        | ₹30 Lakh   | Left-hand bat     
+#293   | Tirumalasetti Suman        | ACC10  | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#294   | Saurabh Tiwary             | ACC10  | Batter         | India        | ₹30 Lakh   | Left-hand bat     
+#295   | Abhimanyu Mithun           | ACC10  | Bowler         | India        | ₹30 Lakh   | Right-hand bat    
+#296   | Sreenath Aravind           | ACC10  | Bowler         | India        | ₹30 Lakh   | Left-hand bat     
+#297   | Harmeet Singh              | ACC10  | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#298   | Unmukt Chand               | ACC10  | Batter         | USA          | ₹30 Lakh   | Right-hand bat    
+#299   | Baba Aparajith             | ACC10  | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#300   | Vijay Zol                  | ACC10  | Bowler         | India        | ₹30 Lakh   | Left-hand bat     
+#301   | Deepak Niwas Hooda         | ACC10  | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#302   | Akshdeep Nath              | ACC10  | Wicketkeeper   | India        | ₹30 Lakh   | Left-hand bat     
+#303   | Sarfaraz Khan              | ACC10  | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#304   | Armaan Jaffer              | ACC10  | Bowler         | India        | ₹30 Lakh   | Left-hand bat     
+#305   | Abhishek Sharma            | ACC10  | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#306   | Shubman Gill               | ACC10  | Wicketkeeper   | India        | ₹30 Lakh   | Left-hand bat     
+#307   | Prithvi Shaw               | ACC10  | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#308   | Riyan Parag                | ACC10  | Wicketkeeper   | India        | ₹30 Lakh   | Left-hand bat     
+#309   | Aryan Juyal                | ACC10  | Bowler         | India        | ₹30 Lakh   | Left-hand bat     
+#310   | Yashasvi Jaiswal           | ACC10  | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#311   | Priyam Garg                | ACC11  | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#312   | Atharva Ankolekar          | ACC11  | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#313   | Sushant Mishra             | ACC11  | Wicketkeeper   | India        | ₹30 Lakh   | Left-hand bat     
+#314   | Akash Singh                | ACC11  | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#315   | Divyansh Joshi             | ACC11  | Bowler         | India        | ₹30 Lakh   | Left-hand bat     
+#316   | Yash Dhull                 | ACC11  | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#317   | Harnoor Singh              | ACC11  | Wicketkeeper   | India        | ₹30 Lakh   | Left-hand bat     
+#318   | Shaik Rasheed              | ACC11  | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#319   | Raj Angad Bawa             | ACC11  | Wicketkeeper   | India        | ₹30 Lakh   | Left-hand bat     
+#320   | Vicky Ostwal               | ACC11  | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#321   | Aneeshwar Gautam           | ACC11  | Bowler         | India        | ₹30 Lakh   | Left-hand bat     
+#322   | Garv Sangwan               | ACC11  | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#323   | Kaushal Tambe              | ACC11  | Wicketkeeper   | India        | ₹30 Lakh   | Left-hand bat     
+#324   | Siddharth Yadav            | ACC11  | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#325   | Murugan Abhishek           | ACC11  | Wicketkeeper   | India        | ₹30 Lakh   | Left-hand bat     
+#326   | Innesh Mahajan             | ACC11  | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#327   | Priyanshu Moliya           | ACC11  | All-Rounder    | India        | ₹30 Lakh   | Right-hand bat    
+#328   | Rudra Patel                | ACC11  | Wicketkeeper   | India        | ₹30 Lakh   | Left-hand bat     
+#329   | Sachin Dhas                | ACC11  | Batter         | India        | ₹30 Lakh   | Right-hand bat    
+#330   | Dhanush Gowda              | ACC11  | Bowler         | India        | ₹30 Lakh   | Left-hand bat     
+#331   | Anshul Kamboj              | ACC11  | Batter         | Sri Lanka    | ₹50 Lakh   | Right-hand bat    
+#332   | Adarsh Singh               | ACC12  | All-Rounder    | England      | ₹50 Lakh   | Right-hand bat    
+#333   | Bas de Leede               | ACC12  | Bowler         | West Indies  | ₹75 Lakh   | Left-hand bat     
+#334   | Logan van Beek             | ACC12  | All-Rounder    | Afghanistan  | ₹50 Lakh   | Right-hand bat    
+#335   | Paul van Meekeren          | ACC12  | Wicketkeeper   | Sri Lanka    | ₹75 Lakh   | Left-hand bat     
+#336   | Max O'Dowd                 | ACC12  | Batter         | Australia    | ₹50 Lakh   | Right-hand bat    
+#337   | Scott Edwards              | ACC12  | Bowler         | England      | ₹75 Lakh   | Left-hand bat     
+#338   | Roelof van der Merwe       | ACC12  | All-Rounder    | South Afric  | ₹50 Lakh   | Right-hand bat    
+#339   | Colin Ackermann            | ACC12  | Wicketkeeper   | New Zealand  | ₹75 Lakh   | Left-hand bat     
+#340   | Teja Nidamanuru            | ACC12  | Batter         | West Indies  | ₹50 Lakh   | Right-hand bat    
+#341   | Aryan Dutt                 | ACC12  | Bowler         | Afghanistan  | ₹75 Lakh   | Left-hand bat     
+#342   | Syb Sybrand                | ACC12  | All-Rounder    | Sri Lanka    | ₹50 Lakh   | Right-hand bat    
+#343   | Gerhard Erasmus            | ACC12  | Wicketkeeper   | Australia    | ₹75 Lakh   | Left-hand bat     
+#344   | Ruben Trumpelmann          | ACC12  | Batter         | England      | ₹50 Lakh   | Right-hand bat    
+#345   | David Wiese                | ACC12  | Bowler         | South Afric  | ₹75 Lakh   | Left-hand bat     
+#346   | Bernard Scholtz            | ACC12  | All-Rounder    | New Zealand  | ₹50 Lakh   | Right-hand bat    
+#347   | JJ Smit                    | ACC12  | Wicketkeeper   | West Indies  | ₹75 Lakh   | Left-hand bat     
+#348   | Jan Frylinck               | ACC12  | Batter         | Afghanistan  | ₹50 Lakh   | Right-hand bat    
+#349   | Michael van Lingen         | ACC12  | Bowler         | Sri Lanka    | ₹75 Lakh   | Left-hand bat     
+#350   | Zane Green                 | ACC12  | All-Rounder    | Australia    | ₹50 Lakh   | Right-hand bat    
+#351   | Tangeni Lungameni          | ACC12  | Wicketkeeper   | England      | ₹75 Lakh   | Left-hand bat     
+#352   | Ben Shikongo               | ACC12  | Batter         | South Afric  | ₹50 Lakh   | Right-hand bat    
+#353   | George Munsey              | ACC12  | Bowler         | New Zealand  | ₹75 Lakh   | Left-hand bat     
+#354   | Richie Berrington          | ACC12  | All-Rounder    | West Indies  | ₹50 Lakh   | Right-hand bat    
+#355   | Matthew Cross              | ACC12  | Wicketkeeper   | Afghanistan  | ₹75 Lakh   | Left-hand bat     
+#356   | Michael Leask              | ACC12  | Batter         | Sri Lanka    | ₹50 Lakh   | Right-hand bat    
+#357   | Mark Watt                  | ACC12  | Bowler         | Australia    | ₹75 Lakh   | Left-hand bat     
+#358   | Safyaan Sharif             | ACC12  | All-Rounder    | England      | ₹50 Lakh   | Right-hand bat    
+#359   | Chris Greaves              | ACC12  | Wicketkeeper   | South Afric  | ₹75 Lakh   | Left-hand bat     
+#360   | Brad Wheal                 | ACC13  | Batter         | New Zealand  | ₹50 Lakh   | Right-hand bat    
+#361   | Brandon McMullen           | ACC13  | Bowler         | West Indies  | ₹75 Lakh   | Left-hand bat     
+#362   | Jack Jarvis                | ACC13  | All-Rounder    | Afghanistan  | ₹50 Lakh   | Right-hand bat    
+#363   | Monank Patel               | ACC13  | Wicketkeeper   | Sri Lanka    | ₹75 Lakh   | Left-hand bat     
+#364   | Steven Taylor              | ACC13  | Batter         | Australia    | ₹50 Lakh   | Right-hand bat    
+#365   | Aaron Jones                | ACC13  | Bowler         | England      | ₹75 Lakh   | Left-hand bat     
+#366   | Saurabh Netravalkar        | ACC13  | All-Rounder    | South Afric  | ₹50 Lakh   | Right-hand bat    
+#367   | Ali Khan                   | ACC13  | Wicketkeeper   | New Zealand  | ₹75 Lakh   | Left-hand bat     
+#368   | Nosthush Kenjige           | ACC13  | Batter         | West Indies  | ₹50 Lakh   | Right-hand bat    
+#369   | Jessy Singh                | ACC13  | Bowler         | Afghanistan  | ₹75 Lakh   | Left-hand bat     
+----------------------------------------------------------------------------------------------------
+
+
+====================================================================================================
+               SECTION 3: ALPHABETICAL INDEX OF ALL 369 PLAYERS (A — Z)
+====================================================================================================
+Player Name                  | Lot #  | Set    | Role           | Country      | Base Price
+----------------------------------------------------------------------------------------------------
+Aaron Hardie                 | #215   | AL3    | All-Rounder    | Australia    | ₹1.25 Cr  
+Aaron Jones                  | #365   | ACC13  | Bowler         | England      | ₹75 Lakh  
+Abdul Samad                  | #261   | ACC8   | All-Rounder    | India        | ₹30 Lakh  
+Abhimanyu Mithun             | #295   | ACC10  | Bowler         | India        | ₹30 Lakh  
+Abhinav Manohar              | #80    | UBA1   | Batter         | India        | ₹30 Lakh  
+Abhishek Sharma              | #305   | ACC10  | All-Rounder    | India        | ₹30 Lakh  
+Adam Milne                   | #220   | FA3    | Bowler         | New Zealand  | ₹1.00 Cr  
+Adam Zampa                   | #74    | SP1    | Bowler         | Australia    | ₹2.00 Cr  
+Adarsh Singh                 | #332   | ACC12  | All-Rounder    | England      | ₹50 Lakh  
+Aiden Markram                | #46    | BA1    | Batter         | South Afric  | ₹2.00 Cr  
+Ajinkya Rahane               | #110   | BA2    | Batter         | India        | ₹1.50 Cr  
+Akash Deep                   | #125   | FA2    | Bowler         | India        | ₹1.00 Cr  
+Akash Madhwal                | #238   | ACC7   | Bowler         | India        | ₹30 Lakh  
+Akash Singh                  | #314   | ACC11  | Batter         | India        | ₹30 Lakh  
+Akash Vashisht               | #260   | ACC8   | Bowler         | India        | ₹30 Lakh  
+Akash Vasisht                | #164   | UAL3   | All-Rounder    | India        | ₹30 Lakh  
+Akeal Hosein                 | #206   | SP3    | Bowler         | West Indies  | ₹1.50 Cr  
+Akshat Raghuwanshi           | #168   | UBA3   | Batter         | India        | ₹30 Lakh  
+Akshdeep Nath                | #302   | ACC10  | Wicketkeeper   | India        | ₹30 Lakh  
+Ali Khan                     | #367   | ACC13  | Wicketkeeper   | New Zealand  | ₹75 Lakh  
+Alzarri Joseph               | #196   | FA3    | Bowler         | West Indies  | ₹1.50 Cr  
+Aman Khan                    | #281   | ACC9   | All-Rounder    | India        | ₹30 Lakh  
+Andre Russell                | #18    | STAR   | All-Rounder    | West Indies  | ₹2.00 Cr  
+Aneeshwar Gautam             | #321   | ACC11  | Bowler         | India        | ₹30 Lakh  
+Angkrish Raghuvanshi         | #76    | UBA1   | Batter         | India        | ₹30 Lakh  
+Ankit Rajpoot                | #137   | FA3    | Bowler         | India        | ₹30 Lakh  
+Anrich Nortje                | #68    | FA1    | Bowler         | South Afric  | ₹2.00 Cr  
+Anshul Kamboj                | #331   | ACC11  | Batter         | Sri Lanka    | ₹50 Lakh  
+Anuj Rawat                   | #90    | UWK1   | Wicketkeeper   | India        | ₹30 Lakh  
+Anukul Roy                   | #264   | ACC8   | All-Rounder    | India        | ₹30 Lakh  
+Aravelly Avanish             | #155   | UWK2   | Wicketkeeper   | India        | ₹30 Lakh  
+Armaan Jaffer                | #304   | ACC10  | Bowler         | India        | ₹30 Lakh  
+Arshad Khan                  | #258   | ACC8   | All-Rounder    | India        | ₹30 Lakh  
+Arshdeep Singh               | #35    | M1     | Bowler         | India        | ₹2.00 Cr  
+Arshin Kulkarni              | #149   | UAL2   | All-Rounder    | India        | ₹30 Lakh  
+Aryan Dutt                   | #341   | ACC12  | Bowler         | Afghanistan  | ₹75 Lakh  
+Aryan Juyal                  | #309   | ACC10  | Bowler         | India        | ₹30 Lakh  
+Ashok Dinda                  | #284   | ACC9   | Bowler         | India        | ₹30 Lakh  
+Ashton Turner                | #213   | BA3    | Batter         | Australia    | ₹1.00 Cr  
+Ashutosh Sharma              | #79    | UBA1   | Batter         | India        | ₹30 Lakh  
+Ashwani Kumar                | #141   | UFA2   | Bowler         | India        | ₹30 Lakh  
+Atharva Ankolekar            | #312   | ACC11  | All-Rounder    | India        | ₹30 Lakh  
+Atharva Taide                | #253   | ACC8   | Batter         | India        | ₹30 Lakh  
+Atit Sheth                   | #162   | UAL3   | All-Rounder    | India        | ₹30 Lakh  
+Avesh Khan                   | #65    | FA1    | Bowler         | India        | ₹2.00 Cr  
+Avinash Rao                  | #276   | ACC9   | Bowler         | India        | ₹30 Lakh  
+Axar Patel                   | #15    | STAR   | All-Rounder    | India        | ₹2.00 Cr  
+Ayush Badoni                 | #272   | ACC9   | Batter         | India        | ₹30 Lakh  
+Ayush Mhatre                 | #75    | UBA1   | Batter         | India        | ₹30 Lakh  
+B Aparajith                  | #160   | UAL3   | All-Rounder    | India        | ₹30 Lakh  
+B Indrajith                  | #159   | UBA3   | Batter         | India        | ₹30 Lakh  
+Baba Aparajith               | #299   | ACC10  | Batter         | India        | ₹30 Lakh  
+Baltej Singh                 | #177   | UFA3   | Bowler         | India        | ₹30 Lakh  
+Barinder Sran                | #234   | FA3    | Bowler         | India        | ₹50 Lakh  
+Bas de Leede                 | #333   | ACC12  | Bowler         | West Indies  | ₹75 Lakh  
+Ben Shikongo                 | #352   | ACC12  | Batter         | South Afric  | ₹50 Lakh  
+Ben Stokes                   | #27    | STAR   | All-Rounder    | England      | ₹2.00 Cr  
+Bernard Scholtz              | #346   | ACC12  | All-Rounder    | New Zealand  | ₹50 Lakh  
+Bhuvneshwar Kumar            | #123   | FA2    | Bowler         | India        | ₹2.00 Cr  
+Bipin Saurabh                | #184   | UWK3   | Wicketkeeper   | India        | ₹30 Lakh  
+Brad Wheal                   | #360   | ACC13  | Batter         | New Zealand  | ₹50 Lakh  
+Brandon McMullen             | #361   | ACC13  | Bowler         | West Indies  | ₹75 Lakh  
+Cameron Green                | #29    | STAR   | All-Rounder    | Australia    | ₹2.00 Cr  
+Chama Milind                 | #163   | UFA3   | Bowler         | India        | ₹30 Lakh  
+Charith Asalanka             | #223   | BA3    | Batter         | Sri Lanka    | ₹75 Lakh  
+Chetan Sakariya              | #134   | FA3    | Bowler         | India        | ₹50 Lakh  
+Chris Greaves                | #359   | ACC12  | Wicketkeeper   | South Afric  | ₹75 Lakh  
+Colin Ackermann              | #339   | ACC12  | Wicketkeeper   | New Zealand  | ₹75 Lakh  
+Daniel Sams                  | #211   | AL3    | All-Rounder    | Australia    | ₹1.00 Cr  
+Daryl Mitchell               | #192   | AL3    | All-Rounder    | New Zealand  | ₹2.00 Cr  
+Dasun Shanaka                | #224   | AL3    | All-Rounder    | Sri Lanka    | ₹75 Lakh  
+David Miller                 | #39    | M2     | Batter         | South Afric  | ₹1.50 Cr  
+David Warner                 | #49    | BA1    | Batter         | Australia    | ₹2.00 Cr  
+David Wiese                  | #345   | ACC12  | Bowler         | South Afric  | ₹75 Lakh  
+Deepak Chahar                | #121   | FA2    | Bowler         | India        | ₹2.00 Cr  
+Deepak Hooda                 | #111   | AL2    | All-Rounder    | India        | ₹75 Lakh  
+Deepak Niwas Hooda           | #301   | ACC10  | All-Rounder    | India        | ₹30 Lakh  
+Devdutt Padikkal             | #47    | BA1    | Batter         | India        | ₹2.00 Cr  
+Devon Conway                 | #44    | BA1    | Batter         | New Zealand  | ₹2.00 Cr  
+Dhanush Gowda                | #330   | ACC11  | Bowler         | India        | ₹30 Lakh  
+Dhawal Kulkarni              | #243   | ACC8   | Wicketkeeper   | India        | ₹30 Lakh  
+Dhrushant Soni               | #174   | UFA3   | Bowler         | India        | ₹30 Lakh  
+Dhruv Jurel                  | #22    | STAR   | Wicketkeeper   | India        | ₹1.50 Cr  
+Dilshan Madushanka           | #225   | FA3    | Bowler         | Sri Lanka    | ₹75 Lakh  
+Dinesh Bana                  | #182   | UWK3   | Wicketkeeper   | India        | ₹30 Lakh  
+Divyansh Joshi               | #315   | ACC11  | Bowler         | India        | ₹30 Lakh  
+Faf du Plessis               | #108   | BA2    | Batter         | South Afric  | ₹2.00 Cr  
+Fazalhaq Farooqi             | #198   | FA3    | Bowler         | Afghanistan  | ₹1.50 Cr  
+Finn Allen                   | #190   | BA3    | Batter         | New Zealand  | ₹2.00 Cr  
+Garv Sangwan                 | #322   | ACC11  | All-Rounder    | India        | ₹30 Lakh  
+George Munsey                | #353   | ACC12  | Bowler         | New Zealand  | ₹75 Lakh  
+Gerhard Erasmus              | #343   | ACC12  | Wicketkeeper   | Australia    | ₹75 Lakh  
+Glenn Maxwell                | #53    | AL1    | All-Rounder    | Australia    | ₹2.00 Cr  
+Glenn Phillips               | #107   | BA2    | All-Rounder    | New Zealand  | ₹2.00 Cr  
+Gurkeerat Singh Mann         | #131   | AL3    | All-Rounder    | India        | ₹50 Lakh  
+Gurnoor Brar                 | #142   | UFA2   | Bowler         | India        | ₹30 Lakh  
+Gus Atkinson                 | #207   | FA3    | Bowler         | England      | ₹2.00 Cr  
+Hardik Pandya                | #5     | STAR   | All-Rounder    | India        | ₹2.00 Cr  
+Harmeet Singh                | #297   | ACC10  | All-Rounder    | India        | ₹30 Lakh  
+Harnoor Singh                | #317   | ACC11  | Wicketkeeper   | India        | ₹30 Lakh  
+Harpreet Brar                | #251   | ACC8   | All-Rounder    | India        | ₹30 Lakh  
+Harry Brook                  | #43    | BA1    | Batter         | England      | ₹2.00 Cr  
+Harsh Tyagi                  | #87    | UAL1   | All-Rounder    | India        | ₹30 Lakh  
+Harshal Patel                | #54    | AL1    | All-Rounder    | India        | ₹2.00 Cr  
+Harshit Rana                 | #266   | ACC9   | Bowler         | India        | ₹30 Lakh  
+Harvik Desai                 | #158   | UWK2   | Wicketkeeper   | India        | ₹30 Lakh  
+Heinrich Klaasen             | #11    | STAR   | Wicketkeeper   | South Afric  | ₹2.00 Cr  
+Himanshu Sharma              | #274   | ACC9   | All-Rounder    | India        | ₹30 Lakh  
+Himmat Singh                 | #165   | UBA3   | Batter         | India        | ₹30 Lakh  
+Hrithik Shokeen              | #259   | ACC8   | All-Rounder    | India        | ₹30 Lakh  
+Innesh Mahajan               | #326   | ACC11  | Batter         | India        | ₹30 Lakh  
+Iqbal Abdulla                | #287   | ACC9   | Batter         | India        | ₹30 Lakh  
+Ish Sodhi                    | #204   | SP3    | Bowler         | New Zealand  | ₹75 Lakh  
+Ishan Kishan                 | #59    | WK1    | Wicketkeeper   | India        | ₹2.00 Cr  
+Ishan Porel                  | #179   | UFA3   | Bowler         | India        | ₹30 Lakh  
+Jack Jarvis                  | #362   | ACC13  | All-Rounder    | Afghanistan  | ₹50 Lakh  
+Jake Fraser-McGurk           | #45    | BA1    | Batter         | Australia    | ₹2.00 Cr  
+Jan Frylinck                 | #348   | ACC12  | Batter         | Afghanistan  | ₹50 Lakh  
+Jason Holder                 | #195   | AL3    | All-Rounder    | West Indies  | ₹2.00 Cr  
+Jasprit Bumrah               | #3     | STAR   | Bowler         | India        | ₹2.00 Cr  
+Jaydev Unadkat               | #235   | FA3    | Bowler         | India        | ₹1.00 Cr  
+Jessy Singh                  | #369   | ACC13  | Bowler         | Afghanistan  | ₹75 Lakh  
+Jhathavedh Subramanyan       | #144   | USP2   | Bowler         | India        | ₹30 Lakh  
+Jhye Richardson              | #200   | FA3    | Bowler         | Australia    | ₹1.50 Cr  
+Jitesh Sharma                | #61    | WK1    | Wicketkeeper   | India        | ₹1.00 Cr  
+JJ Smit                      | #347   | ACC12  | Wicketkeeper   | West Indies  | ₹75 Lakh  
+Joe Root                     | #30    | STAR   | Batter         | England      | ₹1.50 Cr  
+Jofra Archer                 | #28    | STAR   | Bowler         | England      | ₹2.00 Cr  
+Jonny Bairstow               | #56    | WK1    | Wicketkeeper   | England      | ₹2.00 Cr  
+Jos Buttler                  | #31    | M1     | Wicketkeeper   | England      | ₹2.00 Cr  
+Josh Hazlewood               | #64    | FA1    | Bowler         | Australia    | ₹2.00 Cr  
+Kagiso Rabada                | #34    | M1     | Bowler         | South Afric  | ₹2.00 Cr  
+Kamlesh Nagarkoti            | #255   | ACC8   | Bowler         | India        | ₹30 Lakh  
+Kamran Khan                  | #292   | ACC10  | Bowler         | India        | ₹30 Lakh  
+Kane Williamson              | #106   | BA2    | Batter         | New Zealand  | ₹2.00 Cr  
+Karan Sharma                 | #273   | ACC9   | Wicketkeeper   | India        | ₹30 Lakh  
+Karan Shinde                 | #280   | ACC9   | Bowler         | India        | ₹30 Lakh  
+Karn Sharma                  | #126   | SP2    | Bowler         | India        | ₹50 Lakh  
+Kartik Tyagi                 | #256   | ACC8   | Bowler         | India        | ₹30 Lakh  
+Karun Nair                   | #81    | UBA1   | Batter         | India        | ₹30 Lakh  
+Kaushal Tambe                | #323   | ACC11  | Wicketkeeper   | India        | ₹30 Lakh  
+Keshav Maharaj               | #203   | SP3    | Bowler         | South Afric  | ₹75 Lakh  
+Khaleel Ahmed                | #62    | FA1    | Bowler         | India        | ₹2.00 Cr  
+KL Rahul                     | #40    | M2     | Wicketkeeper   | India        | ₹2.00 Cr  
+Krunal Pandya                | #113   | AL2    | All-Rounder    | India        | ₹2.00 Cr  
+KS Bharat                    | #118   | WK2    | Wicketkeeper   | India        | ₹75 Lakh  
+Kuldeep Sen                  | #267   | ACC9   | Bowler         | India        | ₹30 Lakh  
+Kuldeep Yadav                | #16    | STAR   | Bowler         | India        | ₹2.00 Cr  
+Kuldip Yadav                 | #175   | UFA3   | Bowler         | India        | ₹30 Lakh  
+Kulwant Khejroliya           | #178   | UFA3   | Bowler         | India        | ₹30 Lakh  
+Kumar Kartikeya              | #102   | USP1   | Bowler         | India        | ₹30 Lakh  
+Kumar Kushagra               | #88    | UWK1   | Wicketkeeper   | India        | ₹30 Lakh  
+Kusal Mendis                 | #222   | WK3    | Wicketkeeper   | Sri Lanka    | ₹75 Lakh  
+Kyle Mayers                  | #193   | AL3    | All-Rounder    | West Indies  | ₹1.50 Cr  
+Lalit Yadav                  | #230   | AL3    | All-Rounder    | India        | ₹50 Lakh  
+Lance Morris                 | #216   | FA3    | Bowler         | Australia    | ₹75 Lakh  
+Liam Livingstone             | #38    | M2     | All-Rounder    | England      | ₹2.00 Cr  
+Lockie Ferguson              | #122   | FA2    | Bowler         | New Zealand  | ₹2.00 Cr  
+Logan van Beek               | #334   | ACC12  | All-Rounder    | Afghanistan  | ₹50 Lakh  
+Luke Wood                    | #209   | FA3    | Bowler         | England      | ₹75 Lakh  
+Lukman Meriwala              | #161   | UFA3   | Bowler         | India        | ₹30 Lakh  
+Luvnith Sisodia              | #91    | UWK1   | Wicketkeeper   | India        | ₹30 Lakh  
+M Siddharth                  | #104   | USP1   | Bowler         | India        | ₹30 Lakh  
+Maheesh Theekshana           | #72    | SP1    | Bowler         | Sri Lanka    | ₹2.00 Cr  
+Mahipal Lomror               | #83    | UAL1   | All-Rounder    | India        | ₹50 Lakh  
+Manan Vohra                  | #130   | BA3    | Batter         | India        | ₹30 Lakh  
+Manav Suthar                 | #101   | USP1   | Bowler         | India        | ₹30 Lakh  
+Mandeep Singh                | #232   | BA3    | Batter         | India        | ₹50 Lakh  
+Manoj Bhandage               | #138   | UAL2   | All-Rounder    | India        | ₹30 Lakh  
+Manpreet Gony                | #285   | ACC9   | All-Rounder    | India        | ₹30 Lakh  
+Manvinder Bisla              | #289   | ACC10  | Wicketkeeper   | India        | ₹30 Lakh  
+Marco Jansen                 | #116   | AL2    | All-Rounder    | South Afric  | ₹1.25 Cr  
+Marcus Stoinis               | #55    | AL1    | All-Rounder    | Australia    | ₹2.00 Cr  
+Mark Watt                    | #357   | ACC12  | Bowler         | Australia    | ₹75 Lakh  
+Matheesha Pathirana          | #227   | FA3    | Bowler         | Sri Lanka    | ₹2.00 Cr  
+Matt Henry                   | #218   | FA3    | Bowler         | New Zealand  | ₹1.50 Cr  
+Matthew Cross                | #355   | ACC12  | Wicketkeeper   | Afghanistan  | ₹75 Lakh  
+Matthew Short                | #214   | AL3    | All-Rounder    | Australia    | ₹1.50 Cr  
+Max O'Dowd                   | #336   | ACC12  | Batter         | Australia    | ₹50 Lakh  
+Mayank Agarwal               | #109   | BA2    | Batter         | India        | ₹1.00 Cr  
+Mayank Yadav                 | #270   | ACC9   | Bowler         | India        | ₹30 Lakh  
+Michael Bracewell            | #191   | AL3    | All-Rounder    | New Zealand  | ₹1.50 Cr  
+Michael Leask                | #356   | ACC12  | Batter         | Sri Lanka    | ₹50 Lakh  
+Michael van Lingen           | #349   | ACC12  | Bowler         | Sri Lanka    | ₹75 Lakh  
+Mitchell Marsh               | #52    | AL1    | All-Rounder    | Australia    | ₹2.00 Cr  
+Mitchell Starc               | #36    | M1     | Bowler         | Australia    | ₹2.00 Cr  
+Mohammed Shami               | #41    | M2     | Bowler         | India        | ₹2.00 Cr  
+Mohammed Siraj               | #42    | M2     | Bowler         | India        | ₹2.00 Cr  
+Mohit Sharma                 | #236   | FA3    | Bowler         | India        | ₹50 Lakh  
+Mohsin Khan                  | #98    | UFA1   | Bowler         | India        | ₹30 Lakh  
+Monank Patel                 | #363   | ACC13  | Wicketkeeper   | Sri Lanka    | ₹75 Lakh  
+MS Dhoni                     | #4     | STAR   | Wicketkeeper   | India        | ₹2.00 Cr  
+Mujeeb Ur Rahman             | #205   | SP3    | Bowler         | Afghanistan  | ₹2.00 Cr  
+Mukesh Kumar                 | #124   | FA2    | Bowler         | India        | ₹2.00 Cr  
+Murugan Abhishek             | #325   | ACC11  | Wicketkeeper   | India        | ₹30 Lakh  
+Murugan Ashwin               | #136   | SP3    | Bowler         | India        | ₹30 Lakh  
+Musheer Khan                 | #150   | UAL2   | All-Rounder    | India        | ₹30 Lakh  
+Naman Dhir                   | #82    | UAL1   | All-Rounder    | India        | ₹30 Lakh  
+Naman Tiwari                 | #154   | UFA2   | Bowler         | India        | ₹30 Lakh  
+Nathan Ellis                 | #201   | FA3    | Bowler         | Australia    | ₹1.25 Cr  
+Nathu Singh                  | #246   | ACC8   | All-Rounder    | India        | ₹30 Lakh  
+Navdeep Saini                | #268   | ACC9   | Bowler         | India        | ₹30 Lakh  
+Naveen-ul-Haq                | #197   | FA3    | Bowler         | Afghanistan  | ₹2.00 Cr  
+Nehal Wadhera                | #77    | UBA1   | Batter         | India        | ₹30 Lakh  
+Nicholas Pooran              | #14    | STAR   | Wicketkeeper   | West Indies  | ₹2.00 Cr  
+Nishant Sindhu               | #85    | UAL1   | All-Rounder    | India        | ₹30 Lakh  
+Nitish Kumar Reddy           | #263   | ACC8   | All-Rounder    | India        | ₹30 Lakh  
+Nitish Rana                  | #117   | BA2    | Batter         | India        | ₹1.50 Cr  
+Noor Ahmad                   | #69    | SP1    | Bowler         | Afghanistan  | ₹2.00 Cr  
+Nosthush Kenjige             | #368   | ACC13  | Batter         | West Indies  | ₹50 Lakh  
+Nuwan Thushara               | #226   | FA3    | Bowler         | Sri Lanka    | ₹75 Lakh  
+Parvez Rasool                | #244   | ACC8   | Batter         | India        | ₹30 Lakh  
+Pat Cummins                  | #10    | STAR   | All-Rounder    | Australia    | ₹2.00 Cr  
+Pathum Nissanka              | #221   | BA3    | Batter         | Sri Lanka    | ₹75 Lakh  
+Paul Valthaty                | #290   | ACC10  | Batter         | India        | ₹30 Lakh  
+Paul van Meekeren            | #335   | ACC12  | Wicketkeeper   | Sri Lanka    | ₹75 Lakh  
+Pawan Negi                   | #231   | AL3    | All-Rounder    | India        | ₹50 Lakh  
+Pawan Suyal                  | #245   | ACC8   | Bowler         | India        | ₹30 Lakh  
+Phil Salt                    | #60    | WK1    | Wicketkeeper   | England      | ₹2.00 Cr  
+Piyush Chawla                | #135   | SP3    | Bowler         | India        | ₹50 Lakh  
+Prabhsimran Singh            | #250   | ACC8   | Wicketkeeper   | India        | ₹30 Lakh  
+Pradeep Sangwan              | #283   | ACC9   | Batter         | India        | ₹30 Lakh  
+Pradosh Ranjan Paul          | #169   | UBA3   | Batter         | India        | ₹30 Lakh  
+Prasidh Krishna              | #66    | FA1    | Bowler         | India        | ₹2.00 Cr  
+Praveen Kumar                | #282   | ACC9   | Bowler         | India        | ₹30 Lakh  
+Praveen Tambe                | #286   | ACC9   | Bowler         | India        | ₹30 Lakh  
+Pravin Dubey                 | #180   | USP3   | Bowler         | India        | ₹30 Lakh  
+Prerak Mankad                | #129   | UAL2   | All-Rounder    | India        | ₹30 Lakh  
+Prince Choudhary             | #143   | USP2   | Bowler         | India        | ₹30 Lakh  
+Prithvi Shaw                 | #307   | ACC10  | Batter         | India        | ₹30 Lakh  
+Priyam Garg                  | #311   | ACC11  | Batter         | India        | ₹30 Lakh  
+Priyansh Arya                | #148   | UBA2   | Batter         | India        | ₹30 Lakh  
+Priyanshu Moliya             | #327   | ACC11  | All-Rounder    | India        | ₹30 Lakh  
+Pukhraj Mann                 | #278   | ACC9   | Wicketkeeper   | India        | ₹30 Lakh  
+Quinton de Kock              | #57    | WK1    | Wicketkeeper   | South Afric  | ₹2.00 Cr  
+Raghav Goyal                 | #181   | USP3   | Bowler         | India        | ₹30 Lakh  
+Rahmanullah Gurbaz           | #58    | WK1    | Wicketkeeper   | Afghanistan  | ₹2.00 Cr  
+Rahul Chahar                 | #70    | SP1    | Bowler         | India        | ₹1.00 Cr  
+Rahul Tripathi               | #48    | BA1    | Batter         | India        | ₹75 Lakh  
+Raj Angad Bawa               | #319   | ACC11  | Wicketkeeper   | India        | ₹30 Lakh  
+Raj Limbani                  | #153   | UFA2   | Bowler         | India        | ₹30 Lakh  
+Rajan Kumar                  | #275   | ACC9   | Batter         | India        | ₹30 Lakh  
+Rajat Patidar                | #25    | STAR   | Batter         | India        | ₹1.50 Cr  
+Ramandeep Singh              | #84    | UAL1   | All-Rounder    | India        | ₹50 Lakh  
+Rashid Khan                  | #13    | STAR   | Bowler         | Afghanistan  | ₹2.00 Cr  
+Rasikh Salam                 | #95    | UFA1   | Bowler         | India        | ₹30 Lakh  
+Rassie van der Dussen        | #189   | BA3    | Batter         | South Afric  | ₹1.50 Cr  
+Ravi Bishnoi                 | #257   | ACC8   | Bowler         | India        | ₹30 Lakh  
+Ravichandran Ashwin          | #50    | AL1    | All-Rounder    | India        | ₹2.00 Cr  
+Ravindra Jadeja              | #7     | STAR   | All-Rounder    | India        | ₹2.00 Cr  
+Reece Topley                 | #208   | FA3    | Bowler         | England      | ₹1.00 Cr  
+Richie Berrington            | #354   | ACC12  | All-Rounder    | West Indies  | ₹50 Lakh  
+Ricky Bhui                   | #156   | UBA2   | Batter         | India        | ₹30 Lakh  
+Rinku Singh                  | #265   | ACC8   | Batter         | India        | ₹30 Lakh  
+Ripal Patel                  | #157   | UAL2   | All-Rounder    | India        | ₹30 Lakh  
+Rishabh Pant                 | #33    | M1     | Wicketkeeper   | India        | ₹2.00 Cr  
+Rishi Dhawan                 | #239   | ACC8   | All-Rounder    | India        | ₹30 Lakh  
+Riyan Parag                  | #308   | ACC10  | Wicketkeeper   | India        | ₹30 Lakh  
+Robin Minz                   | #89    | UWK1   | Wicketkeeper   | India        | ₹30 Lakh  
+Robin Uthappa                | #242   | ACC8   | All-Rounder    | India        | ₹30 Lakh  
+Roelof van der Merwe         | #338   | ACC12  | All-Rounder    | South Afric  | ₹50 Lakh  
+Rohan Kunnummal              | #147   | UBA2   | Batter         | India        | ₹30 Lakh  
+Rohit Sharma                 | #2     | STAR   | Batter         | India        | ₹2.00 Cr  
+Romario Shepherd             | #194   | AL3    | All-Rounder    | West Indies  | ₹1.50 Cr  
+Rovman Powell                | #187   | BA3    | Batter         | West Indies  | ₹1.50 Cr  
+Ruben Trumpelmann            | #344   | ACC12  | Batter         | England      | ₹50 Lakh  
+Rudra Patel                  | #328   | ACC11  | Wicketkeeper   | India        | ₹30 Lakh  
+Ruturaj Gaikwad              | #8     | STAR   | Batter         | India        | ₹2.00 Cr  
+Ryan Rickelton               | #119   | WK2    | Wicketkeeper   | South Afric  | ₹1.00 Cr  
+Sachin Dhas                  | #329   | ACC11  | Batter         | India        | ₹30 Lakh  
+Safyaan Sharif               | #358   | ACC12  | All-Rounder    | England      | ₹50 Lakh  
+Sai Kishore                  | #127   | SP2    | Bowler         | India        | ₹75 Lakh  
+Sai Sudharsan                | #23    | STAR   | Batter         | India        | ₹1.50 Cr  
+Sam Curran                   | #112   | AL2    | All-Rounder    | England      | ₹2.00 Cr  
+Samarth Vyas                 | #172   | UAL3   | All-Rounder    | India        | ₹30 Lakh  
+Sameer Rizvi                 | #78    | UBA1   | Batter         | India        | ₹30 Lakh  
+Sandeep Sharma               | #132   | FA3    | Bowler         | India        | ₹50 Lakh  
+Sanjay Yadav                 | #173   | UAL3   | All-Rounder    | India        | ₹30 Lakh  
+Sanju Samson                 | #9     | STAR   | Wicketkeeper   | India        | ₹2.00 Cr  
+Sanvir Singh                 | #170   | UAL3   | All-Rounder    | India        | ₹30 Lakh  
+Sarfaraz Khan                | #303   | ACC10  | Batter         | India        | ₹30 Lakh  
+Saumy Pandey                 | #152   | USP2   | Bowler         | India        | ₹30 Lakh  
+Saurabh Netravalkar          | #366   | ACC13  | All-Rounder    | South Afric  | ₹50 Lakh  
+Saurabh Tiwary               | #294   | ACC10  | Batter         | India        | ₹30 Lakh  
+Saurav Chuahan               | #140   | UBA2   | Batter         | India        | ₹30 Lakh  
+Scott Edwards                | #337   | ACC12  | Bowler         | England      | ₹75 Lakh  
+Sean Abbott                  | #212   | AL3    | All-Rounder    | Australia    | ₹2.00 Cr  
+Shadab Jakati                | #288   | ACC9   | Bowler         | India        | ₹30 Lakh  
+Shahbaz Ahmed                | #229   | AL3    | All-Rounder    | India        | ₹1.00 Cr  
+Shahrukh Khan                | #252   | ACC8   | All-Rounder    | India        | ₹30 Lakh  
+Shai Hope                    | #120   | WK2    | Wicketkeeper   | West Indies  | ₹1.25 Cr  
+Shaik Rasheed                | #318   | ACC11  | Batter         | India        | ₹30 Lakh  
+Shardul Thakur               | #115   | AL2    | All-Rounder    | India        | ₹2.00 Cr  
+Shashank Singh               | #249   | ACC8   | Bowler         | India        | ₹30 Lakh  
+Sheldon Jackson              | #186   | UWK3   | Wicketkeeper   | India        | ₹30 Lakh  
+Sherfane Rutherford          | #188   | BA3    | Batter         | West Indies  | ₹1.50 Cr  
+Shimron Hetmyer              | #21    | STAR   | Batter         | West Indies  | ₹2.00 Cr  
+Shivalik Sharma              | #145   | UAL2   | All-Rounder    | India        | ₹30 Lakh  
+Shivam Dube                  | #17    | STAR   | All-Rounder    | India        | ₹2.00 Cr  
+Shivam Mavi                  | #254   | ACC8   | Bowler         | India        | ₹30 Lakh  
+Shreyas Gopal                | #103   | USP1   | All-Rounder    | India        | ₹30 Lakh  
+Shreyas Iyer                 | #32    | M1     | Batter         | India        | ₹2.00 Cr  
+Shubham Garhwal              | #279   | ACC9   | Batter         | India        | ₹30 Lakh  
+Shubman Gill                 | #306   | ACC10  | Wicketkeeper   | India        | ₹30 Lakh  
+Siddarth Kaul                | #233   | FA3    | Bowler         | India        | ₹50 Lakh  
+Siddharth Yadav              | #324   | ACC11  | Batter         | India        | ₹30 Lakh  
+Simarjeet Singh              | #99    | UFA1   | Bowler         | India        | ₹30 Lakh  
+Spencer Johnson              | #199   | FA3    | Bowler         | Australia    | ₹2.00 Cr  
+Sreenath Aravind             | #296   | ACC10  | Bowler         | India        | ₹30 Lakh  
+Steve Smith                  | #26    | STAR   | Batter         | Australia    | ₹2.00 Cr  
+Steven Taylor                | #364   | ACC13  | Batter         | Australia    | ₹50 Lakh  
+Subhranshu Senapati          | #166   | UBA3   | Batter         | India        | ₹30 Lakh  
+Sudhesan Midhun              | #247   | ACC8   | Wicketkeeper   | India        | ₹30 Lakh  
+Sumeet Verma                 | #277   | ACC9   | All-Rounder    | India        | ₹30 Lakh  
+Sumit Kumar                  | #185   | UWK3   | Wicketkeeper   | India        | ₹30 Lakh  
+Sunil Narine                 | #19    | STAR   | All-Rounder    | West Indies  | ₹2.00 Cr  
+Suresh Raina                 | #241   | ACC8   | Batter         | India        | ₹30 Lakh  
+Suryakumar Yadav             | #6     | STAR   | Batter         | India        | ₹2.00 Cr  
+Sushant Mishra               | #313   | ACC11  | Wicketkeeper   | India        | ₹30 Lakh  
+Suyash Prabhudessai          | #128   | UBA2   | Batter         | India        | ₹30 Lakh  
+Suyash Sharma                | #100   | USP1   | Bowler         | India        | ₹30 Lakh  
+Swapnil Asnodkar             | #291   | ACC10  | Batter         | India        | ₹30 Lakh  
+Swapnil Singh                | #139   | UAL2   | All-Rounder    | India        | ₹30 Lakh  
+Swastik Chikara              | #146   | UBA2   | Batter         | India        | ₹30 Lakh  
+Syb Sybrand                  | #342   | ACC12  | All-Rounder    | Sri Lanka    | ₹50 Lakh  
+T Natarajan                  | #67    | FA1    | Bowler         | India        | ₹2.00 Cr  
+Tabraiz Shamsi               | #202   | SP3    | Bowler         | South Afric  | ₹1.00 Cr  
+Tanay Thyagarajan            | #237   | ACC7   | Batter         | India        | ₹30 Lakh  
+Tangeni Lungameni            | #351   | ACC12  | Wicketkeeper   | England      | ₹75 Lakh  
+Tanmay Agarwal               | #167   | UBA3   | Batter         | India        | ₹30 Lakh  
+Tanush Kotian                | #105   | USP1   | All-Rounder    | India        | ₹30 Lakh  
+Teja Nidamanuru              | #340   | ACC12  | Batter         | West Indies  | ₹50 Lakh  
+Tejas Baroka                 | #248   | ACC8   | Batter         | India        | ₹30 Lakh  
+Tilak Varma                  | #24    | STAR   | Batter         | India        | ₹1.50 Cr  
+Tim Southee                  | #219   | FA3    | Bowler         | New Zealand  | ₹1.50 Cr  
+Tirumalasetti Suman          | #293   | ACC10  | All-Rounder    | India        | ₹30 Lakh  
+Tom Curran                   | #210   | AL3    | All-Rounder    | England      | ₹1.50 Cr  
+Travis Head                  | #12    | STAR   | Batter         | Australia    | ₹2.00 Cr  
+Trent Boult                  | #63    | FA1    | Bowler         | New Zealand  | ₹2.00 Cr  
+Uday Saharan                 | #151   | UBA2   | Batter         | India        | ₹30 Lakh  
+Umesh Yadav                  | #133   | FA3    | Bowler         | India        | ₹1.00 Cr  
+Umran Malik                  | #262   | ACC8   | Bowler         | India        | ₹30 Lakh  
+Unmukt Chand                 | #298   | ACC10  | Batter         | USA          | ₹30 Lakh  
+Upendra Yadav                | #183   | UWK3   | Wicketkeeper   | India        | ₹30 Lakh  
+Urvil Patel                  | #93    | UWK1   | Wicketkeeper   | India        | ₹30 Lakh  
+Vaibhav Arora                | #94    | UFA1   | Bowler         | India        | ₹30 Lakh  
+Varun Chakaravarthy          | #20    | STAR   | Bowler         | India        | ₹2.00 Cr  
+Venkatesh Iyer               | #51    | AL1    | All-Rounder    | India        | ₹2.00 Cr  
+Vicky Ostwal                 | #320   | ACC11  | Batter         | India        | ₹30 Lakh  
+Vidwath Kaverappa            | #176   | UFA3   | Bowler         | India        | ₹30 Lakh  
+Vijay Shankar                | #228   | AL3    | All-Rounder    | India        | ₹75 Lakh  
+Vijay Zol                    | #300   | ACC10  | Bowler         | India        | ₹30 Lakh  
+Vijaykumar Vyshak            | #96    | UFA1   | Bowler         | India        | ₹30 Lakh  
+Vipraj Nigam                 | #86    | UAL1   | All-Rounder    | India        | ₹30 Lakh  
+Virat Kohli                  | #1     | STAR   | Batter         | India        | ₹2.00 Cr  
+Vishnu Vinod                 | #92    | UWK1   | Wicketkeeper   | India        | ₹30 Lakh  
+Vivrant Sharma               | #171   | UAL3   | All-Rounder    | India        | ₹30 Lakh  
+Wanindu Hasaranga            | #71    | SP1    | All-Rounder    | Sri Lanka    | ₹2.00 Cr  
+Waqar Salamkheil             | #73    | SP1    | Bowler         | Afghanistan  | ₹75 Lakh  
+Washington Sundar            | #114   | AL2    | All-Rounder    | India        | ₹2.00 Cr  
+Wriddhiman Saha              | #240   | ACC8   | Wicketkeeper   | India        | ₹30 Lakh  
+Xavier Bartlett              | #217   | FA3    | Bowler         | Australia    | ₹75 Lakh  
+Yash Dayal                   | #97    | UFA1   | Bowler         | India        | ₹50 Lakh  
+Yash Dhull                   | #316   | ACC11  | All-Rounder    | India        | ₹30 Lakh  
+Yash Thakur                  | #269   | ACC9   | Bowler         | India        | ₹30 Lakh  
+Yashasvi Jaiswal             | #310   | ACC10  | All-Rounder    | India        | ₹30 Lakh  
+Yudhvir Singh Charak         | #271   | ACC9   | All-Rounder    | India        | ₹30 Lakh  
+Yuzvendra Chahal             | #37    | M2     | Bowler         | India        | ₹2.00 Cr  
+Zane Green                   | #350   | ACC12  | All-Rounder    | Australia    | ₹50 Lakh  
+----------------------------------------------------------------------------------------------------

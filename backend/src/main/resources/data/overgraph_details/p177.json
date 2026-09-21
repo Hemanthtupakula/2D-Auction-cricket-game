@@ -1,0 +1,34 @@
+{
+  "playerId": "p177",
+  "fullName": "Akeal Hosein",
+  "overGraphSlug": "aj-hosein",
+  "matches": 8,
+  "runs": 21,
+  "strikeRate": 161.5,
+  "average": null,
+  "wickets": 9,
+  "economy": 8.3,
+  "highestScore": "16",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 1,
+  "sixes": 1,
+  "catches": 2,
+  "seasonsTimeline": [
+    {
+      "season": "2026",
+      "matches": 8,
+      "runs": 12,
+      "strikeRate": 148.6,
+      "average": null,
+      "wickets": 9
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 88,
+    "consistency": 45,
+    "tempo": 83
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

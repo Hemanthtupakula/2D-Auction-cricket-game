@@ -1,0 +1,97 @@
+{
+  "playerId": "p86",
+  "fullName": "Marco Jansen",
+  "overGraphSlug": "m-jansen",
+  "matches": 49,
+  "runs": 192,
+  "strikeRate": 110.3,
+  "average": 12.8,
+  "wickets": 45,
+  "economy": 9.6,
+  "highestScore": "34",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 9,
+  "sixes": 9,
+  "catches": 26,
+  "seasonsTimeline": [
+    {
+      "season": "2022",
+      "matches": 9,
+      "runs": 23,
+      "strikeRate": 101.5,
+      "average": 11.5,
+      "wickets": 9
+    },
+    {
+      "season": "2023",
+      "matches": 9,
+      "runs": 26,
+      "strikeRate": 103.7,
+      "average": 11.9,
+      "wickets": 9
+    },
+    {
+      "season": "2024",
+      "matches": 9,
+      "runs": 30,
+      "strikeRate": 105.9,
+      "average": 12.3,
+      "wickets": 9
+    },
+    {
+      "season": "2025",
+      "matches": 9,
+      "runs": 34,
+      "strikeRate": 108.1,
+      "average": 12.7,
+      "wickets": 9
+    },
+    {
+      "season": "2026",
+      "matches": 9,
+      "runs": 38,
+      "strikeRate": 110.3,
+      "average": 13.1,
+      "wickets": 9
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#5",
+      "innings": 14,
+      "runs": 57,
+      "average": 10.9,
+      "strikeRate": 115.8,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "34"
+    },
+    {
+      "position": "#6",
+      "innings": 19,
+      "runs": 76,
+      "average": 12.2,
+      "strikeRate": 115.8,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "34"
+    },
+    {
+      "position": "#7",
+      "innings": 14,
+      "runs": 57,
+      "average": 10.9,
+      "strikeRate": 115.8,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "34"
+    }
+  ],
+  "radarMetrics": {
+    "power": 60,
+    "consistency": 40,
+    "tempo": 55
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

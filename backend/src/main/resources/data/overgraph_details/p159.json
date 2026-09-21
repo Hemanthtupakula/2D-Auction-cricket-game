@@ -1,0 +1,81 @@
+{
+  "playerId": "p159",
+  "fullName": "Sherfane Rutherford",
+  "overGraphSlug": "se-rutherford",
+  "matches": 31,
+  "runs": 520,
+  "strikeRate": 142.9,
+  "average": 24.8,
+  "wickets": 1,
+  "economy": 8.6,
+  "highestScore": "71",
+  "fifties": 1,
+  "hundreds": 0,
+  "fours": 30,
+  "sixes": 38,
+  "catches": 7,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 104,
+      "strikeRate": 131.5,
+      "average": 22.3,
+      "wickets": null
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 138,
+      "strikeRate": 136.2,
+      "average": 23.6,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 173,
+      "strikeRate": 141.0,
+      "average": 24.8,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 9,
+      "runs": 156,
+      "average": 21.1,
+      "strikeRate": 140.0,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "71"
+    },
+    {
+      "position": "#4",
+      "innings": 12,
+      "runs": 208,
+      "average": 23.6,
+      "strikeRate": 140.0,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "71"
+    },
+    {
+      "position": "#5",
+      "innings": 9,
+      "runs": 156,
+      "average": 21.1,
+      "strikeRate": 150.0,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "71"
+    }
+  ],
+  "radarMetrics": {
+    "power": 78,
+    "consistency": 44,
+    "tempo": 75
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

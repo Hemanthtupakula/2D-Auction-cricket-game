@@ -1,0 +1,81 @@
+{
+  "playerId": "p300",
+  "fullName": "Priyam Garg",
+  "overGraphSlug": "pk-garg",
+  "matches": 23,
+  "runs": 273,
+  "strikeRate": 113.3,
+  "average": 15.2,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "51",
+  "fifties": 1,
+  "hundreds": 0,
+  "fours": 16,
+  "sixes": 9,
+  "catches": 9,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 7,
+      "runs": 54,
+      "strikeRate": 104.2,
+      "average": 13.7,
+      "wickets": null
+    },
+    {
+      "season": "2025",
+      "matches": 7,
+      "runs": 72,
+      "strikeRate": 108.0,
+      "average": 14.4,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 7,
+      "runs": 91,
+      "strikeRate": 111.8,
+      "average": 15.2,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 6,
+      "runs": 81,
+      "average": 12.9,
+      "strikeRate": 111.0,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "51"
+    },
+    {
+      "position": "#4",
+      "innings": 9,
+      "runs": 109,
+      "average": 14.4,
+      "strikeRate": 111.0,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "51"
+    },
+    {
+      "position": "#5",
+      "innings": 6,
+      "runs": 81,
+      "average": 12.9,
+      "strikeRate": 119.0,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "51"
+    }
+  ],
+  "radarMetrics": {
+    "power": 62,
+    "consistency": 40,
+    "tempo": 57
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

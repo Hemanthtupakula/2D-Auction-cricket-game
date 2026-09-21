@@ -1,0 +1,34 @@
+{
+  "playerId": "p286",
+  "fullName": "Travis Head",
+  "overGraphSlug": "t-head",
+  "matches": 25,
+  "runs": 772,
+  "strikeRate": 178.7,
+  "average": 36.8,
+  "wickets": 2,
+  "economy": 9.8,
+  "highestScore": "102",
+  "fifties": 5,
+  "hundreds": 1,
+  "fours": 88,
+  "sixes": 39,
+  "catches": 9,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 14,
+      "runs": 115,
+      "strikeRate": 178.7,
+      "average": 36.8,
+      "wickets": 2
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 89,
+    "consistency": 73,
+    "tempo": 99
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

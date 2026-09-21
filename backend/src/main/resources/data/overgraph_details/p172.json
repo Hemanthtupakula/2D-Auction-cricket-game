@@ -1,0 +1,42 @@
+{
+  "playerId": "p172",
+  "fullName": "Nathan Ellis",
+  "overGraphSlug": "nt-ellis",
+  "matches": 17,
+  "runs": 19,
+  "strikeRate": 76.0,
+  "average": 4.8,
+  "wickets": 19,
+  "economy": 8.7,
+  "highestScore": "12",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 0,
+  "sixes": 1,
+  "catches": 1,
+  "seasonsTimeline": [
+    {
+      "season": "2025",
+      "matches": 8,
+      "runs": 5,
+      "strikeRate": 69.9,
+      "average": 4.3,
+      "wickets": 9
+    },
+    {
+      "season": "2026",
+      "matches": 8,
+      "runs": 9,
+      "strikeRate": 73.7,
+      "average": 4.7,
+      "wickets": 9
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 41,
+    "consistency": 40,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

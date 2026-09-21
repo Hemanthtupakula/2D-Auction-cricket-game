@@ -1,0 +1,122 @@
+{
+  "playerId": "p11",
+  "fullName": "Mohammed Shami",
+  "overGraphSlug": "mohammed-shami",
+  "matches": 132,
+  "runs": 115,
+  "strikeRate": 103.6,
+  "average": 6.0,
+  "wickets": 145,
+  "economy": 8.7,
+  "highestScore": "21",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 9,
+  "sixes": 5,
+  "catches": 22,
+  "seasonsTimeline": [
+    {
+      "season": "2015",
+      "matches": 11,
+      "runs": 5,
+      "strikeRate": 95.3,
+      "average": 5.4,
+      "wickets": 12
+    },
+    {
+      "season": "2016",
+      "matches": 11,
+      "runs": 6,
+      "strikeRate": 96.2,
+      "average": 5.5,
+      "wickets": 12
+    },
+    {
+      "season": "2017",
+      "matches": 11,
+      "runs": 6,
+      "strikeRate": 97.0,
+      "average": 5.6,
+      "wickets": 12
+    },
+    {
+      "season": "2018",
+      "matches": 11,
+      "runs": 6,
+      "strikeRate": 97.9,
+      "average": 5.6,
+      "wickets": 12
+    },
+    {
+      "season": "2019",
+      "matches": 11,
+      "runs": 7,
+      "strikeRate": 98.8,
+      "average": 5.7,
+      "wickets": 12
+    },
+    {
+      "season": "2020",
+      "matches": 11,
+      "runs": 7,
+      "strikeRate": 99.6,
+      "average": 5.8,
+      "wickets": 12
+    },
+    {
+      "season": "2021",
+      "matches": 11,
+      "runs": 7,
+      "strikeRate": 100.5,
+      "average": 5.8,
+      "wickets": 12
+    },
+    {
+      "season": "2022",
+      "matches": 11,
+      "runs": 8,
+      "strikeRate": 101.4,
+      "average": 5.9,
+      "wickets": 12
+    },
+    {
+      "season": "2023",
+      "matches": 11,
+      "runs": 8,
+      "strikeRate": 102.2,
+      "average": 6.0,
+      "wickets": 12
+    },
+    {
+      "season": "2024",
+      "matches": 11,
+      "runs": 8,
+      "strikeRate": 103.1,
+      "average": 6.1,
+      "wickets": 12
+    },
+    {
+      "season": "2025",
+      "matches": 11,
+      "runs": 9,
+      "strikeRate": 103.9,
+      "average": 6.1,
+      "wickets": 12
+    },
+    {
+      "season": "2026",
+      "matches": 11,
+      "runs": 9,
+      "strikeRate": 104.8,
+      "average": 6.2,
+      "wickets": 12
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 56,
+    "consistency": 40,
+    "tempo": 49
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

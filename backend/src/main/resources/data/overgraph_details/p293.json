@@ -1,0 +1,42 @@
+{
+  "playerId": "p293",
+  "fullName": "Kamlesh Nagarkoti",
+  "overGraphSlug": "kl-nagarkoti",
+  "matches": 12,
+  "runs": 22,
+  "strikeRate": 66.7,
+  "average": 5.5,
+  "wickets": 5,
+  "economy": 9.5,
+  "highestScore": "8",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 1,
+  "sixes": 0,
+  "catches": 4,
+  "seasonsTimeline": [
+    {
+      "season": "2025",
+      "matches": 6,
+      "runs": 6,
+      "strikeRate": 61.4,
+      "average": 5.0,
+      "wickets": 2
+    },
+    {
+      "season": "2026",
+      "matches": 6,
+      "runs": 11,
+      "strikeRate": 64.7,
+      "average": 5.4,
+      "wickets": 2
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 40,
+    "consistency": 40,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

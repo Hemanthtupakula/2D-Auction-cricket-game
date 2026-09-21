@@ -1,0 +1,34 @@
+{
+  "playerId": "p289",
+  "fullName": "Axar Patel",
+  "overGraphSlug": "a-patel",
+  "matches": 150,
+  "runs": 1653,
+  "strikeRate": 130.8,
+  "average": 21.5,
+  "wickets": 123,
+  "economy": 7.24,
+  "highestScore": "66",
+  "fifties": 3,
+  "hundreds": 0,
+  "fours": 115,
+  "sixes": 68,
+  "catches": 71,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 14,
+      "runs": 247,
+      "strikeRate": 130.8,
+      "average": 21.5,
+      "wickets": 123
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 65,
+    "consistency": 43,
+    "tempo": 75
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

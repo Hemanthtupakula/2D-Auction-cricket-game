@@ -1,0 +1,153 @@
+{
+  "playerId": "p214",
+  "fullName": "Robin Uthappa",
+  "overGraphSlug": "rv-uthappa",
+  "matches": 205,
+  "runs": 4952,
+  "strikeRate": 130.4,
+  "average": 27.5,
+  "wickets": 0,
+  "economy": 0.0,
+  "highestScore": "88",
+  "fifties": 27,
+  "hundreds": 0,
+  "fours": 481,
+  "sixes": 182,
+  "catches": 92,
+  "seasonsTimeline": [
+    {
+      "season": "2015",
+      "matches": 17,
+      "runs": 247,
+      "strikeRate": 120.0,
+      "average": 24.8,
+      "wickets": null
+    },
+    {
+      "season": "2016",
+      "matches": 17,
+      "runs": 262,
+      "strikeRate": 121.1,
+      "average": 25.1,
+      "wickets": null
+    },
+    {
+      "season": "2017",
+      "matches": 17,
+      "runs": 277,
+      "strikeRate": 122.1,
+      "average": 25.4,
+      "wickets": null
+    },
+    {
+      "season": "2018",
+      "matches": 17,
+      "runs": 292,
+      "strikeRate": 123.2,
+      "average": 25.8,
+      "wickets": null
+    },
+    {
+      "season": "2019",
+      "matches": 17,
+      "runs": 307,
+      "strikeRate": 124.3,
+      "average": 26.1,
+      "wickets": null
+    },
+    {
+      "season": "2020",
+      "matches": 17,
+      "runs": 322,
+      "strikeRate": 125.4,
+      "average": 26.5,
+      "wickets": null
+    },
+    {
+      "season": "2021",
+      "matches": 17,
+      "runs": 337,
+      "strikeRate": 126.5,
+      "average": 26.8,
+      "wickets": null
+    },
+    {
+      "season": "2022",
+      "matches": 17,
+      "runs": 352,
+      "strikeRate": 127.6,
+      "average": 27.2,
+      "wickets": null
+    },
+    {
+      "season": "2023",
+      "matches": 17,
+      "runs": 367,
+      "strikeRate": 128.7,
+      "average": 27.5,
+      "wickets": null
+    },
+    {
+      "season": "2024",
+      "matches": 17,
+      "runs": 382,
+      "strikeRate": 129.7,
+      "average": 27.8,
+      "wickets": null
+    },
+    {
+      "season": "2025",
+      "matches": 17,
+      "runs": 397,
+      "strikeRate": 130.8,
+      "average": 28.2,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 17,
+      "runs": 412,
+      "strikeRate": 131.9,
+      "average": 28.5,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#5",
+      "innings": 61,
+      "runs": 1485,
+      "average": 23.4,
+      "strikeRate": 136.9,
+      "fifties": 8,
+      "hundreds": 0,
+      "highestScore": "88"
+    },
+    {
+      "position": "#6",
+      "innings": 82,
+      "runs": 1980,
+      "average": 26.1,
+      "strikeRate": 136.9,
+      "fifties": 10,
+      "hundreds": 0,
+      "highestScore": "88"
+    },
+    {
+      "position": "#7",
+      "innings": 61,
+      "runs": 1485,
+      "average": 23.4,
+      "strikeRate": 136.9,
+      "fifties": 8,
+      "hundreds": 0,
+      "highestScore": "88"
+    }
+  ],
+  "radarMetrics": {
+    "power": 71,
+    "consistency": 49,
+    "tempo": 71
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

@@ -1,0 +1,122 @@
+{
+  "playerId": "p33",
+  "fullName": "Trent Boult",
+  "overGraphSlug": "ta-boult",
+  "matches": 124,
+  "runs": 93,
+  "strikeRate": 109.4,
+  "average": 9.3,
+  "wickets": 145,
+  "economy": 8.5,
+  "highestScore": "17",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 5,
+  "sixes": 4,
+  "catches": 33,
+  "seasonsTimeline": [
+    {
+      "season": "2015",
+      "matches": 10,
+      "runs": 4,
+      "strikeRate": 100.6,
+      "average": 8.4,
+      "wickets": 12
+    },
+    {
+      "season": "2016",
+      "matches": 10,
+      "runs": 4,
+      "strikeRate": 101.6,
+      "average": 8.5,
+      "wickets": 12
+    },
+    {
+      "season": "2017",
+      "matches": 10,
+      "runs": 5,
+      "strikeRate": 102.5,
+      "average": 8.6,
+      "wickets": 12
+    },
+    {
+      "season": "2018",
+      "matches": 10,
+      "runs": 5,
+      "strikeRate": 103.4,
+      "average": 8.7,
+      "wickets": 12
+    },
+    {
+      "season": "2019",
+      "matches": 10,
+      "runs": 5,
+      "strikeRate": 104.3,
+      "average": 8.8,
+      "wickets": 12
+    },
+    {
+      "season": "2020",
+      "matches": 10,
+      "runs": 6,
+      "strikeRate": 105.2,
+      "average": 9.0,
+      "wickets": 12
+    },
+    {
+      "season": "2021",
+      "matches": 10,
+      "runs": 6,
+      "strikeRate": 106.1,
+      "average": 9.1,
+      "wickets": 12
+    },
+    {
+      "season": "2022",
+      "matches": 10,
+      "runs": 6,
+      "strikeRate": 107.0,
+      "average": 9.2,
+      "wickets": 12
+    },
+    {
+      "season": "2023",
+      "matches": 10,
+      "runs": 6,
+      "strikeRate": 107.9,
+      "average": 9.3,
+      "wickets": 12
+    },
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 7,
+      "strikeRate": 108.9,
+      "average": 9.4,
+      "wickets": 12
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 7,
+      "strikeRate": 109.8,
+      "average": 9.5,
+      "wickets": 12
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 7,
+      "strikeRate": 110.7,
+      "average": 9.6,
+      "wickets": 12
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 60,
+    "consistency": 40,
+    "tempo": 53
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

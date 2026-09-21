@@ -1,0 +1,73 @@
+{
+  "playerId": "p164",
+  "fullName": "Kyle Mayers",
+  "overGraphSlug": "kr-mayers",
+  "matches": 13,
+  "runs": 379,
+  "strikeRate": 144.1,
+  "average": 29.1,
+  "wickets": 0,
+  "economy": 8.4,
+  "highestScore": "73",
+  "fifties": 4,
+  "hundreds": 0,
+  "fours": 38,
+  "sixes": 22,
+  "catches": 2,
+  "seasonsTimeline": [
+    {
+      "season": "2025",
+      "matches": 6,
+      "runs": 113,
+      "strikeRate": 132.6,
+      "average": 26.2,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 6,
+      "runs": 189,
+      "strikeRate": 139.8,
+      "average": 28.4,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#5",
+      "innings": 3,
+      "runs": 113,
+      "average": 24.7,
+      "strikeRate": 151.3,
+      "fifties": 1,
+      "hundreds": 0,
+      "highestScore": "73"
+    },
+    {
+      "position": "#6",
+      "innings": 5,
+      "runs": 151,
+      "average": 27.6,
+      "strikeRate": 151.3,
+      "fifties": 1,
+      "hundreds": 0,
+      "highestScore": "73"
+    },
+    {
+      "position": "#7",
+      "innings": 3,
+      "runs": 113,
+      "average": 24.7,
+      "strikeRate": 151.3,
+      "fifties": 1,
+      "hundreds": 0,
+      "highestScore": "73"
+    }
+  ],
+  "radarMetrics": {
+    "power": 79,
+    "consistency": 52,
+    "tempo": 77
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

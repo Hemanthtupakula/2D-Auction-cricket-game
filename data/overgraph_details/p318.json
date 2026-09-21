@@ -1,0 +1,34 @@
+{
+  "playerId": "p318",
+  "fullName": "Tilak Varma",
+  "overGraphSlug": "t-varma",
+  "matches": 38,
+  "runs": 1156,
+  "strikeRate": 146.3,
+  "average": 39.9,
+  "wickets": 0,
+  "economy": null,
+  "highestScore": "84*",
+  "fifties": 6,
+  "hundreds": 0,
+  "fours": 90,
+  "sixes": 55,
+  "catches": 24,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 14,
+      "runs": 173,
+      "strikeRate": 146.3,
+      "average": 39.9,
+      "wickets": 0
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 73,
+    "consistency": 79,
+    "tempo": 83
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

@@ -1,0 +1,58 @@
+{
+  "playerId": "p277",
+  "fullName": "Sreenath Aravind",
+  "overGraphSlug": "s-aravind",
+  "matches": 38,
+  "runs": 59,
+  "strikeRate": 103.5,
+  "average": 19.7,
+  "wickets": 45,
+  "economy": 8.2,
+  "highestScore": "14",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 7,
+  "sixes": 0,
+  "catches": 5,
+  "seasonsTimeline": [
+    {
+      "season": "2023",
+      "matches": 9,
+      "runs": 8,
+      "strikeRate": 95.2,
+      "average": 17.7,
+      "wickets": 11
+    },
+    {
+      "season": "2024",
+      "matches": 9,
+      "runs": 10,
+      "strikeRate": 97.8,
+      "average": 18.5,
+      "wickets": 11
+    },
+    {
+      "season": "2025",
+      "matches": 9,
+      "runs": 12,
+      "strikeRate": 100.4,
+      "average": 19.2,
+      "wickets": 11
+    },
+    {
+      "season": "2026",
+      "matches": 9,
+      "runs": 14,
+      "strikeRate": 103.0,
+      "average": 19.9,
+      "wickets": 11
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 56,
+    "consistency": 40,
+    "tempo": 55
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

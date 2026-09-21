@@ -1,0 +1,106 @@
+{
+  "playerId": "p4",
+  "fullName": "Kagiso Rabada",
+  "overGraphSlug": "k-rabada",
+  "matches": 101,
+  "runs": 262,
+  "strikeRate": 109.6,
+  "average": 13.8,
+  "wickets": 148,
+  "economy": 8.8,
+  "highestScore": "44",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 21,
+  "sixes": 11,
+  "catches": 31,
+  "seasonsTimeline": [
+    {
+      "season": "2017",
+      "matches": 10,
+      "runs": 15,
+      "strikeRate": 100.8,
+      "average": 12.4,
+      "wickets": 14
+    },
+    {
+      "season": "2018",
+      "matches": 10,
+      "runs": 16,
+      "strikeRate": 101.9,
+      "average": 12.6,
+      "wickets": 14
+    },
+    {
+      "season": "2019",
+      "matches": 10,
+      "runs": 18,
+      "strikeRate": 103.0,
+      "average": 12.8,
+      "wickets": 14
+    },
+    {
+      "season": "2020",
+      "matches": 10,
+      "runs": 19,
+      "strikeRate": 104.1,
+      "average": 13.0,
+      "wickets": 14
+    },
+    {
+      "season": "2021",
+      "matches": 10,
+      "runs": 20,
+      "strikeRate": 105.2,
+      "average": 13.2,
+      "wickets": 14
+    },
+    {
+      "season": "2022",
+      "matches": 10,
+      "runs": 21,
+      "strikeRate": 106.3,
+      "average": 13.5,
+      "wickets": 14
+    },
+    {
+      "season": "2023",
+      "matches": 10,
+      "runs": 22,
+      "strikeRate": 107.4,
+      "average": 13.7,
+      "wickets": 14
+    },
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 23,
+      "strikeRate": 108.5,
+      "average": 13.9,
+      "wickets": 14
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 25,
+      "strikeRate": 109.6,
+      "average": 14.1,
+      "wickets": 14
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 26,
+      "strikeRate": 110.7,
+      "average": 14.3,
+      "wickets": 14
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 60,
+    "consistency": 40,
+    "tempo": 55
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

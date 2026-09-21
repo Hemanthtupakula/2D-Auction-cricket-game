@@ -1,0 +1,65 @@
+{
+  "playerId": "p75",
+  "fullName": "Tanush Kotian",
+  "overGraphSlug": "tanush-kotian",
+  "matches": 1,
+  "runs": 24,
+  "strikeRate": 77.4,
+  "average": 24.0,
+  "wickets": 0,
+  "economy": 0.0,
+  "highestScore": "24",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 3,
+  "sixes": 0,
+  "catches": 0,
+  "seasonsTimeline": [
+    {
+      "season": "2026",
+      "matches": 1,
+      "runs": 14,
+      "strikeRate": 71.2,
+      "average": 21.6,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#5",
+      "innings": 1,
+      "runs": 7,
+      "average": 20.4,
+      "strikeRate": 81.3,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "24"
+    },
+    {
+      "position": "#6",
+      "innings": 1,
+      "runs": 9,
+      "average": 22.8,
+      "strikeRate": 81.3,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "24"
+    },
+    {
+      "position": "#7",
+      "innings": 1,
+      "runs": 7,
+      "average": 20.4,
+      "strikeRate": 81.3,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "24"
+    }
+  ],
+  "radarMetrics": {
+    "power": 42,
+    "consistency": 43,
+    "tempo": 45
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

@@ -1,0 +1,34 @@
+{
+  "playerId": "p225",
+  "fullName": "Atharva Taide",
+  "overGraphSlug": "atharva-taide",
+  "matches": 10,
+  "runs": 260,
+  "strikeRate": 146.9,
+  "average": 26.0,
+  "wickets": 0,
+  "economy": 24.0,
+  "highestScore": "66",
+  "fifties": 2,
+  "hundreds": 0,
+  "fours": 30,
+  "sixes": 8,
+  "catches": 5,
+  "seasonsTimeline": [
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 156,
+      "strikeRate": 135.1,
+      "average": 23.4,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 80,
+    "consistency": 46,
+    "tempo": 77
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

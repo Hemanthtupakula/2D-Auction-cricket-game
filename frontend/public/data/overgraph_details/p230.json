@@ -1,0 +1,81 @@
+{
+  "playerId": "p230",
+  "fullName": "Arshad Khan",
+  "overGraphSlug": "arshad-khan",
+  "matches": 26,
+  "runs": 142,
+  "strikeRate": 149.5,
+  "average": 23.7,
+  "wickets": 18,
+  "economy": 11.0,
+  "highestScore": "58",
+  "fifties": 1,
+  "hundreds": 0,
+  "fours": 6,
+  "sixes": 11,
+  "catches": 8,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 8,
+      "runs": 28,
+      "strikeRate": 137.5,
+      "average": 21.3,
+      "wickets": 6
+    },
+    {
+      "season": "2025",
+      "matches": 8,
+      "runs": 37,
+      "strikeRate": 142.5,
+      "average": 22.5,
+      "wickets": 6
+    },
+    {
+      "season": "2026",
+      "matches": 8,
+      "runs": 47,
+      "strikeRate": 147.5,
+      "average": 23.7,
+      "wickets": 6
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#5",
+      "innings": 7,
+      "runs": 42,
+      "average": 20.1,
+      "strikeRate": 157.0,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "58"
+    },
+    {
+      "position": "#6",
+      "innings": 10,
+      "runs": 56,
+      "average": 22.5,
+      "strikeRate": 157.0,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "58"
+    },
+    {
+      "position": "#7",
+      "innings": 7,
+      "runs": 42,
+      "average": 20.1,
+      "strikeRate": 157.0,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "58"
+    }
+  ],
+  "radarMetrics": {
+    "power": 82,
+    "consistency": 42,
+    "tempo": 77
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

@@ -1,0 +1,50 @@
+{
+  "playerId": "p44",
+  "fullName": "Adam Zampa",
+  "overGraphSlug": "a-zampa",
+  "matches": 22,
+  "runs": 15,
+  "strikeRate": 62.5,
+  "average": 3.0,
+  "wickets": 31,
+  "economy": 8.4,
+  "highestScore": "7",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 1,
+  "sixes": 0,
+  "catches": 1,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 7,
+      "runs": 3,
+      "strikeRate": 57.5,
+      "average": 2.7,
+      "wickets": 10
+    },
+    {
+      "season": "2025",
+      "matches": 7,
+      "runs": 4,
+      "strikeRate": 59.6,
+      "average": 2.9,
+      "wickets": 10
+    },
+    {
+      "season": "2026",
+      "matches": 7,
+      "runs": 5,
+      "strikeRate": 61.7,
+      "average": 3.0,
+      "wickets": 10
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 40,
+    "consistency": 40,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

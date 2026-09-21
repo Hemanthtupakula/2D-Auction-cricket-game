@@ -1,0 +1,66 @@
+{
+  "playerId": "p38",
+  "fullName": "Anrich Nortje",
+  "overGraphSlug": "a-nortje",
+  "matches": 49,
+  "runs": 49,
+  "strikeRate": 98.0,
+  "average": 7.0,
+  "wickets": 61,
+  "economy": 9.1,
+  "highestScore": "23",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 6,
+  "sixes": 0,
+  "catches": 10,
+  "seasonsTimeline": [
+    {
+      "season": "2022",
+      "matches": 9,
+      "runs": 5,
+      "strikeRate": 90.2,
+      "average": 6.3,
+      "wickets": 12
+    },
+    {
+      "season": "2023",
+      "matches": 9,
+      "runs": 6,
+      "strikeRate": 92.1,
+      "average": 6.5,
+      "wickets": 12
+    },
+    {
+      "season": "2024",
+      "matches": 9,
+      "runs": 7,
+      "strikeRate": 94.1,
+      "average": 6.7,
+      "wickets": 12
+    },
+    {
+      "season": "2025",
+      "matches": 9,
+      "runs": 8,
+      "strikeRate": 96.0,
+      "average": 6.9,
+      "wickets": 12
+    },
+    {
+      "season": "2026",
+      "matches": 9,
+      "runs": 9,
+      "strikeRate": 98.0,
+      "average": 7.1,
+      "wickets": 12
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 53,
+    "consistency": 40,
+    "tempo": 47
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

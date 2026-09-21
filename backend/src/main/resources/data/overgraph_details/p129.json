@@ -1,0 +1,65 @@
+{
+  "playerId": "p129",
+  "fullName": "B Indrajith",
+  "overGraphSlug": "b-indrajith",
+  "matches": 3,
+  "runs": 21,
+  "strikeRate": 70.0,
+  "average": 7.0,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "15",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 2,
+  "sixes": 0,
+  "catches": 1,
+  "seasonsTimeline": [
+    {
+      "season": "2026",
+      "matches": 3,
+      "runs": 12,
+      "strikeRate": 64.4,
+      "average": 6.3,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 1,
+      "runs": 6,
+      "average": 6.0,
+      "strikeRate": 68.6,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "15"
+    },
+    {
+      "position": "#4",
+      "innings": 1,
+      "runs": 8,
+      "average": 6.6,
+      "strikeRate": 68.6,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "15"
+    },
+    {
+      "position": "#5",
+      "innings": 1,
+      "runs": 6,
+      "average": 6.0,
+      "strikeRate": 73.5,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "15"
+    }
+  ],
+  "radarMetrics": {
+    "power": 40,
+    "consistency": 40,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

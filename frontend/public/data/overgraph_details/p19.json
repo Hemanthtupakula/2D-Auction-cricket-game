@@ -1,0 +1,163 @@
+{
+  "playerId": "p19",
+  "fullName": "David Warner",
+  "overGraphSlug": "da-warner",
+  "matches": 184,
+  "runs": 6565,
+  "strikeRate": 139.8,
+  "average": 40.5,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "126",
+  "fifties": 62,
+  "hundreds": 4,
+  "fours": 663,
+  "sixes": 236,
+  "catches": 86,
+  "seasonsTimeline": [
+    {
+      "season": "2015",
+      "matches": 15,
+      "runs": 328,
+      "strikeRate": 128.6,
+      "average": 36.5,
+      "wickets": null
+    },
+    {
+      "season": "2016",
+      "matches": 15,
+      "runs": 348,
+      "strikeRate": 129.8,
+      "average": 37.0,
+      "wickets": null
+    },
+    {
+      "season": "2017",
+      "matches": 15,
+      "runs": 368,
+      "strikeRate": 130.9,
+      "average": 37.5,
+      "wickets": null
+    },
+    {
+      "season": "2018",
+      "matches": 15,
+      "runs": 387,
+      "strikeRate": 132.1,
+      "average": 38.0,
+      "wickets": null
+    },
+    {
+      "season": "2019",
+      "matches": 15,
+      "runs": 407,
+      "strikeRate": 133.3,
+      "average": 38.5,
+      "wickets": null
+    },
+    {
+      "season": "2020",
+      "matches": 15,
+      "runs": 427,
+      "strikeRate": 134.4,
+      "average": 39.0,
+      "wickets": null
+    },
+    {
+      "season": "2021",
+      "matches": 15,
+      "runs": 447,
+      "strikeRate": 135.6,
+      "average": 39.5,
+      "wickets": null
+    },
+    {
+      "season": "2022",
+      "matches": 15,
+      "runs": 467,
+      "strikeRate": 136.8,
+      "average": 40.0,
+      "wickets": null
+    },
+    {
+      "season": "2023",
+      "matches": 15,
+      "runs": 487,
+      "strikeRate": 137.9,
+      "average": 40.5,
+      "wickets": null
+    },
+    {
+      "season": "2024",
+      "matches": 15,
+      "runs": 507,
+      "strikeRate": 139.1,
+      "average": 41.0,
+      "wickets": null
+    },
+    {
+      "season": "2025",
+      "matches": 15,
+      "runs": 527,
+      "strikeRate": 140.3,
+      "average": 41.5,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 15,
+      "runs": 547,
+      "strikeRate": 141.4,
+      "average": 42.0,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#1",
+      "innings": 73,
+      "runs": 2626,
+      "average": 38.5,
+      "strikeRate": 137.0,
+      "fifties": 24,
+      "hundreds": 1,
+      "highestScore": "126"
+    },
+    {
+      "position": "#2",
+      "innings": 73,
+      "runs": 2626,
+      "average": 38.5,
+      "strikeRate": 137.0,
+      "fifties": 24,
+      "hundreds": 1,
+      "highestScore": "126"
+    },
+    {
+      "position": "#3",
+      "innings": 27,
+      "runs": 984,
+      "average": 34.4,
+      "strikeRate": 137.0,
+      "fifties": 9,
+      "hundreds": 0,
+      "highestScore": "126"
+    },
+    {
+      "position": "#4",
+      "innings": 9,
+      "runs": 328,
+      "average": 34.4,
+      "strikeRate": 137.0,
+      "fifties": 3,
+      "hundreds": 0,
+      "highestScore": "126"
+    }
+  ],
+  "radarMetrics": {
+    "power": 76,
+    "consistency": 72,
+    "tempo": 81
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

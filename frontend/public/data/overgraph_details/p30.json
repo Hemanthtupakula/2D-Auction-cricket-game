@@ -1,0 +1,99 @@
+{
+  "playerId": "p30",
+  "fullName": "Phil Salt",
+  "overGraphSlug": "pd-salt",
+  "matches": 40,
+  "runs": 1258,
+  "strikeRate": 174.5,
+  "average": 34.0,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "89",
+  "fifties": 12,
+  "hundreds": 0,
+  "fours": 138,
+  "sixes": 67,
+  "catches": 32,
+  "seasonsTimeline": [
+    {
+      "season": "2023",
+      "matches": 10,
+      "runs": 188,
+      "strikeRate": 160.5,
+      "average": 30.6,
+      "wickets": null
+    },
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 230,
+      "strikeRate": 164.9,
+      "average": 31.9,
+      "wickets": null
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 272,
+      "strikeRate": 169.3,
+      "average": 33.1,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 314,
+      "strikeRate": 173.6,
+      "average": 34.4,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 8,
+      "runs": 251,
+      "average": 28.9,
+      "strikeRate": 171.0,
+      "fifties": 2,
+      "hundreds": 0,
+      "highestScore": "89"
+    },
+    {
+      "position": "#4",
+      "innings": 16,
+      "runs": 503,
+      "average": 32.3,
+      "strikeRate": 171.0,
+      "fifties": 4,
+      "hundreds": 0,
+      "highestScore": "89"
+    },
+    {
+      "position": "#5",
+      "innings": 12,
+      "runs": 377,
+      "average": 28.9,
+      "strikeRate": 183.2,
+      "fifties": 3,
+      "hundreds": 0,
+      "highestScore": "89"
+    },
+    {
+      "position": "#6",
+      "innings": 4,
+      "runs": 125,
+      "average": 28.9,
+      "strikeRate": 183.2,
+      "fifties": 1,
+      "hundreds": 0,
+      "highestScore": "89"
+    }
+  ],
+  "radarMetrics": {
+    "power": 95,
+    "consistency": 61,
+    "tempo": 93
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

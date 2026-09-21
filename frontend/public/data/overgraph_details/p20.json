@@ -1,0 +1,153 @@
+{
+  "playerId": "p20",
+  "fullName": "Ravichandran Ashwin",
+  "overGraphSlug": "r-ashwin",
+  "matches": 219,
+  "runs": 833,
+  "strikeRate": 118.2,
+  "average": 13.2,
+  "wickets": 187,
+  "economy": 7.2,
+  "highestScore": "50",
+  "fifties": 1,
+  "hundreds": 0,
+  "fours": 64,
+  "sixes": 29,
+  "catches": 44,
+  "seasonsTimeline": [
+    {
+      "season": "2015",
+      "matches": 18,
+      "runs": 41,
+      "strikeRate": 108.7,
+      "average": 11.9,
+      "wickets": 15
+    },
+    {
+      "season": "2016",
+      "matches": 18,
+      "runs": 44,
+      "strikeRate": 109.7,
+      "average": 12.0,
+      "wickets": 15
+    },
+    {
+      "season": "2017",
+      "matches": 18,
+      "runs": 46,
+      "strikeRate": 110.7,
+      "average": 12.2,
+      "wickets": 15
+    },
+    {
+      "season": "2018",
+      "matches": 18,
+      "runs": 49,
+      "strikeRate": 111.7,
+      "average": 12.4,
+      "wickets": 15
+    },
+    {
+      "season": "2019",
+      "matches": 18,
+      "runs": 51,
+      "strikeRate": 112.7,
+      "average": 12.5,
+      "wickets": 15
+    },
+    {
+      "season": "2020",
+      "matches": 18,
+      "runs": 54,
+      "strikeRate": 113.7,
+      "average": 12.7,
+      "wickets": 15
+    },
+    {
+      "season": "2021",
+      "matches": 18,
+      "runs": 56,
+      "strikeRate": 114.7,
+      "average": 12.9,
+      "wickets": 15
+    },
+    {
+      "season": "2022",
+      "matches": 18,
+      "runs": 59,
+      "strikeRate": 115.6,
+      "average": 13.0,
+      "wickets": 15
+    },
+    {
+      "season": "2023",
+      "matches": 18,
+      "runs": 61,
+      "strikeRate": 116.6,
+      "average": 13.2,
+      "wickets": 15
+    },
+    {
+      "season": "2024",
+      "matches": 18,
+      "runs": 64,
+      "strikeRate": 117.6,
+      "average": 13.4,
+      "wickets": 15
+    },
+    {
+      "season": "2025",
+      "matches": 18,
+      "runs": 66,
+      "strikeRate": 118.6,
+      "average": 13.5,
+      "wickets": 15
+    },
+    {
+      "season": "2026",
+      "matches": 18,
+      "runs": 69,
+      "strikeRate": 119.6,
+      "average": 13.7,
+      "wickets": 15
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#5",
+      "innings": 65,
+      "runs": 249,
+      "average": 11.2,
+      "strikeRate": 124.1,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "50"
+    },
+    {
+      "position": "#6",
+      "innings": 87,
+      "runs": 333,
+      "average": 12.5,
+      "strikeRate": 124.1,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "50"
+    },
+    {
+      "position": "#7",
+      "innings": 65,
+      "runs": 249,
+      "average": 11.2,
+      "strikeRate": 124.1,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "50"
+    }
+  ],
+  "radarMetrics": {
+    "power": 65,
+    "consistency": 40,
+    "tempo": 59
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

@@ -1,0 +1,113 @@
+{
+  "playerId": "p234",
+  "fullName": "Abdul Samad",
+  "overGraphSlug": "abdul-samad",
+  "matches": 71,
+  "runs": 857,
+  "strikeRate": 148.8,
+  "average": 19.5,
+  "wickets": 2,
+  "economy": 13.2,
+  "highestScore": "45",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 55,
+  "sixes": 55,
+  "catches": 33,
+  "seasonsTimeline": [
+    {
+      "season": "2020",
+      "matches": 10,
+      "runs": 73,
+      "strikeRate": 136.9,
+      "average": 17.6,
+      "wickets": 0
+    },
+    {
+      "season": "2021",
+      "matches": 10,
+      "runs": 81,
+      "strikeRate": 139.0,
+      "average": 18.0,
+      "wickets": 0
+    },
+    {
+      "season": "2022",
+      "matches": 10,
+      "runs": 89,
+      "strikeRate": 141.1,
+      "average": 18.4,
+      "wickets": 0
+    },
+    {
+      "season": "2023",
+      "matches": 10,
+      "runs": 97,
+      "strikeRate": 143.3,
+      "average": 18.8,
+      "wickets": 0
+    },
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 106,
+      "strikeRate": 145.4,
+      "average": 19.2,
+      "wickets": 0
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 114,
+      "strikeRate": 147.5,
+      "average": 19.6,
+      "wickets": 0
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 122,
+      "strikeRate": 149.7,
+      "average": 20.1,
+      "wickets": 0
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#5",
+      "innings": 21,
+      "runs": 257,
+      "average": 16.6,
+      "strikeRate": 156.2,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "45"
+    },
+    {
+      "position": "#6",
+      "innings": 28,
+      "runs": 342,
+      "average": 18.5,
+      "strikeRate": 156.2,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "45"
+    },
+    {
+      "position": "#7",
+      "innings": 21,
+      "runs": 257,
+      "average": 16.6,
+      "strikeRate": 156.2,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "45"
+    }
+  ],
+  "radarMetrics": {
+    "power": 81,
+    "consistency": 40,
+    "tempo": 75
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

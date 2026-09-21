@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #070a12;
+    color: #f1f5f9;
+  }
+}
+
+.glow-gold {
+  box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.4);
+}
+
+.glow-blue {
+  box-shadow: 0 0 25px -5px rgba(59, 130, 246, 0.4);
+}
+
+/* Auction XI 2D/3D Mini Match presentation */
+.ax-game{background:#050a0d;color:#fff;border:1px solid rgba(255,255,255,.1);border-radius:24px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.55)}
+.ax-stage{position:relative;height:min(68vh,720px);min-height:420px;background:#071018;overflow:hidden}
+.ax-canvas{position:absolute;inset:0;touch-action:none;cursor:crosshair}
+.ax-hud{position:absolute;inset:0 0 auto 0;padding:18px 22px;display:flex;justify-content:space-between;align-items:flex-start;background:linear-gradient(#02070dcc,transparent);pointer-events:none}
+.ax-kicker{font-size:9px;font-weight:900;letter-spacing:.24em;color:#8c9aaa}.ax-teams{font-size:clamp(20px,3vw,34px);font-weight:950;letter-spacing:-.04em}.ax-teams span{color:#687382;margin:0 8px}.ax-score{text-align:right}.ax-score b{display:block;font-size:clamp(30px,4vw,48px);line-height:.9}.ax-score small{display:block;margin-top:7px;color:#9eabb9;font-size:10px;font-weight:900;letter-spacing:.1em}.ax-event{position:absolute;inset:42% 0 auto;text-align:center;font-size:clamp(40px,8vw,94px);font-style:italic;font-weight:1000;text-shadow:0 8px 40px #000;animation:axPop .45s ease-out;pointer-events:none}.ax-event.six{color:#ffd447}.ax-event.wicket{color:#ff5360}.ax-lower{position:absolute;left:18px;right:18px;bottom:15px;display:flex;justify-content:space-between;gap:10px;font-size:10px;font-weight:900;color:#dce4ed;background:linear-gradient(90deg,#02070dbb,#02070d77,#02070dbb);padding:10px 13px;border-radius:12px;backdrop-filter:blur(10px);pointer-events:none}.ax-aim-hint{position:absolute;left:50%;bottom:70px;transform:translateX(-50%);padding:8px 13px;border-radius:999px;background:#06110fdd;border:1px solid #00e5c766;color:#7ff8e7;font-size:9px;font-weight:1000;letter-spacing:.13em;pointer-events:none}.ax-controls{padding:14px;background:linear-gradient(#0a1219,#060b10);border-top:1px solid rgba(255,255,255,.08)}.ax-control-title{font-size:10px;font-weight:1000;letter-spacing:.18em;color:#cbd5df;margin-bottom:10px}.ax-control-title em{font-style:normal;color:#00e5c7;float:right;letter-spacing:.08em}.ax-speed,.ax-intents{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.ax-intents{grid-template-columns:repeat(4,1fr)}.ax-speed button,.ax-intents button{min-height:46px;border:1px solid #26313b;background:#0b141c;color:#d5dee7;border-radius:12px;font-size:10px;font-weight:1000;letter-spacing:.08em}.ax-speed button.on,.ax-intents button.on{background:#00e5c7;color:#03100e;border-color:#7ffff0;box-shadow:0 0 20px #00e5c733}.ax-meter{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;margin-top:10px}.ax-meter>span{font-size:8px;font-weight:1000;color:#7f8b99}.ax-meter>div{position:relative;height:10px;background:linear-gradient(90deg,#6b2930 0 25%,#8b7130 25% 42%,#22b88e 42% 58%,#8b7130 58% 75%,#6b2930 75%);border-radius:99px}.ax-meter>div b{position:absolute;left:50%;top:-3px;height:16px;width:2px;background:#fff;box-shadow:0 0 12px #fff}.ax-meter>div i{position:absolute;top:-5px;width:20px;height:20px;border-radius:50%;background:#fff;transform:translateX(-50%);box-shadow:0 0 18px #00e5c7;z-index:2}.ax-meter input{grid-column:1/3;width:100%;accent-color:#00e5c7}.ax-primary{min-height:46px;border:0;border-radius:12px;font-size:11px;font-weight:1000;letter-spacing:.08em}.ax-primary.bowl{background:#ffb52e;color:#111}.ax-primary.bat{background:#00e5c7;color:#02110e}.ax-wait{text-align:center;padding:28px 10px;color:#718091;font-size:11px;font-weight:1000;letter-spacing:.12em}.ax-bottom{display:flex;justify-content:space-between;gap:10px;margin-top:10px;color:#687585;font-size:9px;font-weight:900}.ax-bottom span:nth-child(2){flex:1;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}@keyframes axPop{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+@media(max-width:700px){.ax-stage{height:62dvh;min-height:390px}.ax-hud{padding:12px}.ax-lower{bottom:10px;left:10px;right:10px}.ax-lower span:last-child{display:none}.ax-controls{padding:10px}.ax-intents button,.ax-speed button{min-height:52px}.ax-meter{gap:6px}.ax-meter input{min-height:28px}.ax-bottom{font-size:8px}.ax-bottom span:last-child{display:none}}
+

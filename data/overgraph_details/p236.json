@@ -1,0 +1,34 @@
+{
+  "playerId": "p236",
+  "fullName": "MS Dhoni",
+  "overGraphSlug": "ms-dhoni",
+  "matches": 264,
+  "runs": 5243,
+  "strikeRate": 137.5,
+  "average": 39.1,
+  "wickets": 0,
+  "economy": null,
+  "highestScore": "84*",
+  "fifties": 24,
+  "hundreds": 0,
+  "fours": 363,
+  "sixes": 252,
+  "catches": 152,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 14,
+      "runs": 786,
+      "strikeRate": 137.5,
+      "average": 39.1,
+      "wickets": 0
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 68,
+    "consistency": 78,
+    "tempo": 78
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

@@ -1,0 +1,163 @@
+{
+  "playerId": "p1",
+  "fullName": "Jos Buttler",
+  "overGraphSlug": "jc-buttler",
+  "matches": 138,
+  "runs": 4646,
+  "strikeRate": 149.7,
+  "average": 39.7,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "124",
+  "fifties": 28,
+  "hundreds": 7,
+  "fours": 459,
+  "sixes": 211,
+  "catches": 88,
+  "seasonsTimeline": [
+    {
+      "season": "2015",
+      "matches": 11,
+      "runs": 232,
+      "strikeRate": 137.7,
+      "average": 35.7,
+      "wickets": null
+    },
+    {
+      "season": "2016",
+      "matches": 11,
+      "runs": 246,
+      "strikeRate": 139.0,
+      "average": 36.2,
+      "wickets": null
+    },
+    {
+      "season": "2017",
+      "matches": 11,
+      "runs": 260,
+      "strikeRate": 140.2,
+      "average": 36.7,
+      "wickets": null
+    },
+    {
+      "season": "2018",
+      "matches": 11,
+      "runs": 274,
+      "strikeRate": 141.5,
+      "average": 37.2,
+      "wickets": null
+    },
+    {
+      "season": "2019",
+      "matches": 11,
+      "runs": 288,
+      "strikeRate": 142.7,
+      "average": 37.7,
+      "wickets": null
+    },
+    {
+      "season": "2020",
+      "matches": 11,
+      "runs": 302,
+      "strikeRate": 144.0,
+      "average": 38.2,
+      "wickets": null
+    },
+    {
+      "season": "2021",
+      "matches": 11,
+      "runs": 316,
+      "strikeRate": 145.2,
+      "average": 38.7,
+      "wickets": null
+    },
+    {
+      "season": "2022",
+      "matches": 11,
+      "runs": 330,
+      "strikeRate": 146.5,
+      "average": 39.2,
+      "wickets": null
+    },
+    {
+      "season": "2023",
+      "matches": 11,
+      "runs": 344,
+      "strikeRate": 147.7,
+      "average": 39.7,
+      "wickets": null
+    },
+    {
+      "season": "2024",
+      "matches": 11,
+      "runs": 359,
+      "strikeRate": 149.0,
+      "average": 40.2,
+      "wickets": null
+    },
+    {
+      "season": "2025",
+      "matches": 11,
+      "runs": 373,
+      "strikeRate": 150.2,
+      "average": 40.7,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 11,
+      "runs": 387,
+      "strikeRate": 151.4,
+      "average": 41.2,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 27,
+      "runs": 929,
+      "average": 33.7,
+      "strikeRate": 146.7,
+      "fifties": 5,
+      "hundreds": 1,
+      "highestScore": "124"
+    },
+    {
+      "position": "#4",
+      "innings": 55,
+      "runs": 1858,
+      "average": 37.7,
+      "strikeRate": 146.7,
+      "fifties": 11,
+      "hundreds": 2,
+      "highestScore": "124"
+    },
+    {
+      "position": "#5",
+      "innings": 41,
+      "runs": 1393,
+      "average": 33.7,
+      "strikeRate": 157.2,
+      "fifties": 8,
+      "hundreds": 2,
+      "highestScore": "124"
+    },
+    {
+      "position": "#6",
+      "innings": 13,
+      "runs": 464,
+      "average": 33.7,
+      "strikeRate": 157.2,
+      "fifties": 2,
+      "hundreds": 0,
+      "highestScore": "124"
+    }
+  ],
+  "radarMetrics": {
+    "power": 82,
+    "consistency": 71,
+    "tempo": 85
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

@@ -1,0 +1,68 @@
+[
+  {
+    "id": "p-ret-1",
+    "fullName": "Virat Kohli",
+    "shortName": "V Kohli",
+    "franchise": "RCB",
+    "role": "Batter",
+    "auctionLot": null,
+    "classification": "LEGACY_DEMO_RETAINED",
+    "reason": "Retained by Royal Challengers Bengaluru prior to Mega Auction. Retained marquee player, not in 369 auction pool.",
+    "statusInAuction": "EXCLUDED"
+  },
+  {
+    "id": "p-ret-2",
+    "fullName": "Jasprit Bumrah",
+    "shortName": "J Bumrah",
+    "franchise": "MI",
+    "role": "Bowler",
+    "auctionLot": null,
+    "classification": "LEGACY_DEMO_RETAINED",
+    "reason": "Retained by Mumbai Indians prior to Mega Auction. Retained marquee player, not in 369 auction pool.",
+    "statusInAuction": "EXCLUDED"
+  },
+  {
+    "id": "p-ret-3",
+    "fullName": "Rohit Sharma",
+    "shortName": "R Sharma",
+    "franchise": "MI",
+    "role": "Batter",
+    "auctionLot": null,
+    "classification": "LEGACY_DEMO_RETAINED",
+    "reason": "Retained by Mumbai Indians prior to Mega Auction. Retained marquee player, not in 369 auction pool.",
+    "statusInAuction": "EXCLUDED"
+  },
+  {
+    "id": "p-ret-4",
+    "fullName": "MS Dhoni",
+    "shortName": "MS Dhoni",
+    "franchise": "CSK",
+    "role": "Wicketkeeper",
+    "auctionLot": null,
+    "classification": "LEGACY_DEMO_RETAINED",
+    "reason": "Retained by Chennai Super Kings as uncapped player prior to Mega Auction. Not in 369 auction pool.",
+    "statusInAuction": "EXCLUDED"
+  },
+  {
+    "id": "p-ret-5",
+    "fullName": "Cameron Green",
+    "shortName": "C Green",
+    "franchise": "RCB",
+    "role": "All-Rounder",
+    "auctionLot": null,
+    "classification": "LEGACY_DEMO_RETAINED",
+    "reason": "Retained / traded prior to Mega Auction. Not in 369 auction pool.",
+    "statusInAuction": "EXCLUDED"
+  },
+  {
+    "id": "p-test-6",
+    "fullName": "Heinrich Klaasen",
+    "shortName": "H Klaasen",
+    "franchise": "SRH",
+    "role": "Batter",
+    "auctionLot": null,
+    "classification": "LEGACY_DEMO_RETAINED",
+    "reason": "Retained by Sunrisers Hyderabad prior to Mega Auction / early testing record. Not in 369 auction pool.",
+    "statusInAuction": "EXCLUDED"
+  }
+]

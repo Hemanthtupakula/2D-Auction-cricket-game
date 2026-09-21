@@ -1,0 +1,8394 @@
+Yes. Let's design it pin-to-pin, meaning we define exactly what is 3D, what is 2D, how they connect, how the camera works, how the ball moves, and how the UI sits on top.
+
+For Auction XI, I would not make a traditional "2D game with some 3D objects." I would make a 2.5D broadcast cricket game:
+
+3D world provides depth, players, ball, pitch, field and camera.
+2D layers provide stadium atmosphere, HUD, field map, effects, menus and presentation.
+
+The important thing is that the player should see one unified game, not notice the 2D/3D boundary.
+
+1. Overall architecture
+
+Think of the screen as 7 layers.
+
+┌──────────────────────────────────────────────┐
+│              LAYER 7 — HUD                   │
+│       Score / Overs / Target / Events        │
+├──────────────────────────────────────────────┤
+│              LAYER 6 — FX                    │
+│      SIX / FOUR / WICKET / particles        │
+├──────────────────────────────────────────────┤
+│              LAYER 5 — FIELD MAP             │
+│        Current tactical field overlay        │
+├──────────────────────────────────────────────┤
+│                                              │
+│              LAYER 4 — 3D WORLD              │
+│                                              │
+│      Stadium / Pitch / Players / Ball        │
+│             / Fielders / Camera              │
+│                                              │
+├──────────────────────────────────────────────┤
+│          LAYER 3 — 2D STADIUM                │
+│       Crowd / boards / atmosphere             │
+├──────────────────────────────────────────────┤
+│          LAYER 2 — LIGHT / DEPTH             │
+│      Fog / vignette / grading / glow         │
+├──────────────────────────────────────────────┤
+│          LAYER 1 — BACKGROUND                │
+│           Sky / stadium silhouette           │
+└──────────────────────────────────────────────┘
+
+But technically, the render order should be organized around the 3D canvas plus transparent 2D overlays.
+
+2. The 3D world is the foundation
+
+This is the most important decision.
+
+Don't build the pitch as a 2D image.
+
+Use a real 3D scene.
+
+Three.js Scene
+│
+├── Stadium
+│   ├── stands
+│   ├── floodlights
+│   ├── boundary
+│   └── advertising boards
+│
+├── Cricket Ground
+│   ├── grass
+│   ├── pitch
+│   ├── crease
+│   └── stumps
+│
+├── Players
+│   ├── bowler
+│   ├── striker
+│   ├── non-striker
+│   └── fielders
+│
+├── Ball
+│
+├── Bat
+│
+├── Lighting
+│
+└── Cameras
+
+That gives you real perspective.
+
+3. Don't use full 3D assets initially
+
+This is another important point.
+
+You don't need FIFA-level 3D models.
+
+For the first version:
+
+Players
+
+Use:
+
+2D/2.5D character sprites or billboarded character planes.
+
+But they exist inside the 3D world.
+
+Example:
+
+                 CAMERA
+                    ↓
+
+             [3D stadium]
+                  🧍
+                  │
+             player sprite
+                  │
+            ─────────────
+               PITCH
+
+The player image faces the camera but occupies a real 3D position.
+
+This gives you:
+
+depth
+perspective
+scale changes
+camera movement
+realistic ball distance
+field positioning
+
+without requiring expensive character modelling.
+
+4. Billboard player system
+
+This is probably the most useful technique for your game.
+
+Suppose you have:
+
+batter_idle.png
+batter_ready.png
+batter_drive.png
+batter_pull.png
+batter_defend.png
+batter_loft.png
+batter_miss.png
+
+Put them onto transparent planes.
+
+Three.js
+
+        CAMERA
+           ↓
+
+        ┌───────┐
+        │ BATTER│ ← PNG/Sprite
+        │       │
+        └───────┘
+             │
+        actual 3D position
+             │
+          PITCH
+
+When the camera moves:
+
+player position = 3D
+player appearance = 2D
+
+That is 2.5D.
+
+5. But don't make the ball a sprite
+
+The ball should be real 3D.
+
+This is extremely important.
+
+Bowler
+   ↓
+   ⚪
+    \
+     \
+      \
+       🏏
+
+The ball needs:
+
+3D position
+velocity
+height
+bounce
+trajectory
+spin visual
+shadow
+motion blur/trail
+
+because the ball is the main gameplay object.
+
+6. Bat should be 3D or animated 2.5D
+
+For the MVP, I would use a 3D bat.
+
+Why?
+
+Because contact angle matters.
+
+             ⚪
+              \
+               \
+                \
+
+                 ╲
+                  🏏
+                   \
+
+The bat can rotate according to:
+
+shot type
++
+timing
++
+direction
+
+So:
+
+Defensive
+
+Small bat movement.
+
+Drive
+
+Forward bat swing.
+
+Pull
+
+Horizontal/diagonal swing.
+
+Loft
+
+Large upward swing.
+
+This makes contact visually convincing.
+
+7. Pitch = real 3D
+
+The pitch should be actual geometry.
+
+                BOWLER
+                  ↓
+        ┌─────────────────┐
+        │                 │
+        │      PITCH      │
+        │                 │
+        │                 │
+        └─────────────────┘
+                  ↓
+                BATTER
+
+Add:
+
+grass
+pitch texture
+crease
+wickets
+shadows
+
+The ball can actually move along the pitch.
+
+8. Fielders = 3D positions + 2D characters
+
+This is where your field system becomes powerful.
+
+Every fielder has:
+
+fielder.id
+fielder.position3D
+fielder.role
+fielder.sprite
+fielder.animation
+
+For example:
+
+Slip       → (-4, 0, 5)
+Point      → (-8, 0, 18)
+Cover      → (-12, 0, 25)
+Mid-off    → (-6, 0, 32)
+Long-off   → (-18, 0, 55)
+
+The exact coordinate system can be defined later.
+
+The field map simply projects these positions into 2D.
+
+So you don't have two separate field systems.
+
+9. This is extremely important
+
+The field map should NOT have its own fake positions.
+
+It should read the actual 3D positions.
+
+                DATABASE / MATCH STATE
+                         ↓
+                   Field Positions
+                         ↓
+                ┌────────┴────────┐
+                ↓                 ↓
+           3D WORLD            2D MAP
+                ↓                 ↓
+          fielder appears    same fielder
+          on field            appears on map
+
+Therefore:
+
+move fielder → 3D field changes → mini-map changes automatically.
+
+That is the correct architecture.
+
+10. Batting camera
+
+Now we reach the part you specifically asked about.
+
+When user is batting:
+
+Camera = Striker Camera
+                         BOWLER
+                           🧍
+                            ↓
+                           ⚪
+                            ↓
+                    ─────────────
+                       PITCH
+                    ─────────────
+
+                      NON-STRIKER
+                          🧍
+
+
+                        STRIKER
+                          🏏
+                           ↑
+                        CAMERA
+
+The camera should be:
+
+behind striker
+slightly offset
+slightly elevated
+wide enough to see field
+focused on ball/batter
+able to follow trajectory
+
+Not directly behind the player's head.
+
+Think broadcast/game camera, not first-person.
+
+11. Bowling camera
+
+Switch camera when the other player becomes active.
+
+                      CAMERA
+                         ↓
+                      BOWLER
+                        🧍
+                         ↓
+                        ⚪
+                         ↓
+                       PITCH
+                         ↓
+                     STRIKER
+                        🏏
+
+                  FIELD BEHIND
+
+This gives the bowler a completely different visual relationship with the ball.
+
+12. Camera transitions
+
+Don't instantly teleport.
+
+Use:
+
+Camera A
+   ↓
+0.3–0.5 sec interpolation
+   ↓
+Camera B
+
+But during the actual delivery:
+
+LOCK CAMERA.
+
+Otherwise the player loses the ball.
+
+13. Ball camera system
+
+Create a camera state machine.
+
+CameraState
+
+IDLE
+   ↓
+DELIVERY
+   ↓
+CONTACT
+   ↓
+BALL_FLIGHT
+   ↓
+FIELDING
+   ↓
+RESULT
+   ↓
+RESET
+Example SIX
+DELIVERY
+   ↓
+BAT CONTACT
+   ↓
+CAMERA FOLLOWS BALL
+   ↓
+BALL RISES
+   ↓
+BOUNDARY
+   ↓
+SIX EFFECT
+   ↓
+RETURN TO BATTER
+14. The 2D layer sits above the 3D world
+
+Now the React UI.
+
+The Three.js canvas occupies the gameplay area.
+
+Browser
+│
+├── React
+│   ├── Scoreboard
+│   ├── Commentary
+│   ├── Buttons
+│   ├── Timing
+│   ├── Field Map
+│   └── Match information
+│
+└── Three.js Canvas
+    ├── Stadium
+    ├── Players
+    ├── Ball
+    ├── Pitch
+    └── Fielders
+
+CSS:
+
+.game-screen {
+    position: relative;
+}
+
+.game-canvas {
+    position: absolute;
+    inset: 0;
+}
+
+.game-hud {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+Then individual controls get:
+
+pointer-events: auto;
+
+This solves the problem where your current controls aren't clickable.
+
+15. Field map
+
+The field map is a 2D transparent overlay.
+
+Bottom-left:
+
+┌───────────────┐
+│ CURRENT FIELD │
+│               │
+│       ●       │
+│  ●       ●    │
+│               │
+│      🏏       │
+│               │
+│  ●       ●    │
+│       ●       │
+└───────────────┘
+
+But it uses actual field coordinates.
+
+16. Timing meter
+
+Don't put it permanently at the bottom.
+
+It appears only during delivery.
+
+          EARLY       PERFECT       LATE
+───────────────┬───────████──────────────
+                       ▲
+                    RELEASE
+
+And it should be animated.
+
+The timing window itself is generated by the delivery.
+
+Yorker
+───────|██|────────────────
+        PERFECT
+Normal
+──────|██████|──────────────
+         PERFECT
+Slower
+
+The entire expected timing position shifts.
+
+That's where the skill lives.
+
+17. The 3D world should communicate the ball
+
+This is critical.
+
+Don't just animate a ball from A to B.
+
+Fast
+
+Shorter flight time.
+
+Swing
+
+Ball curves.
+
+      \
+       \
+        \
+         \
+Cutter
+
+Subtle deviation after bounce.
+
+Slower
+
+Longer flight.
+
+Yorker
+
+Low trajectory + late arrival.
+
+Bouncer
+
+High bounce.
+
+              ⚪
+             /
+            /
+           /
+          🏏
+
+The player should be able to read the delivery visually.
+
+18. Contact
+
+Contact should have three components.
+
+Visual
+
+Bat hits ball.
+
+Physics
+
+Ball receives velocity.
+
+Audio
+
+THWACK
+
+Then:
+
+contactQuality
++
+shot
++
+direction
++
+delivery
++
+playerCapability
+
+produces the result.
+
+19. FOUR presentation
+
+For a four:
+
+BAT
+ ↓
+BALL
+ ────────────────→
+                   \
+                    \
+                 BOUNDARY
+
+Camera follows.
+
+Then:
+
+             FOUR!
+
+Small camera shake.
+
+Crowd animation.
+
+Commentary.
+
+Score increments.
+
+20. SIX presentation
+
+For six:
+
+Ball goes upward.
+
+Camera follows upward.
+
+                    ⚪
+                  /
+                /
+              /
+            🏏
+
+Stadium lights/crowd visible.
+
+Then:
+
+              SIX!
+
+Don't freeze gameplay for five seconds.
+
+Keep it fast.
+
+21. Wicket
+
+Different animations based on wicket type.
+
+Bowled
+
+Ball hits stumps.
+
+⚪ → 🏏 → 💥
+          ╱╲
+        STUMPS
+Caught
+BAT → BALL ↑
+          ↓
+       FIELDER
+          🧍
+LBW
+
+Ball → pads → umpire animation.
+
+Run out
+
+Ball → fielder → stumps → runner.
+
+The MVP can simplify the actual fielding physics while still presenting the correct result convincingly.
+
+22. Crowd should be 2D
+
+Don't waste performance making 5,000 3D spectators.
+
+Use layered 2D textures/sprites.
+
+Layer 1: stadium silhouette
+Layer 2: crowd
+Layer 3: flags
+Layer 4: advertisements
+Layer 5: floodlight glow
+
+Some layers subtly move.
+
+That gives depth.
+
+23. Parallax
+
+This is what makes 2D stadium artwork feel 3D.
+
+Example:
+
+Camera movement
+
+Sky              → 0.05x
+Stadium          → 0.15x
+Crowd            → 0.30x
+Boundary boards  → 0.60x
+3D field         → 1.00x
+
+So when the camera moves toward the ball:
+
+different layers move at different speeds.
+
+The result feels much richer.
+
+24. Lighting
+
+Three.js handles:
+
+directional light
+ambient light
+stadium lights
+shadows
+
+2D layer handles:
+
+bloom-like glow
+floodlight beams
+crowd brightness
+event flashes
+
+For example SIX:
+
+3D:
+ball + camera + stadium
+
+2D:
+flash + SIX text + particles + crowd effect
+25. HUD
+
+Top:
+
+CSK              124/3             MI
+14.3 OV          NEED 36 OFF 33
+
+Small.
+
+Not giant.
+
+26. Bottom controls
+
+During batting:
+
+       🛡 DEFEND     🏏 NORMAL     🚀 LOFT     👋 LEAVE
+
+During bowling:
+
+⚡ FAST   🌀 SWING   🎯 YORKER   💥 BOUNCER   🐌 SLOWER
+
+These controls appear only when appropriate.
+
+27. The most important concept: one state drives everything
+
+Do not build:
+
+React game logic + separate Three.js game logic + separate field map logic.
+
+Instead:
+
+                AUTHORITATIVE MATCH STATE
+                         │
+          ┌──────────────┼──────────────┐
+          ↓              ↓              ↓
+       Three.js        React HUD      Field Map
+          │              │              │
+       3D world        controls       2D map
+
+For example:
+
+ball.position
+ball.velocity
+ball.deliveryType
+ball.line
+ball.length
+fielderPositions
+batterPosition
+bowlerPosition
+shotType
+timing
+matchScore
+
+Everything reads from the same state.
+
+28. Multiplayer architecture
+
+This is especially important for your Auction XI.
+
+The server remains authoritative.
+
+PLAYER A
+  ↓
+Bowling Input
+  ↓
+SERVER
+  ↓
+Delivery State
+  ↓
+PLAYER B
+  ↓
+Batting Input
+  ↓
+SERVER
+  ↓
+Resolution
+  ↓
+RESULT
+  ↓
+BOTH CLIENTS
+
+Both clients receive the same:
+
+ball seed
+delivery
+trajectory parameters
+contact result
+field state
+score
+wicket
+
+So both see the same cricket.
+
+29. Don't synchronize rendered pixels
+
+Never send:
+
+"ball is at x=384, y=270"
+
+every frame through WebSocket.
+
+Instead send authoritative events:
+
+BALL_DELIVERED
+CONTACT
+BALL_RESULT
+WICKET
+FOUR
+SIX
+
+Each client animates locally using the same deterministic parameters.
+
+Much smoother.
+
+30. Final technical architecture
+
+This is the architecture I would actually lock:
+
+                 AUCTION XI 2D/3D
+                       │
+              ┌────────┴────────┐
+              │                 │
+         SPRING BOOT        REACT/TS
+              │                 │
+        AUTHORITATIVE        GAME UI
+          MATCH STATE            │
+              │                  │
+         WebSocket               │
+              │                  │
+              └────────┬─────────┘
+                       │
+                 GAME STATE
+                       │
+              ┌────────┴─────────┐
+              │                  │
+          THREE.JS             2D UI
+              │                  │
+      ┌───────┼────────┐    ┌────┼─────┐
+      │       │        │    │    │     │
+    STADIUM  PLAYERS  BALL HUD FIELD FX
+      │       │        │    MAP
+      │       │        │
+      └───────┴────────┘
+              │
+         CAMERA SYSTEM
+              │
+      ┌───────┴────────┐
+      │                │
+ BATTING CAMERA   BOWLING CAMERA
+      │                │
+ STRIKER VIEW       BOWLER VIEW
+31. The final visual composition
+Batting
+┌─────────────────────────────────────────────┐
+│ CSK 124/3     14.3       NEED 36 OFF 33    │
+│                                             │
+│                 STADIUM                     │
+│        🏟️       FLOODLIGHTS                 │
+│                                             │
+│                    🏃 BOWLER                │
+│                       ↓                     │
+│                       ⚪                    │
+│                                             │
+│                     PITCH                   │
+│                                             │
+│                         🏏 BATTER           │
+│                                             │
+│  ┌──────────┐                               │
+│  │  FIELD   │                               │
+│  │   MAP    │                               │
+│  └──────────┘                               │
+│                                             │
+│    🛡       🏏        🚀       👋          │
+│  DEFEND   NORMAL     LOFT     LEAVE        │
+└─────────────────────────────────────────────┘
+Bowling
+┌─────────────────────────────────────────────┐
+│ CSK BOWLING          14.3 OV                │
+│                                             │
+│                 STADIUM                     │
+│                                             │
+│                      🏏 BATTER              │
+│                       ↑                     │
+│                       ⚪                    │
+│                       ↑                     │
+│                     🏃 BOWLER               │
+│                                             │
+│  ┌──────────┐                               │
+│  │ CURRENT  │                               │
+│  │  FIELD   │                               │
+│  │   MAP    │                               │
+│  └──────────┘                               │
+│                                             │
+│ FAST  SWING  CUTTER  SLOWER  YORKER BOUNCER│
+│                                             │
+│                    [ BOWL ]                 │
+└─────────────────────────────────────────────┘
+
+That is the 2D + 3D blend I would build.
+
+The central principle is:
+
+3D gives us spatial cricket. 2D gives us information and presentation. Neither should look like a separate system.
+
+And most importantly, the field map, cameras, ball trajectory, player positions and gameplay result all come from the same authoritative match state. That prevents the game from becoming another collection of disconnected UI elements like the screenshot you showed.
+
+The key idea is: 
+ 
+Bowler controls HOW difficult the ball is. Batter controls HOW to respond to it. Timing determines execution. 
+ 
+🎳 Bowling 
+ 
+When the bowler selects Yorker, the game should deliberately make the batting timing window harder. 
+ 
+For example: 
+ 
+Delivery	Timing difficulty	Typical behavior 
+Normal/Good length	Medium	Standard timing window 
+Fast	Medium–Hard	Ball reaches batter quickly 
+Swing	Hard	Ball moves late 
+Cutter	Hard	Pace changes 
+Slower	Hard	Timing must be delayed 
+Yorker	Very Hard	Very small perfect window 
+Bouncer	Hard	Different timing point + high-ball response 
+ 
+So a Yorker isn't simply: 
+ 
+Yorker = guaranteed wicket 
+ 
+Instead: 
+ 
+Yorker = difficult skill challenge. 
+ 
+A highly skilled batter can still smash it if they read and time it correctly. 
+ 
+🏏 Batting becomes the second skill 
+ 
+Before the ball arrives, the batter chooses the intent. 
+ 
+I'd keep it very simple: 
+ 
+4 batting choices 
+ 
+DEFENSIVE 
+ 
+🛡️ Protect wicket 
+Large forgiveness window 
+Low scoring potential 
+Good against difficult deliveries 
+ 
+NORMAL 
+ 
+🏏 Balanced shot 
+Normal timing window 
+Can produce 1/2/4 
+ 
+LOFT 
+ 
+🚀 Aggressive 
+Smaller timing window 
+Higher boundary potential 
+Higher catch/wicket risk 
+ 
+LEAVE 
+ 
+👋 Don't play the ball 
+Useful against bad balls outside the hitting area 
+But dangerous if the ball is actually hittable / comes into the stumps 
+ 
+And potentially: 
+ 
+POWER/ATTACK could be unlocked contextually later rather than adding more buttons. 
+ 
+🎯 The important part: timing changes depending on the situation 
+ 
+Imagine the bowler chooses: 
+ 
+YORKER 
+ 
+The game shows: 
+ 
+          TIMING 
+ 
+EARLY       GOOD    PERFECT    GOOD       LATE 
+ |-----------|---------|---------|-----------| 
+             █████ 
+                ▲ 
+             STOP HERE 
+ 
+But the PERFECT zone is tiny. 
+ 
+The batter has to actually react. 
+ 
+If they stop: 
+ 
+Perfect 
+ 
+💥 Clean contact 
+ 
+Possible: 
+ 
+4 / 6 / 2 / 1 
+ 
+depending on shot, player ability, ball direction and placement. 
+ 
+Slightly early 
+ 
+The batter gets underneath/over the ball incorrectly. 
+ 
+Possible: 
+ 
+dot / 1 / mistimed shot / catch 
+ 
+Late 
+ 
+Possible: 
+ 
+dot / edge / bowled / LBW / weak single 
+ 
+Very late 
+ 
+Potentially: 
+ 
+bowled / LBW 
+ 
+That's where the skill comes from. 
+ 
+🧠 But here's the really important thing 
+ 
+The batter shouldn't know exactly where the perfect timing zone is. 
+ 
+Otherwise players just memorize: 
+ 
+Yorker = click at 82% 
+ 
+Instead, the timing should depend on the actual incoming ball. 
+ 
+For example: 
+ 
+Fast Yorker 
+       ↓ 
+very early visual arrival 
+       ↓ 
+tiny timing window 
+ 
+versus: 
+ 
+Slower Yorker 
+       ↓ 
+ball appears to arrive normally 
+       ↓ 
+actually arrives later 
+       ↓ 
+batter who clicks too early misses 
+ 
+Now the player has to read the ball. 
+ 
+That's skill. 
+ 
+🏏 Batting choice + timing = actual gameplay 
+ 
+This is the formula I'd use: 
+ 
+                    BOWLER 
+                       ↓ 
+              chooses delivery 
+                       ↓ 
+             ball is generated 
+                       ↓ 
+                 BATTER READS 
+                       ↓ 
+          ┌────────────┼────────────┐ 
+          ↓            ↓            ↓ 
+       DEFENSIVE     NORMAL        LOFT 
+          ↓            ↓            ↓ 
+                 TIMING INPUT 
+                       ↓ 
+              EARLY / GOOD / 
+             PERFECT / LATE 
+                       ↓ 
+                 RESOLUTION 
+                       ↓ 
+       ┌───────┬──────┬───────┬───────┐ 
+       ↓       ↓      ↓       ↓       ↓ 
+      DOT      1      2       4       6 
+                       + 
+                    WICKET 
+ 
+This is much closer to what you're describing. 
+ 
+🔥 And player ratings still matter 
+ 
+This is where Auction XI becomes different from a generic arcade game. 
+ 
+Suppose: 
+ 
+Batter A 
+ 
+BAT: 92 
+ 
+Batter B 
+ 
+BAT: 65 
+ 
+Against the same Yorker: 
+ 
+BAT 92 
+ 
+PERFECT 
+   █████ 
+ 
+Maybe they have a slightly more forgiving timing/contact window. 
+ 
+BAT 65 
+ 
+PERFECT 
+   ███ 
+ 
+Smaller effective window. 
+ 
+But: 
+ 
+BAT 65 + PERFECT timing 
+ 
+can still hit a boundary. 
+ 
+And: 
+ 
+BAT 92 + terrible timing 
+ 
+can still get bowled. 
+ 
+That's important. 
+ 
+Rating gives capability. Player skill decides execution. 
+ 
+🎯 And bowling ratings work the same way 
+ 
+A 95-rated Yorker specialist: 
+ 
+can place Yorkers more consistently 
+produces harder timing windows 
+has better execution 
+has more movement/control 
+ 
+But the human still has to select it. 
+ 
+A 65-rated bowler selecting Yorker: 
+ 
+may miss the yorker 
+produce a low full toss 
+bowl slightly wide 
+give the batter an easier ball 
+ 
+So: 
+ 
+High rating = better tools, not automatic success. 
+ 
+The game then becomes a genuine mind game 
+ 
+Bowler: 
+ 
+"He's expecting a Yorker. I'll bowl slower." 
+ 
+Batter: 
+ 
+"He's bowled two Yorkers. Maybe slower ball now." 
+ 
+Bowler: 
+ 
+SLOWER 
+ 
+Batter: 
+ 
+LOFT 
+ 
+Wait... 
+ 
+PERFECT 
+ 
+💥 
+ 
+SIX 
+ 
+That is the kind of moment I think Auction XI should be built around. 
+ 
+Not: 
+ 
+click button → random runs. 
+ 
+And not: 
+ 
+configure 12 bowling parameters → submit. 
+ 
+Instead: 
+ 
+READ → CHOOSE → TIME → HIT → WATCH 
+ 
+That's the core loop I'd lock for the 2D Auction XI game. you defined like this batting and bowling should be ... can you explain in deep in steps so that i can share to gravity and how our owners controls the game not system and both need to be connected in sync to play na 
+
+Yes. The missing piece is ownership of every action.
+
+For Auction XI, the match should not feel like a system showing an animation and then asking both owners to wait. It should feel like two people are actually playing the same ball against each other in real time.
+
+The clean model is:
+
+Bowling owner creates the challenge → batting owner reads it → batting owner responds → both clients stay synchronized → server resolves the ball → both see the same result.
+
+Below is the detailed specification I would give Antigravity.
+
+AUCTION XI — 2D/2.5D OWNER-VS-OWNER GAMEPLAY SPECIFICATION
+1. The fundamental principle
+
+Every ball is a direct interaction between two human owners.
+
+             OWNER A
+           BOWLING TEAM
+                │
+                │
+         chooses delivery
+                │
+                ▼
+          SERVER CREATES
+          ACTUAL DELIVERY
+                │
+                ▼
+          OWNER B SEES IT
+           BATTER READS
+                │
+                │
+        chooses batting intent
+                │
+                ▼
+          TIMING INPUT
+                │
+                ▼
+        SERVER RESOLVES BALL
+                │
+        ┌───────┴────────┐
+        ▼                ▼
+    OWNER A           OWNER B
+    sees result       sees result
+        │                │
+        └───────┬────────┘
+                ▼
+             NEXT BALL
+
+Neither player should be playing against the system.
+
+The system is only:
+
+synchronizing both owners
+validating actions
+calculating the authoritative result
+preventing cheating/desync
+persisting the match
+
+The decisions belong to the owners.
+
+2. What each owner controls
+Bowling owner controls
+
+The bowling owner controls:
+
+A. Which bowler
+
+From the current bowling XI.
+
+B. Delivery type
+
+For example:
+
+FAST
+SWING
+CUTTER
+SLOWER
+YORKER
+BOUNCER
+C. Target/line
+
+The bowler can choose the intended area:
+
+OFF
+MIDDLE
+LEG
+
+But don't make this a giant technical control panel.
+
+It should be represented naturally on the pitch.
+
+D. Length
+
+Conceptually:
+
+SHORT
+GOOD
+FULL
+
+Again, the UI should remain simple.
+
+E. Execution
+
+The bowler should have a small skill interaction.
+
+For example:
+
+       BOWL EXECUTION
+
+EARLY       PERFECT       LATE
+───────|███████|────────────
+            ▲
+          STOP
+
+The bowler has to execute the delivery.
+
+This is important because:
+
+Selecting YORKER does not guarantee a perfect Yorker.
+
+A human bowling owner still has to execute it.
+
+3. Example of bowling
+
+Bowling owner thinks:
+
+"The batter has been hitting my good-length balls."
+
+They choose:
+
+YORKER
+
+Then aim:
+
+LEG STUMP
+
+Then execute.
+
+Suppose the bowler executes at 87%.
+
+The server might generate:
+
+Requested:
+YORKER
+LEG
+
+Execution:
+87%
+
+Actual:
+LOW FULL / LEG-STUMP YORKER
+
+The batter does not receive the internal numbers.
+
+They simply see the actual ball.
+
+That's important.
+
+The batter should have to read the delivery visually.
+
+4. The bowling rating modifies execution
+
+Suppose:
+
+Bowler A
+
+BOWL = 95
+
+Yorker Control = 92
+
+They have a large probability of producing the intended Yorker.
+
+But not 100%.
+
+Bowler B
+
+BOWL = 65
+
+Yorker Control = 58
+
+They choose Yorker.
+
+But their actual delivery might become:
+
+low full toss / slightly wide / ordinary full ball.
+
+Therefore:
+
+Human choice
++
+Player capability
++
+Human execution
+=
+Actual delivery
+
+Not:
+
+Rating = result
+5. Once bowling is executed, control changes to the batter
+
+This transition is extremely important.
+
+The bowling owner presses:
+
+BOWL
+
+Then:
+
+BOWLING CONTROLS
+       ↓
+      LOCK
+       ↓
+BALL IN FLIGHT
+       ↓
+BATTER CONTROLS
+       ↓
+ACTIVE
+
+The bowler cannot change the delivery anymore.
+
+No cheating.
+
+No changing Yorker into Swing after seeing the batter's response.
+
+The delivery is locked.
+
+6. The batting owner now receives the ball
+
+The batting owner's camera is:
+
+Behind striker
+
+Not top-down.
+
+They see:
+
+                  BOWLER
+                    🏃
+                     ↓
+                     ⚪
+                      \
+                       \
+                        \
+                         🏏
+                       STRIKER
+                          ↑
+                       CAMERA
+
+And importantly:
+
+The batter sees the actual field.
+
+The field map is also shown in the corner.
+
+So the batter can think:
+
+"Deep third is back."
+
+"Cover is empty."
+
+"Long-on is inside."
+
+"This is outside off."
+
+"Maybe I should cut."
+
+That makes batting a decision rather than a random button press.
+
+7. Batting owner gets four primary responses
+
+Keep the core controls:
+
+🛡 DEFENSIVE
+
+Purpose:
+
+Protect wicket.
+
+Characteristics:
+
+large timing forgiveness
+low attacking power
+safer against difficult balls
+mostly dot/single
+lower boundary probability
+reduces catastrophic mistakes
+🏏 NORMAL
+
+Balanced.
+
+Characteristics:
+
+normal timing window
+normal contact
+can produce singles/doubles/boundaries
+moderate risk
+
+This should probably be the default.
+
+🚀 LOFT
+
+Aggressive.
+
+Characteristics:
+
+smaller timing window
+higher exit velocity
+higher boundary potential
+increased aerial risk
+more chance of catching/wicket on mistime
+👋 LEAVE
+
+Don't play the ball.
+
+Useful when:
+
+ball is outside hitting zone
+bad line
+wide
+dangerous delivery you don't want to attack
+
+But:
+
+Leave is NOT automatically safe.
+
+If the ball is coming into the stumps:
+
+LEAVE → possible bowled/LBW.
+
+8. Important: batting intent is selected BEFORE the timing
+
+This is the sequence:
+
+BALL APPROACHES
+      ↓
+READ DELIVERY
+      ↓
+READ FIELD
+      ↓
+CHOOSE INTENT
+      ↓
+DEFENSIVE / NORMAL / LOFT / LEAVE
+      ↓
+WAIT
+      ↓
+TIMING INPUT
+      ↓
+CONTACT
+
+Don't combine all of these into one giant menu.
+
+9. Timing is the real skill
+
+Now the timing meter appears.
+
+The player sees:
+
+EARLY                 PERFECT                  LATE
+│────────────────────────█──────────────────────│
+                          ▲
+                       HIT NOW
+
+But the perfect window is not fixed.
+
+It is generated from the actual delivery.
+
+10. Yorker example
+
+Bowler:
+
+YORKER
+
+Actual ball:
+
+Fast, full, accurate.
+
+Timing:
+
+EARLY                         LATE
+│───────────────┤██├──────────────│
+                  ▲
+               PERFECT
+
+Tiny window.
+
+The batter needs genuine reaction.
+
+11. Normal ball
+EARLY                         LATE
+│──────────────██████────────────│
+                  ▲
+               PERFECT
+
+Much more forgiving.
+
+12. Slower Yorker
+
+This is where the game becomes interesting.
+
+Bowler selects:
+
+SLOWER
+
+Target:
+
+YORKER
+
+Actual delivery:
+
+Slower than expected.
+
+The visual cues indicate a slower delivery.
+
+The timing point shifts.
+
+A batter who memorized:
+
+"Yorker = click early"
+
+gets punished.
+
+They click too early.
+
+MISS / MISTIME.
+
+That's genuine skill.
+
+13. Timing result
+
+The server receives something like:
+
+timing = PERFECT
+
+or:
+
+timing = EARLY
+
+or:
+
+timing = LATE
+
+But the client should not be allowed to simply tell the server:
+
+"I got PERFECT."
+
+The server should validate the actual timing event against the authoritative delivery timeline.
+
+This is important for multiplayer fairness.
+
+14. How the two owners stay synchronized
+
+This is the technical heart of your question.
+
+Suppose:
+
+Owner A = CSK
+Owner B = MI
+
+CSK is bowling.
+
+MI is batting.
+
+The server owns:
+
+Match ID
+Innings
+Over
+Ball
+Bowler
+Striker
+Non-striker
+Field
+Delivery
+Timing window
+Ball seed
+Match clock
+15. Sequence for ONE BALL
+STEP 1 — Ball ready
+
+Server broadcasts:
+
+BALL_READY
+
+Both clients know:
+
+Over: 14.3
+Bowler: Bumrah
+Striker: Dhoni
+STEP 2 — Bowling owner gets control
+
+Only CSK's bowling client gets:
+
+BOWLING_INPUT_ENABLED
+
+MI's controls are locked.
+
+MI sees:
+
+Waiting for bowler...
+
+STEP 3 — Bowler selects delivery
+
+CSK chooses:
+
+YORKER
+
+This is sent to server.
+
+POST / WS:
+DELIVERY_SELECTED
+
+The server validates:
+
+Is this owner's turn?
+Is the bowler active?
+Is the delivery legal?
+STEP 4 — Bowler executes
+
+CSK performs the bowling timing interaction.
+
+Server receives execution input.
+
+Example:
+
+execution = 91%
+
+Server generates actual delivery:
+
+deliveryType = YORKER
+line = LEG
+length = FULL
+pace = 145
+executionQuality = 91
+16. Server locks the delivery
+
+This is a critical moment.
+
+Once the delivery starts:
+
+BOWLING INPUT = LOCKED
+
+No more bowling decisions.
+
+The server broadcasts:
+
+DELIVERY_COMMITTED
+
+to BOTH players.
+
+Both clients now have the same delivery parameters.
+
+17. Both clients animate the SAME ball
+
+The server sends something deterministic such as:
+
+ballId
+releaseTime
+trajectory parameters
+pace
+movement
+bounce point
+
+Both browsers reproduce the same visual delivery.
+
+Therefore:
+
+CSK screen              MI screen
+
+     BALL                   BALL
+       ↓                      ↓
+      same                   same
+    trajectory             trajectory
+
+The two owners are watching the same ball, not two independent animations.
+
+18. Batter gets control
+
+When the ball reaches the appropriate batting phase:
+
+BATTING_INPUT_ENABLED
+
+Only MI can interact.
+
+CSK is now locked.
+
+MI chooses:
+
+LOFT
+
+Then waits.
+
+19. Batter timing input
+
+MI presses/clicks at a particular client timestamp.
+
+The client sends:
+
+BAT_RESPONSE
+intent = LOFT
+inputTimestamp = ...
+
+The server compares that timestamp with the authoritative delivery timeline.
+
+Then calculates:
+
+timing = EARLY / GOOD / PERFECT / LATE
+
+The client doesn't get to decide its own result.
+
+20. Server resolution
+
+Now:
+
+DELIVERY
++
+BOWLER CAPABILITY
++
+BOWLER EXECUTION
++
+BATTER
++
+BATTER CAPABILITY
++
+BATTING INTENT
++
+TIMING
++
+FIELD
++
+PRESSURE
++
+CONTROLLED RANDOMNESS
+
+produces the outcome.
+
+For example:
+
+YORKER
++
+145 kph
++
+excellent execution
++
+LOFT
++
+PERFECT
++
+BAT 88
++
+POWER 82
++
+deep mid-wicket
++
+controlled variance
+=
+FOUR
+
+Or:
+
+YORKER
++
+145 kph
++
+excellent execution
++
+LOFT
++
+LATE
+=
+TOP EDGE
+=
+CAUGHT
+21. Both players receive the SAME result
+
+Server broadcasts:
+
+BALL_RESULT
+
+to both.
+
+Example:
+
+result = FOUR
+runs = 4
+timing = PERFECT
+shot = LOFT
+
+Then:
+
+CSK screen
+
+Sees their fielders react.
+
+MI screen
+
+Sees their batter celebrate.
+
+Both see the same ball trajectory/result.
+
+22. This is where presentation becomes powerful
+
+The result shouldn't appear immediately as:
+
+FOUR +4
+
+Instead:
+
+BAT CONTACT
+      ↓
+BALL FLIGHT
+      ↓
+CAMERA FOLLOWS
+      ↓
+FIELDER RESPONSE
+      ↓
+BOUNDARY
+      ↓
+FOUR
+      ↓
+CROWD
+      ↓
+COMMENTARY
+      ↓
+SCORE UPDATE
+
+The server result is authoritative, but the presentation takes a short controlled amount of time.
+
+23. Then next-ball state
+
+After the result animation:
+
+BALL_COMPLETE
+
+Server updates:
+
+score
+balls
+wickets
+striker
+non-striker
+bowler figures
+over
+required rate
+player stats
+
+Then:
+
+NEXT_BALL_READY
+
+And the process repeats.
+
+24. Who controls what?
+
+This should be absolutely explicit for Antigravity.
+
+Game element	Bowling owner	Batting owner	Server
+Select bowler	✅	❌	Validate
+Select delivery	✅	❌	Validate
+Select line	✅	❌	Validate
+Select length	✅	❌	Validate
+Execute bowling	✅	❌	Validate
+Choose field	✅	❌	Validate
+Move fielders	✅	❌	Validate
+Select batting intent	❌	✅	Validate
+Timing input	❌	✅	Validate
+Shot result	❌	❌	✅
+Runs	❌	❌	✅
+Wicket	❌	❌	✅
+Legal ball	❌	❌	✅
+Score	❌	❌	✅
+Statistics	❌	❌	✅
+Match state	❌	❌	✅
+
+This distinction is very important.
+
+The server is not "playing."
+
+The server is refereeing and synchronizing.
+
+25. Field control
+
+The bowling owner should be able to set the field.
+
+But don't allow ridiculous field changes during the actual delivery.
+
+Use:
+
+BALL_COMPLETE
+       ↓
+FIELD_EDIT_WINDOW
+       ↓
+Bowler adjusts field
+       ↓
+FIELD_CONFIRMED
+       ↓
+NEXT_BALL
+
+For example:
+
+Bowler:
+"He's cutting everything."
+
+Moves:
+
+Point → deeper
+Third man → deep
+Cover → slightly inside
+
+Then bowls YORKER.
+
+Now the batter sees the changed field.
+
+26. The batting owner can read that field
+
+This is where your camera + mini-map design matters.
+
+The batting owner sees:
+
+       Deep Third ●
+
+   ●                 ●
+
+          BOWLER
+             ↓
+             ⚪
+
+       BATTER 🏏
+
+   ●                 ●
+          ●
+
+Now they can make an informed decision.
+
+The game isn't telling them:
+
+"Press CUT."
+
+They decide.
+
+27. The field changes the result
+
+The same batting input should not always produce the same result.
+
+For example:
+
+CUT + PERFECT
+Field A
+
+Point is deep.
+
+→ FOUR possible.
+
+Field B
+
+Point is inside.
+
+→ Fielder stop / single / catch possible.
+
+Therefore:
+
+The field is gameplay, not decoration.
+
+28. The mind game
+
+Now your game actually has competitive depth.
+
+Example:
+
+Ball 1
+
+Bowler:
+
+YORKER
+
+Batter:
+
+DEFENSIVE
+
+Perfect.
+
+Dot.
+
+Ball 2
+
+Bowler thinks:
+
+"He'll expect another Yorker."
+
+Bowler:
+
+SLOWER
+
+Batter chooses:
+
+LOFT
+
+Perfect.
+
+💥 SIX.
+
+Ball 3
+
+Bowler changes:
+
+BOUNCER
+
+Batter chooses:
+
+LOFT
+
+But mistimes.
+
+Fielder catches.
+
+WICKET.
+
+That is the competitive loop.
+
+29. Ratings must never override the human
+
+This rule should be written in huge letters in the implementation prompt:
+
+PLAYER RATINGS MODIFY THE SIZE OF THE OPPORTUNITY, NOT THE RESULT.
+
+For example:
+
+BAT 95
+
+Maybe:
+
+Perfect window = 180 ms
+BAT 65
+
+Maybe:
+
+Perfect window = 130 ms
+
+But:
+
+BAT 65 + perfect human timing
+
+can beat:
+
+BAT 95 + poor human timing.
+
+Likewise:
+
+BOWL 95
+
+Better execution/control.
+
+But human chooses the delivery.
+
+BOWL 65
+
+Less consistent.
+
+But an excellent human can still create a difficult ball.
+
+30. Match state machine
+
+This is what I would have Antigravity implement instead of a collection of disconnected UI components.
+
+BALL_READY
+    ↓
+BOWLER_INPUT
+    ↓
+DELIVERY_EXECUTION
+    ↓
+DELIVERY_COMMITTED
+    ↓
+BALL_IN_FLIGHT
+    ↓
+BATTER_INPUT
+    ↓
+CONTACT_WINDOW
+    ↓
+BALL_RESOLUTION
+    ↓
+RESULT_PRESENTATION
+    ↓
+BALL_COMPLETE
+    ↓
+FIELD_UPDATE / NEXT_BALL
+    ↓
+BALL_READY
+
+If wicket:
+
+BALL_RESOLUTION
+      ↓
+WICKET_PRESENTATION
+      ↓
+NEW_BATTER / END INNINGS
+
+If over:
+
+BALL_COMPLETE
+      ↓
+OVER_COMPLETE
+      ↓
+CHANGE_ENDS
+      ↓
+NEXT_OVER
+31. Multiplayer synchronization rule
+
+There should be one authoritative ball ID.
+
+For example:
+
+MATCH-72
+INNINGS-1
+OVER-14
+BALL-4
+
+Everything associated with that ball uses that ID.
+
+ballId = M72-I1-O14-B4
+
+Then both owners know:
+
+"We are looking at exactly the same ball."
+
+32. Don't let clients invent match results
+
+Bad:
+
+Client:
+"I hit six."
+
+Server:
+"Okay."
+
+Correct:
+
+Client:
+"I selected LOFT at timestamp X."
+
+Server:
+"I determine the timing and outcome."
+
+Server:
+"Result = SIX."
+
+Both clients:
+"Display SIX."
+
+This is especially important because your game is multiplayer.
+
+33. Disconnect handling
+
+If the batting owner disconnects during the ball:
+
+Do NOT automatically give wicket.
+
+The server freezes the authoritative state.
+
+BALL_IN_PROGRESS
+      ↓
+PLAYER DISCONNECTED
+      ↓
+PAUSE/FREEZE
+      ↓
+RECONNECT
+      ↓
+RESTORE SNAPSHOT
+      ↓
+CONTINUE SAME BALL
+
+Same for the bowling owner.
+
+Only explicit forfeit/abandon should end the match.
+
+34. What "real-time" means here
+
+You don't need both players continuously controlling things at 60 FPS over WebSocket.
+
+That's unnecessary.
+
+Instead:
+
+WebSocket synchronizes events.
+BOWLER_READY
+DELIVERY_SELECTED
+DELIVERY_COMMITTED
+BALL_STARTED
+BAT_RESPONSE
+BALL_RESULT
+FIELD_UPDATED
+BALL_COMPLETE
+
+The browser locally animates the actual ball at 60 FPS.
+
+This makes the game responsive.
+
+35. Final gameplay loop
+
+This is what I would put at the top of the Gravity prompt:
+
+                    ONE BALL
+                       │
+                       ▼
+             ┌──────────────────┐
+             │ BOWLING OWNER    │
+             │                  │
+             │ choose delivery │
+             │ choose target    │
+             │ execute          │
+             └────────┬─────────┘
+                      │
+                      ▼
+              SERVER LOCKS BALL
+                      │
+                      ▼
+              BALL IS DELIVERED
+                      │
+                      ▼
+             ┌──────────────────┐
+             │ BATTING OWNER    │
+             │                  │
+             │ read ball        │
+             │ read field       │
+             │ choose intent    │
+             │ time the shot    │
+             └────────┬─────────┘
+                      │
+                      ▼
+                SERVER RESOLVES
+                      │
+          ┌───────────┼───────────┐
+          ▼           ▼           ▼
+         DOT         RUN        WICKET
+                      │
+                  1/2/3/4/6
+                      │
+                      ▼
+             BOTH OWNERS SEE
+              SAME RESULT
+                      │
+                      ▼
+                 NEXT BALL
+The single sentence I'd want Antigravity to understand
+
+Auction XI is not a system-controlled cricket animation where owners press buttons; it is a synchronous human-vs-human cricket game where one owner creates the delivery challenge, the other owner reads and responds to that exact delivery, the server validates and resolves both human inputs, and both owners see the same authoritative ball, trajectory, fielding and result.
+
+And the gameplay philosophy is:
+
+Bowler: How difficult can I make this ball?
+Batter: How do I respond to this exact ball?
+Both: Can I outthink the other owner?
+Server: Make sure what actually happened is fair and identical for both players.
+
+That is the model I'd lock before asking Gravity to implement the next version.
+
+how to check it is happening smoothly or not ..working model and it is actualling showing the our players live game score,selecting bolwer for each over ,batsmen of striker and non striker keeping it and  should not start until they selected and toss should be fairly done and results of toss should not one sided and system need to take care what winning team selected and acurateely making excitment in game or not interesting and system not invovling or not 
+
+Yes. This is the correct next step before asking Gravity to improve graphics again. We need to prove that the underlying match is actually a two-owner live cricket game, not a system-controlled simulation wearing a multiplayer UI.
+
+The best way is to create a Live Match Verification / QA Mode inside the development build.
+
+1. What we need to prove
+
+For every match, we should be able to answer these questions:
+
+Match setup
+Did both owners join?
+Did both select their XI?
+Exactly 11 players selected?
+Captain and wicketkeeper valid?
+Did both confirm?
+Does the match refuse to start until both are ready?
+Toss
+Was toss generated server-side?
+Was it genuinely random?
+Did the correct owner win?
+Did the winner actually choose Bat/Bowl?
+Did the system respect that choice?
+Innings
+Is the correct striker shown?
+Is the correct non-striker shown?
+Is the correct bowler selected?
+Can the batting owner control batting?
+Can the bowling owner control bowling?
+Can the system accidentally make decisions for either owner?
+Every over
+Can bowling owner select the next bowler?
+Does the bowler remain fixed for the over?
+Does the next over correctly change ends?
+Does the system prevent an illegal bowler?
+Are striker/non-striker positions updated correctly?
+Every ball
+Bowler chooses delivery.
+Delivery is committed.
+Batter sees the same delivery.
+Batter chooses response.
+Batter times it.
+Server resolves.
+Both owners see the same result.
+Score updates correctly.
+Next ball doesn't begin until the previous ball is complete.
+Match
+Runs accurate.
+Wickets accurate.
+Overs accurate.
+Balls accurate.
+Strike rotation accurate.
+Bowling figures accurate.
+Batter figures accurate.
+Result accurate.
+2. First: add a "LIVE MATCH DEBUG" panel
+
+Don't show this to normal players.
+
+In development mode, have a panel like:
+
+┌───────────────────────────────────────────┐
+│          AUCTION XI LIVE DEBUG            │
+├───────────────────────────────────────────┤
+│ MATCH: M-1042                             │
+│                                           │
+│ OWNER A: CSK                              │
+│ OWNER B: MI                               │
+│                                           │
+│ INNINGS: 1                                │
+│ SCORE: CSK 48/2                           │
+│ OVER: 7.3                                 │
+│                                           │
+│ STRIKER: Dhoni                            │
+│ NON-STRIKER: Ruturaj                      │
+│ BOWLER: Bumrah                            │
+│                                           │
+│ CURRENT STATE: BATTER_INPUT               │
+│                                           │
+│ BOWLER OWNER: MI                          │
+│ BATTER OWNER: CSK                         │
+└───────────────────────────────────────────┘
+
+Then below it:
+
+LAST EVENTS
+
+22:14:01  OWNER_B  SELECTED_BOWLER
+22:14:04  OWNER_B  DELIVERY_SELECTED
+22:14:05  SERVER   DELIVERY_COMMITTED
+22:14:06  OWNER_A  BATTING_INTENT=LOFT
+22:14:07  OWNER_A  TIMING=PERFECT
+22:14:07  SERVER   RESULT=FOUR
+22:14:08  SERVER   SCORE=48/2
+22:14:10  SERVER   NEXT_BALL_READY
+
+This will immediately tell us whether the owners are actually controlling the match.
+
+3. Every action needs an OWNER ID
+
+This is extremely important.
+
+Never log merely:
+
+DELIVERY_SELECTED
+
+Log:
+
+OWNER_B
+DELIVERY_SELECTED
+
+Likewise:
+
+OWNER_A
+BATTING_INTENT=LOFT
+
+And:
+
+SERVER
+RESULT=FOUR
+
+That lets us distinguish:
+
+Human action
+OWNER_A
+OWNER_B
+
+from:
+
+Server action
+SERVER
+
+The server should only perform things such as:
+
+validation
+synchronization
+random seed generation
+result resolution
+score update
+rule enforcement
+persistence
+
+It should not generate a batting decision or bowling decision on behalf of an owner.
+
+4. Test the match as a real two-person match
+
+Open:
+
+Browser 1
+Owner A
+CSK
+Browser 2
+Owner B
+MI
+
+Use two separate browser profiles/incognito windows if necessary.
+
+Then put them side by side.
+
+┌─────────────────────┬─────────────────────┐
+│                     │                     │
+│      OWNER A        │       OWNER B       │
+│                     │                     │
+│      CSK             │        MI          │
+│                     │                     │
+│      BAT             │        BOWL        │
+│                     │                     │
+└─────────────────────┴─────────────────────┘
+
+Do not use a CPU.
+
+If you see a delivery happen without Owner B pressing anything, that's a failure.
+
+If you see batting happen without Owner A pressing anything, that's a failure.
+
+5. XI readiness test
+
+This must be strict.
+
+Start with:
+
+Owner A: XI not confirmed
+Owner B: XI not confirmed
+
+The match should show:
+
+Waiting for both owners to confirm XI.
+
+Test 1
+
+Only A confirms.
+
+Result:
+
+MATCH START = NO
+Test 2
+
+B confirms.
+
+Result:
+
+MATCH CAN PROCEED
+
+The same principle should apply to:
+
+toss
+bat/bowl choice
+innings start
+new batter
+new over
+reconnection
+6. Test striker and non-striker
+
+This is one of the biggest things to verify.
+
+Suppose:
+
+Striker = A
+Non-striker = B
+
+After:
+
+1 run
+
+They must swap.
+
+Striker = B
+Non-striker = A
+
+After:
+
+2 runs
+
+They return.
+
+Striker = A
+Non-striker = B
+
+After:
+
+4
+
+They normally remain in the same relative ends.
+
+After:
+
+6
+
+Same.
+
+At over completion:
+
+they change ends according to cricket rules.
+
+This should be tested automatically.
+
+7. Test bowler selection every over
+
+This needs to be very strict.
+
+At the beginning of the over:
+
+OVER 8
+
+Bowling owner sees:
+
+SELECT BOWLER
+
+They select:
+
+Bumrah
+
+Then:
+
+BOWLER LOCKED
+
+Balls:
+
+8.1 Bumrah
+8.2 Bumrah
+8.3 Bumrah
+8.4 Bumrah
+8.5 Bumrah
+8.6 Bumrah
+
+Then over completes.
+
+Next over:
+
+SELECT BOWLER
+
+Bowling owner must select the next bowler.
+
+The system should not automatically choose one.
+
+Except for enforcing legal cricket rules.
+
+For example, if the owner attempts an illegal choice, the system can say:
+
+This bowler cannot bowl this over.
+
+But it should not silently choose another bowler.
+
+8. Test the batting pair
+
+At innings start:
+
+SELECT OPENERS
+
+The batting owner chooses:
+
+Striker
+Non-striker
+
+Both must be valid.
+
+Then:
+
+START INNINGS
+
+The system shouldn't randomly choose the batter unless you explicitly design a fallback rule.
+
+After a wicket:
+
+NEW BATTER REQUIRED
+
+The batting owner chooses the new batter.
+
+Until then:
+
+NEXT BALL = LOCKED
+
+That prevents the system from silently selecting players.
+
+9. Test the toss properly
+
+This needs two separate tests.
+
+Test A — fairness
+
+Run the toss many times in a development environment.
+
+For example:
+
+100 tosses.
+
+Record:
+
+Owner A wins: 48
+Owner B wins: 52
+
+You don't expect exactly 50/50 every time.
+
+You want to see that neither owner is systematically favored.
+
+The important thing is that the server uses a proper random mechanism and doesn't use:
+
+ownerId
+teamId
+room creator
+alphabetical order
+first player
+
+to determine the result.
+
+10. Don't make "50/50" mean exactly 50/50
+
+This is important.
+
+A fair coin can produce:
+
+A A A A A
+
+by chance.
+
+So don't implement:
+
+50 tosses A
+50 tosses B
+
+That would actually be artificial.
+
+Instead:
+
+secure/random server-side toss
+
+and record the results.
+
+Then statistically inspect a large number of test tosses.
+
+11. Test that the winner controls the decision
+
+Suppose:
+
+MI wins toss
+
+Only MI should receive:
+
+BAT
+BOWL
+
+CSK should see:
+
+MI won the toss. Waiting for MI's decision.
+
+MI selects:
+
+BOWL
+
+Server records:
+
+tossWinner = MI
+decision = BOWL
+
+Then:
+
+CSK bats
+MI bowls
+
+The system must not reverse it.
+
+12. Test the opposite
+
+Next match:
+
+CSK wins toss
+
+CSK selects:
+
+BAT
+
+Then:
+
+CSK bats
+MI bowls
+
+Next test:
+
+CSK wins.
+
+CSK selects:
+
+BOWL
+
+Then:
+
+MI bats
+CSK bowls
+
+This catches a very common bug:
+
+toss winner is stored correctly, but the subsequent innings assignment is wrong.
+
+13. Test whether the system is secretly playing
+
+This is probably the most important test you asked for.
+
+Start a match.
+
+Then deliberately don't press anything.
+
+At bowling stage
+
+Wait.
+
+The match must NOT deliver a ball.
+
+It should remain:
+
+WAITING FOR BOWLER
+
+Then bowling owner selects the delivery.
+
+Now ball begins.
+
+At batting stage
+
+After the ball arrives:
+
+Don't touch anything.
+
+The match should NOT automatically choose:
+
+defensive
+normal
+loft
+timing
+shot
+result
+
+It should wait.
+
+WAITING FOR BATTER
+
+Only the batting owner's action should continue the ball.
+
+If the ball automatically becomes:
+
+FOUR
+
+while nobody pressed anything:
+
+FAIL.
+14. Test the system can't control the batting owner
+
+Try this:
+
+Bowler delivers a Yorker.
+
+Batting owner does nothing.
+
+Wait.
+
+The system must not decide:
+
+"The batter probably missed."
+
+It should remain in the appropriate batting interaction state until:
+
+input arrives, or
+a clearly defined timeout occurs.
+
+If you use a timeout, it should be explicit:
+
+Batter didn't respond — automatic defensive/leave/timeout rule.
+
+But do not silently simulate a human decision.
+
+15. Test excitement
+
+This is different from technical correctness.
+
+A game can be:
+
+100% technically correct
+
+and still be boring.
+
+So we need a human playtest.
+
+Play at least:
+
+5 complete 2-over matches
+
+with two actual people.
+
+Then:
+
+3 five-over matches.
+
+Then:
+
+1 ten-over match.
+
+During each match record:
+
+Did I know what ball was coming?
+Did I understand the field?
+Could I react?
+Did timing feel skill-based?
+Did bowling feel strategic?
+Did batting feel strategic?
+Did the result feel understandable?
+Did the ball animation make sense?
+Did the camera help?
+Did I want to play the next ball?
+
+Don't ask:
+
+"Is it good?"
+
+Ask concrete questions.
+
+16. The most important excitement test
+
+After every ball ask the player:
+
+"Did you know why that happened?"
+
+Examples:
+
+Perfect Yorker + defensive
+
+Player:
+
+"Yeah, I defended it."
+
+Good.
+
+Yorker + loft + late
+
+Player:
+
+"I mistimed it."
+
+Good.
+
+Perfect loft + empty boundary
+
+Player:
+
+"I saw the gap and hit it."
+
+Excellent.
+
+Perfect timing → random wicket
+
+Player:
+
+"What the hell happened?"
+
+Potential design problem.
+
+17. Another critical question
+
+After every ball ask:
+
+"Did you feel that YOU caused the result?"
+
+If:
+
+"Yes, I mistimed it."
+
+Good.
+
+If:
+
+"The game just decided I got out."
+
+Bad.
+
+That's probably the single best measurement for whether your system is actually working.
+
+18. Create a "Ball Replay Debug"
+
+For development, every ball should have a record like:
+
+BALL #37
+
+Bowler:
+Jasprit Bumrah
+
+Bowling owner:
+MI
+
+Delivery:
+YORKER
+
+Requested line:
+LEG
+
+Requested length:
+FULL
+
+Execution:
+91%
+
+Actual delivery:
+FAST YORKER
+
+Batting owner:
+CSK
+
+Intent:
+LOFT
+
+Timing:
+LATE
+
+Batter BAT:
+87
+
+Contact:
+WEAK
+
+Field:
+DEEP MIDWICKET
+LONG ON
+FINE LEG
+
+Result:
+CAUGHT
+
+Runs:
+0
+
+Wicket:
+YES
+
+Now if something feels wrong, you can inspect why.
+
+19. Test live score synchronization
+
+Put both browsers side by side.
+
+After every ball:
+
+OWNER A SCORE = 42/2
+OWNER B SCORE = 42/2
+SERVER SCORE  = 42/2
+
+They must always match.
+
+Also:
+
+OVER
+BALL
+STRIKER
+NON-STRIKER
+BOWLER
+WICKETS
+
+must match.
+
+If one client says:
+
+42/2
+
+and the other says:
+
+42/1
+
+that's a synchronization failure.
+
+20. Test network conditions
+
+This is where the "smoothly" part becomes important.
+
+Use:
+
+Normal network
+
+Everything should feel immediate.
+
+Artificial latency
+
+Test approximately:
+
+100 ms
+250 ms
+500 ms
+
+The game shouldn't:
+
+duplicate balls
+duplicate runs
+skip balls
+select wrong striker
+reset score
+show different results
+21. Disconnect test
+
+During:
+
+Bowling selection
+
+Disconnect bowling owner.
+
+Result:
+
+Waiting for reconnection.
+
+Not:
+
+automatic random ball.
+
+During:
+
+Ball flight
+
+Disconnect.
+
+Reconnect.
+
+The player should recover the correct authoritative state.
+
+During:
+
+Batting input
+
+Disconnect.
+
+The ball should not suddenly become a random result.
+
+Restore from the server snapshot.
+
+22. Forfeit is different
+
+If owner explicitly chooses:
+
+FORFEIT MATCH
+
+then:
+
+winner = opponent
+
+That's intentional.
+
+Disconnect ≠ forfeit.
+
+23. Test "system involvement"
+
+Create a development statistic:
+
+MATCH CONTROL AUDIT
+
+Human actions:       84
+Server rule actions: 31
+System decisions:     0
+CPU decisions:        0
+
+You should have:
+
+Human-controlled decisions
+bowler selection
+delivery selection
+delivery aim
+bowling execution
+field placement
+batting intent
+timing
+Server-controlled
+validation
+physics/result resolution
+score
+legal rules
+state transition
+synchronization
+Never:
+SYSTEM_CHOSE_BATTER_ACTION
+SYSTEM_CHOSE_BOWLER
+SYSTEM_CHOSE_SHOT
+SYSTEM_CHOSE_TIMING
+SYSTEM_CHOSE_RESULT
+
+The last one needs clarification: the server does choose the authoritative result, but it must be derived from the two owners' inputs and game state—not fabricated as a CPU action. So log it as SERVER_RESOLVED_RESULT, not SYSTEM_PLAYED.
+
+24. Your final QA dashboard should look like this
+╔══════════════════════════════════════════╗
+║       AUCTION XI LIVE MATCH QA           ║
+╠══════════════════════════════════════════╣
+║                                          ║
+║ TWO HUMAN OWNERS              PASS       ║
+║ XI READY GATE                PASS       ║
+║ TOSS RANDOMNESS              PASS       ║
+║ TOSS DECISION                PASS       ║
+║ BAT/BOWL ASSIGNMENT          PASS       ║
+║ STRIKER TRACKING             PASS       ║
+║ NON-STRIKER TRACKING         PASS       ║
+║ BOWLER PER OVER              PASS       ║
+║ DELIVERY OWNER CONTROL       PASS       ║
+║ BATTING OWNER CONTROL        PASS       ║
+║ TIMING INPUT                 PASS       ║
+║ SERVER RESOLUTION            PASS       ║
+║ LIVE SCORE SYNC              PASS       ║
+║ FIELD SYNC                   PASS       ║
+║ CAMERA SYNC                  PASS       ║
+║ WICKET SYNC                  PASS       ║
+║ RECONNECT                    PASS       ║
+║ FORFEIT                      PASS       ║
+║ NO CPU                       PASS       ║
+║ NO SYSTEM PLAY              PASS       ║
+║                                          ║
+╠══════════════════════════════════════════╣
+║ BALLS TESTED: 186                        ║
+║ DESYNC: 0                                ║
+║ DUPLICATE BALLS: 0                       ║
+║ AUTO BATTER DECISIONS: 0                 ║
+║ AUTO BOWLER DECISIONS: 0                 ║
+╚══════════════════════════════════════════╝
+25. Then a separate "FUN / EXCITEMENT" test
+
+Technical QA alone isn't enough.
+
+Have two real people play without seeing the debug panel.
+
+After each match, score observations, not an overall rating:
+
+Question	Player A	Player B
+Could you read the delivery?		
+Could you see the field?		
+Did bowling feel under your control?		
+Did batting feel under your control?		
+Did timing require reaction?		
+Did ratings feel different?		
+Did field placement matter?		
+Were results understandable?		
+Did camera help decision-making?		
+Did you experience meaningful surprises?		
+Did you feel the opponent caused the result?		
+Did you want to play another match?		
+
+This is much more useful than Gravity saying:
+
+"27 components visually tested."
+
+Because that doesn't prove two humans actually played cricket against each other.
+
+26. The ultimate test
+
+Put two owners in a room.
+
+Don't explain the internal algorithm.
+
+Give them only:
+
+CSK vs MI — 5 overs
+
+Then watch.
+
+If they naturally:
+
+select XI
+complete toss
+choose bat/bowl
+select opener
+select bowler
+set field
+bowl
+read the delivery
+choose batting intent
+time the shot
+watch result
+understand score
+select next bowler
+continue
+
+without an operator helping them, your core gameplay loop is working.
+
+If they constantly ask:
+
+"Whose turn is it?"
+
+"Why can't I click?"
+
+"Why did the ball start?"
+
+"Why did the system choose that player?"
+
+"Why did I get out?"
+
+"Why did the score change?"
+
+then the system is not ready.
+
+And I would make this a hard requirement for Gravity
+
+Tell Gravity:
+
+Do not report "gameplay complete" based on unit tests, API tests, frontend build, or component rendering. The match is only considered gameplay-verified after two independent human browser sessions have completed real balls against each other and the audit log proves that every owner decision came from the correct owner, every authoritative result came from the server using those inputs, both clients remained synchronized, XI/striker/non-striker/bowler/toss state remained correct, and no CPU/system decision occurred.
+
+That is the difference between "the code works" and "we actually built the Auction XI game we designed."  
+
+
+
+
+Yes. This is the part that needs to be designed before Gravity writes more gameplay code.
+
+The animation system should not be:
+
+"ball result = FOUR → play FOUR animation."
+
+It should be:
+
+Bowler animation → delivery → batter reads → batting animation → contact → ball trajectory → fielder reaction → result presentation → celebration/reaction → next ball.
+
+And the 2D/3D blend should make this feel like a small broadcast-quality cricket game, not a collection of sprites moving around.
+
+1. First lock the visual philosophy
+
+I would build Auction XI as a 2.5D cricket presentation with selective 3D.
+
+3D should handle things that need spatial depth
+pitch
+crease
+stumps
+ball
+bat
+stadium geometry
+bowler position
+batter position
+non-striker
+fielders
+ball trajectory
+shadows
+camera
+camera movement
+depth/scale
+2D should handle things that need visual richness without expensive geometry
+player sprite/animation layers where appropriate
+crowd
+advertisements
+stadium atmosphere
+UI
+field map
+timing meter
+commentary
+FOUR/SIX/WICKET graphics
+particles
+speed lines
+screen flashes
+celebration overlays
+
+The player should never feel that these are separate systems.
+
+2. Every ball has an animation timeline
+
+This should be the master model.
+
+BALL N
+ │
+ ├── 1. PRE-BALL
+ │
+ ├── 2. BOWLER PREPARATION
+ │
+ ├── 3. RUN-UP
+ │
+ ├── 4. RELEASE
+ │
+ ├── 5. BALL FLIGHT
+ │
+ ├── 6. BATTER READ
+ │
+ ├── 7. BATTING INTENT
+ │
+ ├── 8. TIMING
+ │
+ ├── 9. BAT SWING
+ │
+ ├── 10. CONTACT / MISS
+ │
+ ├── 11. BALL TRAJECTORY
+ │
+ ├── 12. FIELDER RESPONSE
+ │
+ ├── 13. RESULT
+ │
+ ├── 14. REACTION
+ │
+ └── 15. NEXT BALL
+
+The server decides what happened.
+
+The animation system decides how beautifully to show what happened.
+
+3. Important rule: animation never decides gameplay
+
+This needs to be locked.
+
+WRONG
+
+Play loft animation
+       ↓
+Animation says SIX
+       ↓
+Game gives SIX
+
+Correct:
+
+Batter input
+      ↓
+Server resolution
+      ↓
+RESULT = SIX
+      ↓
+Animation system receives SIX
+      ↓
+Play appropriate loft/contact/flight/celebration
+
+So the animation is always a visual representation of an authoritative event.
+
+4. Bowler animation system
+
+Don't create one huge animation.
+
+Break the bowler into states.
+
+BOWLER
+│
+├── Idle
+├── Set Position
+├── Run-up
+├── Delivery Preparation
+├── Release
+├── Follow-through
+├── Reaction
+└── Celebration/Disappointment
+5. Bowler Idle
+
+Before the ball:
+
+      🧍
+     bowler
+       │
+     ball
+
+Very subtle animation:
+
+breathing
+ball hand movement
+slight body movement
+looking toward batter
+
+Do not make the character constantly dance.
+
+This is background animation.
+
+6. Bowler run-up
+
+When the bowling owner commits the delivery:
+
+IDLE
+ ↓
+RUN-UP
+ ↓
+DELIVERY
+
+The run-up should depend on bowling style.
+
+Fast bowler
+longer run-up
+aggressive stride
+strong arm rotation
+powerful follow-through
+Swing bowler
+smoother run-up
+controlled action
+pronounced wrist/release
+Spinner
+shorter run-up
+more compact action
+strong wrist/finger release
+Slower ball
+
+Same broad bowling action, but release mechanics/animation can subtly sell the change of pace.
+
+7. Do not animate all bowling styles from scratch
+
+Use an animation controller.
+
+For example:
+
+BowlerProfile
+├── pace
+├── actionStyle
+├── arm
+├── runupStyle
+└── deliveryType
+
+Then:
+
+FAST
+→ FastRunup
+→ FastRelease
+→ FastFollowThrough
+
+SPIN
+→ SpinRunup
+→ SpinRelease
+→ SpinFollowThrough
+
+This keeps the asset requirement manageable.
+
+8. Delivery-specific animation
+
+The ball type should be visually readable.
+
+Fast
+Run-up
+  ↓
+hard release
+  ↓
+fast ball
+  ↓
+quick bounce
+
+Add:
+
+subtle speed trail
+sharp release sound
+quick camera response
+Swing
+
+The bowler's release is slightly different.
+
+Then ball:
+
+──────────╮
+          ╰────
+
+The actual ball curves.
+
+The batter should be able to see the movement.
+
+Cutter
+
+Ball initially travels normally, then changes slightly around bounce.
+
+Slower
+
+This is particularly important.
+
+The bowler's action should look reasonably similar to a normal delivery, but the ball arrives later.
+
+That creates deception.
+
+Yorker
+
+Ball travels low and fast.
+
+            ⚪
+             \
+              \
+               \
+                🏏
+
+The timing window is very small.
+
+Bouncer
+
+Ball rises sharply after bounce.
+
+              ⚪
+             /
+            /
+           /
+          🏏
+
+The batter needs a different visual read.
+
+9. Batter animation system
+
+This should be much richer.
+
+Use:
+
+BATTER
+│
+├── Idle
+├── Ready
+├── Trigger Movement
+├── Defensive
+├── Normal
+├── Loft
+├── Leave
+├── Miss
+├── Edge
+├── Contact
+├── Follow-through
+├── Celebration
+└── Dismissal
+
+But don't create a completely separate animation for every possible combination.
+
+Use base animations + blending.
+
+10. The four main batting animations
+
+Your four controls become four intent families.
+
+DEFENSIVE
+
+Animation:
+
+Ready
+ ↓
+small foot movement
+ ↓
+compact bat movement
+ ↓
+soft hands
+ ↓
+block
+ ↓
+bat returns
+
+Visual result:
+
+low bat speed
+ball stays near ground
+low exit velocity
+11. NORMAL
+Ready
+ ↓
+footwork
+ ↓
+shot preparation
+ ↓
+bat swing
+ ↓
+contact
+ ↓
+follow-through
+
+This becomes the broadest family.
+
+It can visually branch into:
+
+straight drive
+cover drive
+flick
+cut
+pull
+
+based on the ball + direction + contact result.
+
+12. LOFT
+
+This needs the most visually exciting batting animation.
+
+Ready
+ ↓
+larger trigger movement
+ ↓
+footwork
+ ↓
+big bat arc
+ ↓
+contact
+ ↓
+high follow-through
+ ↓
+ball launches upward
+
+But:
+
+LOFT does not mean SIX.
+
+The server may return:
+
+SIX
+FOUR
+2
+1
+CAUGHT
+MISHIT
+
+and the presentation adjusts accordingly.
+
+13. LEAVE
+
+This is actually a great animation opportunity.
+
+Ball outside hitting zone:
+
+Ball
+──────────────→
+
+        🏏
+       batter
+        ↘
+      doesn't swing
+
+The batter:
+
+watches
+slightly moves away
+leaves bat behind
+ball passes keeper
+
+Then:
+
+DOT / WIDE, depending on the actual delivery.
+
+But if ball is dangerously close to stumps, the tension should be obvious.
+
+14. Don't animate the final result before timing
+
+This is critical.
+
+Suppose the player chooses:
+
+LOFT
+
+You should NOT immediately play:
+
+perfect loft animation.
+
+Instead:
+
+LOFT selected
+     ↓
+BATTER enters preparation
+     ↓
+BALL approaches
+     ↓
+TIMING INPUT
+     ↓
+SERVER RESULT
+
+Then:
+
+PERFECT
+
+Play clean loft.
+
+EARLY
+
+Play early/mistimed version.
+
+LATE
+
+Play late contact.
+
+MISS
+
+Play swing-and-miss.
+
+This makes the human input visible.
+
+15. Timing changes animation
+
+This is where your gameplay becomes believable.
+
+PERFECT
+footwork = correct
+bat = meets ball
+body = balanced
+follow-through = clean
+
+Contact:
+
+CRACK
+
+EARLY
+bat arrives too early
+body slightly ahead
+contact point wrong
+
+Possible:
+
+leading edge
+mishit
+high ball
+weak placement
+LATE
+body behind
+bat arrives late
+
+Possible:
+
+edge
+weak shot
+LBW
+bowled
+dot
+VERY LATE
+
+The batter swings after the ideal contact point.
+
+Possibility:
+
+MISS / BOWLED / LBW.
+
+16. Contact animation should be its own event
+
+Don't treat:
+
+LOFT = one animation.
+
+Instead:
+
+SHOT INTENT
+     ↓
+TIMING
+     ↓
+CONTACT QUALITY
+     ↓
+CONTACT ANIMATION
+
+For example:
+
+LOFT + PERFECT
+→ clean middle
+
+LOFT + EARLY
+→ leading edge
+
+LOFT + LATE
+→ top edge
+
+NORMAL + PERFECT
+→ clean contact
+
+NORMAL + LATE
+→ edge
+17. Bat-ball contact needs a visual "hit"
+
+This is one of the places where the game should feel grand.
+
+At contact:
+
+50–100 ms
+bat impact
+ball flash
+tiny camera shake
+sound
+contact particles
+ball velocity changes
+
+Don't overdo it.
+
+A perfect shot should feel powerful, not like an explosion.
+
+18. Ball trajectory after contact
+
+The ball should now become the star.
+
+For example:
+
+Straight drive
+BAT
+ ↓
+⚪ ─────────────────→
+Cover drive
+        ╱────────────→
+       /
+      🏏
+Pull
+     ←────────────
+             🏏
+Flick
+       ╲
+        ╲──────────→
+         🏏
+Loft
+          ⚪
+         /
+        /
+       /
+      🏏
+
+The trajectory should be generated from the actual result.
+
+19. Fielders need animation states too
+
+Every fielder should have:
+
+Idle
+Ready
+React
+Run
+Dive
+Pickup
+Throw
+Catch
+Miss
+Celebrate
+
+But don't animate 10 fielders heavily every ball.
+
+Only relevant fielders need full animation.
+
+For example:
+
+Cover drive
+
+Nearest cover fielder:
+
+IDLE
+ ↓
+REACT
+ ↓
+RUN
+ ↓
+DIVE/PICKUP
+ ↓
+THROW
+
+Other fielders:
+
+subtle reaction.
+
+20. Catch
+
+If result is CAUGHT:
+
+CONTACT
+ ↓
+BALL FLIGHT
+ ↓
+CAMERA FOLLOWS BALL
+ ↓
+FIELDER TRACKS
+ ↓
+FIELDER RUNS
+ ↓
+CATCH ANIMATION
+ ↓
+CELEBRATION
+
+Then:
+
+WICKET
+
+21. Four
+
+A FOUR should have a clear progression.
+
+CONTACT
+ ↓
+BALL LOW TRAJECTORY
+ ↓
+CAMERA FOLLOWS
+ ↓
+FIELDER CHASES
+ ↓
+BALL REACHES BOUNDARY
+ ↓
+BOUNDARY FLASH
+ ↓
+"FOUR"
+ ↓
+CROWD REACTION
+ ↓
+BATTER REACTION
+
+Total presentation maybe around 1–2 seconds, not 5 seconds.
+
+The next ball should become available quickly.
+
+22. Six
+
+Six deserves more scale.
+
+CONTACT
+ ↓
+BALL RISES
+ ↓
+CAMERA TILTS/FOLLOWS
+ ↓
+BALL CLEARS BOUNDARY
+ ↓
+STADIUM LIGHT/CROWD RESPONSE
+ ↓
+SIX
+ ↓
+BATTER REACTION
+ ↓
+RESET
+
+This can be around 1.5–2.5 seconds, depending on trajectory.
+
+23. Wicket
+
+Wicket should be more dramatic than a normal ball.
+
+Bowled
+
+Ball hits stumps.
+
+⚪
+ ↓
+💥
+WICKET
+
+Camera briefly emphasizes the stumps.
+
+Batter reacts.
+
+Bowler celebrates.
+
+Fielders converge.
+
+Then scoreboard updates.
+
+24. Don't celebrate every ball
+
+This is important for "grand."
+
+If everything is cinematic:
+
+nothing feels cinematic.
+
+Use intensity levels.
+
+Dot
+
+Minimal.
+
+Single
+
+Small reaction.
+
+Boundary
+
+Strong.
+
+Six
+
+Very strong.
+
+Wicket
+
+Strongest.
+
+Hat-trick / match-winning moment
+
+Special presentation.
+
+25. Intensity system
+
+I'd define:
+
+PRESENTATION_INTENSITY
+
+0 = NORMAL
+1 = GOOD SHOT
+2 = FOUR
+3 = SIX
+4 = WICKET
+5 = SPECIAL MOMENT
+
+Then the camera, audio, particles, crowd and UI respond accordingly.
+
+26. Camera animation
+
+Camera should not be fixed for everything.
+
+Use camera states:
+
+BATTER_VIEW
+BOWLER_VIEW
+DELIVERY_TRACK
+CONTACT_VIEW
+BALL_FOLLOW
+FIELDING_VIEW
+BOUNDARY_VIEW
+WICKET_VIEW
+CELEBRATION_VIEW
+RESET_VIEW
+27. Batting camera
+
+Your earlier requirement remains locked.
+
+When batting:
+
+behind striker + wide enough to see bowler, pitch and field.
+
+During delivery:
+
+Camera remains stable.
+
+After contact:
+
+Camera may follow the ball.
+
+28. Bowling camera
+
+When bowling:
+
+bowler/non-striker end looking toward striker.
+
+This allows the bowling owner to:
+
+read batter
+see field
+judge delivery
+experience their own delivery
+29. Camera must not ruin competitive gameplay
+
+This is important.
+
+Don't use cinematic camera during:
+
+the actual timing window.
+
+The player needs to see the ball.
+
+So:
+
+BEFORE DELIVERY
+Normal role camera
+
+DURING DELIVERY
+Stable readable camera
+
+CONTACT
+Short cinematic transition
+
+RESULT
+Ball-follow / fielding camera
+
+NEXT BALL
+Return to role camera
+30. 2D effects layer
+
+Now add 2D.
+
+At contact:
+
+contact_flash.png
+speed_line.png
+impact_particles
+
+At FOUR:
+
+FOUR graphic
+crowd effect
+boundary glow
+
+At SIX:
+
+SIX graphic
+stadium flash
+crowd burst
+
+At wicket:
+
+WICKET graphic
+red/white impact
+stump particles
+crowd reaction
+
+These should be transparent overlays over the 3D scene.
+
+31. Commentary is synchronized too
+
+For example:
+
+SERVER RESULT
+     ↓
+FOUR
+     ↓
+Animation event
+     ↓
+Commentary event
+     ↓
+"That's four!"
+
+Don't start commentary when the user presses the button.
+
+Start it when the authoritative result occurs.
+
+32. Audio timing
+
+Audio is extremely important.
+
+Bowler
+run-up footsteps
+release sound
+Ball
+subtle whoosh
+bounce
+Bat
+defensive: soft tick
+normal: solid crack
+perfect: strong crack
+mistimed: dull contact
+Boundary
+
+Crowd builds.
+
+Six
+
+Bigger crowd response.
+
+Wicket
+
+Sharp impact + crowd reaction.
+
+33. 2D crowd animation
+
+Don't try to animate every spectator.
+
+Use:
+
+crowd_idle
+crowd_wave
+crowd_four
+crowd_six
+crowd_wicket
+
+At normal time:
+
+crowd_idle
+
+FOUR:
+
+crowd_four
+
+SIX:
+
+crowd_six
+
+WICKET:
+
+crowd_wicket
+
+This creates a huge perceived production value cheaply.
+
+34. Stadium should have multiple depth layers
+BACK
+│
+├── sky
+├── stadium silhouette
+├── floodlight glow
+├── upper crowd
+├── lower crowd
+├── advertising
+├── boundary
+│
+FRONT
+│
+├── 3D pitch
+├── players
+├── ball
+└── bat
+
+That is how the 2D and 3D blend becomes convincing.
+
+35. Player animation asset structure
+
+For every batter:
+
+PLAYER/
+  BATTER/
+    idle
+    ready
+    defend
+    normal
+    loft
+    leave
+    miss
+    edge
+    celebration
+    dismissal
+
+For bowler:
+
+PLAYER/
+  BOWLER/
+    idle
+    runup
+    release_fast
+    release_swing
+    release_cutter
+    release_slower
+    release_yorker
+    release_bouncer
+    followthrough
+    celebration
+    reaction
+
+For fielders:
+
+FIELDER/
+  idle
+  react
+  run
+  pickup
+  throw
+  catch
+  dive
+  celebrate
+36. But don't make 1000 animations
+
+Use procedural blending.
+
+For example:
+
+baseShot = LOFT
+
+direction = LEFT
+
+timing = LATE
+
+contact = TOP_EDGE
+
+Animation system chooses:
+
+LOFT base
++
+left-direction body rotation
++
+late timing offset
++
+top-edge contact
+
+This gives many outcomes from fewer assets.
+
+37. Animation sync with server
+
+This is crucial.
+
+The server should not stream animation frames.
+
+It sends events.
+
+Example:
+
+DELIVERY_COMMITTED
+timestamp = 123456
+trajectory = ...
+
+Client:
+
+play bowler run-up
+play release at exact delivery timestamp
+animate ball
+
+Then:
+
+BAT_RESPONSE
+timestamp = ...
+intent = LOFT
+
+Server:
+
+RESULT = FOUR
+timing = PERFECT
+contact = CLEAN
+
+Client:
+
+play perfect loft
+play clean contact
+play trajectory
+play FOUR presentation
+38. Both owners must see the same match
+
+This is critical.
+
+If MI sees:
+
+batter loft → FOUR
+
+CSK must also see:
+
+batter loft → FOUR
+
+At approximately the same moment.
+
+Both clients should use the same:
+
+ball ID
+event timestamp
+trajectory seed
+result
+fielder target
+camera event
+
+The actual animation can be locally rendered, but the event sequence is identical.
+
+39. Example: complete YORKER → LOFT → FOUR
+
+Here's exactly what should happen.
+
+T = 0
+
+Bowler owner:
+
+YORKER
+
+T = 0.5
+
+Bowler executes.
+
+T = 0.6
+
+Server commits:
+
+FAST YORKER
+LEG
+FULL
+T = 0.6–1.3
+
+Bowler run-up/release.
+
+Ball travels.
+
+Batting player sees it.
+
+Timing meter becomes active.
+
+T = ~1.25
+
+Batter selects:
+
+LOFT
+
+T = ~1.32
+
+Batter clicks.
+
+Server determines:
+
+PERFECT
+
+T = ~1.34
+
+Bat animation reaches contact.
+
+CRACK!
+
+T = 1.35
+
+Ball launches.
+
+Camera follows.
+
+T = 1.8
+
+Ball clears boundary.
+
+T = 1.9
+
+2D:
+
+FOUR
+
+Crowd reacts.
+
+T = 2.2
+
+Score updates:
+
+124/3 → 128/3
+T = 2.5
+
+Camera returns.
+
+T = 3.0
+
+Next ball ready.
+
+That's the feeling you want.
+
+40. Example: YORKER → LOFT → LATE → BOWLED
+
+Same beginning.
+
+But:
+
+timing = LATE
+
+Server:
+
+contact = MISS
+result = BOWLED
+
+Animation:
+
+Batter loft preparation
+        ↓
+late swing
+        ↓
+ball passes bat
+        ↓
+stumps hit
+        ↓
+bails fly
+        ↓
+WICKET
+
+This is much more satisfying than simply displaying:
+
+WICKET!
+
+41. Example: BOUNCER → LOFT → EARLY → CAUGHT
+BOUNCER
+ ↓
+ball rises
+ ↓
+batter chooses LOFT
+ ↓
+EARLY
+ ↓
+top edge
+ ↓
+ball goes high
+ ↓
+camera follows
+ ↓
+fielder moves
+ ↓
+catch
+ ↓
+WICKET
+
+This is the kind of ball that makes multiplayer exciting.
+
+42. How "grand" should it be?
+
+I would use this rule:
+
+Normal ball
+
+10–20% presentation
+
+Fast.
+
+Minimal effects.
+
+Good shot
+
+30–40%
+
+Better bat sound + small camera movement.
+
+FOUR
+
+60–70%
+
+Ball follow + crowd + graphic + commentary.
+
+SIX
+
+80–90%
+
+Longer ball follow + stadium reaction + camera + crowd + graphic.
+
+WICKET
+
+90–100%
+
+Special camera + reaction + sound + celebration + wicket graphic.
+
+Match-winning moment
+
+100%
+
+Special presentation.
+
+That prevents every ball from becoming a movie trailer.
+
+43. The actual "grand" target
+
+The target should be:
+
+Arcade responsiveness + broadcast cricket camera + believable player animation + strong contact feedback + stadium atmosphere.
+
+Not:
+
+ultra-realistic simulation.
+
+And not:
+
+cartoon game.
+
+The player should look at the screen and immediately think:
+
+"I'm playing a cricket match."
+
+44. One complete architecture for Gravity
+
+I'd give Gravity this exact conceptual pipeline:
+
+                    HUMAN OWNER INPUT
+                           │
+          ┌────────────────┴────────────────┐
+          │                                 │
+      BOWLING OWNER                     BATTING OWNER
+          │                                 │
+    Delivery choice                    Intent choice
+    Target                             Timing
+    Execution
+          │                                 │
+          └──────────────┬──────────────────┘
+                         ↓
+                  SERVER AUTHORITY
+                         │
+              MATCH / RULE RESOLUTION
+                         │
+                         ↓
+                    BALL RESULT
+                         │
+          ┌──────────────┼──────────────┐
+          ↓              ↓              ↓
+       ANIMATION       CAMERA         AUDIO
+          ↓              ↓              ↓
+       3D WORLD        2D FX         COMMENTARY
+          └──────────────┼──────────────┘
+                         ↓
+                   BOTH PLAYERS
+                    SEE SAME BALL
+                         ↓
+                    SCORE UPDATE
+                         ↓
+                     NEXT BALL
+
+That is the architecture I'd lock.
+
+45. Most important implementation rule
+
+Tell Gravity not to start by animating everything.
+
+Build in this order:
+
+First
+
+One bowler + one batter + one ball.
+
+Get:
+
+camera → run-up → release → ball → timing → bat → contact → result
+
+working beautifully.
+
+Then
+
+Add:
+
+Defensive.
+
+Then:
+
+Normal.
+
+Then:
+
+Loft.
+
+Then:
+
+Leave.
+
+Then:
+
+Fast / Swing / Slower / Yorker / Bouncer / Cutter.
+
+Then:
+
+Fielders.
+
+Then:
+
+FOUR / SIX / Wicket presentation.
+
+Then:
+
+full stadium atmosphere.
+
+Because if the one-ball experience isn't excellent, adding 50 animations won't save it.
+
+The benchmark should be:
+
+Can I watch one delivery and immediately understand what the bowler did, what my opponent chose, how I timed it, why the ball went where it went, and feel satisfied or frustrated by the result?
+
+If yes, the core Auction XI gameplay is working. Everything else is scale and polish.
+
+
+
+Yes. Now we should define the actual visual construction of the Auction XI match—not just the gameplay rules.
+
+The target should be:
+
+A believable cricket ground rendered as a 3D spatial world, with 2D/2.5D characters and presentation layers where they give better visual quality/performance.
+
+The player should be able to look at the screen and immediately recognize pitch, crease, stumps, bowler, striker, non-striker, wicketkeeper, fielders, boundary, crowd, stadium and ball.
+
+1. The final visual target
+
+Think of the match screen as a small broadcast cricket presentation:
+
+                 FLOODLIGHTS
+        ╔══════════════════════════╗
+        ║       STADIUM/CROWD      ║
+        ║                          ║
+        ║       FIELDERS           ║
+        ║            ●             ║
+        ║                          ║
+        ║       ┌────────┐         ║
+        ║       │ PITCH  │         ║
+        ║       │        │         ║
+        ║       └────────┘         ║
+        ║          🏏              ║
+        ║       STRIKER            ║
+        ║                          ║
+        ║          BOWLER          ║
+        ╚══════════════════════════╝
+
+But not as circles and icons.
+
+The actual screen should contain recognizable player silhouettes/characters, real pitch markings, a ball, bat, stumps, fielders and depth.
+
+2. Use a hybrid 3D + 2D/2.5D structure
+
+I would divide the game into four visual categories.
+
+Element	Technology	Why
+Pitch	3D	perspective/depth
+Stadium	3D + 2D	geometry + atmosphere
+Ball	3D	true trajectory
+Bat	3D	realistic swing/contact
+Stumps	3D	ball collision/presentation
+Players	2.5D initially	quality + performance
+Fielders	2.5D	many characters
+Crowd	2D layers	performance
+HUD	2D	crisp UI
+Field map	2D	tactical information
+Effects	2D + particles	visual impact
+
+This is much more practical than trying to build every object as expensive 3D.
+
+3. The pitch must be REAL 3D
+
+Don't make the pitch a rectangle painted on a canvas.
+
+Create:
+
+Pitch
+├── grass outfield
+├── pitch strip
+├── crease
+├── batting crease
+├── bowling crease
+├── return crease
+├── stumps
+└── boundary
+
+The pitch should have actual dimensions in the game world.
+
+For example, establish a consistent coordinate system:
+
+                 +Z
+                  ↑
+
+              BOWLER
+                 ●
+                 │
+                 │
+          ┌─────────────┐
+          │             │
+          │    PITCH    │
+          │             │
+          └─────────────┘
+                 │
+                 │
+              BATTER
+                 ●
+                  ↓
+                 -Z
+
+Once this coordinate system exists, everything else uses it.
+
+4. Pitch visual quality
+
+The pitch shouldn't be one flat green material.
+
+Use multiple layers/material properties:
+
+Outfield
+grass texture
+subtle color variation
+mowing patterns
+roughness variation
+soft shadows
+Pitch strip
+slightly different color
+dirt/grass transition
+pitch wear
+subtle cracks/marks
+ball bounce region
+Creases
+
+Actual white geometry/texture lines.
+
+Wickets
+
+Real 3D stumps.
+
+Boundary
+
+3D rope/marker.
+
+This gives the camera something believable to look at.
+
+5. Make the pitch respond to the ball
+
+The pitch isn't just decoration.
+
+When the ball bounces:
+
+BALL
+  ↓
+bounce point
+  ↓
+small shadow
+  ↓
+subtle bounce effect
+
+For:
+
+Fast ball
+
+Low bounce.
+
+Yorker
+
+Very low trajectory.
+
+Bouncer
+
+High bounce.
+
+Cutter
+
+Slight deviation.
+
+Spinner
+
+More pronounced movement.
+
+The visual trajectory and gameplay calculation must correspond.
+
+6. Players: don't use blue dots
+
+This is probably the biggest visual improvement.
+
+Every important player needs an actual visual representation.
+
+At minimum:
+
+Batter
+head
+helmet
+body
+shirt
+trousers
+pads
+gloves
+bat
+shoes
+Bowler
+head
+body
+uniform
+shoes
+ball
+Fielder
+recognizable human silhouette
+team uniform
+position-specific animation
+Wicketkeeper
+gloves
+crouching stance
+helmet/protection
+wicket position
+7. How to create players without making expensive AAA 3D models
+
+For the current browser game, I recommend 2.5D billboard characters.
+
+Imagine:
+
+             CAMERA
+                ↓
+
+          ┌──────────┐
+          │          │
+          │  PLAYER  │
+          │  SPRITE  │
+          │          │
+          └──────────┘
+                │
+                ●
+           3D position
+
+The player is visually a high-quality 2D animated character but exists at a real 3D coordinate.
+
+This gives you:
+
+depth
+perspective
+camera movement
+scale based on distance
+field positioning
+much lower rendering cost
+8. But use different sprite angles
+
+A single front-facing image will look fake.
+
+Create directional views:
+
+PLAYER
+├── FRONT
+├── BACK
+├── FRONT_LEFT
+├── FRONT_RIGHT
+├── BACK_LEFT
+└── BACK_RIGHT
+
+The renderer selects the appropriate sprite based on camera direction.
+
+So when the camera moves:
+
+the player still looks spatially believable.
+
+9. Better: use sprite sheets
+
+Instead of separate PNG files:
+
+batter_idle.png
+batter_idle2.png
+batter_idle3.png
+
+use sprite sheets:
+
+batter_idle_sheet.png
+
+Example:
+
+┌────┬────┬────┬────┐
+│ 1  │ 2  │ 3  │ 4  │
+├────┼────┼────┼────┤
+│ 5  │ 6  │ 7  │ 8  │
+└────┴────┴────┴────┘
+
+The animation system changes frames.
+
+10. Batter animation assets
+
+Create these first.
+
+Idle
+
+Subtle breathing.
+
+Ready stance
+
+Bat grounded/raised.
+
+Trigger
+
+Small foot movement before ball arrives.
+
+Defensive
+
+Compact bat movement.
+
+Straight drive
+
+Front-foot movement + straight swing.
+
+Cover drive
+
+Front foot toward off side + angled bat.
+
+Cut
+
+Back-foot movement + horizontal bat.
+
+Pull
+
+Back-foot movement + horizontal/high swing.
+
+Flick
+
+Leg-side body rotation.
+
+Loft
+
+Large upward swing.
+
+Leave
+
+Body/shoulder movement while leaving ball.
+
+Miss
+
+Full swing without contact.
+
+Edge
+
+Late/side contact.
+
+Celebration
+
+Small/medium/large depending on result.
+
+Dismissal
+
+Different reactions.
+
+11. You don't actually need every shot as a separate animation
+
+Use:
+
+BASE BATTER ANIMATION
++
+SHOT TYPE
++
+DIRECTION
++
+TIMING
+
+For example:
+
+NORMAL
++
+OFF SIDE
++
+PERFECT
+=
+COVER DRIVE
+
+Another:
+
+NORMAL
++
+LEG SIDE
++
+PERFECT
+=
+FLICK
+
+Another:
+
+LOFT
++
+LEG SIDE
++
+EARLY
+=
+MISTIMED LOFT
+
+This dramatically reduces the asset count.
+
+12. Bat must be visibly separate
+
+I would make the bat a small 3D object even if the player is 2.5D.
+
+Why?
+
+Because the bat needs to:
+
+rotate
+accelerate
+meet the ball
+show contact angle
+produce a believable swing
+
+So:
+
+2.5D PLAYER
+       +
+3D BAT
+       +
+3D BALL
+
+is a very good combination.
+
+13. The ball must be 3D
+
+The ball is the most important 3D object.
+
+It needs:
+
+actual position
+velocity
+height
+bounce
+spin
+shadow
+trajectory
+optional motion trail
+
+The player should be able to read the ball.
+
+14. Make the ball visually readable
+
+Don't make it a tiny dot.
+
+At the batting camera:
+
+enough size to see
+high contrast against pitch
+subtle highlight
+shadow when close to ground
+
+When fast:
+
+⚪────
+
+subtle motion trail.
+
+When spinning:
+
+small rotation/highlight.
+
+When lofted:
+
+camera follows it.
+
+15. Bowler animation
+
+Create one good base bowling rig and derive multiple deliveries.
+
+BOWLER
+├── idle
+├── approach
+├── gather
+├── release
+├── followthrough
+└── reaction
+
+Then delivery-specific release:
+
+FAST
+SWING
+CUTTER
+SLOWER
+YORKER
+BOUNCER
+
+Don't make six completely independent bowling animations.
+
+Use a shared action with differences at release.
+
+16. Yorker visual
+
+Bowler:
+
+aggressive run-up
+low release trajectory
+strong wrist action
+
+Ball:
+
+BOWLER
+   ↓
+   ⚪─────────
+              \
+               \
+                🏏
+
+It should visibly look dangerous.
+
+And the timing window becomes smaller.
+
+17. Bouncer visual
+
+Bowler releases.
+
+Ball travels toward good length.
+
+Then:
+
+             ⚪
+            /
+           /
+          /
+         /
+       🏏
+
+The batter's camera should let them see the ball rise.
+
+The batter can choose:
+
+LEAVE
+
+or
+
+LOFT
+
+or appropriate response.
+
+18. Slower ball
+
+This should be visually deceptive.
+
+Bowler action:
+
+almost normal.
+
+Ball:
+
+slower arrival.
+
+Don't make the ball glow blue or have a giant "SLOWER" label.
+
+The player should learn to read it from the ball behavior.
+
+19. Fielders
+
+For 10 fielders, you don't need full expensive animations every frame.
+
+Each fielder gets:
+
+position
+sprite
+idle animation
+reaction
+movement
+
+Most remain relatively idle.
+
+When the ball is hit:
+
+nearest relevant fielder
+        ↓
+react
+        ↓
+move
+        ↓
+pickup/catch/dive
+
+Others have small reactions.
+
+This keeps the scene alive.
+
+20. Fielder depth
+
+This is where 2.5D becomes powerful.
+
+A fielder close to camera:
+
+large
+
+A fielder at deep boundary:
+
+small
+
+Example:
+
+            ●
+        deep fielder
+
+      ●
+   mid fielder
+
+                 ●
+              close fielder
+
+                 🏏
+                BATTER
+
+Because each is positioned in 3D, perspective automatically handles their scale.
+
+That's much better than manually resizing circles.
+
+21. Wicketkeeper
+
+The wicketkeeper deserves special treatment because they are always visible near the striker.
+
+Create:
+
+idle crouch
+ready crouch
+catch
+collect
+appeal
+celebrate
+
+If the ball misses the bat:
+
+Keeper should react.
+
+If wide:
+
+keeper moves.
+
+If edge:
+
+keeper attempts catch.
+
+That makes the pitch feel populated.
+
+22. Stadium
+
+Don't try to make a complete photorealistic stadium.
+
+Use hero geometry + 2D depth.
+
+3D:
+pitch
+boundary
+lower stands
+pavilion
+floodlight towers
+major structures
+2D:
+distant crowd
+upper stands
+advertising
+sky
+atmospheric haze
+
+This gives the impression of a huge stadium without huge polygon counts.
+
+23. Crowd
+
+Use several layers:
+
+BACK
+│
+├── stadium silhouette
+├── upper crowd
+├── lower crowd
+├── flags
+├── advertisements
+└── boundary
+FRONT
+
+Crowd states:
+
+IDLE
+EXCITED
+FOUR
+SIX
+WICKET
+FINAL MOMENT
+
+The crowd should subtly move even when nothing happens.
+
+24. Floodlights
+
+For a night match:
+
+3D lights:
+
+directional/key light
+point/spot lights
+
+2D:
+
+light glow
+atmospheric beams
+bloom-like overlay
+
+Don't make huge white cones that obscure the players.
+
+The lighting should make the pitch and characters readable.
+
+25. Camera composition is more important than asset complexity
+
+You can have amazing player assets and still get a terrible game if the camera is wrong.
+
+Batting camera
+           BOWLER
+             ↓
+             ⚪
+             ↓
+          PITCH
+             ↓
+          BATTER
+             🏏
+             ↑
+          CAMERA
+
+Wide enough to see:
+
+bowler
+ball
+pitch
+non-striker
+field gaps
+Bowling camera
+
+Reverse perspective:
+
+CAMERA
+   ↓
+BOWLER
+   ↓
+BALL
+   ↓
+PITCH
+   ↓
+BATTER
+26. Don't use one camera for everything
+
+Have:
+
+CameraManager
+│
+├── BattingCamera
+├── BowlingCamera
+├── DeliveryCamera
+├── ContactCamera
+├── BallFollowCamera
+├── BoundaryCamera
+├── WicketCamera
+└── CelebrationCamera
+
+But most transitions should be smooth.
+
+27. Camera during timing
+
+This is critical.
+
+When the ball is coming:
+
+DO NOT suddenly zoom, rotate or use cinematic effects.
+
+The batter needs to read:
+
+line
+length
+speed
+movement
+
+So:
+
+DELIVERY
+    ↓
+stable camera
+    ↓
+timing
+    ↓
+CONTACT
+    ↓
+cinematic camera
+28. Field map
+
+The field map is a 2D overlay.
+
+But it must be generated from the actual 3D field positions.
+
+3D Fielder Position
+        ↓
+Projection
+        ↓
+2D Field Map
+
+So if the owner moves:
+
+Deep cover → point
+
+the actual player moves and the map changes.
+
+29. Player uniforms
+
+Auction XI should have team identity.
+
+Each player should have:
+
+team
+jersey
+number
+role
+
+The visual asset can be shared.
+
+For example:
+
+Batter Base Character
+        +
+Team Texture
+        +
+Helmet/kit
+        +
+Player number
+
+This is far cheaper than creating 369 unique 3D characters.
+
+30. 369 players do NOT need 369 fully unique models
+
+This is important for your project.
+
+Use:
+
+Base body types
+
+Maybe:
+
+athletic
+tall
+medium
+compact
+
+Then customize:
+
+face/head sprite
+hair
+skin tone
+uniform
+number
+equipment
+batting/bowling style
+
+This gives player identity without exploding asset requirements.
+
+31. Auction XI player identity
+
+The player should know:
+
+"That's MY auction player."
+
+So show:
+
+PLAYER
+Virat-style fictionalized/your actual roster identity
+BAT 89
+FORM 92
+
+But avoid trying to make every player photorealistic at first.
+
+The visual identity should come from uniform + number + name + silhouette + animation style.
+
+32. 2D UI should remain elegant
+
+Top:
+
+CSK 124/3
+14.3 OV
+NEED 36 OFF 33
+
+Bottom/side:
+
+CURRENT FIELD
+
+Batting:
+
+DEFEND   NORMAL   LOFT   LEAVE
+
+Bowling:
+
+FAST SWING CUTTER SLOWER YORKER BOUNCER
+
+Timing meter appears only when needed.
+
+No permanent giant panels.
+
+33. The 3D world should occupy most of the screen
+
+I would target approximately:
+
+80–90% visual attention = cricket world
+
+10–20% = UI
+
+Not:
+
+40% cricket
+
+60% controls.
+
+Your current screenshot is almost the opposite.
+
+34. How the 2D and 3D actually connect
+
+This is the key technical relationship:
+
+                 MATCH STATE
+                     │
+          ┌──────────┴──────────┐
+          ↓                     ↓
+       THREE.JS               REACT
+          │                     │
+          ↓                     ↓
+   3D WORLD OBJECTS        2D OVERLAYS
+          │                     │
+   ┌──────┼──────┐        ┌─────┼─────┐
+   │      │      │        │     │     │
+ Players Ball Field      HUD   Map   FX
+
+They must never maintain separate versions of the match.
+
+35. Example: one perfect cover drive
+
+Here's exactly what the player should experience.
+
+Step 1
+
+Bowler runs in.
+
+3D bowler animation.
+
+Step 2
+
+Ball released.
+
+3D ball begins trajectory.
+
+Step 3
+
+Batter sees:
+
+ball outside off
+cover gap
+timing meter
+Step 4
+
+Player chooses:
+
+NORMAL
+
+Step 5
+
+Player times:
+
+PERFECT
+
+Step 6
+
+Batter animation:
+
+cover drive
+
+Front foot moves.
+
+Bat comes through.
+
+Step 7
+
+Bat hits ball.
+
+3D bat + 3D ball contact.
+
+Sound:
+
+CRACK
+
+Small camera impact.
+
+Step 8
+
+Ball travels through cover.
+
+Camera follows.
+
+Step 9
+
+Cover fielder runs.
+
+Step 10
+
+Ball reaches boundary.
+
+Step 11
+
+2D:
+
+FOUR
+
+Crowd animation.
+
+Commentary.
+
+Step 12
+
+Score:
+
+124/3 → 128/3
+Step 13
+
+Camera returns.
+
+Step 14
+
+Next ball.
+
+That is a complete 2D/3D cricket experience.
+
+36. Example: Yorker + Loft + perfect
+
+This should feel special.
+
+Bowler:
+
+YORKER
+
+3D:
+
+fast run-up
+release
+low ball
+
+Batter:
+
+LOFT
+
+Timing:
+
+PERFECT
+
+3D:
+
+aggressive foot movement
+bat comes through cleanly
+powerful contact
+
+Ball:
+
+high trajectory.
+
+Camera:
+
+follows upward.
+
+Fielder:
+
+runs back.
+
+Ball:
+
+clears boundary.
+
+2D:
+
+SIX
+
+Crowd:
+
+large reaction.
+
+Audio:
+
+big impact.
+
+Score updates.
+
+This should be one of the game's "wow" moments.
+
+37. Example: Yorker + Loft + late
+
+Same initial setup.
+
+But timing:
+
+LATE
+
+Animation:
+
+batter swings
+ball misses middle
+awkward contact or miss
+ball goes toward stumps
+
+If server says:
+
+BOWLED
+
+then:
+
+ball → stumps
+bails fly
+camera impact
+WICKET
+bowler celebration
+batter disappointment
+
+The player understands:
+
+"I tried to attack a Yorker and was late."
+
+That's good gameplay.
+
+38. The visual quality levels
+
+I'd define three levels.
+
+Level 1 — Functional
+recognizable players
+pitch
+ball
+bat
+basic stadium
+basic animations
+Level 2 — Polished
+good player sprites
+proper camera
+smooth ball
+fielders
+crowd
+lighting
+sound
+timing effects
+Level 3 — Grand
+excellent player animations
+dynamic camera
+detailed stadium
+crowd reactions
+broadcast overlays
+strong contact effects
+contextual commentary
+celebrations
+replay-like short camera moments
+weather/lighting atmosphere
+
+We should target Level 2 first and then selectively push important moments toward Level 3.
+
+39. Don't try to make everything "grand"
+
+This is very important.
+
+If every ball has:
+
+camera shake
+zoom
+giant graphics
+particles
+slow motion
+crowd explosion
+
+the game becomes exhausting.
+
+Instead:
+
+Event	Presentation
+Dot	Minimal
+Defensive	Subtle
+Single	Small
+Double	Medium
+Perfect shot	Strong contact
+FOUR	Grand
+SIX	Very grand
+Wicket	Very grand
+Hat-trick	Special
+Final ball	Special
+Match-winning shot	Maximum
+
+This creates contrast, which makes big moments feel big.
+
+40. Asset creation pipeline
+
+For actual implementation, I would have Gravity build an asset library like:
+
+assets/
+│
+├── stadium/
+│   ├── pitch/
+│   ├── stands/
+│   ├── floodlights/
+│   ├── boundary/
+│   └── advertisements/
+│
+├── players/
+│   ├── batter/
+│   ├── bowler/
+│   ├── fielder/
+│   └── wicketkeeper/
+│
+├── animations/
+│   ├── batting/
+│   ├── bowling/
+│   ├── fielding/
+│   └── celebrations/
+│
+├── ball/
+│   ├── normal/
+│   ├── trail/
+│   └── impact/
+│
+├── crowd/
+│
+├── effects/
+│
+├── audio/
+│
+└── ui/
+41. What should NOT be generated procedurally
+
+I would not ask Gravity to procedurally draw:
+
+blue circle = batter
+blue circle = fielder
+orange rectangle = pitch
+
+That's exactly what produced your current screenshot.
+
+Procedural generation is useful for:
+
+field coordinates
+ball trajectory
+camera
+particles
+lighting
+placement
+runtime animation blending
+
+But hero visuals should come from proper assets.
+
+42. What can be procedural
+
+Excellent candidates:
+
+Ball trajectory
+position(t)
+Camera movement
+lerp / spring / spline
+Fielder movement
+target position
+Field map
+3D → 2D projection
+Timing window
+delivery + player capability
+Crowd intensity
+match event → animation state
+Particles
+contact/result → particle preset
+43. One critical rule for Gravity
+
+Tell it:
+
+Do not substitute geometric primitives for final player/stadium visuals.
+
+A temporary placeholder is acceptable during development:
+
+player placeholder
+
+but the production gameplay screen must replace it with:
+
+actual player sprite/mesh + animation + uniform + equipment.
+
+44. What I would build first
+
+Don't ask Gravity:
+
+"Build all 369 players and every animation."
+
+Instead build a Hero Ball Prototype.
+
+One:
+
+stadium
+pitch
+bowler
+batter
+wicketkeeper
+3 fielders
+ball
+bat
+camera
+timing meter
+field map
+FOUR
+SIX
+wicket
+
+And make one delivery feel excellent.
+
+For example:
+
+Fast Yorker → Loft → Perfect → Six
+
+If that single ball looks and feels convincing, we can scale the same architecture to:
+
+Swing
+Cutter
+Slower
+Bouncer
+Defensive
+Normal
+Leave
+different players
+different stadiums
+full field
+complete match
+
+That is the safest way to get away from the current green oval + blue dots problem and toward the actual Auction XI cricket game you're imagining.
+
+
+
+
+Yes. At this point, I would simplify the controls a lot. The game should feel like two owners are playing cricket, not like two people operating a dashboard.
+
+The core experience should be:
+
+See → Decide → Act → Watch → React → Next ball
+
+And the game should always make it obvious whose turn it is and why the other owner is currently locked.
+
+1. The golden rule for controls
+
+At any instant, only one owner should have meaningful gameplay input.
+
+But the other owner should still see everything happening live.
+
+For example:
+
+             BALL #18
+
+       MI — BOWLING
+       CSK — BATTING
+
+
+MI OWNER                    CSK OWNER
+─────────                   ─────────
+🟢 CONTROLS ACTIVE          🔒 WAITING
+
+Choose delivery             Watch/read ball
+Choose target               Choose response
+Execute bowl                Timing
+
+Then the moment MI releases the ball:
+
+MI OWNER                    CSK OWNER
+─────────                   ─────────
+🔒 BOWLING LOCKED           🟢 BATTER ACTIVE
+
+Watch ball                  DEFEND
+                            NORMAL
+                            LOFT
+                            LEAVE
+                            ↓
+                            TIMING
+
+That simple lock system will make the multiplayer experience much easier to understand.
+
+2. Never disable the entire screen
+
+This is important.
+
+When the owner is locked, don't make their whole screen look dead.
+
+They should still see:
+
+ball
+player animation
+scoreboard
+field
+opponent action
+commentary
+match information
+
+Only their interactive controls should lock.
+
+So:
+
+❌ BAD
+
+WHOLE SCREEN DISABLED
+"WAIT..."
+
+
+✅ GOOD
+
+GAME CONTINUES VISUALLY
+
+        BALL
+         ↓
+      BATTER
+
+        🔒
+   Waiting for opponent
+
+The spectator is still part of the match.
+
+3. Pre-ball state
+
+After the previous ball finishes:
+
+BALL COMPLETE
+      ↓
+NEXT BALL
+      ↓
+PRE-BALL
+
+Show a small status banner:
+
+For bowling owner
+
+YOUR TURN — BOWL
+
+For batting owner
+
+READ THE BALL
+
+This should be visually obvious without covering the game.
+
+4. Bowling controls
+
+Don't give the bowler a huge dashboard.
+
+I'd use a compact bottom control bar.
+
+┌──────────────────────────────────────────────┐
+│                                              │
+│               ACTUAL CRICKET                 │
+│                                              │
+│                                              │
+├──────────────────────────────────────────────┤
+│ DELIVERY                                     │
+│                                              │
+│  ⚡ FAST   🌀 SWING   ◇ CUTTER   🐌 SLOWER  │
+│  🎯 YORKER              💥 BOUNCER           │
+│                                              │
+│                 [ BOWL ]                     │
+└──────────────────────────────────────────────┘
+
+But don't force all options onto a tiny mobile screen.
+
+Desktop can show all six.
+
+Mobile can use:
+
+[ DELIVERY ▾ ]
+
+opening a large touch-friendly sheet.
+
+5. Don't make line and length separate complicated menus
+
+This is where I would simplify your earlier system.
+
+The bowler should be able to aim directly on the pitch.
+
+For example, after choosing YORKER:
+
+                 BATTER
+                    🏏
+
+                 ┌─────┐
+                 │ PITCH│
+                 │      │
+                 │  ●   │ ← aim point
+                 │      │
+                 └─────┘
+
+Move/tap the target.
+
+The system derives:
+
+line
+length
+target zone
+
+from the position.
+
+That is much more intuitive.
+
+6. Bowling execution
+
+After selecting delivery and target:
+
+           EXECUTE BOWL
+
+EARLY              PERFECT              LATE
+───────|────────────██──────────────|───────
+                   ▲
+                 STOP
+
+The bowler presses/clicks at the right time.
+
+This creates the human skill component.
+
+Then:
+
+BOWL LOCKED.
+
+No further bowling input.
+
+7. Important: don't make the bowler wait through unnecessary menus
+
+The ideal sequence should take only a few seconds:
+
+Choose delivery
+      ↓
+Aim
+      ↓
+Execute
+      ↓
+BALL!
+
+Not:
+
+Choose bowler
+↓
+choose type
+↓
+choose line
+↓
+choose length
+↓
+choose speed
+↓
+choose movement
+↓
+confirm
+↓
+execute
+↓
+confirm again
+
+That would kill the fun.
+
+8. Batter controls
+
+The batter should have even fewer controls.
+
+At the bottom:
+
+┌─────────────────────────────────────────────┐
+│                                             │
+│              BOWLER → BALL                  │
+│                       ↓                     │
+│                     🏏                      │
+│                                             │
+├─────────────────────────────────────────────┤
+│                                             │
+│ 🛡 DEFEND   🏏 NORMAL   🚀 LOFT   👋 LEAVE │
+│                                             │
+└─────────────────────────────────────────────┘
+
+The player chooses intent.
+
+Then the controls disappear/lock.
+
+Now:
+
+WATCH THE BALL
+
+Timing becomes active.
+
+9. Timing meter should appear at the correct moment
+
+Don't show it permanently.
+
+Ball is released.
+
+Then:
+
+                  TIMING
+
+EARLY       GOOD      PERFECT      GOOD       LATE
+───────|──────█████████──────|────────────────
+                   ▲
+
+The player taps/clicks/stops at the appropriate moment.
+
+Then immediately:
+
+CONTACT.
+
+10. The timing meter should be different for each ball
+
+This is critical to your gameplay.
+
+Normal delivery
+
+Large perfect zone.
+
+Fast
+
+Earlier timing.
+
+Yorker
+
+Tiny zone.
+
+Slower
+
+Later timing.
+
+Swing
+
+Timing point can shift due to movement.
+
+Bouncer
+
+Different timing position and batting response.
+
+So the player isn't memorizing:
+
+"Click at 70%."
+
+They're watching the ball.
+
+11. What happens to controls after timing?
+
+Everything locks.
+
+BATTER INPUT
+     ↓
+TIMING
+     ↓
+🔒 LOCK
+     ↓
+CONTACT
+     ↓
+BALL FLIGHT
+
+Neither owner should be able to alter the ball once contact has happened.
+
+12. The field map should stay visible
+
+The batting owner needs to make decisions based on the field.
+
+Small bottom-left panel:
+
+┌──────────────┐
+│ CURRENT FIELD│
+│              │
+│   •      •   │
+│      •       │
+│      🏏      │
+│  •       •   │
+│     •        │
+└──────────────┘
+
+The bowling owner sees it too, but can interact with it only during the field-setting window.
+
+13. Field setting
+
+Don't allow field changes while the ball is coming.
+
+Use:
+
+BALL COMPLETE
+      ↓
+FIELD WINDOW
+      ↓
+Bowling owner edits field
+      ↓
+CONFIRM
+      ↓
+NEXT BALL
+
+For example:
+
+[ MOVE FIELDER ]
+
+   CURRENT FIELD
+       ●
+
+[ CONFIRM FIELD ]
+
+Once confirmed:
+
+🔒 FIELD LOCKED
+
+Then the ball begins.
+
+14. New over
+
+At the end of six legal balls:
+
+OVER COMPLETE
+      ↓
+CHANGE ENDS
+      ↓
+BOWLING OWNER
+SELECTS BOWLER
+      ↓
+BATTER / STRIKER UPDATED
+      ↓
+FIELD CONFIRM
+      ↓
+READY
+
+Don't automatically start the next ball.
+
+Show:
+
+Bowling owner
+
+SELECT NEXT BOWLER
+
+Batting owner
+
+NEXT OVER — WAITING FOR BOWLER
+
+Once bowler is selected:
+
+READY
+
+15. New batter after wicket
+
+This is another important lock.
+
+Wicket happens:
+
+WICKET
+ ↓
+BALL COMPLETE
+ ↓
+NEW BATTER REQUIRED
+
+Batting owner gets:
+
+SELECT BATTER
+
+[ PLAYER 1 ]
+[ PLAYER 2 ]
+[ PLAYER 3 ]
+...
+
+Bowling owner sees:
+
+Waiting for new batter
+
+Once selected:
+
+BATTER CONFIRMED
+ ↓
+READY
+ ↓
+NEXT BALL
+
+The system should never silently pick a random batter.
+
+16. Toss
+
+Toss should be extremely simple.
+
+Both see:
+
+TOSS
+
+CSK
+     vs
+MI
+
+[ HEADS ]     [ TAILS ]
+
+The owner who calls it gets the input.
+
+Server performs the actual random toss.
+
+Then both see:
+
+             TOSS RESULT
+
+              🪙
+
+            HEADS
+
+        MI WON THE TOSS
+
+Then:
+
+MI:
+
+[ BAT ]
+[ BOWL ]
+
+Only MI can click.
+
+CSK sees:
+
+MI won the toss — waiting for their decision.
+
+17. The game should communicate ownership constantly
+
+Don't make players guess.
+
+Use small status indicators:
+
+Your turn
+
+🟢 YOUR TURN
+
+Opponent turn
+
+🔵 OPPONENT TURN
+
+Waiting
+
+⏳ WAITING FOR OPPONENT
+
+Locked
+
+🔒 LOCKED
+
+Processing
+
+⚡ RESOLVING BALL
+
+These should be consistent throughout the entire game.
+
+18. Don't use giant "WAITING" screens
+
+Bad:
+
+╔════════════════════╗
+║                    ║
+║  WAITING...        ║
+║                    ║
+╚════════════════════╝
+
+Better:
+
+                   BALL
+                    ↓
+                  🏏
+
+       ⏳ Waiting for opponent
+
+The game remains visible.
+
+19. Both owners should always see the live score
+
+Top HUD:
+
+┌─────────────────────────────────────────────┐
+│ CSK 128/3     14.4 OV     NEED 32 OFF 32  │
+└─────────────────────────────────────────────┘
+
+Both players see the same authoritative score.
+
+No separate local scores.
+
+20. Show player information without clutter
+
+Under score:
+
+STRIKER
+Ruturaj  62 (41)  4s:5  6s:2
+
+NON-STRIKER
+Dhoni  24 (17)
+
+BOWLER
+Bumrah  3.4 - 27 - 2
+
+Compact.
+
+Tap/click can open a larger scorecard.
+
+21. The gameplay screen should have three zones
+
+This is the layout I'd recommend.
+
+┌──────────────────────────────────────────────┐
+│                 SCORE HUD                    │
+├──────────────────────────────────────────────┤
+│                                              │
+│                                              │
+│              3D/2.5D CRICKET                │
+│                                              │
+│         BOWLER → BALL → BATTER              │
+│                                              │
+│   FIELD MAP                                  │
+│   ┌───────┐                                  │
+│   │       │                                  │
+│   │ FIELD │                                  │
+│   └───────┘                                  │
+│                                              │
+├──────────────────────────────────────────────┤
+│           CONTEXTUAL CONTROLS                │
+└──────────────────────────────────────────────┘
+
+The actual cricket occupies most of the screen.
+
+22. Desktop controls
+
+Mouse:
+
+Bowling
+click delivery
+click/drag target
+click timing
+
+Keyboard shortcuts can be optional:
+
+1 = Fast
+2 = Swing
+3 = Cutter
+4 = Slower
+5 = Yorker
+6 = Bouncer
+
+Space = Execute
+Batting
+1 = Defend
+2 = Normal
+3 = Loft
+4 = Leave
+
+Space = Timing
+
+But don't require keyboard.
+
+Mouse should be enough.
+
+23. Mobile controls
+
+Don't simply shrink desktop controls.
+
+Use large touch buttons:
+
+┌──────────────────────────────┐
+│                              │
+│        ACTUAL CRICKET        │
+│                              │
+│                              │
+├──────────────────────────────┤
+│                              │
+│  [ DEFEND ]  [ NORMAL ]      │
+│                              │
+│  [ LOFT ]    [ LEAVE ]       │
+│                              │
+└──────────────────────────────┘
+
+Minimum comfortable touch target:
+
+around 44–48px, preferably larger for primary controls.
+
+And:
+
+touch-action: manipulation;
+
+Gameplay container should prevent accidental page scrolling.
+
+24. No page scrolling during a match
+
+This should be a hard requirement.
+
+body
+  overflow: hidden
+
+.game-shell
+  height: 100dvh
+  overflow: hidden
+
+Use safe-area padding for phones.
+
+The game itself should fit the viewport.
+
+Don't make the user scroll down to find:
+
+LOFT
+
+after seeing the ball.
+
+25. Controls should follow the current role
+Bowling
+
+Only show:
+
+DELIVERY
+TARGET
+EXECUTE
+FIELD
+Batting
+
+Only show:
+
+DEFEND
+NORMAL
+LOFT
+LEAVE
+TIMING
+Field setting
+
+Only show:
+
+FIELD MAP
+MOVE
+CONFIRM
+Waiting
+
+Show no active controls.
+
+This keeps the interface extremely clean.
+
+26. The state machine controls the UI
+
+This is the clean technical approach.
+
+MATCH_STATE
+
+TOSS
+XI_SELECTION
+FIELD_SETUP
+BOWLER_SELECTION
+BOWLER_INPUT
+DELIVERY_EXECUTION
+BALL_IN_FLIGHT
+BATTER_INPUT
+TIMING
+CONTACT
+BALL_FLIGHT
+RESULT
+WICKET
+OVER_BREAK
+INNINGS_BREAK
+MATCH_RESULT
+
+React reads the state.
+
+Then:
+
+if BOWLER_INPUT
+    show bowling controls
+
+if BATTER_INPUT
+    show batting controls
+
+if TIMING
+    show timing meter
+
+if BALL_FLIGHT
+    hide all active controls
+
+if BOWLER_SELECTION
+    show bowler selection
+
+if NEW_BATTER
+    show batter selection
+
+This prevents contradictory controls.
+
+27. The server should be the source of the lock
+
+Don't trust only React.
+
+Bad:
+
+Frontend:
+"button disabled"
+
+A cheating client could still send:
+
+BAT_INTENT=LOFT
+
+Server must validate:
+
+currentState == BATTER_INPUT
+AND
+request.owner == battingOwner
+
+Otherwise:
+
+REJECT
+
+Same for bowling.
+
+28. Every button has an owner
+
+For example:
+
+DELIVERY_BUTTON
+owner = bowlingOwner
+state = BOWLER_INPUT
+
+and:
+
+LOFT_BUTTON
+owner = battingOwner
+state = BATTER_INPUT
+
+The server checks both.
+
+29. Synchronization should feel instant
+
+The network should synchronize events, not animation frames.
+
+For example:
+
+BOWLER_SELECTED
+DELIVERY_SELECTED
+DELIVERY_COMMITTED
+BATTER_INPUT
+TIMING_INPUT
+BALL_RESULT
+SCORE_UPDATED
+NEXT_BALL
+
+The actual:
+
+bowler run
+ball flight
+bat swing
+fielder movement
+camera movement
+
+runs locally at 60 FPS.
+
+That makes the game feel smooth.
+
+30. Use a shared ball timeline
+
+Every ball should have:
+
+ballId
+serverStartTime
+releaseTime
+bounceTime
+contactWindow
+result
+
+Then both clients can calculate:
+
+Where should the ball be right now?
+
+rather than waiting for dozens of network messages.
+
+This is how you avoid jerky multiplayer animation.
+
+31. What happens if network is slow?
+
+Suppose the batter's input takes 150ms.
+
+The ball should already be visually moving.
+
+The server receives the timing event with a timestamp.
+
+It validates it against the authoritative ball timeline.
+
+So the game doesn't feel like:
+
+click → freeze → wait → result.
+
+Instead:
+
+click → animation continues → result arrives → presentation resolves.
+
+32. The "feel" target
+
+The entire ball should feel approximately like:
+
+0.0s    Ready
+        ↓
+0.2s    Bowler begins
+        ↓
+0.7s    Release
+        ↓
+0.7–1.4 Ball travels
+        ↓
+1.0s    Batter chooses intent
+        ↓
+1.2s    Timing
+        ↓
+1.3s    Contact
+        ↓
+1.3–2.2 Ball/field result
+        ↓
+2.2s    Score update
+        ↓
+2.5s    Next ball
+
+The exact timings can vary by delivery.
+
+The point is:
+
+The match shouldn't constantly stop for menus.
+
+33. What makes it easy to play
+
+The player should only have to understand four things:
+
+Bowling
+
+Choose → Aim → Time → Bowl
+
+Batting
+
+Read → Choose → Time → Watch
+
+Fielding
+
+Set field → Confirm → Watch
+
+Match
+
+Play ball → See result → Next ball
+
+That's enough.
+
+The complicated stuff stays underneath.
+
+34. What makes it exciting
+
+The game should create uncertainty from the opponent, not from confusing controls.
+
+Bowler:
+
+"Will he expect Yorker?"
+
+Batter:
+
+"Is he going slower?"
+
+Bowler:
+
+"He keeps lofting."
+
+Moves fielder.
+
+Batter:
+
+"There's a gap at cover."
+
+Chooses normal.
+
+Perfect timing.
+
+FOUR.
+
+That is where the excitement comes from.
+
+35. One complete example
+Pre-ball
+
+Both see:
+
+14.5 OV
+128/3
+
+STRIKER: Hemanth
+NON-STRIKER: Akshay
+BOWLER: Gokul
+
+Bowling owner:
+
+🟢 YOUR TURN
+
+Batting owner:
+
+🔵 READ THE BALL
+
+Bowling
+
+Bowler:
+
+YORKER
+
+Aims leg stump.
+
+Executes.
+
+PERFECT bowling execution.
+
+Now:
+
+🔒 Bowling controls.
+
+Delivery
+
+Ball comes.
+
+Batting owner sees:
+
+fast, low Yorker.
+
+Field map shows:
+
+deep square leg.
+
+Batter thinks:
+
+"I can loft this."
+
+Chooses:
+
+LOFT
+
+Timing
+
+Tiny perfect zone.
+
+Player clicks slightly late.
+
+Result
+
+Server:
+
+YORKER
++
+LOFT
++
+LATE
++
+BAT 88
++
+POWER 82
++
+FIELD
+=
+TOP EDGE
+=
+CAUGHT
+
+Both screens show:
+
+WICKET
+
+Fielder catches.
+
+Bowler celebrates.
+
+Batter dismissed.
+
+Next state
+
+Batting owner:
+
+🟢 SELECT NEW BATTER
+
+Bowling owner:
+
+⏳ WAITING FOR NEW BATTER
+
+No ball begins until the new batter is selected and ready.
+
+That is the smooth lock/unlock experience.
+
+36. The final rule set I'd give Gravity
+
+Never show controls that the current owner cannot use.
+
+Never allow a locked owner to influence the current ball.
+
+Never let the system silently make a human gameplay decision.
+
+Never make the user scroll during live gameplay.
+
+Never stop showing the cricket just because the opponent is thinking.
+
+Every ball must have one clear owner for bowling and one clear owner for batting.
+
+The server owns authority; the owners own decisions.
+
+The 3D/2.5D world continues smoothly while the UI changes contextually around it.
+
+The player should always know: WHAT I CAN DO, WHAT MY OPPONENT IS DOING, WHAT I'M WAITING FOR, AND WHAT HAPPENS NEXT. ignore bowling one i am giving new one 
+
+
+
+
+Rebuild the bowling and batting interaction model around one principle:
+
+The bowler controls WHERE and HOW the ball is delivered.
+The batter controls HOW to respond.
+Timing determines execution quality.
+
+Do NOT make the bowler manually select:
+
+Yorker
+Bouncer
+Full
+Good
+Short
+Off
+Middle
+Leg
+
+from a large collection of buttons.
+
+Instead, create an intuitive physical aiming system.
+
+The bowling interaction should feel immediately understandable:
+
+DRAG AIM → CHOOSE SPEED → PERFECT RELEASE
+
+The batting interaction should feel:
+
+READ BALL → CHOOSE INTENT → PERFECT TIMING
+
+The entire system must remain human-vs-human. There is no CPU decision-making.
+
+1. BOWLING — NEW CORE CONTROL
+Bowler should see the actual pitch
+
+During the bowling owner's turn, show a clear pitch from the bowling camera.
+
+The bowler sees:
+
+bowler
+batter
+stumps
+pitch
+crease
+field
+target marker
+ball trajectory preview only where appropriate
+bowling HUD
+
+Do NOT use the previous top-down green oval/diagram presentation.
+
+The pitch must look like an actual cricket pitch in the game world.
+
+2. DRAG-TO-AIM SYSTEM
+
+Place a single circular aim marker on the pitch.
+
+Example:
+
+                 BATTER
+                   🧍
+                [ STUMPS ]
+
+          ┌──────────────────┐
+          │                  │
+          │        ◯         │
+          │                  │
+          │    AIM MARKER    │
+          │                  │
+          │                  │
+          └──────────────────┘
+
+                BOWLER
+
+The bowling owner can:
+
+CLICK + DRAG
+
+Move the circle around the legal target area.
+
+The system continuously identifies:
+
+horizontal position
+pitch landing position
+distance from batter
+intended line
+intended length
+delivery zone
+
+The user should NOT have to understand technical cricket terminology to control it.
+
+3. SYSTEM IDENTIFIES DELIVERY TYPE FROM LOCATION
+
+The player simply places the circle.
+
+The game internally classifies the delivery.
+
+For example:
+
+Very full / near batter crease
+        BATTER
+          🧍
+       [STUMPS]
+
+          🔴
+      Yorker Zone
+
+System internally:
+
+delivery = YORKER
+
+Do not force the user to click a "YORKER" button.
+
+Short landing position
+        BATTER
+          🧍
+
+             🔴
+        Short Zone
+
+System internally:
+
+delivery = BOUNCER / SHORT BALL
+
+The exact behavior depends on bowling execution and bowler capabilities.
+
+Good-length area
+        BATTER
+          🧍
+
+          ─────
+           🔴
+
+System internally:
+
+delivery = GOOD_LENGTH
+Full but outside the stumps
+
+The system can identify:
+
+FULL + OFF
+FULL + LEG
+
+without requiring separate menus.
+
+4. DO NOT MAKE THE TARGET SYSTEM TOO TECHNICAL
+
+The bowler should NEVER need to think:
+
+"I need to select Yorker → Full → Middle → Off."
+
+Instead:
+
+"I'm going to put the ball here."
+
+That is the entire concept.
+
+The physical position of the aim circle becomes the bowler's decision.
+
+This is critical for making the game easy to learn.
+
+5. AIM ASSIST / TARGET FEEDBACK
+
+The aim marker should provide subtle feedback.
+
+Do not expose a giant technical diagnostic.
+
+Use simple visual language.
+
+Example:
+
+       ◯
+     TARGET
+
+As the player drags:
+
+legal target → normal marker
+dangerous/advanced target → subtle highlight
+extremely difficult target → stronger visual feedback
+
+But do NOT explicitly tell the user:
+
+"This is a 94% Yorker."
+
+Do not reveal exact probability.
+
+The player should learn through gameplay.
+
+6. DELIVERY TYPE SHOULD EMERGE FROM LOCATION + BOWLER STYLE
+
+The final delivery is calculated from:
+
+Aim Position
++
+Bowler Type
++
+Bowler Ratings
++
+Speed
++
+Execution Timing
++
+Movement
++
+Variation
++
+Pressure
++
+Controlled Randomness
+
+For example:
+
+Pace Bowler
+
+Aiming very full:
+
+FAST + FULL TARGET
+        ↓
+FAST YORKER-LIKE DELIVERY
+Swing Bowler
+
+Same target:
+
+SWING + FULL TARGET
+        ↓
+SWINGING FULL DELIVERY
+Spinner
+
+The same physical target should produce spin-oriented behavior according to the bowler's archetype.
+
+Do not make every bowler behave identically.
+
+7. SPEED CONTROL
+
+After positioning the aim marker, the bowler gets a simple speed control.
+
+Do NOT create a giant technical bowling menu.
+
+Use a clean speed meter:
+
+SPEED
+
+Slow ────────●──────── Fast
+             ↑
+          CURRENT
+
+Or an intuitive vertical/horizontal power slider.
+
+The user chooses the desired speed.
+
+Examples:
+
+LOW       MEDIUM       HIGH
+ |-----------|-----------|
+             ●
+
+The selected speed influences:
+
+arrival time
+ball velocity
+batter timing window
+bounce behavior
+movement response
+exit velocity after contact
+8. SPEED MUST NOT GUARANTEE OUTCOME
+
+Important:
+
+A bowler selecting maximum speed does NOT automatically create a wicket.
+
+Likewise:
+
+A perfect-speed execution does NOT automatically create a wicket.
+
+The system must combine:
+
+TARGET
++
+SPEED
++
+EXECUTION
++
+BOWLER CAPABILITY
++
+BATTER RESPONSE
++
+TIMING
++
+FIELD
+
+to determine the outcome.
+
+9. PERFECT RELEASE / EXECUTION METER
+
+After selecting:
+
+1. Aim
+2. Speed
+
+the bowler performs a release timing action.
+
+Use a timing meter inspired by the responsiveness of modern cricket games.
+
+Example:
+
+          RELEASE TIMING
+
+EARLY       GOOD       PERFECT       GOOD       LATE
+ |-----------|-----------|-----------|-----------|
+                         ▲
+                       STOP
+
+The bowler must press/click/tap at the correct moment.
+
+PERFECT
+
+Produces the intended delivery with maximum control.
+
+GOOD
+
+Small execution deviation.
+
+EARLY
+
+Possible:
+
+reduced control
+different line
+length error
+easier delivery
+LATE
+
+Possible:
+
+length error
+slower release
+wide
+full toss
+altered movement
+
+The result must depend on bowler capability.
+
+10. BOWLER RATINGS
+
+Existing BAT/BOWL ratings remain authoritative.
+
+Do NOT create a second permanent rating system.
+
+Internally derive:
+
+BOWL
+ ↓
+Pace / Release
+Line Control
+Length Control
+Movement
+Variation
+Yorker Control
+Bouncer Control
+Pressure Bowling
+
+These are runtime capabilities.
+
+Ratings should modify precision and forgiveness, not decide the result.
+
+Example:
+
+BOWL 95
+
+A perfect execution can produce a very precise target.
+
+Poor execution can still fail.
+
+BOWL 65
+
+The same player can execute an excellent delivery.
+
+However, the tolerance for mistakes is smaller.
+
+11. BOWLING FLOW
+
+The entire bowling interaction should be:
+
+BOWLER TURN
+     ↓
+DRAG AIM CIRCLE
+     ↓
+TARGET LOCK
+     ↓
+CHOOSE SPEED
+     ↓
+RELEASE TIMING
+     ↓
+PERFECT / GOOD / EARLY / LATE
+     ↓
+DELIVERY COMMITTED
+     ↓
+BALL FLIGHT
+     ↓
+BATTER READS BALL
+
+The user should understand this without a tutorial after playing 1–2 balls.
+
+12. IMPORTANT — AIM MUST NOT LOCK TOO EARLY
+
+While dragging:
+
+aim circle follows pointer/finger
+
+When the user releases:
+
+TARGET LOCKED
+
+Then speed becomes active.
+
+After speed selection:
+
+SPEED LOCKED
+
+Then release meter becomes active.
+
+After release:
+
+BOWLING INPUT LOCKED
+
+The bowler cannot change the delivery once released.
+
+13. MOBILE CONTROL
+
+Mobile should be extremely simple.
+
+Bowler:
+
+STEP 1
+
+Drag circle.
+
+STEP 2
+
+Tap/drag speed.
+
+STEP 3
+
+Tap release at perfect moment.
+
+No tiny buttons.
+
+Minimum touch target:
+
+44–48px.
+
+No page scrolling.
+
+Use:
+
+height: 100dvh;
+overflow: hidden;
+touch-action: manipulation;
+
+Ensure pointer events are correctly handled.
+
+14. BATTER CONTROL
+
+Once the delivery is committed:
+
+bowler controls disappear/lock.
+
+The batting owner becomes active.
+
+Show:
+
+YOUR TURN
+
+DEFEND    NORMAL    LOFT    LEAVE
+
+Keep these four simple intents.
+
+Do NOT show seven or ten technical shot buttons.
+
+15. BATTER SHOULD NOT KNOW THE PERFECT TIMING IN ADVANCE
+
+The batter sees the ball.
+
+The batter must:
+
+READ
+ ↓
+CHOOSE INTENT
+ ↓
+WATCH BALL
+ ↓
+TIME RESPONSE
+
+Timing meter appears during the relevant batting window.
+
+EARLY | GOOD | PERFECT | GOOD | LATE
+                    ▲
+                  TIMING
+
+The perfect point must depend on:
+
+delivery speed
+release
+length
+movement
+batter capabilities
+
+Therefore players cannot simply memorize:
+
+"Always press at 50%."
+
+16. DIFFERENT DELIVERIES MUST FEEL DIFFERENT
+FAST
+
+Ball arrives quickly.
+
+Smaller reaction time.
+
+SWING
+
+Ball moves through the air.
+
+Timing/line can change late.
+
+CUTTER
+
+Ball changes pace/movement.
+
+SLOWER
+
+Looks similar initially but reaches later.
+
+Must punish players who blindly memorize timing.
+
+YORKER-LIKE TARGET
+
+Very full.
+
+Low bounce/late playable area.
+
+Small timing tolerance.
+
+But:
+
+NOT AN AUTOMATIC WICKET.
+
+SHORT / BOUNCER-LIKE TARGET
+
+Ball rises.
+
+Different batter response.
+
+LOFT/PULL may become useful.
+
+DEFENSIVE/NORMAL may produce different outcomes.
+
+17. BATTER INTENT
+DEFEND
+
+Large timing forgiveness.
+
+Lower attacking potential.
+
+Useful against difficult balls.
+
+NORMAL
+
+Balanced.
+
+Can produce:
+
+dot
+1
+2
+boundary
+
+depending on execution.
+
+LOFT
+
+Aggressive.
+
+Higher boundary potential.
+
+Higher aerial/catch risk.
+
+LEAVE
+
+Batter does not attack.
+
+Useful against balls outside hitting area.
+
+But can still result in:
+
+dot
+wide
+wicket depending on delivery/rules.
+18. PERFECT DOES NOT MEAN SIX
+
+This rule is mandatory.
+
+PERFECT TIMING
+≠
+AUTOMATIC SIX
+
+Perfect timing means:
+
+excellent execution opportunity.
+
+Actual outcome depends on:
+
+delivery
++
+intent
++
+direction
++
+batter capability
++
+bowler quality
++
+field
++
+contact point
++
+controlled randomness
+
+A perfect defensive shot can be a dot.
+
+A perfect normal shot can be a single/double/four.
+
+A perfect loft can become a six.
+
+A perfect loft can also go toward a fielder depending on conditions.
+
+19. FIELD MUST MATTER
+
+The bowling owner can set the field between deliveries.
+
+During field setup:
+
+fielder positions
+     ↓
+CONFIRM FIELD
+     ↓
+FIELD LOCKED
+
+During the delivery:
+
+field controls are locked.
+
+The batter can see the actual gaps.
+
+Therefore:
+
+Same ball
++
+Same timing
++
+Different field
+=
+Potentially different result
+
+The field is actual gameplay, not decoration.
+
+20. ONLY ONE OWNER'S CONTROLS ACTIVE
+
+At every point display:
+
+Bowling owner
+🟢 YOUR TURN
+Drag to aim
+Choose speed
+Release
+Batting owner
+🔵 OPPONENT IS BOWLING
+Read the ball
+
+Then:
+
+🟢 YOUR TURN
+Choose intent
+Time the shot
+
+Never leave confusing active-looking controls for the wrong owner.
+
+21. CONTROL STATE MACHINE
+
+Implement explicit states:
+
+XI_SELECTION
+
+TOSS
+
+BAT_BOWL_DECISION
+
+FIELD_SETUP
+
+BOWLER_SELECTION
+
+BOWLER_AIM
+
+BOWLER_SPEED
+
+BOWLER_RELEASE
+
+DELIVERY_COMMITTED
+
+BALL_IN_FLIGHT
+
+BATTER_INTENT
+
+BATTER_TIMING
+
+CONTACT
+
+BALL_TRAJECTORY
+
+FIELDING
+
+RESULT
+
+BALL_COMPLETE
+
+NEXT_BALL
+
+Only the appropriate owner's controls are enabled.
+
+22. SERVER AUTHORITY
+
+Frontend cannot decide:
+
+"Perfect"
+"Six"
+"Wicket"
+"Yorker"
+
+The client submits human input.
+
+Server determines authoritative result.
+
+For example:
+
+{
+  "ballId": "12.4",
+  "ownerId": "ownerA",
+  "aimX": 0.18,
+  "aimY": 0.74,
+  "speed": 0.91,
+  "releaseTimestamp": 123456789
+}
+
+Server converts the target into the actual delivery characteristics.
+
+Then batter submits:
+
+{
+  "ballId": "12.4",
+  "ownerId": "ownerB",
+  "intent": "LOFT",
+  "timingTimestamp": 123456999
+}
+
+Server resolves the ball.
+
+23. DO NOT SEND PER-FRAME NETWORK DATA
+
+Network should transmit:
+
+TARGET_SELECTED
+SPEED_SELECTED
+DELIVERY_COMMITTED
+BAT_INTENT
+BAT_TIMING
+BALL_RESULT
+
+Not:
+
+every frame
+every player position
+every animation frame
+
+Each client locally renders the same animation from authoritative parameters.
+
+24. CAMERA
+
+Bowling:
+
+Bowler-end broadcast camera
+
+BOWLER
+   ↓
+PITCH
+   ↓
+BATTER
+   ↓
+FIELD
+
+Batting:
+
+Behind-batter broadcast camera
+
+FIELD
+   ↓
+BATTER
+   ↓
+PITCH
+   ↓
+BOWLER
+
+Do not use a permanent top-down camera.
+
+The player must feel like they are playing cricket.
+
+25. BALL PRESENTATION
+
+Every ball:
+
+Bowler prepares
+     ↓
+Run-up
+     ↓
+Release
+     ↓
+Ball travels
+     ↓
+Bounce
+     ↓
+Batter reacts
+     ↓
+Bat swing
+     ↓
+CONTACT / MISS
+     ↓
+Ball trajectory
+     ↓
+Fielder reaction
+     ↓
+RESULT
+
+Do not instantly teleport from:
+
+"BOWL"
+
+to:
+
+"FOUR"
+
+The player must see the event happen.
+
+26. FOUR PRESENTATION
+
+For a four:
+
+strong bat contact
+ball accelerates
+trajectory follows actual direction
+camera follows briefly
+boundary movement
+crowd reaction
+FOUR graphic
+commentary
+score animation
+27. SIX PRESENTATION
+
+For a six:
+
+powerful contact
+higher trajectory
+camera follows ball
+stadium/crowd reaction
+boundary/lighting effect
+SIX graphic
+commentary
+score update
+
+No unnecessarily long cinematic pause.
+
+28. WICKET PRESENTATION
+
+Different wicket types:
+
+BOWLED
+CAUGHT
+LBW
+RUN OUT
+
+Presentation should communicate which happened.
+
+For example:
+
+Bowled
+
+Ball hits stumps → bails → batter reaction → bowler celebration.
+
+Caught
+
+Ball trajectory → fielder moves → catch → celebration.
+
+LBW
+
+Ball strikes batter → umpire appeal → decision.
+
+Do not just display:
+
+WICKET
+
+over a static screen.
+
+29. UI PRIORITY
+
+Gameplay must dominate.
+
+Target:
+
+90%
+CRICKET WORLD
+
+10%
+UI
+
+Top:
+
+TEAM A  124/3
+15.4 OVERS
+
+NEED 42 FROM 26
+
+Bottom:
+
+contextual controls
+
+Do not create a giant dashboard.
+
+30. DESKTOP
+
+Mouse:
+
+drag aim
+↓
+select speed
+↓
+click/space release
+
+Optional keyboard:
+
+Mouse drag = Aim
+1–5 = speed presets
+SPACE = release
+
+Batting:
+
+1 = DEFEND
+2 = NORMAL
+3 = LOFT
+4 = LEAVE
+SPACE = TIMING
+
+But mouse must remain fully playable without keyboard.
+
+31. MOBILE
+
+Bowling:
+
+DRAG TARGET
+
+     ◯
+     
+[ SPEED ]
+
+[ RELEASE ]
+
+Batting:
+
+[ DEFEND ]
+
+[ NORMAL ]
+
+[ LOFT ]
+
+[ LEAVE ]
+
+Timing meter becomes large and touch-friendly.
+
+No scrolling.
+
+No tiny HTML selects.
+
+No controls hidden below the viewport.
+
+32. DO NOT REPEAT THE PREVIOUS BAD ARENA
+
+The previous implementation's:
+
+green oval
+orange pitch
+blue player circles
+diagram-style field
+tiny controls
+giant empty space
+top-down tactical appearance
+
+must be considered rejected.
+
+Do not polish that visual approach.
+
+Replace it.
+
+The target is:
+
+A polished 2D/2.5D browser cricket game with recognizable cricket presentation.
+
+Not:
+
+a cricket scoring dashboard.
+
+33. VISUAL TARGET
+
+Use:
+
+3D world
+pitch
+grass
+stumps
+ball
+bat
+boundary
+stadium geometry
+lighting
+player positions
+2D/2.5D assets
+batter
+bowler
+fielders
+crowd
+advertisements
+HUD
+effects
+commentary
+score graphics
+
+Use sprite/billboard animation if necessary.
+
+Players do NOT need full AAA 3D models.
+
+But they must visibly look like cricket players, not colored circles.
+
+34. MOST IMPORTANT GAMEPLAY FEEL
+
+The user should experience:
+
+Bowling
+
+"I put the ball exactly there."
+
+Then:
+
+"I chose the speed."
+
+Then:
+
+"I nailed the release."
+
+Batting
+
+"I read the ball."
+
+Then:
+
+"I chose LOFT."
+
+Then:
+
+"I timed it perfectly."
+
+Then:
+
+"YES! SIX!"
+
+That sense of player agency is the core of Auction XI.
+
+35. FINAL BALL EXAMPLE
+
+Bowler drags target very full and near middle stump.
+
+System recognizes:
+
+FULL / YORKER-LIKE TARGET
+
+Bowler chooses:
+
+HIGH SPEED
+
+Bowler hits:
+
+PERFECT RELEASE
+
+Ball travels rapidly toward batter.
+
+Batting owner sees the ball.
+
+Chooses:
+
+LOFT
+
+Times slightly early.
+
+Result:
+
+HIGH MISHIT
+        ↓
+FIELDER RUNS
+        ↓
+CATCH
+        ↓
+WICKET
+
+The result is not because:
+
+"Yorker = wicket."
+
+It happened because:
+
+difficult delivery
++
+high speed
++
+good bowling execution
++
+aggressive batting intent
++
+early timing
++
+field position
+
+produced that outcome.
+
+36. SECOND EXAMPLE — YORKER IS NOT GUARANTEED
+
+Bowler aims at the same area.
+
+But release is poor.
+
+System may convert it into:
+
+LOW FULL TOSS
+
+or another plausible execution error.
+
+Batter chooses:
+
+NORMAL
+
+and times perfectly.
+
+Result could be:
+
+FOUR
+
+This is important.
+
+The user must never feel that selecting a particular delivery type is an automatic outcome button.
+
+37. THIRD EXAMPLE — SLOWER BALL
+
+Bowler aims good length.
+
+Selects medium/slow speed.
+
+Perfect release.
+
+The batter reads it as fast.
+
+Chooses:
+
+LOFT
+
+and swings early.
+
+Result:
+
+MISHIT
+↓
+HIGH BALL
+↓
+FIELDER
+↓
+CATCH
+
+This creates actual mind games between two human owners.
+
+38. IMPLEMENTATION REQUIREMENT
+
+Do not only implement the frontend appearance.
+
+Implement the complete interaction:
+
+DRAG TARGET
+      ↓
+TARGET CLASSIFICATION
+      ↓
+SPEED
+      ↓
+RELEASE TIMING
+      ↓
+AUTHORITATIVE DELIVERY
+      ↓
+BATTER READ
+      ↓
+INTENT
+      ↓
+TIMING
+      ↓
+AUTHORITATIVE RESOLUTION
+      ↓
+ANIMATION
+      ↓
+RESULT
+
+The backend must understand the target position and derive the delivery characteristics.
+
+39. EXISTING AUCTION XI ARCHITECTURE MUST REMAIN
+
+Preserve:
+
+existing Auction XI
+authentication
+owners
+franchises
+rooms
+auction
+squads
+369-player roster
+BAT/BOWL ratings
+Spring Boot
+WebSocket/STOMP
+Supabase PostgreSQL
+Flyway
+Mini Match persistence
+existing E2E tests
+reconnect
+pause
+forfeit
+scorecard
+progression
+
+Do not create a second backend/database.
+
+Do not modify the paused Unity 3D project.
+
+40. FINAL ACCEPTANCE TEST
+
+Before claiming completion, actually test:
+
+Bowling
+drag target with mouse
+drag target on touch
+target moves correctly
+target locks
+speed selection works
+release meter works
+perfect release works
+early release works
+late release works
+target location changes delivery
+speed changes delivery
+bowler ratings influence precision
+no automatic Yorker wicket
+no automatic Bouncer wicket
+Batting
+intent buttons work
+controls lock when opponent bowls
+timing meter appears at correct moment
+timing changes result
+fast delivery feels faster
+slower delivery feels slower
+Yorker-like delivery is difficult but not automatic wicket
+short delivery behaves differently
+Multiplayer
+
+Two real browser sessions:
+
+OWNER A
+vs
+OWNER B
+
+Verify:
+
+A controls bowling
+B cannot interfere
+B controls batting
+A cannot interfere
+both see identical ball
+both see identical result
+no CPU actions
+no automatic bowling
+no automatic batting
+reconnect restores state
+pause works
+forfeit works
+Mobile
+
+Verify physically on touch:
+
+target drag works
+speed control works
+release works
+batting buttons work
+timing works
+no accidental page scroll
+no controls outside viewport
+THE FINAL DESIGN IN ONE LINE
+🏏 BOWLER
+
+DRAG WHERE → CHOOSE SPEED → HIT PERFECT
+
+🏏 BATTER
+
+READ BALL → CHOOSE INTENT → HIT PERFECT
+
+⚡ RESULT
+
+DELIVERY + TIMING + PLAYER CAPABILITY + FIELD + PHYSICS → CRICKET OUTCOME
+
+Build this interaction first and make it feel excellent before adding more complexity.

@@ -1,0 +1,58 @@
+{
+  "playerId": "p42",
+  "fullName": "Maheesh Theekshana",
+  "overGraphSlug": "m-theekshana",
+  "matches": 38,
+  "runs": 17,
+  "strikeRate": 50.0,
+  "average": 5.7,
+  "wickets": 36,
+  "economy": 8.3,
+  "highestScore": "7",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 0,
+  "sixes": 1,
+  "catches": 4,
+  "seasonsTimeline": [
+    {
+      "season": "2023",
+      "matches": 9,
+      "runs": 2,
+      "strikeRate": 46.0,
+      "average": 5.1,
+      "wickets": 9
+    },
+    {
+      "season": "2024",
+      "matches": 9,
+      "runs": 3,
+      "strikeRate": 47.2,
+      "average": 5.3,
+      "wickets": 9
+    },
+    {
+      "season": "2025",
+      "matches": 9,
+      "runs": 3,
+      "strikeRate": 48.5,
+      "average": 5.6,
+      "wickets": 9
+    },
+    {
+      "season": "2026",
+      "matches": 9,
+      "runs": 4,
+      "strikeRate": 49.8,
+      "average": 5.8,
+      "wickets": 9
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 40,
+    "consistency": 40,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

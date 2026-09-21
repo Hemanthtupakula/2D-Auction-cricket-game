@@ -1,0 +1,155 @@
+{
+  "playerId": "p27",
+  "fullName": "Quinton de Kock",
+  "overGraphSlug": "q-de-kock",
+  "matches": 118,
+  "runs": 3441,
+  "strikeRate": 134.9,
+  "average": 31.3,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "140",
+  "fifties": 24,
+  "hundreds": 3,
+  "fours": 334,
+  "sixes": 143,
+  "catches": 75,
+  "seasonsTimeline": [
+    {
+      "season": "2016",
+      "matches": 10,
+      "runs": 187,
+      "strikeRate": 124.1,
+      "average": 28.2,
+      "wickets": null
+    },
+    {
+      "season": "2017",
+      "matches": 10,
+      "runs": 200,
+      "strikeRate": 125.3,
+      "average": 28.6,
+      "wickets": null
+    },
+    {
+      "season": "2018",
+      "matches": 10,
+      "runs": 212,
+      "strikeRate": 126.6,
+      "average": 29.0,
+      "wickets": null
+    },
+    {
+      "season": "2019",
+      "matches": 10,
+      "runs": 225,
+      "strikeRate": 127.8,
+      "average": 29.5,
+      "wickets": null
+    },
+    {
+      "season": "2020",
+      "matches": 10,
+      "runs": 237,
+      "strikeRate": 129.0,
+      "average": 29.9,
+      "wickets": null
+    },
+    {
+      "season": "2021",
+      "matches": 10,
+      "runs": 250,
+      "strikeRate": 130.2,
+      "average": 30.3,
+      "wickets": null
+    },
+    {
+      "season": "2022",
+      "matches": 10,
+      "runs": 262,
+      "strikeRate": 131.5,
+      "average": 30.7,
+      "wickets": null
+    },
+    {
+      "season": "2023",
+      "matches": 10,
+      "runs": 275,
+      "strikeRate": 132.7,
+      "average": 31.2,
+      "wickets": null
+    },
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 287,
+      "strikeRate": 133.9,
+      "average": 31.6,
+      "wickets": null
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 300,
+      "strikeRate": 135.1,
+      "average": 32.0,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 312,
+      "strikeRate": 136.4,
+      "average": 32.4,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 23,
+      "runs": 688,
+      "average": 26.6,
+      "strikeRate": 132.2,
+      "fifties": 4,
+      "hundreds": 0,
+      "highestScore": "140"
+    },
+    {
+      "position": "#4",
+      "innings": 47,
+      "runs": 1376,
+      "average": 29.7,
+      "strikeRate": 132.2,
+      "fifties": 9,
+      "hundreds": 1,
+      "highestScore": "140"
+    },
+    {
+      "position": "#5",
+      "innings": 35,
+      "runs": 1032,
+      "average": 26.6,
+      "strikeRate": 141.6,
+      "fifties": 7,
+      "hundreds": 0,
+      "highestScore": "140"
+    },
+    {
+      "position": "#6",
+      "innings": 11,
+      "runs": 344,
+      "average": 26.6,
+      "strikeRate": 141.6,
+      "fifties": 2,
+      "hundreds": 0,
+      "highestScore": "140"
+    }
+  ],
+  "radarMetrics": {
+    "power": 74,
+    "consistency": 56,
+    "tempo": 74
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

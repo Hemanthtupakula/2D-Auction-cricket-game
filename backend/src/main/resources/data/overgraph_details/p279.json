@@ -1,0 +1,83 @@
+{
+  "playerId": "p279",
+  "fullName": "Unmukt Chand",
+  "overGraphSlug": "ubt-chand",
+  "matches": 21,
+  "runs": 300,
+  "strikeRate": 100.0,
+  "average": 15.0,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "58",
+  "fifties": 1,
+  "hundreds": 0,
+  "fours": 32,
+  "sixes": 9,
+  "catches": 8,
+  "seasonsTimeline": [
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 90,
+      "strikeRate": 92.0,
+      "average": 13.5,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 150,
+      "strikeRate": 97.0,
+      "average": 14.6,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 4,
+      "runs": 60,
+      "average": 12.8,
+      "strikeRate": 98.0,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "58"
+    },
+    {
+      "position": "#4",
+      "innings": 8,
+      "runs": 120,
+      "average": 14.2,
+      "strikeRate": 98.0,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "58"
+    },
+    {
+      "position": "#5",
+      "innings": 6,
+      "runs": 90,
+      "average": 12.8,
+      "strikeRate": 105.0,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "58"
+    },
+    {
+      "position": "#6",
+      "innings": 2,
+      "runs": 30,
+      "average": 12.8,
+      "strikeRate": 105.0,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "58"
+    }
+  ],
+  "radarMetrics": {
+    "power": 55,
+    "consistency": 40,
+    "tempo": 51
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

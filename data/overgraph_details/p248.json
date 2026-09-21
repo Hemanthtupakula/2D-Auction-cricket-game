@@ -1,0 +1,34 @@
+{
+  "playerId": "p248",
+  "fullName": "Ruturaj Gaikwad",
+  "overGraphSlug": "r-gaikwad",
+  "matches": 66,
+  "runs": 2380,
+  "strikeRate": 136.9,
+  "average": 41.8,
+  "wickets": 0,
+  "economy": null,
+  "highestScore": "108*",
+  "fifties": 18,
+  "hundreds": 2,
+  "fours": 225,
+  "sixes": 91,
+  "catches": 39,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 14,
+      "runs": 357,
+      "strikeRate": 136.9,
+      "average": 41.8,
+      "wickets": 0
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 68,
+    "consistency": 83,
+    "tempo": 78
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

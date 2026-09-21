@@ -1,0 +1,66 @@
+{
+  "playerId": "p151",
+  "fullName": "Shreyas Gopal",
+  "overGraphSlug": "s-gopal",
+  "matches": 52,
+  "runs": 180,
+  "strikeRate": 106.5,
+  "average": 12.9,
+  "wickets": 52,
+  "economy": 8.2,
+  "highestScore": "24",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 19,
+  "sixes": 2,
+  "catches": 5,
+  "seasonsTimeline": [
+    {
+      "season": "2022",
+      "matches": 10,
+      "runs": 21,
+      "strikeRate": 98.0,
+      "average": 11.6,
+      "wickets": 10
+    },
+    {
+      "season": "2023",
+      "matches": 10,
+      "runs": 25,
+      "strikeRate": 100.1,
+      "average": 12.0,
+      "wickets": 10
+    },
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 28,
+      "strikeRate": 102.2,
+      "average": 12.4,
+      "wickets": 10
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 32,
+      "strikeRate": 104.4,
+      "average": 12.8,
+      "wickets": 10
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 36,
+      "strikeRate": 106.5,
+      "average": 13.2,
+      "wickets": 10
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 58,
+    "consistency": 40,
+    "tempo": 53
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

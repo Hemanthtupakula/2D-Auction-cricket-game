@@ -1,0 +1,42 @@
+{
+  "playerId": "p345",
+  "fullName": "David Wiese",
+  "overGraphSlug": "d-wiese",
+  "matches": 18,
+  "runs": 148,
+  "strikeRate": 146.5,
+  "average": 29.6,
+  "wickets": 16,
+  "economy": 8.9,
+  "highestScore": "47",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 12,
+  "sixes": 7,
+  "catches": 7,
+  "seasonsTimeline": [
+    {
+      "season": "2025",
+      "matches": 9,
+      "runs": 44,
+      "strikeRate": 134.8,
+      "average": 26.6,
+      "wickets": 8
+    },
+    {
+      "season": "2026",
+      "matches": 9,
+      "runs": 74,
+      "strikeRate": 142.1,
+      "average": 28.9,
+      "wickets": 8
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 80,
+    "consistency": 53,
+    "tempo": 79
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

@@ -1,0 +1,21 @@
+{
+  "package": "Auction_XI_2D_MiniMatch_4Hour_MVP",
+  "version": "1.0",
+  "purpose": "Implementation specification and starter contracts for the owner-only 2D browser cricket mode.",
+  "locked_formats": {
+    "mini_match": [
+      2,
+      5,
+      10,
+      20
+    ],
+    "tournament": [
+      5,
+      20
+    ]
+  },
+  "multiplayer": "owner_vs_owner_only",
+  "pause": "server_authoritative",
+  "exit": "opponent_wins_by_forfeit",
+  "season_scheduling": "owner_aware_parallel_non_conflicting_matches"
+}

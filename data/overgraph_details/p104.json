@@ -1,0 +1,42 @@
+{
+  "playerId": "p104",
+  "fullName": "Chetan Sakariya",
+  "overGraphSlug": "c-sakariya",
+  "matches": 20,
+  "runs": 20,
+  "strikeRate": 64.5,
+  "average": 3.3,
+  "wickets": 20,
+  "economy": 8.6,
+  "highestScore": "7",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 3,
+  "sixes": 0,
+  "catches": 6,
+  "seasonsTimeline": [
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 6,
+      "strikeRate": 59.3,
+      "average": 3.0,
+      "wickets": 10
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 10,
+      "strikeRate": 62.6,
+      "average": 3.2,
+      "wickets": 10
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 40,
+    "consistency": 40,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

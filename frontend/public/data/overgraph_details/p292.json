@@ -1,0 +1,121 @@
+{
+  "playerId": "p292",
+  "fullName": "Prithvi Shaw",
+  "overGraphSlug": "pp-shaw",
+  "matches": 79,
+  "runs": 1892,
+  "strikeRate": 147.5,
+  "average": 23.9,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "99",
+  "fifties": 14,
+  "hundreds": 0,
+  "fours": 238,
+  "sixes": 61,
+  "catches": 18,
+  "seasonsTimeline": [
+    {
+      "season": "2019",
+      "matches": 9,
+      "runs": 141,
+      "strikeRate": 135.7,
+      "average": 21.5,
+      "wickets": null
+    },
+    {
+      "season": "2020",
+      "matches": 9,
+      "runs": 155,
+      "strikeRate": 137.5,
+      "average": 22.0,
+      "wickets": null
+    },
+    {
+      "season": "2021",
+      "matches": 9,
+      "runs": 168,
+      "strikeRate": 139.4,
+      "average": 22.4,
+      "wickets": null
+    },
+    {
+      "season": "2022",
+      "matches": 9,
+      "runs": 182,
+      "strikeRate": 141.2,
+      "average": 22.9,
+      "wickets": null
+    },
+    {
+      "season": "2023",
+      "matches": 9,
+      "runs": 195,
+      "strikeRate": 143.1,
+      "average": 23.3,
+      "wickets": null
+    },
+    {
+      "season": "2024",
+      "matches": 9,
+      "runs": 209,
+      "strikeRate": 144.9,
+      "average": 23.8,
+      "wickets": null
+    },
+    {
+      "season": "2025",
+      "matches": 9,
+      "runs": 222,
+      "strikeRate": 146.8,
+      "average": 24.2,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 9,
+      "runs": 236,
+      "strikeRate": 148.6,
+      "average": 24.6,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 23,
+      "runs": 567,
+      "average": 20.3,
+      "strikeRate": 144.6,
+      "fifties": 4,
+      "hundreds": 0,
+      "highestScore": "99"
+    },
+    {
+      "position": "#4",
+      "innings": 31,
+      "runs": 756,
+      "average": 22.7,
+      "strikeRate": 144.6,
+      "fifties": 5,
+      "hundreds": 0,
+      "highestScore": "99"
+    },
+    {
+      "position": "#5",
+      "innings": 23,
+      "runs": 567,
+      "average": 20.3,
+      "strikeRate": 154.9,
+      "fifties": 4,
+      "hundreds": 0,
+      "highestScore": "99"
+    }
+  ],
+  "radarMetrics": {
+    "power": 81,
+    "consistency": 43,
+    "tempo": 77
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

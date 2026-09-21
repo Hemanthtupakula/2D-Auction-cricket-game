@@ -1,0 +1,34 @@
+{
+  "playerId": "p332",
+  "fullName": "Joe Root",
+  "overGraphSlug": "j-root",
+  "matches": 3,
+  "runs": 10,
+  "strikeRate": 66.7,
+  "average": 10.0,
+  "wickets": 0,
+  "economy": 7.0,
+  "highestScore": "10",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 1,
+  "sixes": 0,
+  "catches": 2,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 14,
+      "runs": 1,
+      "strikeRate": 66.7,
+      "average": 10.0,
+      "wickets": 0
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 33,
+    "consistency": 20,
+    "tempo": 43
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

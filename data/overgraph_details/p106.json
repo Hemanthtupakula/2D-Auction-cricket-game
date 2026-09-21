@@ -1,0 +1,66 @@
+{
+  "playerId": "p106",
+  "fullName": "Murugan Ashwin",
+  "overGraphSlug": "m-ashwin",
+  "matches": 44,
+  "runs": 35,
+  "strikeRate": 70.0,
+  "average": 3.9,
+  "wickets": 35,
+  "economy": 8.0,
+  "highestScore": "9",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 2,
+  "sixes": 1,
+  "catches": 7,
+  "seasonsTimeline": [
+    {
+      "season": "2022",
+      "matches": 8,
+      "runs": 4,
+      "strikeRate": 64.4,
+      "average": 3.5,
+      "wickets": 7
+    },
+    {
+      "season": "2023",
+      "matches": 8,
+      "runs": 4,
+      "strikeRate": 65.8,
+      "average": 3.6,
+      "wickets": 7
+    },
+    {
+      "season": "2024",
+      "matches": 8,
+      "runs": 5,
+      "strikeRate": 67.2,
+      "average": 3.7,
+      "wickets": 7
+    },
+    {
+      "season": "2025",
+      "matches": 8,
+      "runs": 6,
+      "strikeRate": 68.6,
+      "average": 3.9,
+      "wickets": 7
+    },
+    {
+      "season": "2026",
+      "matches": 8,
+      "runs": 7,
+      "strikeRate": 70.0,
+      "average": 4.0,
+      "wickets": 7
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 40,
+    "consistency": 40,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

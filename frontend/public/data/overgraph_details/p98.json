@@ -1,0 +1,73 @@
+{
+  "playerId": "p98",
+  "fullName": "Suyash Prabhudessai",
+  "overGraphSlug": "ss-prabhudessai",
+  "matches": 11,
+  "runs": 126,
+  "strikeRate": 118.9,
+  "average": 12.6,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "34",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 11,
+  "sixes": 4,
+  "catches": 6,
+  "seasonsTimeline": [
+    {
+      "season": "2025",
+      "matches": 5,
+      "runs": 37,
+      "strikeRate": 109.4,
+      "average": 11.3,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 5,
+      "runs": 63,
+      "strikeRate": 115.3,
+      "average": 12.3,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 3,
+      "runs": 37,
+      "average": 10.7,
+      "strikeRate": 116.5,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "34"
+    },
+    {
+      "position": "#4",
+      "innings": 4,
+      "runs": 50,
+      "average": 12.0,
+      "strikeRate": 116.5,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "34"
+    },
+    {
+      "position": "#5",
+      "innings": 3,
+      "runs": 37,
+      "average": 10.7,
+      "strikeRate": 124.8,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "34"
+    }
+  ],
+  "radarMetrics": {
+    "power": 65,
+    "consistency": 40,
+    "tempo": 59
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

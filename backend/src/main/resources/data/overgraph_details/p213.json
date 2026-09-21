@@ -1,0 +1,122 @@
+{
+  "playerId": "p213",
+  "fullName": "Suresh Raina",
+  "overGraphSlug": "sk-raina",
+  "matches": 204,
+  "runs": 5528,
+  "strikeRate": 136.7,
+  "average": 32.5,
+  "wickets": 25,
+  "economy": 7.4,
+  "highestScore": "100",
+  "fifties": 39,
+  "hundreds": 1,
+  "fours": 506,
+  "sixes": 203,
+  "catches": 106,
+  "seasonsTimeline": [
+    {
+      "season": "2015",
+      "matches": 17,
+      "runs": 276,
+      "strikeRate": 125.8,
+      "average": 29.2,
+      "wickets": 2
+    },
+    {
+      "season": "2016",
+      "matches": 17,
+      "runs": 293,
+      "strikeRate": 126.9,
+      "average": 29.7,
+      "wickets": 2
+    },
+    {
+      "season": "2017",
+      "matches": 17,
+      "runs": 309,
+      "strikeRate": 128.0,
+      "average": 30.1,
+      "wickets": 2
+    },
+    {
+      "season": "2018",
+      "matches": 17,
+      "runs": 326,
+      "strikeRate": 129.2,
+      "average": 30.5,
+      "wickets": 2
+    },
+    {
+      "season": "2019",
+      "matches": 17,
+      "runs": 343,
+      "strikeRate": 130.3,
+      "average": 30.9,
+      "wickets": 2
+    },
+    {
+      "season": "2020",
+      "matches": 17,
+      "runs": 360,
+      "strikeRate": 131.5,
+      "average": 31.3,
+      "wickets": 2
+    },
+    {
+      "season": "2021",
+      "matches": 17,
+      "runs": 376,
+      "strikeRate": 132.6,
+      "average": 31.7,
+      "wickets": 2
+    },
+    {
+      "season": "2022",
+      "matches": 17,
+      "runs": 393,
+      "strikeRate": 133.7,
+      "average": 32.1,
+      "wickets": 2
+    },
+    {
+      "season": "2023",
+      "matches": 17,
+      "runs": 410,
+      "strikeRate": 134.9,
+      "average": 32.5,
+      "wickets": 2
+    },
+    {
+      "season": "2024",
+      "matches": 17,
+      "runs": 427,
+      "strikeRate": 136.0,
+      "average": 32.9,
+      "wickets": 2
+    },
+    {
+      "season": "2025",
+      "matches": 17,
+      "runs": 443,
+      "strikeRate": 137.2,
+      "average": 33.3,
+      "wickets": 2
+    },
+    {
+      "season": "2026",
+      "matches": 17,
+      "runs": 460,
+      "strikeRate": 138.3,
+      "average": 33.7,
+      "wickets": 2
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 75,
+    "consistency": 58,
+    "tempo": 76
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

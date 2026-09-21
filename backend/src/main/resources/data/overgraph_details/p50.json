@@ -1,0 +1,91 @@
+{
+  "playerId": "p50",
+  "fullName": "Abhinav Manohar",
+  "overGraphSlug": "a-manohar",
+  "matches": 27,
+  "runs": 292,
+  "strikeRate": 124.3,
+  "average": 15.4,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "43",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 23,
+  "sixes": 14,
+  "catches": 16,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 9,
+      "runs": 58,
+      "strikeRate": 114.4,
+      "average": 13.9,
+      "wickets": null
+    },
+    {
+      "season": "2025",
+      "matches": 9,
+      "runs": 77,
+      "strikeRate": 118.5,
+      "average": 14.6,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 9,
+      "runs": 97,
+      "strikeRate": 122.6,
+      "average": 15.4,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#1",
+      "innings": 10,
+      "runs": 116,
+      "average": 14.6,
+      "strikeRate": 121.8,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "43"
+    },
+    {
+      "position": "#2",
+      "innings": 10,
+      "runs": 116,
+      "average": 14.6,
+      "strikeRate": 121.8,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "43"
+    },
+    {
+      "position": "#3",
+      "innings": 4,
+      "runs": 43,
+      "average": 13.1,
+      "strikeRate": 121.8,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "43"
+    },
+    {
+      "position": "#4",
+      "innings": 1,
+      "runs": 14,
+      "average": 13.1,
+      "strikeRate": 121.8,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "43"
+    }
+  ],
+  "radarMetrics": {
+    "power": 68,
+    "consistency": 40,
+    "tempo": 62
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

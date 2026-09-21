@@ -1,0 +1,34 @@
+{
+  "playerId": "p255",
+  "fullName": "Heinrich Klaasen",
+  "overGraphSlug": "h-klaasen",
+  "matches": 35,
+  "runs": 993,
+  "strikeRate": 168.3,
+  "average": 38.2,
+  "wickets": 0,
+  "economy": null,
+  "highestScore": "104",
+  "fifties": 6,
+  "hundreds": 1,
+  "fours": 66,
+  "sixes": 65,
+  "catches": 18,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 14,
+      "runs": 148,
+      "strikeRate": 168.3,
+      "average": 38.2,
+      "wickets": 0
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 84,
+    "consistency": 76,
+    "tempo": 94
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

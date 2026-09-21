@@ -1,0 +1,65 @@
+{
+  "playerId": "p192",
+  "fullName": "Pathum Nissanka",
+  "overGraphSlug": "p-nissanka",
+  "matches": 10,
+  "runs": 278,
+  "strikeRate": 158.9,
+  "average": 27.8,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "62",
+  "fifties": 2,
+  "hundreds": 0,
+  "fours": 33,
+  "sixes": 12,
+  "catches": 2,
+  "seasonsTimeline": [
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 166,
+      "strikeRate": 146.2,
+      "average": 25.0,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 3,
+      "runs": 83,
+      "average": 23.6,
+      "strikeRate": 155.7,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "62"
+    },
+    {
+      "position": "#4",
+      "innings": 4,
+      "runs": 111,
+      "average": 26.4,
+      "strikeRate": 155.7,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "62"
+    },
+    {
+      "position": "#5",
+      "innings": 3,
+      "runs": 83,
+      "average": 23.6,
+      "strikeRate": 166.8,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "62"
+    }
+  ],
+  "radarMetrics": {
+    "power": 87,
+    "consistency": 50,
+    "tempo": 84
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

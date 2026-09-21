@@ -1,0 +1,74 @@
+{
+  "playerId": "p269",
+  "fullName": "Shadab Jakati",
+  "overGraphSlug": "sb-jakati",
+  "matches": 59,
+  "runs": 28,
+  "strikeRate": 96.6,
+  "average": 28.0,
+  "wickets": 47,
+  "economy": 8.0,
+  "highestScore": "13",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 3,
+  "sixes": 0,
+  "catches": 19,
+  "seasonsTimeline": [
+    {
+      "season": "2021",
+      "matches": 9,
+      "runs": 2,
+      "strikeRate": 88.9,
+      "average": 25.2,
+      "wickets": 7
+    },
+    {
+      "season": "2022",
+      "matches": 9,
+      "runs": 3,
+      "strikeRate": 90.5,
+      "average": 25.9,
+      "wickets": 7
+    },
+    {
+      "season": "2023",
+      "matches": 9,
+      "runs": 3,
+      "strikeRate": 92.1,
+      "average": 26.6,
+      "wickets": 7
+    },
+    {
+      "season": "2024",
+      "matches": 9,
+      "runs": 3,
+      "strikeRate": 93.7,
+      "average": 27.3,
+      "wickets": 7
+    },
+    {
+      "season": "2025",
+      "matches": 9,
+      "runs": 4,
+      "strikeRate": 95.3,
+      "average": 28.0,
+      "wickets": 7
+    },
+    {
+      "season": "2026",
+      "matches": 9,
+      "runs": 4,
+      "strikeRate": 96.9,
+      "average": 28.7,
+      "wickets": 7
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 53,
+    "consistency": 50,
+    "tempo": 56
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

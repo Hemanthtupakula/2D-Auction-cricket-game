@@ -1,0 +1,66 @@
+{
+  "playerId": "p221",
+  "fullName": "Shashank Singh",
+  "overGraphSlug": "shashank-singh",
+  "matches": 54,
+  "runs": 905,
+  "strikeRate": 161.6,
+  "average": 36.2,
+  "wickets": 5,
+  "economy": 9.3,
+  "highestScore": "68",
+  "fifties": 6,
+  "hundreds": 0,
+  "fours": 67,
+  "sixes": 51,
+  "catches": 18,
+  "seasonsTimeline": [
+    {
+      "season": "2022",
+      "matches": 10,
+      "runs": 108,
+      "strikeRate": 148.7,
+      "average": 32.6,
+      "wickets": 1
+    },
+    {
+      "season": "2023",
+      "matches": 10,
+      "runs": 126,
+      "strikeRate": 151.9,
+      "average": 33.7,
+      "wickets": 1
+    },
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 144,
+      "strikeRate": 155.1,
+      "average": 34.8,
+      "wickets": 1
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 162,
+      "strikeRate": 158.4,
+      "average": 35.8,
+      "wickets": 1
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 181,
+      "strikeRate": 161.6,
+      "average": 36.9,
+      "wickets": 1
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 88,
+    "consistency": 65,
+    "tempo": 89
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

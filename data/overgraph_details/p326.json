@@ -1,0 +1,34 @@
+{
+  "playerId": "p326",
+  "fullName": "Steve Smith",
+  "overGraphSlug": "s-smith",
+  "matches": 103,
+  "runs": 2485,
+  "strikeRate": 128.1,
+  "average": 34.5,
+  "wickets": 9,
+  "economy": 7.9,
+  "highestScore": "101",
+  "fifties": 11,
+  "hundreds": 1,
+  "fours": 225,
+  "sixes": 60,
+  "catches": 56,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 14,
+      "runs": 372,
+      "strikeRate": 128.1,
+      "average": 34.5,
+      "wickets": 9
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 64,
+    "consistency": 69,
+    "tempo": 74
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

@@ -1,0 +1,34 @@
+{
+  "playerId": "p245",
+  "fullName": "Ravindra Jadeja",
+  "overGraphSlug": "r-jadeja",
+  "matches": 240,
+  "runs": 2959,
+  "strikeRate": 129.5,
+  "average": 27.4,
+  "wickets": 160,
+  "economy": 7.62,
+  "highestScore": "62*",
+  "fifties": 3,
+  "hundreds": 0,
+  "fours": 204,
+  "sixes": 103,
+  "catches": 106,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 14,
+      "runs": 443,
+      "strikeRate": 129.5,
+      "average": 27.4,
+      "wickets": 160
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 64,
+    "consistency": 54,
+    "tempo": 74
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

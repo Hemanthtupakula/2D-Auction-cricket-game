@@ -1,0 +1,82 @@
+{
+  "playerId": "p37",
+  "fullName": "T Natarajan",
+  "overGraphSlug": "t-natarajan",
+  "matches": 74,
+  "runs": 4,
+  "strikeRate": 57.1,
+  "average": null,
+  "wickets": 73,
+  "economy": 9.2,
+  "highestScore": "3",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 0,
+  "sixes": 0,
+  "catches": 10,
+  "seasonsTimeline": [
+    {
+      "season": "2020",
+      "matches": 10,
+      "runs": 0,
+      "strikeRate": 52.5,
+      "average": null,
+      "wickets": 10
+    },
+    {
+      "season": "2021",
+      "matches": 10,
+      "runs": 0,
+      "strikeRate": 53.3,
+      "average": null,
+      "wickets": 10
+    },
+    {
+      "season": "2022",
+      "matches": 10,
+      "runs": 0,
+      "strikeRate": 54.2,
+      "average": null,
+      "wickets": 10
+    },
+    {
+      "season": "2023",
+      "matches": 10,
+      "runs": 0,
+      "strikeRate": 55.0,
+      "average": null,
+      "wickets": 10
+    },
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 0,
+      "strikeRate": 55.8,
+      "average": null,
+      "wickets": 10
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 0,
+      "strikeRate": 56.6,
+      "average": null,
+      "wickets": 10
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 0,
+      "strikeRate": 57.4,
+      "average": null,
+      "wickets": 10
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 40,
+    "consistency": 45,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

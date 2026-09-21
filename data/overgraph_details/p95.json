@@ -1,0 +1,42 @@
+{
+  "playerId": "p95",
+  "fullName": "Akash Deep",
+  "overGraphSlug": "akash-deep",
+  "matches": 14,
+  "runs": 25,
+  "strikeRate": 178.6,
+  "average": 8.3,
+  "wickets": 10,
+  "economy": 11.8,
+  "highestScore": "17",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 2,
+  "sixes": 2,
+  "catches": 2,
+  "seasonsTimeline": [
+    {
+      "season": "2025",
+      "matches": 7,
+      "runs": 7,
+      "strikeRate": 164.3,
+      "average": 7.5,
+      "wickets": 5
+    },
+    {
+      "season": "2026",
+      "matches": 7,
+      "runs": 12,
+      "strikeRate": 173.2,
+      "average": 8.1,
+      "wickets": 5
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 98,
+    "consistency": 40,
+    "tempo": 84
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

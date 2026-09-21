@@ -1,0 +1,141 @@
+{
+  "matches" : [ {
+    "matchId" : "dba254ee",
+    "homeFranchise" : "RCB",
+    "awayFranchise" : "KKR",
+    "homeRuns" : 0,
+    "homeWickets" : 0,
+    "homeBalls" : 0,
+    "awayRuns" : 0,
+    "awayWickets" : 0,
+    "awayBalls" : 0,
+    "winnerFranchise" : "RCB",
+    "resultText" : "RCB WON BY FORFEIT",
+    "overs" : 2,
+    "fixtureId" : "",
+    "completedAt" : "2026-09-20T14:11:37.620229800Z",
+    "players" : [ {
+      "playerId" : "p231",
+      "name" : "Jasprit Bumrah",
+      "team" : "RCB",
+      "runs" : 0,
+      "balls" : 0,
+      "fours" : 0,
+      "sixes" : 0,
+      "wickets" : 0,
+      "ballsBowled" : 0,
+      "runsConceded" : 0
+    }, {
+      "playerId" : "p151",
+      "name" : "Virat Kohli",
+      "team" : "RCB",
+      "runs" : 0,
+      "balls" : 0,
+      "fours" : 0,
+      "sixes" : 0,
+      "wickets" : 0,
+      "ballsBowled" : 0,
+      "runsConceded" : 0
+    }, {
+      "playerId" : "p236",
+      "name" : "MS Dhoni",
+      "team" : "RCB",
+      "runs" : 0,
+      "balls" : 0,
+      "fours" : 0,
+      "sixes" : 0,
+      "wickets" : 0,
+      "ballsBowled" : 0,
+      "runsConceded" : 0
+    }, {
+      "playerId" : "p212",
+      "name" : "Rohit Sharma",
+      "team" : "RCB",
+      "runs" : 0,
+      "balls" : 0,
+      "fours" : 0,
+      "sixes" : 0,
+      "wickets" : 0,
+      "ballsBowled" : 0,
+      "runsConceded" : 0
+    }, {
+      "playerId" : "p253",
+      "name" : "Pat Cummins",
+      "team" : "RCB",
+      "runs" : 0,
+      "balls" : 0,
+      "fours" : 0,
+      "sixes" : 0,
+      "wickets" : 0,
+      "ballsBowled" : 0,
+      "runsConceded" : 0
+    }, {
+      "playerId" : "p241",
+      "name" : "Hardik Pandya",
+      "team" : "RCB",
+      "runs" : 0,
+      "balls" : 0,
+      "fours" : 0,
+      "sixes" : 0,
+      "wickets" : 0,
+      "ballsBowled" : 0,
+      "runsConceded" : 0
+    }, {
+      "playerId" : "p245",
+      "name" : "Ravindra Jadeja",
+      "team" : "RCB",
+      "runs" : 0,
+      "balls" : 0,
+      "fours" : 0,
+      "sixes" : 0,
+      "wickets" : 0,
+      "ballsBowled" : 0,
+      "runsConceded" : 0
+    }, {
+      "playerId" : "p242",
+      "name" : "Suryakumar Yadav",
+      "team" : "RCB",
+      "runs" : 0,
+      "balls" : 0,
+      "fours" : 0,
+      "sixes" : 0,
+      "wickets" : 0,
+      "ballsBowled" : 0,
+      "runsConceded" : 0
+    }, {
+      "playerId" : "p252",
+      "name" : "Sanju Samson",
+      "team" : "RCB",
+      "runs" : 0,
+      "balls" : 0,
+      "fours" : 0,
+      "sixes" : 0,
+      "wickets" : 0,
+      "ballsBowled" : 0,
+      "runsConceded" : 0
+    }, {
+      "playerId" : "p255",
+      "name" : "Heinrich Klaasen",
+      "team" : "RCB",
+      "runs" : 0,
+      "balls" : 0,
+      "fours" : 0,
+      "sixes" : 0,
+      "wickets" : 0,
+      "ballsBowled" : 0,
+      "runsConceded" : 0
+    }, {
+      "playerId" : "p248",
+      "name" : "Ruturaj Gaikwad",
+      "team" : "RCB",
+      "runs" : 0,
+      "balls" : 0,
+      "fours" : 0,
+      "sixes" : 0,
+      "wickets" : 0,
+      "ballsBowled" : 0,
+      "runsConceded" : 0
+    } ]
+  } ],
+  "achievements" : [ ]
+}

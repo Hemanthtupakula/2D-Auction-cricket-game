@@ -1,0 +1,89 @@
+{
+  "playerId": "p52",
+  "fullName": "Naman Dhir",
+  "overGraphSlug": "naman-dhir",
+  "matches": 37,
+  "runs": 710,
+  "strikeRate": 164.0,
+  "average": 27.3,
+  "wickets": 0,
+  "economy": 8.8,
+  "highestScore": "62",
+  "fifties": 3,
+  "hundreds": 0,
+  "fours": 68,
+  "sixes": 36,
+  "catches": 24,
+  "seasonsTimeline": [
+    {
+      "season": "2023",
+      "matches": 9,
+      "runs": 106,
+      "strikeRate": 150.9,
+      "average": 24.6,
+      "wickets": null
+    },
+    {
+      "season": "2024",
+      "matches": 9,
+      "runs": 130,
+      "strikeRate": 155.0,
+      "average": 25.6,
+      "wickets": null
+    },
+    {
+      "season": "2025",
+      "matches": 9,
+      "runs": 153,
+      "strikeRate": 159.1,
+      "average": 26.6,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 9,
+      "runs": 177,
+      "strikeRate": 163.2,
+      "average": 27.6,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#5",
+      "innings": 11,
+      "runs": 213,
+      "average": 23.2,
+      "strikeRate": 172.2,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "62"
+    },
+    {
+      "position": "#6",
+      "innings": 14,
+      "runs": 284,
+      "average": 25.9,
+      "strikeRate": 172.2,
+      "fifties": 1,
+      "hundreds": 0,
+      "highestScore": "62"
+    },
+    {
+      "position": "#7",
+      "innings": 11,
+      "runs": 213,
+      "average": 23.2,
+      "strikeRate": 172.2,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "62"
+    }
+  ],
+  "radarMetrics": {
+    "power": 90,
+    "consistency": 49,
+    "tempo": 86
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

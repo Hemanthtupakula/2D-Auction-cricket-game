@@ -1,0 +1,102 @@
+{
+  "matches" : [ {
+    "matchId" : "15448f82",
+    "homeFranchise" : "SRH",
+    "awayFranchise" : "DC",
+    "homeRuns" : 25,
+    "homeWickets" : 1,
+    "homeBalls" : 12,
+    "awayRuns" : 13,
+    "awayWickets" : 1,
+    "awayBalls" : 12,
+    "winnerFranchise" : "SRH",
+    "resultText" : "SRH won by 12 runs — SRH 25/1 vs DC 13/1",
+    "overs" : 2,
+    "fixtureId" : "",
+    "completedAt" : "2026-09-18T06:54:43.074803900Z",
+    "players" : [ {
+      "playerId" : "p287",
+      "name" : "Rashid Khan",
+      "team" : "SRH",
+      "runs" : 0,
+      "wickets" : 1
+    }, {
+      "playerId" : "p242",
+      "name" : "Suryakumar Yadav",
+      "team" : "SRH",
+      "runs" : 25,
+      "wickets" : 0
+    }, {
+      "playerId" : "p7",
+      "name" : "Yuzvendra Chahal",
+      "team" : "DC",
+      "runs" : 0,
+      "wickets" : 1
+    }, {
+      "playerId" : "p241",
+      "name" : "Hardik Pandya",
+      "team" : "DC",
+      "runs" : 13,
+      "wickets" : 0
+    } ]
+  }, {
+    "matchId" : "7038b92b",
+    "homeFranchise" : "SRH",
+    "awayFranchise" : "DC",
+    "homeRuns" : 50,
+    "homeWickets" : 0,
+    "homeBalls" : 30,
+    "awayRuns" : 41,
+    "awayWickets" : 3,
+    "awayBalls" : 30,
+    "winnerFranchise" : "SRH",
+    "resultText" : "SRH won by 9 runs — SRH 50/0 vs DC 41/3",
+    "overs" : 5,
+    "fixtureId" : "",
+    "completedAt" : "2026-09-18T06:59:53.419420600Z",
+    "players" : [ {
+      "playerId" : "p287",
+      "name" : "Rashid Khan",
+      "team" : "SRH",
+      "runs" : 0,
+      "wickets" : 1
+    }, {
+      "playerId" : "p253",
+      "name" : "Pat Cummins",
+      "team" : "DC",
+      "runs" : 1,
+      "wickets" : 0
+    }, {
+      "playerId" : "p231",
+      "name" : "Jasprit Bumrah",
+      "team" : "SRH",
+      "runs" : 0,
+      "wickets" : 2
+    }, {
+      "playerId" : "p241",
+      "name" : "Hardik Pandya",
+      "team" : "DC",
+      "runs" : 8,
+      "wickets" : 0
+    }, {
+      "playerId" : "p151",
+      "name" : "Virat Kohli",
+      "team" : "SRH",
+      "runs" : 48,
+      "wickets" : 0
+    }, {
+      "playerId" : "p10",
+      "name" : "KL Rahul",
+      "team" : "DC",
+      "runs" : 6,
+      "wickets" : 0
+    }, {
+      "playerId" : "p293",
+      "name" : "Kuldeep Yadav",
+      "team" : "DC",
+      "runs" : 26,
+      "wickets" : 0
+    } ]
+  } ],
+  "achievements" : [ ]
+}

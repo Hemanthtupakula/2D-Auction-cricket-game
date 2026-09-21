@@ -1,0 +1,65 @@
+{
+  "playerId": "p195",
+  "fullName": "Dasun Shanaka",
+  "overGraphSlug": "md-shanaka",
+  "matches": 10,
+  "runs": 89,
+  "strikeRate": 123.6,
+  "average": 12.7,
+  "wickets": 1,
+  "economy": 10.0,
+  "highestScore": "29",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 5,
+  "sixes": 5,
+  "catches": 4,
+  "seasonsTimeline": [
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 53,
+      "strikeRate": 113.7,
+      "average": 11.4,
+      "wickets": 1
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#5",
+      "innings": 3,
+      "runs": 26,
+      "average": 10.8,
+      "strikeRate": 129.8,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "29"
+    },
+    {
+      "position": "#6",
+      "innings": 4,
+      "runs": 35,
+      "average": 12.1,
+      "strikeRate": 129.8,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "29"
+    },
+    {
+      "position": "#7",
+      "innings": 3,
+      "runs": 26,
+      "average": 10.8,
+      "strikeRate": 129.8,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "29"
+    }
+  ],
+  "radarMetrics": {
+    "power": 67,
+    "consistency": 40,
+    "tempo": 61
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

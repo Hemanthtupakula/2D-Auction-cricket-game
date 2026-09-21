@@ -1,0 +1,89 @@
+{
+  "playerId": "p158",
+  "fullName": "Rovman Powell",
+  "overGraphSlug": "r-powell",
+  "matches": 39,
+  "runs": 555,
+  "strikeRate": 142.3,
+  "average": 22.2,
+  "wickets": 1,
+  "economy": 11.7,
+  "highestScore": "67",
+  "fifties": 1,
+  "hundreds": 0,
+  "fours": 38,
+  "sixes": 38,
+  "catches": 24,
+  "seasonsTimeline": [
+    {
+      "season": "2023",
+      "matches": 9,
+      "runs": 83,
+      "strikeRate": 130.9,
+      "average": 20.0,
+      "wickets": null
+    },
+    {
+      "season": "2024",
+      "matches": 9,
+      "runs": 101,
+      "strikeRate": 134.5,
+      "average": 20.8,
+      "wickets": null
+    },
+    {
+      "season": "2025",
+      "matches": 9,
+      "runs": 120,
+      "strikeRate": 138.0,
+      "average": 21.6,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 9,
+      "runs": 138,
+      "strikeRate": 141.6,
+      "average": 22.5,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 11,
+      "runs": 166,
+      "average": 18.9,
+      "strikeRate": 139.5,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "67"
+    },
+    {
+      "position": "#4",
+      "innings": 15,
+      "runs": 222,
+      "average": 21.1,
+      "strikeRate": 139.5,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "67"
+    },
+    {
+      "position": "#5",
+      "innings": 11,
+      "runs": 166,
+      "average": 18.9,
+      "strikeRate": 149.4,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "67"
+    }
+  ],
+  "radarMetrics": {
+    "power": 78,
+    "consistency": 40,
+    "tempo": 74
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

@@ -1,0 +1,91 @@
+{
+  "playerId": "p48",
+  "fullName": "Sameer Rizvi",
+  "overGraphSlug": "sameer-rizvi",
+  "matches": 25,
+  "runs": 424,
+  "strikeRate": 144.7,
+  "average": 30.3,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "90",
+  "fifties": 3,
+  "hundreds": 0,
+  "fours": 30,
+  "sixes": 26,
+  "catches": 6,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 8,
+      "runs": 84,
+      "strikeRate": 133.1,
+      "average": 27.3,
+      "wickets": null
+    },
+    {
+      "season": "2025",
+      "matches": 8,
+      "runs": 113,
+      "strikeRate": 137.9,
+      "average": 28.8,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 8,
+      "runs": 141,
+      "strikeRate": 142.8,
+      "average": 30.3,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#1",
+      "innings": 10,
+      "runs": 169,
+      "average": 28.8,
+      "strikeRate": 141.8,
+      "fifties": 1,
+      "hundreds": 0,
+      "highestScore": "90"
+    },
+    {
+      "position": "#2",
+      "innings": 10,
+      "runs": 169,
+      "average": 28.8,
+      "strikeRate": 141.8,
+      "fifties": 1,
+      "hundreds": 0,
+      "highestScore": "90"
+    },
+    {
+      "position": "#3",
+      "innings": 3,
+      "runs": 63,
+      "average": 25.8,
+      "strikeRate": 141.8,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "90"
+    },
+    {
+      "position": "#4",
+      "innings": 1,
+      "runs": 21,
+      "average": 25.8,
+      "strikeRate": 141.8,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "90"
+    }
+  ],
+  "radarMetrics": {
+    "power": 79,
+    "consistency": 54,
+    "tempo": 78
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

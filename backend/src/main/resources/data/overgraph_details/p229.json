@@ -1,0 +1,90 @@
+{
+  "playerId": "p229",
+  "fullName": "Ravi Bishnoi",
+  "overGraphSlug": "ravi-bishnoi",
+  "matches": 86,
+  "runs": 45,
+  "strikeRate": 65.2,
+  "average": 3.8,
+  "wickets": 83,
+  "economy": 8.4,
+  "highestScore": "13",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 2,
+  "sixes": 2,
+  "catches": 25,
+  "seasonsTimeline": [
+    {
+      "season": "2019",
+      "matches": 10,
+      "runs": 3,
+      "strikeRate": 60.0,
+      "average": 3.4,
+      "wickets": 10
+    },
+    {
+      "season": "2020",
+      "matches": 10,
+      "runs": 3,
+      "strikeRate": 60.8,
+      "average": 3.5,
+      "wickets": 10
+    },
+    {
+      "season": "2021",
+      "matches": 10,
+      "runs": 4,
+      "strikeRate": 61.6,
+      "average": 3.6,
+      "wickets": 10
+    },
+    {
+      "season": "2022",
+      "matches": 10,
+      "runs": 4,
+      "strikeRate": 62.4,
+      "average": 3.6,
+      "wickets": 10
+    },
+    {
+      "season": "2023",
+      "matches": 10,
+      "runs": 4,
+      "strikeRate": 63.2,
+      "average": 3.7,
+      "wickets": 10
+    },
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 4,
+      "strikeRate": 64.1,
+      "average": 3.8,
+      "wickets": 10
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 5,
+      "strikeRate": 64.9,
+      "average": 3.8,
+      "wickets": 10
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 5,
+      "strikeRate": 65.7,
+      "average": 3.9,
+      "wickets": 10
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 40,
+    "consistency": 40,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

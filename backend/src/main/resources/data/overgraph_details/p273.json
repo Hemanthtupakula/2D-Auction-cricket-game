@@ -1,0 +1,34 @@
+{
+  "playerId": "p273",
+  "fullName": "Kamran Khan",
+  "overGraphSlug": "kamran-khan",
+  "matches": 9,
+  "runs": 3,
+  "strikeRate": 60.0,
+  "average": 3.0,
+  "wickets": 9,
+  "economy": 8.4,
+  "highestScore": "3",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 0,
+  "sixes": 0,
+  "catches": 4,
+  "seasonsTimeline": [
+    {
+      "season": "2026",
+      "matches": 9,
+      "runs": 1,
+      "strikeRate": 55.2,
+      "average": 2.7,
+      "wickets": 9
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 40,
+    "consistency": 40,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

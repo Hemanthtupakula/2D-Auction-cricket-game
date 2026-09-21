@@ -1,0 +1,34 @@
+{
+  "playerId": "p327",
+  "fullName": "Ben Stokes",
+  "overGraphSlug": "b-stokes",
+  "matches": 45,
+  "runs": 935,
+  "strikeRate": 133.9,
+  "average": 24.6,
+  "wickets": 28,
+  "economy": 8.6,
+  "highestScore": "107*",
+  "fifties": 2,
+  "hundreds": 2,
+  "fours": 81,
+  "sixes": 32,
+  "catches": 22,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 14,
+      "runs": 140,
+      "strikeRate": 133.9,
+      "average": 24.6,
+      "wickets": 28
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 66,
+    "consistency": 49,
+    "tempo": 76
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

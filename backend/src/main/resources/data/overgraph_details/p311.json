@@ -1,0 +1,75 @@
+{
+  "playerId": "p311",
+  "fullName": "Raj Angad Bawa",
+  "overGraphSlug": "ra-bawa",
+  "matches": 8,
+  "runs": 35,
+  "strikeRate": 109.4,
+  "average": 11.7,
+  "wickets": 2,
+  "economy": 12.5,
+  "highestScore": "16",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 2,
+  "sixes": 0,
+  "catches": 3,
+  "seasonsTimeline": [
+    {
+      "season": "2026",
+      "matches": 8,
+      "runs": 21,
+      "strikeRate": 100.6,
+      "average": 10.5,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 1,
+      "runs": 7,
+      "average": 9.9,
+      "strikeRate": 107.2,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "16"
+    },
+    {
+      "position": "#4",
+      "innings": 3,
+      "runs": 14,
+      "average": 11.1,
+      "strikeRate": 107.2,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "16"
+    },
+    {
+      "position": "#5",
+      "innings": 2,
+      "runs": 10,
+      "average": 9.9,
+      "strikeRate": 114.9,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "16"
+    },
+    {
+      "position": "#6",
+      "innings": 1,
+      "runs": 3,
+      "average": 9.9,
+      "strikeRate": 114.9,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "16"
+    }
+  ],
+  "radarMetrics": {
+    "power": 60,
+    "consistency": 40,
+    "tempo": 54
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

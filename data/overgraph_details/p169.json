@@ -1,0 +1,42 @@
+{
+  "playerId": "p169",
+  "fullName": "Fazalhaq Farooqi",
+  "overGraphSlug": "fazalhaq-farooqi",
+  "matches": 12,
+  "runs": 5,
+  "strikeRate": 33.3,
+  "average": null,
+  "wickets": 6,
+  "economy": 10.3,
+  "highestScore": "2",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 0,
+  "sixes": 0,
+  "catches": 1,
+  "seasonsTimeline": [
+    {
+      "season": "2025",
+      "matches": 6,
+      "runs": 1,
+      "strikeRate": 30.6,
+      "average": null,
+      "wickets": 3
+    },
+    {
+      "season": "2026",
+      "matches": 6,
+      "runs": 2,
+      "strikeRate": 32.3,
+      "average": null,
+      "wickets": 3
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 40,
+    "consistency": 45,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

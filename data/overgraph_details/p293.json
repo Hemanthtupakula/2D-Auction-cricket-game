@@ -1,0 +1,34 @@
+{
+  "playerId": "p293",
+  "fullName": "Kuldeep Yadav",
+  "overGraphSlug": "k-yadav",
+  "matches": 84,
+  "runs": 134,
+  "strikeRate": 78.4,
+  "average": 10.3,
+  "wickets": 87,
+  "economy": 8.12,
+  "highestScore": "35*",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 10,
+  "sixes": 2,
+  "catches": 25,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 14,
+      "runs": 20,
+      "strikeRate": 78.4,
+      "average": 10.3,
+      "wickets": 87
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 39,
+    "consistency": 20,
+    "tempo": 49
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

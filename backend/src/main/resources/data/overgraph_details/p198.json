@@ -1,0 +1,58 @@
+{
+  "playerId": "p198",
+  "fullName": "Matheesha Pathirana",
+  "overGraphSlug": "m-pathirana",
+  "matches": 33,
+  "runs": 0,
+  "strikeRate": 0.0,
+  "average": null,
+  "wickets": 47,
+  "economy": 8.7,
+  "highestScore": "0",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 0,
+  "sixes": 0,
+  "catches": 9,
+  "seasonsTimeline": [
+    {
+      "season": "2023",
+      "matches": 8,
+      "runs": null,
+      "strikeRate": 0.0,
+      "wickets": 11,
+      "economy": 8.26
+    },
+    {
+      "season": "2024",
+      "matches": 8,
+      "runs": null,
+      "strikeRate": 0.0,
+      "wickets": 11,
+      "economy": 8.37
+    },
+    {
+      "season": "2025",
+      "matches": 8,
+      "runs": null,
+      "strikeRate": 0.0,
+      "wickets": 11,
+      "economy": 8.48
+    },
+    {
+      "season": "2026",
+      "matches": 8,
+      "runs": null,
+      "strikeRate": 0.0,
+      "wickets": 11,
+      "economy": 8.59
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 66,
+    "consistency": 45,
+    "tempo": 65
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

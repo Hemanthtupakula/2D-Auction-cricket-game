@@ -1,0 +1,107 @@
+{
+  "playerId": "p223",
+  "fullName": "Harpreet Brar",
+  "overGraphSlug": "harpreet-brar",
+  "matches": 51,
+  "runs": 249,
+  "strikeRate": 120.9,
+  "average": 20.8,
+  "wickets": 37,
+  "economy": 8.0,
+  "highestScore": "29",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 20,
+  "sixes": 10,
+  "catches": 15,
+  "seasonsTimeline": [
+    {
+      "season": "2022",
+      "matches": 10,
+      "runs": 29,
+      "strikeRate": 111.2,
+      "average": 18.7,
+      "wickets": null
+    },
+    {
+      "season": "2023",
+      "matches": 10,
+      "runs": 34,
+      "strikeRate": 113.6,
+      "average": 19.3,
+      "wickets": null
+    },
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 39,
+      "strikeRate": 116.1,
+      "average": 20.0,
+      "wickets": null
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 44,
+      "strikeRate": 118.5,
+      "average": 20.6,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 49,
+      "strikeRate": 120.9,
+      "average": 21.2,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 10,
+      "runs": 49,
+      "average": 17.7,
+      "strikeRate": 118.5,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "29"
+    },
+    {
+      "position": "#4",
+      "innings": 20,
+      "runs": 99,
+      "average": 19.8,
+      "strikeRate": 118.5,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "29"
+    },
+    {
+      "position": "#5",
+      "innings": 15,
+      "runs": 74,
+      "average": 17.7,
+      "strikeRate": 126.9,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "29"
+    },
+    {
+      "position": "#6",
+      "innings": 5,
+      "runs": 24,
+      "average": 17.7,
+      "strikeRate": 126.9,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "29"
+    }
+  ],
+  "radarMetrics": {
+    "power": 66,
+    "consistency": 40,
+    "tempo": 63
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

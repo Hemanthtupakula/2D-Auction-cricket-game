@@ -1,0 +1,123 @@
+{
+  "playerId": "p16",
+  "fullName": "Aiden Markram",
+  "overGraphSlug": "ak-markram",
+  "matches": 69,
+  "runs": 1671,
+  "strikeRate": 135.5,
+  "average": 30.4,
+  "wickets": 6,
+  "economy": 9.6,
+  "highestScore": "68",
+  "fifties": 10,
+  "hundreds": 0,
+  "fours": 131,
+  "sixes": 68,
+  "catches": 39,
+  "seasonsTimeline": [
+    {
+      "season": "2020",
+      "matches": 9,
+      "runs": 143,
+      "strikeRate": 124.7,
+      "average": 27.4,
+      "wickets": null
+    },
+    {
+      "season": "2021",
+      "matches": 9,
+      "runs": 159,
+      "strikeRate": 126.6,
+      "average": 28.0,
+      "wickets": null
+    },
+    {
+      "season": "2022",
+      "matches": 9,
+      "runs": 175,
+      "strikeRate": 128.5,
+      "average": 28.7,
+      "wickets": null
+    },
+    {
+      "season": "2023",
+      "matches": 9,
+      "runs": 190,
+      "strikeRate": 130.5,
+      "average": 29.3,
+      "wickets": null
+    },
+    {
+      "season": "2024",
+      "matches": 9,
+      "runs": 206,
+      "strikeRate": 132.4,
+      "average": 30.0,
+      "wickets": null
+    },
+    {
+      "season": "2025",
+      "matches": 9,
+      "runs": 222,
+      "strikeRate": 134.3,
+      "average": 30.6,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 9,
+      "runs": 238,
+      "strikeRate": 136.3,
+      "average": 31.3,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#1",
+      "innings": 27,
+      "runs": 668,
+      "average": 28.9,
+      "strikeRate": 132.8,
+      "fifties": 4,
+      "hundreds": 0,
+      "highestScore": "68"
+    },
+    {
+      "position": "#2",
+      "innings": 27,
+      "runs": 668,
+      "average": 28.9,
+      "strikeRate": 132.8,
+      "fifties": 4,
+      "hundreds": 0,
+      "highestScore": "68"
+    },
+    {
+      "position": "#3",
+      "innings": 10,
+      "runs": 250,
+      "average": 25.8,
+      "strikeRate": 132.8,
+      "fifties": 1,
+      "hundreds": 0,
+      "highestScore": "68"
+    },
+    {
+      "position": "#4",
+      "innings": 3,
+      "runs": 83,
+      "average": 25.8,
+      "strikeRate": 132.8,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "68"
+    }
+  ],
+  "radarMetrics": {
+    "power": 74,
+    "consistency": 54,
+    "tempo": 74
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

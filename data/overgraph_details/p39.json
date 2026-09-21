@@ -1,0 +1,66 @@
+{
+  "playerId": "p39",
+  "fullName": "Noor Ahmad",
+  "overGraphSlug": "noor-ahmad",
+  "matches": 51,
+  "runs": 31,
+  "strikeRate": 53.5,
+  "average": 2.8,
+  "wickets": 61,
+  "economy": 8.2,
+  "highestScore": "8",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 2,
+  "sixes": 1,
+  "catches": 12,
+  "seasonsTimeline": [
+    {
+      "season": "2022",
+      "matches": 10,
+      "runs": 3,
+      "strikeRate": 49.2,
+      "average": 2.5,
+      "wickets": 12
+    },
+    {
+      "season": "2023",
+      "matches": 10,
+      "runs": 4,
+      "strikeRate": 50.3,
+      "average": 2.6,
+      "wickets": 12
+    },
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 4,
+      "strikeRate": 51.4,
+      "average": 2.7,
+      "wickets": 12
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 5,
+      "strikeRate": 52.4,
+      "average": 2.8,
+      "wickets": 12
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 6,
+      "strikeRate": 53.5,
+      "average": 2.9,
+      "wickets": 12
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 40,
+    "consistency": 40,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

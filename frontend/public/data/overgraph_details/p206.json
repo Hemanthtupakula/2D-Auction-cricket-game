@@ -1,0 +1,114 @@
+{
+  "playerId": "p206",
+  "fullName": "Jaydev Unadkat",
+  "overGraphSlug": "jd-unadkat",
+  "matches": 116,
+  "runs": 201,
+  "strikeRate": 118.9,
+  "average": 12.6,
+  "wickets": 114,
+  "economy": 8.9,
+  "highestScore": "26",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 16,
+  "sixes": 7,
+  "catches": 22,
+  "seasonsTimeline": [
+    {
+      "season": "2016",
+      "matches": 10,
+      "runs": 10,
+      "strikeRate": 109.4,
+      "average": 11.3,
+      "wickets": 10
+    },
+    {
+      "season": "2017",
+      "matches": 10,
+      "runs": 11,
+      "strikeRate": 110.5,
+      "average": 11.5,
+      "wickets": 10
+    },
+    {
+      "season": "2018",
+      "matches": 10,
+      "runs": 12,
+      "strikeRate": 111.5,
+      "average": 11.7,
+      "wickets": 10
+    },
+    {
+      "season": "2019",
+      "matches": 10,
+      "runs": 13,
+      "strikeRate": 112.6,
+      "average": 11.9,
+      "wickets": 10
+    },
+    {
+      "season": "2020",
+      "matches": 10,
+      "runs": 13,
+      "strikeRate": 113.7,
+      "average": 12.0,
+      "wickets": 10
+    },
+    {
+      "season": "2021",
+      "matches": 10,
+      "runs": 14,
+      "strikeRate": 114.8,
+      "average": 12.2,
+      "wickets": 10
+    },
+    {
+      "season": "2022",
+      "matches": 10,
+      "runs": 15,
+      "strikeRate": 115.9,
+      "average": 12.4,
+      "wickets": 10
+    },
+    {
+      "season": "2023",
+      "matches": 10,
+      "runs": 16,
+      "strikeRate": 117.0,
+      "average": 12.5,
+      "wickets": 10
+    },
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 16,
+      "strikeRate": 118.0,
+      "average": 12.7,
+      "wickets": 10
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 17,
+      "strikeRate": 119.1,
+      "average": 12.9,
+      "wickets": 10
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 18,
+      "strikeRate": 120.2,
+      "average": 13.1,
+      "wickets": 10
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 65,
+    "consistency": 40,
+    "tempo": 59
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

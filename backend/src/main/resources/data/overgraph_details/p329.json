@@ -1,0 +1,58 @@
+{
+  "playerId": "p329",
+  "fullName": "Angkrish Raghuvanshi",
+  "overGraphSlug": "a-raghuvanshi",
+  "matches": 35,
+  "runs": 885,
+  "strikeRate": 145.6,
+  "average": 34.0,
+  "wickets": 0,
+  "economy": 0.0,
+  "highestScore": "82",
+  "fifties": 7,
+  "hundreds": 0,
+  "fours": 86,
+  "sixes": 35,
+  "catches": 11,
+  "seasonsTimeline": [
+    {
+      "season": "2023",
+      "matches": 8,
+      "runs": 132,
+      "strikeRate": 134.0,
+      "average": 30.6,
+      "wickets": null
+    },
+    {
+      "season": "2024",
+      "matches": 8,
+      "runs": 162,
+      "strikeRate": 137.6,
+      "average": 31.9,
+      "wickets": null
+    },
+    {
+      "season": "2025",
+      "matches": 8,
+      "runs": 191,
+      "strikeRate": 141.2,
+      "average": 33.1,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 8,
+      "runs": 221,
+      "strikeRate": 144.9,
+      "average": 34.4,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 80,
+    "consistency": 61,
+    "tempo": 80
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

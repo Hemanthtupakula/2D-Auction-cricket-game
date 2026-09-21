@@ -1,0 +1,50 @@
+{
+  "playerId": "p66",
+  "fullName": "Vijaykumar Vyshak",
+  "overGraphSlug": "vijaykumar-vyshak",
+  "matches": 26,
+  "runs": 16,
+  "strikeRate": 100.0,
+  "average": 8.0,
+  "wickets": 26,
+  "economy": 10.5,
+  "highestScore": "13",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 0,
+  "sixes": 1,
+  "catches": 6,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 8,
+      "runs": 3,
+      "strikeRate": 92.0,
+      "average": 7.2,
+      "wickets": 8
+    },
+    {
+      "season": "2025",
+      "matches": 8,
+      "runs": 4,
+      "strikeRate": 95.3,
+      "average": 7.6,
+      "wickets": 8
+    },
+    {
+      "season": "2026",
+      "matches": 8,
+      "runs": 5,
+      "strikeRate": 98.7,
+      "average": 8.0,
+      "wickets": 8
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 55,
+    "consistency": 40,
+    "tempo": 48
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

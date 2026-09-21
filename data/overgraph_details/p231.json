@@ -1,0 +1,34 @@
+{
+  "playerId": "p231",
+  "fullName": "Jasprit Bumrah",
+  "overGraphSlug": "j-bumrah",
+  "matches": 133,
+  "runs": 63,
+  "strikeRate": 60.0,
+  "average": 7.0,
+  "wickets": 165,
+  "economy": 7.3,
+  "highestScore": "16*",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 3,
+  "sixes": 1,
+  "catches": 24,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 14,
+      "runs": 9,
+      "strikeRate": 60.0,
+      "average": 7.0,
+      "wickets": 165
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 30,
+    "consistency": 14,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

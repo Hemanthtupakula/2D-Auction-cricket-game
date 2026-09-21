@@ -1,0 +1,147 @@
+{
+  "playerId": "p18",
+  "fullName": "Rahul Tripathi",
+  "overGraphSlug": "ra-tripathi",
+  "matches": 100,
+  "runs": 2291,
+  "strikeRate": 137.9,
+  "average": 26.3,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "93",
+  "fifties": 12,
+  "hundreds": 0,
+  "fours": 229,
+  "sixes": 85,
+  "catches": 34,
+  "seasonsTimeline": [
+    {
+      "season": "2017",
+      "matches": 10,
+      "runs": 137,
+      "strikeRate": 126.9,
+      "average": 23.7,
+      "wickets": null
+    },
+    {
+      "season": "2018",
+      "matches": 10,
+      "runs": 147,
+      "strikeRate": 128.2,
+      "average": 24.1,
+      "wickets": null
+    },
+    {
+      "season": "2019",
+      "matches": 10,
+      "runs": 157,
+      "strikeRate": 129.6,
+      "average": 24.5,
+      "wickets": null
+    },
+    {
+      "season": "2020",
+      "matches": 10,
+      "runs": 168,
+      "strikeRate": 131.0,
+      "average": 24.9,
+      "wickets": null
+    },
+    {
+      "season": "2021",
+      "matches": 10,
+      "runs": 178,
+      "strikeRate": 132.4,
+      "average": 25.2,
+      "wickets": null
+    },
+    {
+      "season": "2022",
+      "matches": 10,
+      "runs": 188,
+      "strikeRate": 133.8,
+      "average": 25.6,
+      "wickets": null
+    },
+    {
+      "season": "2023",
+      "matches": 10,
+      "runs": 198,
+      "strikeRate": 135.1,
+      "average": 26.0,
+      "wickets": null
+    },
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 208,
+      "strikeRate": 136.5,
+      "average": 26.4,
+      "wickets": null
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 218,
+      "strikeRate": 137.9,
+      "average": 26.8,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 229,
+      "strikeRate": 139.3,
+      "average": 27.2,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#1",
+      "innings": 40,
+      "runs": 916,
+      "average": 25.0,
+      "strikeRate": 135.1,
+      "fifties": 4,
+      "hundreds": 0,
+      "highestScore": "93"
+    },
+    {
+      "position": "#2",
+      "innings": 40,
+      "runs": 916,
+      "average": 25.0,
+      "strikeRate": 135.1,
+      "fifties": 4,
+      "hundreds": 0,
+      "highestScore": "93"
+    },
+    {
+      "position": "#3",
+      "innings": 15,
+      "runs": 343,
+      "average": 22.4,
+      "strikeRate": 135.1,
+      "fifties": 1,
+      "hundreds": 0,
+      "highestScore": "93"
+    },
+    {
+      "position": "#4",
+      "innings": 5,
+      "runs": 114,
+      "average": 22.4,
+      "strikeRate": 135.1,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "93"
+    }
+  ],
+  "radarMetrics": {
+    "power": 75,
+    "consistency": 47,
+    "tempo": 73
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

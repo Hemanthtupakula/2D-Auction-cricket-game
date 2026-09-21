@@ -1,0 +1,90 @@
+{
+  "playerId": "p265",
+  "fullName": "Ashok Dinda",
+  "overGraphSlug": "ab-dinda",
+  "matches": 78,
+  "runs": 26,
+  "strikeRate": 54.2,
+  "average": 2.6,
+  "wickets": 69,
+  "economy": 8.2,
+  "highestScore": "7",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 2,
+  "sixes": 0,
+  "catches": 7,
+  "seasonsTimeline": [
+    {
+      "season": "2019",
+      "matches": 9,
+      "runs": 1,
+      "strikeRate": 49.9,
+      "average": 2.3,
+      "wickets": 8
+    },
+    {
+      "season": "2020",
+      "matches": 9,
+      "runs": 2,
+      "strikeRate": 50.5,
+      "average": 2.4,
+      "wickets": 8
+    },
+    {
+      "season": "2021",
+      "matches": 9,
+      "runs": 2,
+      "strikeRate": 51.2,
+      "average": 2.4,
+      "wickets": 8
+    },
+    {
+      "season": "2022",
+      "matches": 9,
+      "runs": 2,
+      "strikeRate": 51.9,
+      "average": 2.5,
+      "wickets": 8
+    },
+    {
+      "season": "2023",
+      "matches": 9,
+      "runs": 2,
+      "strikeRate": 52.6,
+      "average": 2.5,
+      "wickets": 8
+    },
+    {
+      "season": "2024",
+      "matches": 9,
+      "runs": 2,
+      "strikeRate": 53.3,
+      "average": 2.6,
+      "wickets": 8
+    },
+    {
+      "season": "2025",
+      "matches": 9,
+      "runs": 3,
+      "strikeRate": 53.9,
+      "average": 2.6,
+      "wickets": 8
+    },
+    {
+      "season": "2026",
+      "matches": 9,
+      "runs": 3,
+      "strikeRate": 54.6,
+      "average": 2.7,
+      "wickets": 8
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 40,
+    "consistency": 40,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

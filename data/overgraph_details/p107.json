@@ -1,0 +1,50 @@
+{
+  "playerId": "p107",
+  "fullName": "Ankit Rajpoot",
+  "overGraphSlug": "as-rajpoot",
+  "matches": 29,
+  "runs": 26,
+  "strikeRate": 63.4,
+  "average": 5.2,
+  "wickets": 24,
+  "economy": 9.2,
+  "highestScore": "8",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 2,
+  "sixes": 1,
+  "catches": 3,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 9,
+      "runs": 5,
+      "strikeRate": 58.3,
+      "average": 4.7,
+      "wickets": 8
+    },
+    {
+      "season": "2025",
+      "matches": 9,
+      "runs": 6,
+      "strikeRate": 60.4,
+      "average": 4.9,
+      "wickets": 8
+    },
+    {
+      "season": "2026",
+      "matches": 9,
+      "runs": 8,
+      "strikeRate": 62.6,
+      "average": 5.2,
+      "wickets": 8
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 40,
+    "consistency": 40,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

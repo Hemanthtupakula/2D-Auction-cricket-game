@@ -1,0 +1,153 @@
+{
+  "playerId": "p23",
+  "fullName": "Glenn Maxwell",
+  "overGraphSlug": "gj-maxwell",
+  "matches": 141,
+  "runs": 2819,
+  "strikeRate": 155.2,
+  "average": 23.9,
+  "wickets": 41,
+  "economy": 8.3,
+  "highestScore": "95",
+  "fifties": 18,
+  "hundreds": 0,
+  "fours": 238,
+  "sixes": 161,
+  "catches": 52,
+  "seasonsTimeline": [
+    {
+      "season": "2015",
+      "matches": 11,
+      "runs": 140,
+      "strikeRate": 142.8,
+      "average": 21.5,
+      "wickets": 3
+    },
+    {
+      "season": "2016",
+      "matches": 11,
+      "runs": 149,
+      "strikeRate": 144.1,
+      "average": 21.8,
+      "wickets": 3
+    },
+    {
+      "season": "2017",
+      "matches": 11,
+      "runs": 158,
+      "strikeRate": 145.4,
+      "average": 22.1,
+      "wickets": 3
+    },
+    {
+      "season": "2018",
+      "matches": 11,
+      "runs": 166,
+      "strikeRate": 146.7,
+      "average": 22.4,
+      "wickets": 3
+    },
+    {
+      "season": "2019",
+      "matches": 11,
+      "runs": 175,
+      "strikeRate": 148.0,
+      "average": 22.7,
+      "wickets": 3
+    },
+    {
+      "season": "2020",
+      "matches": 11,
+      "runs": 183,
+      "strikeRate": 149.3,
+      "average": 23.0,
+      "wickets": 3
+    },
+    {
+      "season": "2021",
+      "matches": 11,
+      "runs": 192,
+      "strikeRate": 150.5,
+      "average": 23.3,
+      "wickets": 3
+    },
+    {
+      "season": "2022",
+      "matches": 11,
+      "runs": 200,
+      "strikeRate": 151.8,
+      "average": 23.6,
+      "wickets": 3
+    },
+    {
+      "season": "2023",
+      "matches": 11,
+      "runs": 209,
+      "strikeRate": 153.1,
+      "average": 23.9,
+      "wickets": 3
+    },
+    {
+      "season": "2024",
+      "matches": 11,
+      "runs": 217,
+      "strikeRate": 154.4,
+      "average": 24.2,
+      "wickets": 3
+    },
+    {
+      "season": "2025",
+      "matches": 11,
+      "runs": 226,
+      "strikeRate": 155.7,
+      "average": 24.5,
+      "wickets": 3
+    },
+    {
+      "season": "2026",
+      "matches": 11,
+      "runs": 234,
+      "strikeRate": 157.0,
+      "average": 24.8,
+      "wickets": 3
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#5",
+      "innings": 42,
+      "runs": 845,
+      "average": 20.3,
+      "strikeRate": 163.0,
+      "fifties": 5,
+      "hundreds": 0,
+      "highestScore": "95"
+    },
+    {
+      "position": "#6",
+      "innings": 56,
+      "runs": 1127,
+      "average": 22.7,
+      "strikeRate": 163.0,
+      "fifties": 7,
+      "hundreds": 0,
+      "highestScore": "95"
+    },
+    {
+      "position": "#7",
+      "innings": 42,
+      "runs": 845,
+      "average": 20.3,
+      "strikeRate": 163.0,
+      "fifties": 5,
+      "hundreds": 0,
+      "highestScore": "95"
+    }
+  ],
+  "radarMetrics": {
+    "power": 85,
+    "consistency": 43,
+    "tempo": 80
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

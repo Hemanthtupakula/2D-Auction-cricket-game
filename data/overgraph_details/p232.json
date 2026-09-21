@@ -1,0 +1,73 @@
+{
+  "playerId": "p232",
+  "fullName": "Hrithik Shokeen",
+  "overGraphSlug": "hr-shokeen",
+  "matches": 13,
+  "runs": 66,
+  "strikeRate": 101.5,
+  "average": 22.0,
+  "wickets": 5,
+  "economy": 9.2,
+  "highestScore": "25",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 9,
+  "sixes": 0,
+  "catches": 5,
+  "seasonsTimeline": [
+    {
+      "season": "2025",
+      "matches": 6,
+      "runs": 19,
+      "strikeRate": 93.4,
+      "average": 19.8,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 6,
+      "runs": 33,
+      "strikeRate": 98.5,
+      "average": 21.4,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 3,
+      "runs": 19,
+      "average": 18.7,
+      "strikeRate": 99.5,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "25"
+    },
+    {
+      "position": "#4",
+      "innings": 5,
+      "runs": 26,
+      "average": 20.9,
+      "strikeRate": 99.5,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "25"
+    },
+    {
+      "position": "#5",
+      "innings": 3,
+      "runs": 19,
+      "average": 18.7,
+      "strikeRate": 106.6,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "25"
+    }
+  ],
+  "radarMetrics": {
+    "power": 55,
+    "consistency": 40,
+    "tempo": 55
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

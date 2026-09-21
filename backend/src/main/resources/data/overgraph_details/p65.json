@@ -1,0 +1,50 @@
+{
+  "playerId": "p65",
+  "fullName": "Rasikh Salam",
+  "overGraphSlug": "rasikh-salam",
+  "matches": 25,
+  "runs": 43,
+  "strikeRate": 102.4,
+  "average": 8.6,
+  "wickets": 29,
+  "economy": 10.0,
+  "highestScore": "10",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 5,
+  "sixes": 0,
+  "catches": 5,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 8,
+      "runs": 8,
+      "strikeRate": 94.2,
+      "average": 7.7,
+      "wickets": 9
+    },
+    {
+      "season": "2025",
+      "matches": 8,
+      "runs": 11,
+      "strikeRate": 97.6,
+      "average": 8.2,
+      "wickets": 9
+    },
+    {
+      "season": "2026",
+      "matches": 8,
+      "runs": 14,
+      "strikeRate": 101.0,
+      "average": 8.6,
+      "wickets": 9
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 56,
+    "consistency": 40,
+    "tempo": 49
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

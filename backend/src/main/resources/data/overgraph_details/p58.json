@@ -1,0 +1,75 @@
+{
+  "playerId": "p58",
+  "fullName": "Kumar Kushagra",
+  "overGraphSlug": "kumar-kushagra",
+  "matches": 5,
+  "runs": 21,
+  "strikeRate": 100.0,
+  "average": 5.3,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "18",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 3,
+  "sixes": 0,
+  "catches": 2,
+  "seasonsTimeline": [
+    {
+      "season": "2026",
+      "matches": 5,
+      "runs": 12,
+      "strikeRate": 92.0,
+      "average": 4.8,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 1,
+      "runs": 4,
+      "average": 4.5,
+      "strikeRate": 98.0,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "18"
+    },
+    {
+      "position": "#4",
+      "innings": 2,
+      "runs": 8,
+      "average": 5.0,
+      "strikeRate": 98.0,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "18"
+    },
+    {
+      "position": "#5",
+      "innings": 1,
+      "runs": 6,
+      "average": 4.5,
+      "strikeRate": 105.0,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "18"
+    },
+    {
+      "position": "#6",
+      "innings": 1,
+      "runs": 2,
+      "average": 4.5,
+      "strikeRate": 105.0,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "18"
+    }
+  ],
+  "radarMetrics": {
+    "power": 55,
+    "consistency": 40,
+    "tempo": 47
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

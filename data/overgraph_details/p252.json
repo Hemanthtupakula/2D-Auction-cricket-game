@@ -1,0 +1,34 @@
+{
+  "playerId": "p252",
+  "fullName": "Sanju Samson",
+  "overGraphSlug": "s-samson",
+  "matches": 167,
+  "runs": 4419,
+  "strikeRate": 138.9,
+  "average": 30.7,
+  "wickets": 0,
+  "economy": null,
+  "highestScore": "119",
+  "fifties": 25,
+  "hundreds": 3,
+  "fours": 361,
+  "sixes": 206,
+  "catches": 84,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 14,
+      "runs": 662,
+      "strikeRate": 138.9,
+      "average": 30.7,
+      "wickets": 0
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 69,
+    "consistency": 61,
+    "tempo": 79
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

@@ -1,0 +1,139 @@
+{
+  "playerId": "p295",
+  "fullName": "Riyan Parag",
+  "overGraphSlug": "r-parag",
+  "matches": 97,
+  "runs": 1875,
+  "strikeRate": 144.2,
+  "average": 25.7,
+  "wickets": 9,
+  "economy": 9.7,
+  "highestScore": "95",
+  "fifties": 9,
+  "hundreds": 0,
+  "fours": 135,
+  "sixes": 108,
+  "catches": 49,
+  "seasonsTimeline": [
+    {
+      "season": "2018",
+      "matches": 10,
+      "runs": 125,
+      "strikeRate": 132.7,
+      "average": 23.1,
+      "wickets": null
+    },
+    {
+      "season": "2019",
+      "matches": 10,
+      "runs": 135,
+      "strikeRate": 134.3,
+      "average": 23.6,
+      "wickets": null
+    },
+    {
+      "season": "2020",
+      "matches": 10,
+      "runs": 145,
+      "strikeRate": 135.9,
+      "average": 24.0,
+      "wickets": null
+    },
+    {
+      "season": "2021",
+      "matches": 10,
+      "runs": 156,
+      "strikeRate": 137.5,
+      "average": 24.4,
+      "wickets": null
+    },
+    {
+      "season": "2022",
+      "matches": 10,
+      "runs": 166,
+      "strikeRate": 139.1,
+      "average": 24.8,
+      "wickets": null
+    },
+    {
+      "season": "2023",
+      "matches": 10,
+      "runs": 177,
+      "strikeRate": 140.7,
+      "average": 25.3,
+      "wickets": null
+    },
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 187,
+      "strikeRate": 142.3,
+      "average": 25.7,
+      "wickets": null
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 197,
+      "strikeRate": 143.9,
+      "average": 26.1,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 208,
+      "strikeRate": 145.5,
+      "average": 26.6,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 19,
+      "runs": 375,
+      "average": 21.8,
+      "strikeRate": 141.3,
+      "fifties": 1,
+      "hundreds": 0,
+      "highestScore": "95"
+    },
+    {
+      "position": "#4",
+      "innings": 38,
+      "runs": 750,
+      "average": 24.4,
+      "strikeRate": 141.3,
+      "fifties": 3,
+      "hundreds": 0,
+      "highestScore": "95"
+    },
+    {
+      "position": "#5",
+      "innings": 29,
+      "runs": 562,
+      "average": 21.8,
+      "strikeRate": 151.4,
+      "fifties": 2,
+      "hundreds": 0,
+      "highestScore": "95"
+    },
+    {
+      "position": "#6",
+      "innings": 9,
+      "runs": 187,
+      "average": 21.8,
+      "strikeRate": 151.4,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "95"
+    }
+  ],
+  "radarMetrics": {
+    "power": 79,
+    "consistency": 46,
+    "tempo": 76
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

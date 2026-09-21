@@ -1,0 +1,107 @@
+{
+  "playerId": "p26",
+  "fullName": "Jonny Bairstow",
+  "overGraphSlug": "jm-bairstow",
+  "matches": 52,
+  "runs": 1674,
+  "strikeRate": 146.1,
+  "average": 34.9,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "114",
+  "fifties": 9,
+  "hundreds": 2,
+  "fours": 173,
+  "sixes": 74,
+  "catches": 29,
+  "seasonsTimeline": [
+    {
+      "season": "2022",
+      "matches": 10,
+      "runs": 200,
+      "strikeRate": 134.4,
+      "average": 31.4,
+      "wickets": null
+    },
+    {
+      "season": "2023",
+      "matches": 10,
+      "runs": 234,
+      "strikeRate": 137.3,
+      "average": 32.5,
+      "wickets": null
+    },
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 267,
+      "strikeRate": 140.3,
+      "average": 33.5,
+      "wickets": null
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 301,
+      "strikeRate": 143.2,
+      "average": 34.6,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 334,
+      "strikeRate": 146.1,
+      "average": 35.6,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 10,
+      "runs": 334,
+      "average": 29.7,
+      "strikeRate": 143.2,
+      "fifties": 1,
+      "hundreds": 0,
+      "highestScore": "114"
+    },
+    {
+      "position": "#4",
+      "innings": 20,
+      "runs": 669,
+      "average": 33.2,
+      "strikeRate": 143.2,
+      "fifties": 3,
+      "hundreds": 0,
+      "highestScore": "114"
+    },
+    {
+      "position": "#5",
+      "innings": 15,
+      "runs": 502,
+      "average": 29.7,
+      "strikeRate": 153.4,
+      "fifties": 2,
+      "hundreds": 0,
+      "highestScore": "114"
+    },
+    {
+      "position": "#6",
+      "innings": 5,
+      "runs": 167,
+      "average": 29.7,
+      "strikeRate": 153.4,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "114"
+    }
+  ],
+  "radarMetrics": {
+    "power": 80,
+    "consistency": 62,
+    "tempo": 81
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

@@ -1,0 +1,34 @@
+{
+  "playerId": "p294",
+  "fullName": "Shivam Dube",
+  "overGraphSlug": "s-dube",
+  "matches": 65,
+  "runs": 1502,
+  "strikeRate": 159.2,
+  "average": 31.3,
+  "wickets": 5,
+  "economy": 9.4,
+  "highestScore": "95*",
+  "fifties": 9,
+  "hundreds": 0,
+  "fours": 94,
+  "sixes": 99,
+  "catches": 21,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 14,
+      "runs": 225,
+      "strikeRate": 159.2,
+      "average": 31.3,
+      "wickets": 5
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 79,
+    "consistency": 62,
+    "tempo": 89
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

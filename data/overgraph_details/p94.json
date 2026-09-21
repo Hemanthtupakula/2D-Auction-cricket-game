@@ -1,0 +1,58 @@
+{
+  "playerId": "p94",
+  "fullName": "Mukesh Kumar",
+  "overGraphSlug": "mukesh-kumar",
+  "matches": 42,
+  "runs": 10,
+  "strikeRate": 55.6,
+  "average": 10.0,
+  "wickets": 42,
+  "economy": 10.6,
+  "highestScore": "6",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 0,
+  "sixes": 0,
+  "catches": 7,
+  "seasonsTimeline": [
+    {
+      "season": "2023",
+      "matches": 10,
+      "runs": 1,
+      "strikeRate": 51.2,
+      "average": 9.0,
+      "wickets": 10
+    },
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 1,
+      "strikeRate": 52.5,
+      "average": 9.4,
+      "wickets": 10
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 2,
+      "strikeRate": 53.9,
+      "average": 9.8,
+      "wickets": 10
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 2,
+      "strikeRate": 55.3,
+      "average": 10.1,
+      "wickets": 10
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 40,
+    "consistency": 40,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

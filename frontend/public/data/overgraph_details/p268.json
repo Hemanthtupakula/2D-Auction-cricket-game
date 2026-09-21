@@ -1,0 +1,97 @@
+{
+  "playerId": "p268",
+  "fullName": "Iqbal Abdulla",
+  "overGraphSlug": "iqbal-abdulla",
+  "matches": 49,
+  "runs": 88,
+  "strikeRate": 104.8,
+  "average": 44.0,
+  "wickets": 40,
+  "economy": 7.2,
+  "highestScore": "33",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 9,
+  "sixes": 1,
+  "catches": 12,
+  "seasonsTimeline": [
+    {
+      "season": "2022",
+      "matches": 9,
+      "runs": 10,
+      "strikeRate": 96.4,
+      "average": 39.6,
+      "wickets": null
+    },
+    {
+      "season": "2023",
+      "matches": 9,
+      "runs": 12,
+      "strikeRate": 98.5,
+      "average": 40.9,
+      "wickets": null
+    },
+    {
+      "season": "2024",
+      "matches": 9,
+      "runs": 14,
+      "strikeRate": 100.6,
+      "average": 42.2,
+      "wickets": null
+    },
+    {
+      "season": "2025",
+      "matches": 9,
+      "runs": 15,
+      "strikeRate": 102.7,
+      "average": 43.6,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 9,
+      "runs": 17,
+      "strikeRate": 104.8,
+      "average": 44.9,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 14,
+      "runs": 26,
+      "average": 37.4,
+      "strikeRate": 102.7,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "33"
+    },
+    {
+      "position": "#4",
+      "innings": 19,
+      "runs": 35,
+      "average": 41.8,
+      "strikeRate": 102.7,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "33"
+    },
+    {
+      "position": "#5",
+      "innings": 14,
+      "runs": 26,
+      "average": 37.4,
+      "strikeRate": 110.0,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "33"
+    }
+  ],
+  "radarMetrics": {
+    "power": 57,
+    "consistency": 79,
+    "tempo": 66
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

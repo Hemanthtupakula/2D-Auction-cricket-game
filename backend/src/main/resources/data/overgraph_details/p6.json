@@ -1,0 +1,74 @@
+{
+  "playerId": "p6",
+  "fullName": "Mitchell Starc",
+  "overGraphSlug": "ma-starc",
+  "matches": 58,
+  "runs": 111,
+  "strikeRate": 91.7,
+  "average": 9.3,
+  "wickets": 76,
+  "economy": 8.8,
+  "highestScore": "29",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 11,
+  "sixes": 0,
+  "catches": 30,
+  "seasonsTimeline": [
+    {
+      "season": "2021",
+      "matches": 9,
+      "runs": 11,
+      "strikeRate": 84.4,
+      "average": 8.4,
+      "wickets": 12
+    },
+    {
+      "season": "2022",
+      "matches": 9,
+      "runs": 12,
+      "strikeRate": 85.9,
+      "average": 8.6,
+      "wickets": 12
+    },
+    {
+      "season": "2023",
+      "matches": 9,
+      "runs": 14,
+      "strikeRate": 87.4,
+      "average": 8.8,
+      "wickets": 12
+    },
+    {
+      "season": "2024",
+      "matches": 9,
+      "runs": 15,
+      "strikeRate": 88.9,
+      "average": 9.1,
+      "wickets": 12
+    },
+    {
+      "season": "2025",
+      "matches": 9,
+      "runs": 17,
+      "strikeRate": 90.5,
+      "average": 9.3,
+      "wickets": 12
+    },
+    {
+      "season": "2026",
+      "matches": 9,
+      "runs": 18,
+      "strikeRate": 92.0,
+      "average": 9.5,
+      "wickets": 12
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 50,
+    "consistency": 40,
+    "tempo": 45
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

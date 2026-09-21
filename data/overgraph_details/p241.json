@@ -1,0 +1,34 @@
+{
+  "playerId": "p241",
+  "fullName": "Hardik Pandya",
+  "overGraphSlug": "h-pandya",
+  "matches": 137,
+  "runs": 2525,
+  "strikeRate": 145.9,
+  "average": 28.7,
+  "wickets": 64,
+  "economy": 9.06,
+  "highestScore": "91",
+  "fifties": 10,
+  "hundreds": 0,
+  "fours": 182,
+  "sixes": 136,
+  "catches": 65,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 14,
+      "runs": 378,
+      "strikeRate": 145.9,
+      "average": 28.7,
+      "wickets": 64
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 72,
+    "consistency": 57,
+    "tempo": 82
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

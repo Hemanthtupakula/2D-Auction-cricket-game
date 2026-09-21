@@ -1,0 +1,42 @@
+{
+  "playerId": "p209",
+  "fullName": "Akash Madhwal",
+  "overGraphSlug": "akash-madhwal",
+  "matches": 17,
+  "runs": 8,
+  "strikeRate": 57.1,
+  "average": null,
+  "wickets": 23,
+  "economy": 10.1,
+  "highestScore": "4",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 0,
+  "sixes": 0,
+  "catches": 1,
+  "seasonsTimeline": [
+    {
+      "season": "2025",
+      "matches": 8,
+      "runs": 2,
+      "strikeRate": 52.5,
+      "average": null,
+      "wickets": 11
+    },
+    {
+      "season": "2026",
+      "matches": 8,
+      "runs": 4,
+      "strikeRate": 55.4,
+      "average": null,
+      "wickets": 11
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 40,
+    "consistency": 45,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

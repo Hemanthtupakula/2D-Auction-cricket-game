@@ -1,0 +1,122 @@
+{
+  "playerId": "p7",
+  "fullName": "Yuzvendra Chahal",
+  "overGraphSlug": "ys-chahal",
+  "matches": 189,
+  "runs": 37,
+  "strikeRate": 43.0,
+  "average": 5.3,
+  "wickets": 233,
+  "economy": 8.1,
+  "highestScore": "8",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 0,
+  "sixes": 0,
+  "catches": 31,
+  "seasonsTimeline": [
+    {
+      "season": "2015",
+      "matches": 15,
+      "runs": 1,
+      "strikeRate": 39.6,
+      "average": 4.8,
+      "wickets": 19
+    },
+    {
+      "season": "2016",
+      "matches": 15,
+      "runs": 1,
+      "strikeRate": 39.9,
+      "average": 4.8,
+      "wickets": 19
+    },
+    {
+      "season": "2017",
+      "matches": 15,
+      "runs": 2,
+      "strikeRate": 40.3,
+      "average": 4.9,
+      "wickets": 19
+    },
+    {
+      "season": "2018",
+      "matches": 15,
+      "runs": 2,
+      "strikeRate": 40.6,
+      "average": 5.0,
+      "wickets": 19
+    },
+    {
+      "season": "2019",
+      "matches": 15,
+      "runs": 2,
+      "strikeRate": 41.0,
+      "average": 5.0,
+      "wickets": 19
+    },
+    {
+      "season": "2020",
+      "matches": 15,
+      "runs": 2,
+      "strikeRate": 41.4,
+      "average": 5.1,
+      "wickets": 19
+    },
+    {
+      "season": "2021",
+      "matches": 15,
+      "runs": 2,
+      "strikeRate": 41.7,
+      "average": 5.2,
+      "wickets": 19
+    },
+    {
+      "season": "2022",
+      "matches": 15,
+      "runs": 2,
+      "strikeRate": 42.1,
+      "average": 5.2,
+      "wickets": 19
+    },
+    {
+      "season": "2023",
+      "matches": 15,
+      "runs": 2,
+      "strikeRate": 42.4,
+      "average": 5.3,
+      "wickets": 19
+    },
+    {
+      "season": "2024",
+      "matches": 15,
+      "runs": 2,
+      "strikeRate": 42.8,
+      "average": 5.4,
+      "wickets": 19
+    },
+    {
+      "season": "2025",
+      "matches": 15,
+      "runs": 2,
+      "strikeRate": 43.1,
+      "average": 5.4,
+      "wickets": 19
+    },
+    {
+      "season": "2026",
+      "matches": 15,
+      "runs": 3,
+      "strikeRate": 43.5,
+      "average": 5.5,
+      "wickets": 19
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 40,
+    "consistency": 40,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

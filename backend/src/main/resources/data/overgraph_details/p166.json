@@ -1,0 +1,105 @@
+{
+  "playerId": "p166",
+  "fullName": "Jason Holder",
+  "overGraphSlug": "jo-holder",
+  "matches": 57,
+  "runs": 324,
+  "strikeRate": 123.2,
+  "average": 12.5,
+  "wickets": 70,
+  "economy": 8.6,
+  "highestScore": "47",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 16,
+  "sixes": 21,
+  "catches": 22,
+  "seasonsTimeline": [
+    {
+      "season": "2021",
+      "matches": 9,
+      "runs": 32,
+      "strikeRate": 113.3,
+      "average": 11.2,
+      "wickets": 11
+    },
+    {
+      "season": "2022",
+      "matches": 9,
+      "runs": 36,
+      "strikeRate": 115.4,
+      "average": 11.6,
+      "wickets": 11
+    },
+    {
+      "season": "2023",
+      "matches": 9,
+      "runs": 41,
+      "strikeRate": 117.5,
+      "average": 11.9,
+      "wickets": 11
+    },
+    {
+      "season": "2024",
+      "matches": 9,
+      "runs": 45,
+      "strikeRate": 119.5,
+      "average": 12.2,
+      "wickets": 11
+    },
+    {
+      "season": "2025",
+      "matches": 9,
+      "runs": 49,
+      "strikeRate": 121.6,
+      "average": 12.5,
+      "wickets": 11
+    },
+    {
+      "season": "2026",
+      "matches": 9,
+      "runs": 54,
+      "strikeRate": 123.6,
+      "average": 12.8,
+      "wickets": 11
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#5",
+      "innings": 17,
+      "runs": 97,
+      "average": 10.6,
+      "strikeRate": 129.4,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "47"
+    },
+    {
+      "position": "#6",
+      "innings": 22,
+      "runs": 129,
+      "average": 11.9,
+      "strikeRate": 129.4,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "47"
+    },
+    {
+      "position": "#7",
+      "innings": 17,
+      "runs": 97,
+      "average": 10.6,
+      "strikeRate": 129.4,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "47"
+    }
+  ],
+  "radarMetrics": {
+    "power": 67,
+    "consistency": 40,
+    "tempo": 61
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

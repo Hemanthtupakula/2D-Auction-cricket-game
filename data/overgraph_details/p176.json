@@ -1,0 +1,42 @@
+{
+  "playerId": "p176",
+  "fullName": "Mujeeb Ur Rahman",
+  "overGraphSlug": "mujeeb-ur-rahman",
+  "matches": 20,
+  "runs": 12,
+  "strikeRate": 80.0,
+  "average": 4.0,
+  "wickets": 20,
+  "economy": 8.3,
+  "highestScore": "10",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 2,
+  "sixes": 0,
+  "catches": 2,
+  "seasonsTimeline": [
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 3,
+      "strikeRate": 73.6,
+      "average": 3.6,
+      "wickets": 10
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 6,
+      "strikeRate": 77.6,
+      "average": 3.9,
+      "wickets": 10
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 44,
+    "consistency": 40,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

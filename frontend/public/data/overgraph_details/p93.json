@@ -1,0 +1,122 @@
+{
+  "playerId": "p93",
+  "fullName": "Bhuvneshwar Kumar",
+  "overGraphSlug": "b-kumar",
+  "matches": 206,
+  "runs": 354,
+  "strikeRate": 93.9,
+  "average": 9.3,
+  "wickets": 226,
+  "economy": 7.7,
+  "highestScore": "27",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 34,
+  "sixes": 4,
+  "catches": 33,
+  "seasonsTimeline": [
+    {
+      "season": "2015",
+      "matches": 17,
+      "runs": 17,
+      "strikeRate": 86.4,
+      "average": 8.4,
+      "wickets": 18
+    },
+    {
+      "season": "2016",
+      "matches": 17,
+      "runs": 18,
+      "strikeRate": 87.2,
+      "average": 8.5,
+      "wickets": 18
+    },
+    {
+      "season": "2017",
+      "matches": 17,
+      "runs": 19,
+      "strikeRate": 88.0,
+      "average": 8.6,
+      "wickets": 18
+    },
+    {
+      "season": "2018",
+      "matches": 17,
+      "runs": 20,
+      "strikeRate": 88.7,
+      "average": 8.7,
+      "wickets": 18
+    },
+    {
+      "season": "2019",
+      "matches": 17,
+      "runs": 21,
+      "strikeRate": 89.5,
+      "average": 8.8,
+      "wickets": 18
+    },
+    {
+      "season": "2020",
+      "matches": 17,
+      "runs": 23,
+      "strikeRate": 90.3,
+      "average": 9.0,
+      "wickets": 18
+    },
+    {
+      "season": "2021",
+      "matches": 17,
+      "runs": 24,
+      "strikeRate": 91.1,
+      "average": 9.1,
+      "wickets": 18
+    },
+    {
+      "season": "2022",
+      "matches": 17,
+      "runs": 25,
+      "strikeRate": 91.9,
+      "average": 9.2,
+      "wickets": 18
+    },
+    {
+      "season": "2023",
+      "matches": 17,
+      "runs": 26,
+      "strikeRate": 92.6,
+      "average": 9.3,
+      "wickets": 18
+    },
+    {
+      "season": "2024",
+      "matches": 17,
+      "runs": 27,
+      "strikeRate": 93.4,
+      "average": 9.4,
+      "wickets": 18
+    },
+    {
+      "season": "2025",
+      "matches": 17,
+      "runs": 28,
+      "strikeRate": 94.2,
+      "average": 9.5,
+      "wickets": 18
+    },
+    {
+      "season": "2026",
+      "matches": 17,
+      "runs": 29,
+      "strikeRate": 95.0,
+      "average": 9.6,
+      "wickets": 18
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 51,
+    "consistency": 40,
+    "tempo": 46
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

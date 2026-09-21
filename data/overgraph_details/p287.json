@@ -1,0 +1,34 @@
+{
+  "playerId": "p287",
+  "fullName": "Rashid Khan",
+  "overGraphSlug": "r-khan",
+  "matches": 121,
+  "runs": 543,
+  "strikeRate": 141.0,
+  "average": 13.6,
+  "wickets": 149,
+  "economy": 6.82,
+  "highestScore": "79*",
+  "fifties": 1,
+  "hundreds": 0,
+  "fours": 36,
+  "sixes": 37,
+  "catches": 48,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 14,
+      "runs": 81,
+      "strikeRate": 141.0,
+      "average": 13.6,
+      "wickets": 149
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 70,
+    "consistency": 27,
+    "tempo": 80
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

@@ -1,0 +1,75 @@
+{
+  "playerId": "p156",
+  "fullName": "Sumit Kumar",
+  "overGraphSlug": "sumit-kumar",
+  "matches": 4,
+  "runs": 18,
+  "strikeRate": 75.0,
+  "average": 9.0,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "9",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 2,
+  "sixes": 1,
+  "catches": 1,
+  "seasonsTimeline": [
+    {
+      "season": "2026",
+      "matches": 4,
+      "runs": 10,
+      "strikeRate": 69.0,
+      "average": 8.1,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 1,
+      "runs": 3,
+      "average": 7.6,
+      "strikeRate": 73.5,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "9"
+    },
+    {
+      "position": "#4",
+      "innings": 1,
+      "runs": 7,
+      "average": 8.5,
+      "strikeRate": 73.5,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "9"
+    },
+    {
+      "position": "#5",
+      "innings": 1,
+      "runs": 5,
+      "average": 7.6,
+      "strikeRate": 78.8,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "9"
+    },
+    {
+      "position": "#6",
+      "innings": 1,
+      "runs": 1,
+      "average": 7.6,
+      "strikeRate": 78.8,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "9"
+    }
+  ],
+  "radarMetrics": {
+    "power": 41,
+    "consistency": 40,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

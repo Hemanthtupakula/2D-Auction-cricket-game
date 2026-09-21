@@ -1,0 +1,34 @@
+{
+  "playerId": "p296",
+  "fullName": "Andre Russell",
+  "overGraphSlug": "a-russell",
+  "matches": 127,
+  "runs": 2484,
+  "strikeRate": 174.9,
+  "average": 29.2,
+  "wickets": 115,
+  "economy": 9.25,
+  "highestScore": "88*",
+  "fifties": 11,
+  "hundreds": 0,
+  "fours": 178,
+  "sixes": 209,
+  "catches": 44,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 14,
+      "runs": 372,
+      "strikeRate": 174.9,
+      "average": 29.2,
+      "wickets": 115
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 87,
+    "consistency": 58,
+    "tempo": 97
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

@@ -1,0 +1,153 @@
+{
+  "playerId": "p25",
+  "fullName": "Marcus Stoinis",
+  "overGraphSlug": "mp-stoinis",
+  "matches": 123,
+  "runs": 2242,
+  "strikeRate": 147.5,
+  "average": 28.7,
+  "wickets": 46,
+  "economy": 9.9,
+  "highestScore": "124",
+  "fifties": 10,
+  "hundreds": 1,
+  "fours": 181,
+  "sixes": 117,
+  "catches": 26,
+  "seasonsTimeline": [
+    {
+      "season": "2015",
+      "matches": 10,
+      "runs": 112,
+      "strikeRate": 135.7,
+      "average": 25.8,
+      "wickets": 3
+    },
+    {
+      "season": "2016",
+      "matches": 10,
+      "runs": 118,
+      "strikeRate": 136.9,
+      "average": 26.2,
+      "wickets": 3
+    },
+    {
+      "season": "2017",
+      "matches": 10,
+      "runs": 125,
+      "strikeRate": 138.2,
+      "average": 26.5,
+      "wickets": 3
+    },
+    {
+      "season": "2018",
+      "matches": 10,
+      "runs": 132,
+      "strikeRate": 139.4,
+      "average": 26.9,
+      "wickets": 3
+    },
+    {
+      "season": "2019",
+      "matches": 10,
+      "runs": 139,
+      "strikeRate": 140.6,
+      "average": 27.3,
+      "wickets": 3
+    },
+    {
+      "season": "2020",
+      "matches": 10,
+      "runs": 146,
+      "strikeRate": 141.8,
+      "average": 27.6,
+      "wickets": 3
+    },
+    {
+      "season": "2021",
+      "matches": 10,
+      "runs": 152,
+      "strikeRate": 143.1,
+      "average": 28.0,
+      "wickets": 3
+    },
+    {
+      "season": "2022",
+      "matches": 10,
+      "runs": 159,
+      "strikeRate": 144.3,
+      "average": 28.3,
+      "wickets": 3
+    },
+    {
+      "season": "2023",
+      "matches": 10,
+      "runs": 166,
+      "strikeRate": 145.5,
+      "average": 28.7,
+      "wickets": 3
+    },
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 173,
+      "strikeRate": 146.8,
+      "average": 29.1,
+      "wickets": 3
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 180,
+      "strikeRate": 148.0,
+      "average": 29.4,
+      "wickets": 3
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 186,
+      "strikeRate": 149.2,
+      "average": 29.8,
+      "wickets": 3
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#5",
+      "innings": 36,
+      "runs": 672,
+      "average": 24.4,
+      "strikeRate": 154.9,
+      "fifties": 3,
+      "hundreds": 0,
+      "highestScore": "124"
+    },
+    {
+      "position": "#6",
+      "innings": 49,
+      "runs": 896,
+      "average": 27.3,
+      "strikeRate": 154.9,
+      "fifties": 4,
+      "hundreds": 0,
+      "highestScore": "124"
+    },
+    {
+      "position": "#7",
+      "innings": 36,
+      "runs": 672,
+      "average": 24.4,
+      "strikeRate": 154.9,
+      "fifties": 3,
+      "hundreds": 0,
+      "highestScore": "124"
+    }
+  ],
+  "radarMetrics": {
+    "power": 81,
+    "consistency": 51,
+    "tempo": 79
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

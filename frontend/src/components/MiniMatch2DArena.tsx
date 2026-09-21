@@ -1,0 +1,1173 @@
+import React, { useEffect, useRef, useState, useCallback } from 'react';
+import { MiniMatch, MatchBall } from '../types';
+import {
+  submitBatAction,
+  submitBowlAction,
+  selectMatchBatter,
+  selectMatchBowler,
+  pauseMiniMatch2D,
+  resumeMiniMatch2D,
+  exitMiniMatch2D
+} from '../services/api';
+import { MiniMatch3DCanvas } from './MiniMatch3DCanvas';
+import { MiniMatchFieldMap, FieldPreset } from './MiniMatchFieldMap';
+import { MiniMatchScorecardDrawer } from './MiniMatchScorecardDrawer';
+import { LiveMatchDebugPanel } from './LiveMatchDebugPanel';
+import { BallReplayDebugModal } from './BallReplayDebugModal';
+import { LiveMatchQaModal } from './LiveMatchQaModal';
+import {
+  Play,
+  Pause,
+  LogOut,
+  FileText,
+  Volume2,
+  VolumeX,
+  Zap,
+  Crosshair,
+  ShieldAlert,
+  ShieldCheck
+} from 'lucide-react';
+
+interface MiniMatch2DArenaProps {
+  match: MiniMatch;
+  roomCode: string;
+  currentMemberId: string;
+  myFranchiseCode?: string;
+  myFranchiseCodes?: string[];
+  onClose: () => void;
+}
+
+export type BattingIntent = 'DEFENSIVE' | 'NORMAL' | 'LOFT' | 'LEAVE';
+
+export const MiniMatch2DArena: React.FC<MiniMatch2DArenaProps> = ({
+  match,
+  roomCode,
+  currentMemberId,
+  myFranchiseCode = '',
+  myFranchiseCodes = [],
+  onClose
+}) => {
+  const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
+  const [scorecardOpen, setScorecardOpen] = useState<boolean>(false);
+  const [debugOpen, setDebugOpen] = useState<boolean>(false);
+  const [qaOpen, setQaOpen] = useState<boolean>(false);
+  const [selectedReplayBall, setSelectedReplayBall] = useState<MatchBall | null>(null);
+  const [isPaused, setIsPaused] = useState<boolean>(false);
+  const [showExitConfirm, setShowExitConfirm] = useState<boolean>(false);
+
+  // Field Preset State
+  const [fieldPreset, setFieldPreset] = useState<FieldPreset>('BALANCED');
+  const [isFieldLocked, setIsFieldLocked] = useState<boolean>(false);
+
+  // Delivery & Batting Action Lifecycle States
+  const [isDelivering, setIsDelivering] = useState<boolean>(false);
+  const [isBatSwinging, setIsBatSwinging] = useState<boolean>(false);
+
+  // Physical Pitch Aim Coordinates (x: -1.2 to 1.2, z: -1.5 to 6.0)
+  const [aimX, setAimX] = useState<number>(0);
+  const [aimZ, setAimZ] = useState<number>(2.0);
+
+  // Bowling Step State Machine: AIM -> SPEED -> RELEASE -> COMMITTED
+  type BowlingStep = 'AIM' | 'SPEED' | 'RELEASE' | 'COMMITTED';
+  const [bowlingStep, setBowlingStep] = useState<BowlingStep>('AIM');
+
+  // Bowling Owner Selections & Speed
+  const [selectedDelivery, setSelectedDelivery] = useState<string>('PACE');
+  const [selectedSpeed, setSelectedSpeed] = useState<'SLOW' | 'MEDIUM' | 'FAST'>('MEDIUM');
+  const [selectedLine, setSelectedLine] = useState<string>('MIDDLE');
+  const [selectedLength, setSelectedLength] = useState<string>('GOOD');
+  const [isBowlDrawerOpen, setIsBowlDrawerOpen] = useState<boolean>(true);
+  const [bowlExecutionPos, setBowlExecutionPos] = useState<number>(50); // 0-100 bowler skill needle
+  const [isBowlExecutionMoving, setIsBowlExecutionMoving] = useState<boolean>(true);
+
+  // Batting Owner Selections (4 Primary Responses)
+  const [battingIntent, setBattingIntent] = useState<BattingIntent>('NORMAL');
+  const [timingPosition, setTimingPosition] = useState<number>(50); // 0-100 meter slider
+  const [isTimingMoving, setIsTimingMoving] = useState<boolean>(false); // Active only during delivery flight
+
+  // Event Banner Presentation state
+  const [bannerEvent, setBannerEvent] = useState<{
+    type: 'FOUR' | 'SIX' | 'WICKET_BOWLED' | 'WICKET_CAUGHT' | 'WICKET_LBW' | 'WICKET_RUNOUT' | 'DOT' | null;
+    title: string;
+    subtitle: string;
+    runs?: number;
+  } | null>(null);
+
+  const audioCtxRef = useRef<AudioContext | null>(null);
+  const matchAny = match as any;
+  const matchId = matchAny.id || matchAny.matchId || 'match-1';
+  const ballLog = matchAny.ballLog || [];
+  const prevBallCountRef = useRef<number>(ballLog.length);
+
+  // Sound Engine Setup
+  useEffect(() => {
+    const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
+    if (AudioContextClass) {
+      audioCtxRef.current = new AudioContextClass();
+    }
+    return () => {
+      if (audioCtxRef.current) {
+        audioCtxRef.current.close();
+      }
+    };
+  }, []);
+
+  const playSound = useCallback((type: 'BAT_IMPACT' | 'BOUNCE' | 'STUMPS' | 'FOUR' | 'SIX') => {
+    if (!soundEnabled || !audioCtxRef.current) return;
+    try {
+      const ctx = audioCtxRef.current;
+      if (ctx.state === 'suspended') ctx.resume();
+
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      const now = ctx.currentTime;
+      if (type === 'BAT_IMPACT') {
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(550, now);
+        osc.frequency.exponentialRampToValueAtTime(140, now + 0.1);
+        gain.gain.setValueAtTime(0.9, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
+        osc.start(now);
+        osc.stop(now + 0.1);
+      } else if (type === 'FOUR') {
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(523.25, now);
+        osc.frequency.setValueAtTime(659.25, now + 0.12);
+        gain.gain.setValueAtTime(0.7, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.45);
+        osc.start(now);
+        osc.stop(now + 0.45);
+      } else if (type === 'SIX') {
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(440, now);
+        osc.frequency.setValueAtTime(880, now + 0.3);
+        gain.gain.setValueAtTime(0.85, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.6);
+        osc.start(now);
+        osc.stop(now + 0.6);
+      } else if (type === 'STUMPS') {
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(260, now);
+        osc.frequency.exponentialRampToValueAtTime(70, now + 0.25);
+        gain.gain.setValueAtTime(0.8, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.25);
+        osc.start(now);
+        osc.stop(now + 0.25);
+      } else {
+        // Bounce
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(220, now);
+        osc.frequency.exponentialRampToValueAtTime(80, now + 0.08);
+        gain.gain.setValueAtTime(0.5, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.08);
+        osc.start(now);
+        osc.stop(now + 0.08);
+      }
+    } catch (e) {
+      console.warn('Audio play error:', e);
+    }
+  }, [soundEnabled]);
+
+  // Handle incoming ball log updates from server
+  useEffect(() => {
+    const balls = matchAny.ballLog || [];
+    if (balls.length > prevBallCountRef.current) {
+      const latestBall = balls[balls.length - 1];
+      prevBallCountRef.current = balls.length;
+
+      // Ball has finished resolving on server
+      setIsDelivering(false);
+      setIsBatSwinging(false);
+      setIsTimingMoving(false);
+
+      const outcome = latestBall.outcome || 'DOT';
+      const runs = latestBall.runs || 0;
+      const commentary = latestBall.commentary || '';
+
+      if (latestBall.wicket) {
+        setBannerEvent({
+          type: 'WICKET_BOWLED',
+          title: 'WICKET OUT!',
+          subtitle: commentary || 'Wicket fell!'
+        });
+        playSound('STUMPS');
+      } else if (runs === 4 || outcome === 'FOUR') {
+        setBannerEvent({
+          type: 'FOUR',
+          title: 'FOUR! 4 RUNS',
+          subtitle: commentary || 'Brilliant boundary shot!',
+          runs: 4
+        });
+        playSound('FOUR');
+      } else if (runs === 6 || outcome === 'SIX') {
+        setBannerEvent({
+          type: 'SIX',
+          title: 'MAXIMUM! 6 RUNS',
+          subtitle: commentary || 'Monster shot into the stadium stands!',
+          runs: 6
+        });
+        playSound('SIX');
+      } else {
+        setBannerEvent({
+          type: 'DOT',
+          title: runs > 0 ? `${runs} RUNS` : 'DOT BALL',
+          subtitle: commentary || 'Good delivery.'
+        });
+        playSound('BOUNCE');
+      }
+
+      // Reset controls after outcome presentation finishes
+      setTimeout(() => {
+        setBannerEvent(null);
+        setIsBowlDrawerOpen(true);
+        setIsBowlExecutionMoving(true);
+        setBowlingStep('AIM');
+        setIsFieldLocked(false);
+      }, 3500);
+    }
+  }, [matchAny.ballLog, playSound]);
+
+  // Synchronize incoming delivery flight when bowler commits delivery on server
+  useEffect(() => {
+    if (matchAny.planSubmitted && !isDelivering && !bannerEvent && !isBatSwinging) {
+      setIsDelivering(true);
+      setIsTimingMoving(true);
+    }
+  }, [matchAny.planSubmitted, isDelivering, bannerEvent, isBatSwinging]);
+
+  // Oscillating Bowling Execution Skill Needle Loop (0 to 100%)
+  useEffect(() => {
+    let animId: number;
+    let direction = 1;
+    let current = 0;
+
+    const tick = () => {
+      if (isBowlExecutionMoving && !isPaused) {
+        current += direction * 2.2;
+        if (current >= 100) {
+          current = 100;
+          direction = -1;
+        } else if (current <= 0) {
+          current = 0;
+          direction = 1;
+        }
+        setBowlExecutionPos(Math.round(current));
+      }
+      animId = requestAnimationFrame(tick);
+    };
+
+    animId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(animId);
+  }, [isBowlExecutionMoving, isPaused]);
+
+  // Oscillating Batter Swing Timing Needle Loop (0 to 100%)
+  useEffect(() => {
+    let animId: number;
+    let direction = 1;
+    let current = 0;
+
+    const tick = () => {
+      if (isTimingMoving && !isPaused) {
+        current += direction * 2.8;
+        if (current >= 100) {
+          current = 100;
+          direction = -1;
+        } else if (current <= 0) {
+          current = 0;
+          direction = 1;
+        }
+        setTimingPosition(Math.round(current));
+      }
+      animId = requestAnimationFrame(tick);
+    };
+
+    animId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(animId);
+  }, [isTimingMoving, isPaused]);
+
+  // Franchise Turn Roles
+  const homeCode = matchAny.homeFranchise || matchAny.franchiseA || 'CSK';
+  const awayCode = matchAny.awayFranchise || matchAny.franchiseB || 'MI';
+  const currentInnings = matchAny.currentInnings || matchAny.innings || 1;
+
+  const battingFranchise = currentInnings === 1 ? homeCode : awayCode;
+  const bowlingFranchise = currentInnings === 1 ? awayCode : homeCode;
+
+  // Franchise Ownership & Role Evaluation
+  const userFranchises = (myFranchiseCodes && myFranchiseCodes.length > 0)
+    ? myFranchiseCodes
+    : myFranchiseCode
+    ? [myFranchiseCode]
+    : [];
+
+  const ownsBatting = userFranchises.includes(battingFranchise);
+  const ownsBowling = userFranchises.includes(bowlingFranchise);
+  const isSoloTest = (ownsBatting && ownsBowling) || userFranchises.length === 0;
+  const isSpectator = !ownsBatting && !ownsBowling && userFranchises.length > 0;
+
+  const isBowlerLockedOnServer = matchAny.planSubmitted === true;
+  const isBatterLockedOnServer = matchAny.intentSubmitted === true;
+  const isBallInFlight = isDelivering || isBowlerLockedOnServer || bowlingStep === 'COMMITTED';
+
+  // STRICT MUTUAL EXCLUSIVITY:
+  // Bowling turn: ball not yet bowled, no banner active, user owns bowling side (or solo test)
+  const isMyTurnToBowl = !isBallInFlight && !bannerEvent && (ownsBowling || isSoloTest);
+  // Batting turn: ball IS in flight, batter hasn't hit yet, no banner active, user owns batting side (or solo test)
+  const isMyTurnToBat = isBallInFlight && !isBatterLockedOnServer && !isBatSwinging && !bannerEvent && (ownsBatting || isSoloTest);
+
+  // Authoritative Ball Identifier (MATCH_ID-INNINGS-OVER-BALL)
+  const totalOvers = matchAny.overs || matchAny.maxOvers || 2;
+  const currentBallNum = matchAny.currentBall || matchAny.balls || 0;
+  const overNum = Math.floor(currentBallNum / 6);
+  const ballInOver = (currentBallNum % 6) + 1;
+  const authoritativeBallId = `${matchId}-I${currentInnings}-O${overNum}-B${ballInOver}`;
+
+  // Pitch Aim Change Callback from 3D Canvas (Circle as Cricket Intelligence Layer)
+  const handleAimChange = useCallback((x: number, z: number) => {
+    setAimX(x);
+    setAimZ(z);
+
+    // Automatically derive Line
+    if (x < -0.35) setSelectedLine('OFF');
+    else if (x > 0.35) setSelectedLine('LEG');
+    else setSelectedLine('MIDDLE');
+
+    // Automatically derive Length & Delivery Type
+    if (z < 0.5) {
+      setSelectedLength('SHORT');
+      setSelectedDelivery('BOUNCER');
+    } else if (z > 4.7) {
+      setSelectedLength('FULL');
+      setSelectedDelivery('YORKER');
+    } else {
+      setSelectedLength('GOOD');
+      if (Math.abs(x) > 0.45) setSelectedDelivery('SWING');
+      else setSelectedDelivery('PACE');
+    }
+  }, []);
+
+  // Handle Batting Action Submit (Validates Intent + Timing Quality)
+  const handleSendBatAction = async () => {
+    setIsTimingMoving(false);
+    setIsBatSwinging(true);
+    playSound('BAT_IMPACT');
+
+    // Determine timing quality based on meter position and delivery type
+    let sweetSpotMin = 43;
+    let sweetSpotMax = 57;
+    if (selectedDelivery === 'YORKER') {
+      sweetSpotMin = 47;
+      sweetSpotMax = 53;
+    } else if (selectedDelivery === 'SLOWER') {
+      sweetSpotMin = 58;
+      sweetSpotMax = 70;
+    } else if (selectedDelivery === 'BOUNCER') {
+      sweetSpotMin = 36;
+      sweetSpotMax = 48;
+    }
+
+    let timingQuality = 'GOOD';
+    if (timingPosition >= sweetSpotMin && timingPosition <= sweetSpotMax) {
+      timingQuality = 'PERFECT';
+    } else if (timingPosition >= sweetSpotMin - 16 && timingPosition <= sweetSpotMax + 16) {
+      timingQuality = 'GOOD';
+    } else if (timingPosition < sweetSpotMin - 16) {
+      timingQuality = 'EARLY';
+    } else {
+      timingQuality = 'LATE';
+    }
+
+    const actionPayload = battingIntent === 'DEFENSIVE' ? 'DEFENCE' : battingIntent === 'LOFT' ? 'LOFT' : 'DRIVE';
+    const actionId = `${authoritativeBallId}-BAT-${Date.now()}`;
+
+    try {
+      await submitBatAction(roomCode, matchId, currentMemberId, actionPayload, actionId, battingIntent, timingQuality);
+    } catch (err) {
+      console.error('Failed to submit bat action:', err);
+    }
+  };
+
+  // Handle Bowling Action Submit (Locks Delivery & Triggers Real 3D Ball Release)
+  const handleSendBowlAction = async () => {
+    setBowlingStep('COMMITTED');
+    setIsBowlExecutionMoving(false);
+    setIsBowlDrawerOpen(false);
+    setIsDelivering(true);
+    setIsTimingMoving(true);
+
+    // Determine bowler execution quality
+    let releaseQuality = 'GOOD';
+    if (bowlExecutionPos >= 44 && bowlExecutionPos <= 56) {
+      releaseQuality = 'PERFECT';
+    } else if (bowlExecutionPos >= 30 && bowlExecutionPos <= 70) {
+      releaseQuality = 'GOOD';
+    } else if (bowlExecutionPos < 30) {
+      releaseQuality = 'EARLY';
+    } else {
+      releaseQuality = 'LATE';
+    }
+
+    const actionId = `${authoritativeBallId}-BOWL-${Date.now()}`;
+
+    try {
+      await submitBowlAction(
+        roomCode,
+        matchId,
+        currentMemberId,
+        selectedDelivery,
+        actionId,
+        aimX,
+        aimZ,
+        selectedSpeed,
+        releaseQuality
+      );
+    } catch (err) {
+      console.error('Failed to submit bowl action:', err);
+    }
+  };
+
+  // Section 30: Desktop Keyboard Controls (Aim, Speed, Release, Batting Intents & Timing)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (isPaused) return;
+
+      // Bowling Controls (Bowling Owner Turn)
+      if (isMyTurnToBowl && isBowlDrawerOpen && !isDelivering) {
+        if (bowlingStep === 'AIM') {
+          if (e.key === 'Enter' || e.key === ' ') {
+            setBowlingStep('SPEED');
+          }
+        } else if (bowlingStep === 'SPEED') {
+          if (e.key === '1') setSelectedSpeed('SLOW');
+          else if (e.key === '2') setSelectedSpeed('MEDIUM');
+          else if (e.key === '3') setSelectedSpeed('FAST');
+          else if (e.key === 'Enter' || e.key === ' ') {
+            setBowlingStep('RELEASE');
+          } else if (e.key === 'Escape' || e.key === 'Backspace') {
+            setBowlingStep('AIM');
+          }
+        } else if (bowlingStep === 'RELEASE') {
+          if (e.key === ' ' || e.key === 'Enter') {
+            handleSendBowlAction();
+          }
+        }
+      }
+
+      // Batting Controls (Batting Owner Turn)
+      if (isMyTurnToBat) {
+        if (e.key === '1') setBattingIntent('DEFENSIVE');
+        else if (e.key === '2') setBattingIntent('NORMAL');
+        else if (e.key === '3') setBattingIntent('LOFT');
+        else if (e.key === '4') setBattingIntent('LEAVE');
+        else if (e.key === ' ' && isTimingMoving) {
+          handleSendBatAction();
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [
+    isPaused,
+    isMyTurnToBowl,
+    isBowlDrawerOpen,
+    isDelivering,
+    bowlingStep,
+    isMyTurnToBat,
+    isTimingMoving,
+    selectedDelivery,
+    aimX,
+    aimZ,
+    selectedSpeed,
+    bowlExecutionPos,
+    battingIntent,
+    timingPosition
+  ]);
+
+  const handleTogglePause = async () => {
+    try {
+      if (isPaused) {
+        await resumeMiniMatch2D(matchId, currentMemberId);
+        setIsPaused(false);
+      } else {
+        await pauseMiniMatch2D(matchId, currentMemberId);
+        setIsPaused(true);
+      }
+    } catch (err) {
+      console.error('Failed to toggle pause state:', err);
+    }
+  };
+
+  const handleConfirmExit = async () => {
+    try {
+      await exitMiniMatch2D(matchId, currentMemberId);
+      onClose();
+    } catch (err) {
+      console.error('Failed to forfeit match:', err);
+      onClose();
+    }
+  };
+
+  // Player statistics derived from match state
+  const lastBall = ballLog.length > 0 ? ballLog[ballLog.length - 1] : null;
+  const currentOversFormatted = `${overNum}.${currentBallNum % 6}`;
+  const currentOverBalls = ballLog.filter(
+    (b: MatchBall) => b.overNumber === overNum && (b.innings === currentInnings || !b.innings)
+  );
+
+  const strikerId = matchAny.currentStrikerId;
+  const strikerName = (strikerId && matchAny.playerNames?.[strikerId]) || matchAny.strikerName || 'Striker';
+  const strikerRuns = (strikerId && matchAny.runsByPlayer?.[strikerId]) ?? 0;
+  const strikerBalls = (strikerId && matchAny.ballsFacedByPlayer?.[strikerId]) ?? 0;
+
+  const bowlerId = matchAny.currentBowlerId;
+  const bowlerName = (bowlerId && matchAny.playerNames?.[bowlerId]) || matchAny.bowlerName || 'Bowler';
+  const bowlerBalls = (bowlerId && matchAny.ballsBowledByBowler?.[bowlerId]) ?? 0;
+  const bowlerOvers = `${Math.floor(bowlerBalls / 6)}.${bowlerBalls % 6}`;
+  const bowlerMaidens = '0';
+  const bowlerRunsGiven = (bowlerId && matchAny.runsConcededByBowler?.[bowlerId]) ?? 0;
+  const bowlerWickets = (bowlerId && matchAny.wicketsByPlayer?.[bowlerId]) ?? 0;
+
+  const runsCount = matchAny.runs ?? matchAny.homeRuns ?? 0;
+  const wicketsCount = matchAny.wickets ?? matchAny.homeWickets ?? 0;
+
+  // Semi-circular SWING TIMING gauge needle angle (-90deg to +90deg)
+  const needleAngle = -90 + (timingPosition / 100) * 180;
+
+  return (
+    <div className="fixed inset-0 h-[100dvh] max-h-[100dvh] w-screen z-50 bg-slate-950 text-white flex flex-col justify-between overflow-hidden select-none touch-none">
+      
+      {/* 1. TOP BROADCAST SCOREBOARD HEADER */}
+      <div className="w-full bg-slate-900/95 border-b border-slate-800 px-3 sm:px-6 py-2 flex items-center justify-between shadow-2xl z-30">
+        
+        {/* Left: Brand Logo & Matchup Pill */}
+        <div className="flex items-center space-x-3">
+          <div className="flex flex-col">
+            <span className="text-sm sm:text-base font-black tracking-widest text-amber-400 uppercase drop-shadow">
+              AUCTION XI
+            </span>
+            <span className="text-[9px] font-bold text-slate-400 uppercase -mt-1 tracking-wider">
+              {isMyTurnToBat ? 'STRIKER PERSPECTIVE' : 'BOWLER PERSPECTIVE'}
+            </span>
+          </div>
+
+          <div className="flex items-center bg-slate-950 px-2.5 py-1 rounded-xl border border-slate-800 space-x-2">
+            <span className="px-2 py-0.5 text-xs font-black rounded-lg bg-yellow-500/20 text-yellow-400 border border-yellow-500/30">
+              {homeCode}
+            </span>
+            <span className="text-[10px] font-black text-slate-500">VS</span>
+            <span className="px-2 py-0.5 text-xs font-black rounded-lg bg-sky-500/20 text-sky-400 border border-sky-500/30">
+              {awayCode}
+            </span>
+          </div>
+        </div>
+
+        {/* Center: Stat Boxes (OVERS, RUNS, BATSMAN, BOWLER, TARGET, BALL_ID) */}
+        <div className="hidden md:flex items-center space-x-3 bg-slate-950/80 px-4 py-1.5 rounded-2xl border border-slate-800/80 shadow-inner text-xs">
+          <div className="flex flex-col items-center border-r border-slate-800 pr-3">
+            <span className="text-[9px] font-extrabold text-slate-400 uppercase tracking-wider">OVERS</span>
+            <span className="font-black text-slate-100">{currentOversFormatted}/{totalOvers}</span>
+          </div>
+
+          <div className="flex flex-col items-center border-r border-slate-800 pr-3">
+            <span className="text-[9px] font-extrabold text-slate-400 uppercase tracking-wider">RUNS</span>
+            <span className="font-black text-amber-400 text-sm">{runsCount}/{wicketsCount}</span>
+          </div>
+
+          <div className="flex flex-col border-r border-slate-800 pr-3">
+            <span className="text-[9px] font-extrabold text-slate-400 uppercase tracking-wider">BATSMAN</span>
+            <span className="font-black text-emerald-400 truncate max-w-[110px]">{strikerName} {strikerRuns}*({strikerBalls})</span>
+          </div>
+
+          <div className="flex flex-col border-r border-slate-800 pr-3">
+            <span className="text-[9px] font-extrabold text-slate-400 uppercase tracking-wider">BOWLER</span>
+            <span className="font-black text-sky-400 truncate max-w-[110px]">{bowlerName} {bowlerOvers}-{bowlerMaidens}-{bowlerRunsGiven}-{bowlerWickets}</span>
+          </div>
+
+          <div className="flex flex-col items-center pl-1">
+            <span className="text-[9px] font-extrabold text-slate-400 uppercase tracking-wider">BALL ID</span>
+            <span className="font-mono font-bold text-sky-300 text-[10px]">{authoritativeBallId}</span>
+          </div>
+        </div>
+
+        {/* Mobile Compact Score Bar */}
+        <div className="flex md:hidden items-center space-x-2 bg-slate-950 px-3 py-1 rounded-xl border border-slate-800">
+          <span className="text-sm font-black text-amber-400">{runsCount}/{wicketsCount}</span>
+          <span className="text-xs text-slate-400 font-bold">({currentOversFormatted} ov)</span>
+        </div>
+
+        {/* Right Action Controls */}
+        <div className="flex items-center space-x-2">
+          <button
+            onClick={() => setSoundEnabled(!soundEnabled)}
+            className={`p-2 rounded-xl border transition ${
+              soundEnabled ? 'bg-slate-800 text-emerald-400 border-slate-700' : 'bg-slate-950 text-slate-500 border-slate-800'
+            }`}
+            title="Toggle Sound"
+          >
+            {soundEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
+          </button>
+
+          <button
+            onClick={() => setScorecardOpen(true)}
+            className="flex items-center space-x-1.5 px-3 py-1.5 bg-blue-600/30 hover:bg-blue-600/50 text-blue-300 font-bold text-xs rounded-xl border border-blue-500/40 transition"
+          >
+            <FileText className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">Scorecard</span>
+          </button>
+
+          <button
+            onClick={() => setDebugOpen(!debugOpen)}
+            className={`flex items-center space-x-1 px-2.5 py-1.5 rounded-xl border text-[10px] font-black tracking-wider uppercase transition ${
+              debugOpen ? 'bg-amber-500 text-slate-950 border-amber-400 shadow-md' : 'bg-slate-900 text-amber-300 border-amber-500/40 hover:bg-slate-800'
+            }`}
+            title="Toggle Live Match Debug Panel"
+          >
+            <ShieldAlert className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">DEBUG</span>
+          </button>
+
+          <button
+            onClick={() => setQaOpen(true)}
+            className="flex items-center space-x-1 px-2.5 py-1.5 bg-emerald-600/20 hover:bg-emerald-600/40 text-emerald-300 border border-emerald-500/40 rounded-xl text-[10px] font-black tracking-wider uppercase transition"
+            title="Open Live Match QA Dashboard"
+          >
+            <ShieldCheck className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">QA</span>
+          </button>
+
+          <button
+            onClick={handleTogglePause}
+            className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition"
+          >
+            {isPaused ? <Play className="w-4 h-4 text-emerald-400" /> : <Pause className="w-4 h-4 text-amber-400" />}
+          </button>
+
+          <button
+            onClick={() => setShowExitConfirm(true)}
+            className="p-2 rounded-xl bg-rose-950/60 hover:bg-rose-900 text-rose-300 border border-rose-800/40 transition"
+          >
+            <LogOut className="w-4 h-4" />
+          </button>
+        </div>
+      </div>
+
+      {/* OVER BALL PROGRESSION BAR (Interactive: Click any ball for full Ball Replay Debug) */}
+      <div className="w-full bg-slate-950/95 border-b border-slate-800/80 px-4 py-1.5 flex items-center justify-between text-xs z-20">
+        <div className="flex items-center space-x-2 overflow-x-auto py-0.5">
+          <span className="text-[10px] font-black uppercase text-slate-400 flex-shrink-0">OVER {overNum}:</span>
+          {currentOverBalls.length === 0 ? (
+            <span className="text-[10px] text-slate-500 font-semibold">Over starting...</span>
+          ) : (
+            currentOverBalls.map((b: MatchBall, idx: number) => {
+              const runs = b.runs;
+              const isWkt = b.wicket;
+              const bg = isWkt
+                ? 'bg-red-500/20 text-red-400 border-red-500/40'
+                : runs === 6
+                ? 'bg-purple-500/20 text-purple-400 border-purple-500/40'
+                : runs === 4
+                ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/40'
+                : runs === 0
+                ? 'bg-slate-800 text-slate-400 border-slate-700'
+                : 'bg-indigo-500/20 text-indigo-300 border-indigo-500/40';
+              const label = isWkt ? 'W' : runs === 0 ? '•' : runs;
+              return (
+                <button
+                  key={idx}
+                  onClick={() => setSelectedReplayBall(b)}
+                  className={`w-6 h-6 rounded-full flex items-center justify-center font-black text-xs border hover:scale-110 active:scale-95 transition-all shadow ${bg}`}
+                  title={`Inspect Ball #${b.ballNumber}: ${b.commentary}`}
+                >
+                  {label}
+                </button>
+              );
+            })
+          )}
+        </div>
+        <div className="hidden sm:flex items-center space-x-2 text-[10px] text-slate-400 font-semibold">
+          <span>Click any ball to inspect</span>
+          <span className="text-amber-400 font-bold">Ball Replay Debug</span>
+        </div>
+      </div>
+
+      {/* 2. MAIN 3D NIGHT STADIUM BROADCAST STAGE */}
+      <div className="relative flex-1 w-full bg-slate-950 overflow-hidden flex items-center justify-center">
+        <MiniMatch3DCanvas
+          viewMode={isMyTurnToBat ? 'BATTER_VIEW' : 'BOWLER_VIEW'}
+          fieldPreset={fieldPreset}
+          bannerEvent={bannerEvent}
+          isDelivering={isDelivering}
+          isBatSwinging={isBatSwinging}
+          bowlerFranchise={bowlingFranchise}
+          batterFranchise={battingFranchise}
+          strikerName={strikerName}
+          bowlerName={bowlerName}
+          aimX={aimX}
+          aimZ={aimZ}
+          onAimChange={handleAimChange}
+          onAimLock={() => {
+            if (bowlingStep === 'AIM') setBowlingStep('SPEED');
+          }}
+          canAim={isMyTurnToBowl && isBowlDrawerOpen && !isDelivering && bowlingStep === 'AIM'}
+          deliveryType={selectedDelivery}
+          bowlingSpeed={selectedSpeed}
+          batIntent={battingIntent}
+        />
+
+        {/* BOTTOM-LEFT TACTICAL FIELD MINI-MAP OVERLAY */}
+        <div className="absolute bottom-4 left-4 z-30">
+          <MiniMatchFieldMap
+            currentPreset={fieldPreset}
+            onPresetChange={setFieldPreset}
+            isBowlingPlayer={isMyTurnToBowl}
+            isFieldLocked={isFieldLocked || bowlingStep !== 'AIM' || isDelivering}
+            onConfirmField={() => setIsFieldLocked(true)}
+          />
+        </div>
+
+        {/* Section 17: Authoritative Multi-Client Status Indicators & Lock Pill */}
+        <div className="absolute top-3 right-4 z-20 flex items-center space-x-2">
+          {bannerEvent ? (
+            <div className="px-3 py-1.5 rounded-2xl bg-amber-500/20 text-amber-300 border border-amber-500/40 text-[10px] font-black flex items-center space-x-1.5 shadow-xl animate-pulse">
+              <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
+              <span>⚡ RESOLVING BALL</span>
+            </div>
+          ) : isMyTurnToBowl || isMyTurnToBat ? (
+            <div className="px-3 py-1.5 rounded-2xl bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-[10px] font-black flex items-center space-x-1.5 shadow-xl animate-pulse">
+              <span className="w-2 h-2 rounded-full bg-emerald-400" />
+              <span>🟢 YOUR TURN</span>
+            </div>
+          ) : bowlingStep === 'COMMITTED' || isBatSwinging || (ownsBowling && isBowlerLockedOnServer) || (ownsBatting && isBatterLockedOnServer) ? (
+            <div className="px-3 py-1.5 rounded-2xl bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 text-[10px] font-black flex items-center space-x-1.5 shadow-xl">
+              <span className="w-2 h-2 rounded-full bg-indigo-400" />
+              <span>🔒 LOCKED</span>
+            </div>
+          ) : !isSoloTest && (ownsBatting || ownsBowling) ? (
+            <div className="px-3 py-1.5 rounded-2xl bg-sky-500/20 text-sky-300 border border-sky-500/40 text-[10px] font-black flex items-center space-x-1.5 shadow-xl">
+              <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
+              <span>🔵 OPPONENT TURN</span>
+            </div>
+          ) : (
+            <div className="px-3 py-1.5 rounded-2xl bg-slate-900/90 text-slate-400 border border-slate-700 text-[10px] font-black flex items-center space-x-1.5 shadow-xl">
+              <span className="w-2 h-2 rounded-full bg-amber-400" />
+              <span>⏳ WAITING FOR OPPONENT</span>
+            </div>
+          )}
+
+          {/* Server Side Locks */}
+          <div className="hidden sm:flex bg-slate-950/90 backdrop-blur-md px-3 py-1.5 rounded-2xl border border-slate-800 text-[10px] font-black items-center space-x-2 shadow-xl">
+            <span
+              className={`px-2 py-0.5 rounded-lg border ${
+                isBowlerLockedOnServer
+                  ? 'bg-sky-500/20 text-sky-300 border-sky-500/40'
+                  : 'bg-slate-900 text-slate-500 border-slate-800'
+              }`}
+            >
+              BOWL {isBowlerLockedOnServer ? '✓ LOCKED' : '⏳ AWAIT'}
+            </span>
+            <span
+              className={`px-2 py-0.5 rounded-lg border ${
+                isBatterLockedOnServer
+                  ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
+                  : 'bg-slate-900 text-slate-500 border-slate-800'
+              }`}
+            >
+              BAT {isBatterLockedOnServer ? '✓ LOCKED' : '⏳ AWAIT'}
+            </span>
+          </div>
+        </div>
+
+        {/* Floating Waiting Pill when waiting for Opponent */}
+        {!isMyTurnToBowl && !isMyTurnToBat && !bannerEvent && (
+          <div className="absolute top-14 left-1/2 -translate-x-1/2 bg-slate-900/90 backdrop-blur-md px-5 py-2 rounded-full border border-slate-700/80 text-slate-200 text-xs font-bold shadow-2xl flex items-center space-x-2 z-20 animate-pulse">
+            <span className="w-2 h-2 rounded-full bg-amber-400" />
+            <span>
+              {isSpectator
+                ? (isBallInFlight ? '⚡ BROADCAST: BALL IN FLIGHT...' : `⏳ BROADCAST: ${bowlingFranchise} PREPARING...`)
+                : (isBallInFlight
+                  ? `⚡ BALL IN FLIGHT — AWAITING ${battingFranchise} STROKE...`
+                  : `⏳ AWAITING ${bowlingFranchise} TO DELIVER BALL...`)}
+            </span>
+          </div>
+        )}
+
+        {/* Commentary Pill */}
+        {lastBall && !bannerEvent && (
+          <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-slate-950/90 backdrop-blur-md px-5 py-2 rounded-full border border-slate-700/80 text-slate-200 text-xs font-bold shadow-2xl flex items-center space-x-2 z-20 max-w-[92%] truncate">
+            <span className="text-amber-400 font-extrabold uppercase tracking-wide">BALL {lastBall.ballNumber}:</span>
+            <span className="truncate">{lastBall.commentary}</span>
+          </div>
+        )}
+      </div>
+
+      {/* 3. BOTTOM GAMEPLAY HUD & CONTEXTUAL CONTROLS */}
+      <div className="w-full bg-gradient-to-t from-slate-950 via-slate-900/98 to-slate-900/90 border-t border-slate-800 p-2 sm:p-4 z-30">
+        <div className="max-w-5xl mx-auto flex flex-col space-y-2">
+
+          {/* Section 15: NEW BATTER AFTER WICKET (NO SILENT RANDOM PICK) */}
+          {matchAny.status === 'WICKET_PAUSE' && (
+            <div className="p-3 sm:p-4 rounded-2xl bg-red-950/90 border border-red-500/60 shadow-2xl space-y-2.5 animate-in slide-in-from-bottom-4 duration-200">
+              <div className="flex items-center justify-between border-b border-red-800/80 pb-1.5">
+                <span className="text-xs font-black text-red-300 uppercase tracking-wider">💥 WICKET FALLEN — SELECT REPLACEMENT BATTER</span>
+                <span className="text-[10px] text-slate-300 font-bold">{battingFranchise} Action</span>
+              </div>
+              {ownsBatting || isSoloTest ? (
+                <div className="flex flex-wrap gap-2 pt-1">
+                  {(currentInnings === 1 ? matchAny.homeXi : matchAny.awayXi || [])
+                    .filter((p: any) => !matchAny.dismissedBatterIds?.includes(p.id) && p.id !== matchAny.currentNonStrikerId)
+                    .map((p: any) => (
+                      <button
+                        key={p.id}
+                        onClick={async () => {
+                          try {
+                            await selectMatchBatter(roomCode, matchId, currentMemberId, p.id);
+                          } catch (e) {
+                            console.error('Failed to select batter:', e);
+                          }
+                        }}
+                        className="px-3 py-2 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-black text-xs transition shadow active:scale-95 flex items-center space-x-1"
+                      >
+                        <span>🏏 {p.shortName || p.fullName}</span>
+                      </button>
+                    ))}
+                </div>
+              ) : (
+                <div className="py-2 text-xs font-bold text-slate-300 animate-pulse">
+                  ⏳ Waiting for {battingFranchise} owner to select the replacement batsman...
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Section 14: NEW OVER — BOWLING OWNER SELECTS NEXT BOWLER */}
+          {matchAny.status === 'NEXT_BOWLER_SELECTION' && (
+            <div className="p-3 sm:p-4 rounded-2xl bg-amber-950/90 border border-amber-500/60 shadow-2xl space-y-2.5 animate-in slide-in-from-bottom-4 duration-200">
+              <div className="flex items-center justify-between border-b border-amber-800/80 pb-1.5">
+                <span className="text-xs font-black text-amber-300 uppercase tracking-wider">🎯 OVER COMPLETE — SELECT NEXT BOWLER</span>
+                <span className="text-[10px] text-slate-300 font-bold">{bowlingFranchise} Action</span>
+              </div>
+              {ownsBowling || isSoloTest ? (
+                <div className="flex flex-wrap gap-2 pt-1">
+                  {(currentInnings === 1 ? matchAny.awayXi : matchAny.homeXi || [])
+                    .filter((p: any) => p.id !== matchAny.currentBowlerId)
+                    .map((p: any) => (
+                      <button
+                        key={p.id}
+                        onClick={async () => {
+                          try {
+                            await selectMatchBowler(roomCode, matchId, currentMemberId, p.id);
+                          } catch (e) {
+                            console.error('Failed to select bowler:', e);
+                          }
+                        }}
+                        className="px-3 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-slate-950 font-black text-xs transition shadow active:scale-95 flex items-center space-x-1"
+                      >
+                        <span>🎯 {p.shortName || p.fullName}</span>
+                      </button>
+                    ))}
+                </div>
+              ) : (
+                <div className="py-2 text-xs font-bold text-slate-300 animate-pulse">
+                  ⏳ Over Complete — Waiting for {bowlingFranchise} owner to select the next bowler...
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* BOWLING DECK — ACTIVE ONLY WHEN BOWLING OWNER'S TURN */}
+          {isMyTurnToBowl && isBowlDrawerOpen && (
+            <div className="p-3 sm:p-4 rounded-2xl bg-slate-900/95 border border-sky-500/60 shadow-2xl space-y-3 animate-in slide-in-from-bottom-4 duration-200">
+              
+              {/* Stepper Progress Header */}
+              <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+                <div className="flex items-center space-x-2">
+                  <span
+                    onClick={() => setBowlingStep('AIM')}
+                    className={`cursor-pointer px-2.5 py-1 rounded-lg text-[11px] font-black transition ${
+                      bowlingStep === 'AIM'
+                        ? 'bg-sky-500 text-slate-950 shadow-md scale-105'
+                        : 'bg-slate-950 text-slate-400 hover:text-slate-200'
+                    }`}
+                  >
+                    1. AIM {bowlingStep !== 'AIM' && '✓'}
+                  </span>
+                  <span className="text-slate-600 font-bold">➔</span>
+                  <span
+                    onClick={() => setBowlingStep('SPEED')}
+                    className={`cursor-pointer px-2.5 py-1 rounded-lg text-[11px] font-black transition ${
+                      bowlingStep === 'SPEED'
+                        ? 'bg-amber-500 text-slate-950 shadow-md scale-105'
+                        : 'bg-slate-950 text-slate-400 hover:text-slate-200'
+                    }`}
+                  >
+                    2. SPEED {bowlingStep === 'RELEASE' && '✓'}
+                  </span>
+                  <span className="text-slate-600 font-bold">➔</span>
+                  <span
+                    className={`px-2.5 py-1 rounded-lg text-[11px] font-black transition ${
+                      bowlingStep === 'RELEASE'
+                        ? 'bg-emerald-500 text-slate-950 shadow-md animate-pulse scale-105'
+                        : 'bg-slate-950 text-slate-400'
+                    }`}
+                  >
+                    3. RELEASE
+                  </span>
+                </div>
+
+                <span className="text-[10px] font-black bg-sky-500/20 text-sky-300 px-2.5 py-0.5 rounded-full border border-sky-500/40">
+                  BOWLER TURN
+                </span>
+              </div>
+
+              {/* STEP 1: DRAG AIM ACTIVE */}
+              {bowlingStep === 'AIM' && (
+                <div className="space-y-2.5 animate-in fade-in duration-150">
+                  <div className="flex flex-wrap items-center justify-between gap-2 bg-slate-950/90 p-3 rounded-xl border border-sky-500/40">
+                    <div className="flex items-center space-x-2">
+                      <Crosshair className="w-4 h-4 text-sky-400 animate-pulse" />
+                      <span className="text-xs font-black text-slate-200">
+                        DRAG CIRCLE ON 3D PITCH: <span className="text-amber-400 font-extrabold">{selectedLength}</span> on <span className="text-sky-400 font-extrabold">{selectedLine} STUMP</span>
+                      </span>
+                    </div>
+                    <span className="text-[10px] font-bold text-slate-400">
+                      Derived: <span className="text-sky-300 font-black">{selectedDelivery}</span>
+                    </span>
+                  </div>
+
+                  <button
+                    onClick={() => setBowlingStep('SPEED')}
+                    className="w-full py-3 bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-500 hover:to-blue-500 text-white font-black text-xs sm:text-sm rounded-xl transition shadow-xl tracking-wider uppercase flex items-center justify-center space-x-2 active:scale-95"
+                  >
+                    <span>LOCK AIM & CHOOSE SPEED [ENTER] ➔</span>
+                  </button>
+                </div>
+              )}
+
+              {/* STEP 2: CHOOSE SPEED ACTIVE */}
+              {bowlingStep === 'SPEED' && (
+                <div className="space-y-2.5 animate-in fade-in duration-150">
+                  <div className="flex justify-between items-center text-[10px] font-black text-slate-300 uppercase">
+                    <span>CHOOSE DELIVERY SPEED [KEYS 1, 2, 3]</span>
+                    <button
+                      onClick={() => setBowlingStep('AIM')}
+                      className="text-sky-400 hover:underline lowercase text-xs font-bold"
+                    >
+                      ← adjust aim
+                    </button>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-2">
+                    {(['SLOW', 'MEDIUM', 'FAST'] as const).map((spd, idx) => (
+                      <button
+                        key={spd}
+                        onClick={() => setSelectedSpeed(spd)}
+                        className={`py-2.5 text-xs font-black rounded-xl border transition flex flex-col items-center ${
+                          selectedSpeed === spd
+                            ? 'bg-amber-500 text-slate-950 border-amber-300 shadow-md scale-[1.02]'
+                            : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200'
+                        }`}
+                      >
+                        <span>{spd} [{idx + 1}]</span>
+                        <span className="text-[9px] opacity-80 font-bold">
+                          {spd === 'FAST' ? '145 KPH' : spd === 'SLOW' ? '118 KPH' : '134 KPH'}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+
+                  <button
+                    onClick={() => setBowlingStep('RELEASE')}
+                    className="w-full py-3 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-slate-950 font-black text-xs sm:text-sm rounded-xl transition shadow-xl tracking-wider uppercase flex items-center justify-center space-x-2 active:scale-95"
+                  >
+                    <span>LOCK SPEED & PROCEED TO RELEASE [ENTER] ➔</span>
+                  </button>
+                </div>
+              )}
+
+              {/* STEP 3: HIT RELEASE TIMING */}
+              {bowlingStep === 'RELEASE' && (
+                <div className="space-y-2.5 animate-in fade-in duration-150">
+                  <div className="flex justify-between text-[10px] font-black text-slate-300 uppercase">
+                    <span>HIT STOP IN GREEN SWEET SPOT [SPACEBAR]</span>
+                    <span className="text-emerald-400 font-bold">{bowlExecutionPos}%</span>
+                  </div>
+
+                  <div className="w-full h-3.5 bg-slate-950 rounded-full relative overflow-hidden border border-slate-700">
+                    <div className="absolute inset-y-0 left-[42%] right-[42%] bg-emerald-500/60 border-x border-emerald-400" />
+                    <div
+                      className="absolute top-0 bottom-0 w-3 bg-sky-400 shadow-lg rounded"
+                      style={{ left: `${bowlExecutionPos}%` }}
+                    />
+                  </div>
+
+                  <button
+                    onClick={handleSendBowlAction}
+                    className="w-full py-3 bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 hover:from-emerald-500 hover:to-cyan-500 text-white font-black text-xs sm:text-sm rounded-xl transition shadow-xl tracking-wider uppercase flex items-center justify-center space-x-2 active:scale-95 animate-pulse"
+                  >
+                    <Zap className="w-4 h-4" />
+                    <span>🎯 RELEASE BALL NOW! [SPACE]</span>
+                  </button>
+                </div>
+              )}
+
+            </div>
+          )}
+
+          {/* BATTING DECK — ACTIVE ONLY WHEN BATTING OWNER'S TURN */}
+          {isMyTurnToBat && (
+            <div className="grid grid-cols-4 gap-1.5">
+              {[
+                { id: 'DEFENSIVE', label: '🛡️ DEFEND', desc: 'Protect Wicket' },
+                { id: 'NORMAL', label: '🏏 NORMAL', desc: 'Balanced Drive' },
+                { id: 'LOFT', label: '🚀 LOFT', desc: 'Boundary / Six' },
+                { id: 'LEAVE', label: '👋 LEAVE', desc: 'Pass Outside Off' }
+              ].map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => setBattingIntent(item.id as BattingIntent)}
+                  className={`py-2 px-2 rounded-xl text-center border transition flex flex-col items-center ${
+                    battingIntent === item.id
+                      ? 'bg-emerald-600 border-emerald-400 text-white font-black shadow-md'
+                      : 'bg-slate-950/80 border-slate-800 text-slate-300 hover:border-slate-600'
+                  }`}
+                >
+                  <span className="text-xs font-black">{item.label}</span>
+                  <span className="text-[9px] text-slate-300 font-medium">{item.desc}</span>
+                </button>
+              ))}
+            </div>
+          )}
+
+          {/* MAIN PLAYER HUD & CONTEXTUAL TIMING GAUGE BAR */}
+          <div className="grid grid-cols-3 items-center gap-2">
+            
+            {/* Left Player Card (Batter Avatar & Runs) */}
+            <div className="flex items-center space-x-2.5 bg-slate-950/80 p-2 sm:p-2.5 rounded-2xl border border-slate-800">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-tr from-yellow-600 to-amber-400 p-0.5 shadow-md flex-shrink-0">
+                <div className="w-full h-full rounded-full bg-slate-900 flex items-center justify-center text-amber-400 font-black text-sm">
+                  {strikerName.charAt(0)}
+                </div>
+              </div>
+              <div className="flex flex-col truncate">
+                <span className="text-xs sm:text-sm font-black text-white truncate">{strikerName}</span>
+                <span className="text-[11px] font-extrabold text-amber-400">{strikerRuns}* ({strikerBalls})</span>
+              </div>
+            </div>
+
+            {/* CENTER: CONTEXTUAL SWING TIMING GAUGE METER (Appears during ball flight) */}
+            {isTimingMoving ? (
+              <div
+                onClick={handleSendBatAction}
+                className="flex flex-col items-center justify-center cursor-pointer select-none relative group animate-in zoom-in-95 duration-150"
+              >
+                <div className="relative w-44 h-24 sm:w-52 sm:h-28 flex items-center justify-center">
+                  <svg viewBox="0 0 200 110" className="w-full h-full drop-shadow-2xl">
+                    <path d="M 10 100 A 90 90 0 0 1 36.4 47.1" fill="none" stroke="#ef4444" strokeWidth="22" />
+                    <path d="M 36.4 47.1 A 90 90 0 0 1 72.2 16.3" fill="none" stroke="#f97316" strokeWidth="22" />
+                    <path d="M 72.2 16.3 A 90 90 0 0 1 127.8 16.3" fill="none" stroke="#22c55e" strokeWidth="22" />
+                    <path d="M 127.8 16.3 A 90 90 0 0 1 163.6 47.1" fill="none" stroke="#eab308" strokeWidth="22" />
+                    <path d="M 163.6 47.1 A 90 90 0 0 1 190 100" fill="none" stroke="#ef4444" strokeWidth="22" />
+
+                    <text x="32" y="85" fill="#ffffff" fontSize="9" fontWeight="bold" textAnchor="middle">EARLY</text>
+                    <text x="60" y="48" fill="#ffffff" fontSize="9" fontWeight="bold" textAnchor="middle">GOOD</text>
+                    <text x="100" y="32" fill="#ffffff" fontSize="10" fontWeight="extrabold" textAnchor="middle">PERFECT</text>
+                    <text x="140" y="48" fill="#ffffff" fontSize="9" fontWeight="bold" textAnchor="middle">GOOD</text>
+                    <text x="168" y="85" fill="#ffffff" fontSize="9" fontWeight="bold" textAnchor="middle">LATE</text>
+
+                    <g transform={`rotate(${needleAngle}, 100, 100)`}>
+                      <line x1="100" y1="100" x2="100" y2="18" stroke="#4ade80" strokeWidth="5" strokeLinecap="round" />
+                      <polygon points="100,12 94,26 106,26" fill="#4ade80" />
+                    </g>
+
+                    <circle cx="100" cy="100" r="14" fill="#0f172a" stroke="#4ade80" strokeWidth="3" />
+                  </svg>
+
+                  <div className="absolute bottom-0 text-[10px] sm:text-xs font-black tracking-widest text-emerald-400 uppercase bg-slate-950/90 px-3 py-0.5 rounded-full border border-emerald-500/50 animate-pulse">
+                    STRIKE NOW!
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="flex flex-col items-center justify-center py-4">
+                <span className="text-xs font-black tracking-wider text-slate-400 uppercase">
+                  {isMyTurnToBat
+                    ? 'CHOOSE INTENT & WAIT FOR DELIVERY'
+                    : isMyTurnToBowl
+                    ? 'DRAG PITCH TO AIM & EXECUTE'
+                    : 'AWAITING OPPONENT TURN'}
+                </span>
+              </div>
+            )}
+
+            {/* Right Player Card (Bowler Avatar & Delivery Type) */}
+            <div className="flex items-center space-x-2.5 bg-slate-950/80 p-2 sm:p-2.5 rounded-2xl border border-slate-800 justify-end">
+              <div className="flex flex-col truncate text-right">
+                <span className="text-xs sm:text-sm font-black text-white truncate">{bowlerName}</span>
+                <span className="text-[11px] font-extrabold text-sky-400">{selectedDelivery} ({selectedSpeed})</span>
+              </div>
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-tr from-sky-600 to-cyan-400 p-0.5 shadow-md flex-shrink-0">
+                <div className="w-full h-full rounded-full bg-slate-900 flex items-center justify-center text-sky-400 font-black text-sm">
+                  {bowlerName.charAt(0)}
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {/* Scorecard Drawer */}
+      <MiniMatchScorecardDrawer
+        isOpen={scorecardOpen}
+        onClose={() => setScorecardOpen(false)}
+        match={match}
+        ballLog={ballLog}
+      />
+
+      {/* Forfeit Confirmation Modal */}
+      {showExitConfirm && (
+        <div className="fixed inset-0 bg-slate-950/85 backdrop-blur-md flex items-center justify-center z-50 p-4">
+          <div className="bg-slate-900 border border-slate-800 rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl">
+            <h3 className="text-xl font-black text-rose-400">Forfeit Match?</h3>
+            <p className="text-slate-300 text-xs leading-relaxed">
+              Exiting the live match now will result in an immediate forfeit, awarding the victory to your opponent.
+            </p>
+            <div className="flex items-center space-x-3 pt-2">
+              <button
+                onClick={() => setShowExitConfirm(false)}
+                className="flex-1 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs rounded-xl transition"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleConfirmExit}
+                className="flex-1 py-2.5 bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs rounded-xl transition shadow-lg shadow-rose-950/50"
+              >
+                Forfeit & Exit
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Live Match Debug Telemetry Panel */}
+      {debugOpen && (
+        <LiveMatchDebugPanel match={match} onClose={() => setDebugOpen(false)} />
+      )}
+
+      {/* Live Match QA 20-Point Checklist Modal */}
+      {qaOpen && (
+        <LiveMatchQaModal match={match} onClose={() => setQaOpen(false)} />
+      )}
+
+      {/* Deep Ball Replay Inspector Modal */}
+      {selectedReplayBall && (
+        <BallReplayDebugModal ball={selectedReplayBall} onClose={() => setSelectedReplayBall(null)} />
+      )}
+    </div>
+  );
+};

@@ -1,0 +1,65 @@
+{
+  "playerId": "p126",
+  "fullName": "Ricky Bhui",
+  "overGraphSlug": "rk-bhui",
+  "matches": 4,
+  "runs": 10,
+  "strikeRate": 38.5,
+  "average": 2.5,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "7",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 0,
+  "sixes": 0,
+  "catches": 0,
+  "seasonsTimeline": [
+    {
+      "season": "2026",
+      "matches": 4,
+      "runs": 6,
+      "strikeRate": 35.4,
+      "average": 2.2,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 1,
+      "runs": 3,
+      "average": 2.1,
+      "strikeRate": 37.7,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "7"
+    },
+    {
+      "position": "#4",
+      "innings": 1,
+      "runs": 4,
+      "average": 2.4,
+      "strikeRate": 37.7,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "7"
+    },
+    {
+      "position": "#5",
+      "innings": 1,
+      "runs": 3,
+      "average": 2.1,
+      "strikeRate": 40.4,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "7"
+    }
+  ],
+  "radarMetrics": {
+    "power": 40,
+    "consistency": 40,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

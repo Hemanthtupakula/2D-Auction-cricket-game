@@ -1,0 +1,44 @@
+# Unity 3D project & related assets (excluded from 2D Auction game)
+unity-cricket/
+*.unity
+*.unitypackage
+*.asset
+*.meta
+
+# Dependencies & Build artifacts
+node_modules/
+frontend/node_modules/
+target/
+backend/target/
+dist/
+frontend/dist/
+build/
+.gradle/
+.m2/
+
+# Secrets & Environment configuration
+.env
+.env.*
+!.env.example
+config/.env
+frontend/.env
+*.key
+*.pem
+
+# Logs & Temporary Files
+*.log
+tunnel.log
+tunnel_err.log
+scratch/
+.system_generated/
+*.tmp
+*.bak
+
+# Archives & Nested Backups
+*.zip
+auction-xi/
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store

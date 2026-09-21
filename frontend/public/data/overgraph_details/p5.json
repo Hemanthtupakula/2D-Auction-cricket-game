@@ -1,0 +1,98 @@
+{
+  "playerId": "p5",
+  "fullName": "Arshdeep Singh",
+  "overGraphSlug": "arshdeep-singh",
+  "matches": 97,
+  "runs": 32,
+  "strikeRate": 68.1,
+  "average": 5.3,
+  "wickets": 111,
+  "economy": 9.2,
+  "highestScore": "10",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 4,
+  "sixes": 0,
+  "catches": 16,
+  "seasonsTimeline": [
+    {
+      "season": "2018",
+      "matches": 10,
+      "runs": 2,
+      "strikeRate": 62.7,
+      "average": 4.8,
+      "wickets": 12
+    },
+    {
+      "season": "2019",
+      "matches": 10,
+      "runs": 2,
+      "strikeRate": 63.4,
+      "average": 4.9,
+      "wickets": 12
+    },
+    {
+      "season": "2020",
+      "matches": 10,
+      "runs": 2,
+      "strikeRate": 64.2,
+      "average": 4.9,
+      "wickets": 12
+    },
+    {
+      "season": "2021",
+      "matches": 10,
+      "runs": 2,
+      "strikeRate": 64.9,
+      "average": 5.0,
+      "wickets": 12
+    },
+    {
+      "season": "2022",
+      "matches": 10,
+      "runs": 2,
+      "strikeRate": 65.7,
+      "average": 5.1,
+      "wickets": 12
+    },
+    {
+      "season": "2023",
+      "matches": 10,
+      "runs": 3,
+      "strikeRate": 66.4,
+      "average": 5.2,
+      "wickets": 12
+    },
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 3,
+      "strikeRate": 67.2,
+      "average": 5.3,
+      "wickets": 12
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 3,
+      "strikeRate": 67.9,
+      "average": 5.4,
+      "wickets": 12
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 3,
+      "strikeRate": 68.7,
+      "average": 5.5,
+      "wickets": 12
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 40,
+    "consistency": 40,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

@@ -1,0 +1,122 @@
+{
+  "playerId": "p12",
+  "fullName": "Mohammed Siraj",
+  "overGraphSlug": "mohammed-siraj",
+  "matches": 125,
+  "runs": 117,
+  "strikeRate": 84.2,
+  "average": 10.6,
+  "wickets": 128,
+  "economy": 8.8,
+  "highestScore": "14",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 11,
+  "sixes": 4,
+  "catches": 37,
+  "seasonsTimeline": [
+    {
+      "season": "2015",
+      "matches": 10,
+      "runs": 5,
+      "strikeRate": 77.5,
+      "average": 9.5,
+      "wickets": 10
+    },
+    {
+      "season": "2016",
+      "matches": 10,
+      "runs": 6,
+      "strikeRate": 78.2,
+      "average": 9.7,
+      "wickets": 10
+    },
+    {
+      "season": "2017",
+      "matches": 10,
+      "runs": 6,
+      "strikeRate": 78.9,
+      "average": 9.8,
+      "wickets": 10
+    },
+    {
+      "season": "2018",
+      "matches": 10,
+      "runs": 6,
+      "strikeRate": 79.6,
+      "average": 9.9,
+      "wickets": 10
+    },
+    {
+      "season": "2019",
+      "matches": 10,
+      "runs": 7,
+      "strikeRate": 80.3,
+      "average": 10.1,
+      "wickets": 10
+    },
+    {
+      "season": "2020",
+      "matches": 10,
+      "runs": 7,
+      "strikeRate": 81.0,
+      "average": 10.2,
+      "wickets": 10
+    },
+    {
+      "season": "2021",
+      "matches": 10,
+      "runs": 7,
+      "strikeRate": 81.7,
+      "average": 10.3,
+      "wickets": 10
+    },
+    {
+      "season": "2022",
+      "matches": 10,
+      "runs": 8,
+      "strikeRate": 82.4,
+      "average": 10.5,
+      "wickets": 10
+    },
+    {
+      "season": "2023",
+      "matches": 10,
+      "runs": 8,
+      "strikeRate": 83.1,
+      "average": 10.6,
+      "wickets": 10
+    },
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 9,
+      "strikeRate": 83.8,
+      "average": 10.7,
+      "wickets": 10
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 9,
+      "strikeRate": 84.5,
+      "average": 10.9,
+      "wickets": 10
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 9,
+      "strikeRate": 85.2,
+      "average": 11.0,
+      "wickets": 10
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 46,
+    "consistency": 40,
+    "tempo": 42
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

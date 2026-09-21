@@ -1,0 +1,42 @@
+{
+  "playerId": "p168",
+  "fullName": "Naveen-ul-Haq",
+  "overGraphSlug": "naveen-ul-haq",
+  "matches": 18,
+  "runs": 18,
+  "strikeRate": 72.0,
+  "average": 18.0,
+  "wickets": 25,
+  "economy": 9.2,
+  "highestScore": "13",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 2,
+  "sixes": 0,
+  "catches": 6,
+  "seasonsTimeline": [
+    {
+      "season": "2025",
+      "matches": 9,
+      "runs": 5,
+      "strikeRate": 66.2,
+      "average": 16.2,
+      "wickets": 12
+    },
+    {
+      "season": "2026",
+      "matches": 9,
+      "runs": 9,
+      "strikeRate": 69.8,
+      "average": 17.6,
+      "wickets": 12
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 40,
+    "consistency": 40,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

@@ -1,0 +1,25 @@
+erDiagram
+    ACCOUNTS ||--o{ AUCTION_MEMBERS : has
+    AUCTION_ROOMS ||--o{ AUCTION_MEMBERS : contains
+    AUCTION_ROOMS ||--o{ FRANCHISE_ALLOCATIONS : owns
+    AUCTION_ROOMS ||--o{ SQUADS : has
+    PLAYERS ||--o{ SQUAD_PLAYERS : appears_in
+    SQUADS ||--o{ SQUAD_PLAYERS : contains
+    AUCTION_ROOMS ||--|| AUCTION_SESSIONS : runs
+    AUCTION_SESSIONS ||--o{ AUCTION_LOTS : contains
+    PLAYERS ||--o{ AUCTION_LOTS : auctioned_as
+    AUCTION_LOTS ||--o{ AUCTION_BIDS : receives
+    PLAYERS ||--o{ AUCTION_PURCHASES : bought
+    AUCTION_ROOMS ||--o{ AUCTION_PURCHASES : records
+    AUCTION_ROOMS ||--o{ AUCTION_EVENTS : emits
+    AUCTION_ROOMS ||--o{ MATCHES : hosts
+    SEASONS ||--o{ SEASON_FIXTURES : schedules
+    SEASON_FIXTURES ||--o| MATCHES : launches
+    MATCHES ||--o{ MATCH_PLAYERS : uses
+    PLAYERS ||--o{ MATCH_PLAYERS : participates
+    MATCHES ||--o{ MATCH_BALLS : contains
+    MATCHES ||--o{ MATCH_EVENTS : emits
+    MATCHES ||--o{ PLAYER_MATCH_STATS : aggregates
+    PLAYERS ||--o{ PLAYER_MATCH_STATS : owns
+    SEASONS ||--o{ SEASON_TEAMS : has
+    PLAYERS ||--o{ PLAYER_MEDIA : has

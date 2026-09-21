@@ -1,0 +1,42 @@
+{
+  "playerId": "p243",
+  "fullName": "Kuldeep Sen",
+  "overGraphSlug": "kr-sen",
+  "matches": 12,
+  "runs": 0,
+  "strikeRate": 0.0,
+  "average": null,
+  "wickets": 14,
+  "economy": 9.6,
+  "highestScore": "0",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 0,
+  "sixes": 0,
+  "catches": 3,
+  "seasonsTimeline": [
+    {
+      "season": "2025",
+      "matches": 6,
+      "runs": null,
+      "strikeRate": 0.0,
+      "wickets": 7,
+      "economy": 9.12
+    },
+    {
+      "season": "2026",
+      "matches": 6,
+      "runs": null,
+      "strikeRate": 0.0,
+      "wickets": 7,
+      "economy": 9.36
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 66,
+    "consistency": 45,
+    "tempo": 65
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

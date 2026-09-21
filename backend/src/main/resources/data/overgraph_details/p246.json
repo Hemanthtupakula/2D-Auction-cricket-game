@@ -1,0 +1,50 @@
+{
+  "playerId": "p246",
+  "fullName": "Yash Thakur",
+  "overGraphSlug": "yash-thakur",
+  "matches": 22,
+  "runs": 0,
+  "strikeRate": 0.0,
+  "average": null,
+  "wickets": 27,
+  "economy": 10.6,
+  "highestScore": "0",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 0,
+  "sixes": 0,
+  "catches": 2,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 7,
+      "runs": null,
+      "strikeRate": 0.0,
+      "wickets": 9,
+      "economy": 10.07
+    },
+    {
+      "season": "2025",
+      "matches": 7,
+      "runs": null,
+      "strikeRate": 0.0,
+      "wickets": 9,
+      "economy": 10.25
+    },
+    {
+      "season": "2026",
+      "matches": 7,
+      "runs": null,
+      "strikeRate": 0.0,
+      "wickets": 9,
+      "economy": 10.42
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 66,
+    "consistency": 45,
+    "tempo": 65
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

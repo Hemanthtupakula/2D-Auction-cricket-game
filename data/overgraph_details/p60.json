@@ -1,0 +1,91 @@
+{
+  "playerId": "p60",
+  "fullName": "Anuj Rawat",
+  "overGraphSlug": "anuj-rawat",
+  "matches": 24,
+  "runs": 318,
+  "strikeRate": 119.1,
+  "average": 19.9,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "66",
+  "fifties": 1,
+  "hundreds": 0,
+  "fours": 26,
+  "sixes": 14,
+  "catches": 16,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 8,
+      "runs": 63,
+      "strikeRate": 109.6,
+      "average": 17.9,
+      "wickets": null
+    },
+    {
+      "season": "2025",
+      "matches": 8,
+      "runs": 84,
+      "strikeRate": 113.5,
+      "average": 18.9,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 8,
+      "runs": 106,
+      "strikeRate": 117.5,
+      "average": 19.9,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 4,
+      "runs": 63,
+      "average": 16.9,
+      "strikeRate": 116.7,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "66"
+    },
+    {
+      "position": "#4",
+      "innings": 9,
+      "runs": 127,
+      "average": 18.9,
+      "strikeRate": 116.7,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "66"
+    },
+    {
+      "position": "#5",
+      "innings": 7,
+      "runs": 95,
+      "average": 16.9,
+      "strikeRate": 125.1,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "66"
+    },
+    {
+      "position": "#6",
+      "innings": 2,
+      "runs": 31,
+      "average": 16.9,
+      "strikeRate": 125.1,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "66"
+    }
+  ],
+  "radarMetrics": {
+    "power": 65,
+    "consistency": 40,
+    "tempo": 62
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

@@ -1,0 +1,107 @@
+{
+  "playerId": "p47",
+  "fullName": "Nehal Wadhera",
+  "overGraphSlug": "n-wadhera",
+  "matches": 45,
+  "runs": 784,
+  "strikeRate": 140.0,
+  "average": 23.8,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "70",
+  "fifties": 4,
+  "hundreds": 0,
+  "fours": 64,
+  "sixes": 43,
+  "catches": 14,
+  "seasonsTimeline": [
+    {
+      "season": "2022",
+      "matches": 9,
+      "runs": 94,
+      "strikeRate": 128.8,
+      "average": 21.4,
+      "wickets": null
+    },
+    {
+      "season": "2023",
+      "matches": 9,
+      "runs": 109,
+      "strikeRate": 131.6,
+      "average": 22.1,
+      "wickets": null
+    },
+    {
+      "season": "2024",
+      "matches": 9,
+      "runs": 125,
+      "strikeRate": 134.4,
+      "average": 22.8,
+      "wickets": null
+    },
+    {
+      "season": "2025",
+      "matches": 9,
+      "runs": 141,
+      "strikeRate": 137.2,
+      "average": 23.6,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 9,
+      "runs": 156,
+      "strikeRate": 140.0,
+      "average": 24.3,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#1",
+      "innings": 18,
+      "runs": 313,
+      "average": 22.6,
+      "strikeRate": 137.2,
+      "fifties": 1,
+      "hundreds": 0,
+      "highestScore": "70"
+    },
+    {
+      "position": "#2",
+      "innings": 18,
+      "runs": 313,
+      "average": 22.6,
+      "strikeRate": 137.2,
+      "fifties": 1,
+      "hundreds": 0,
+      "highestScore": "70"
+    },
+    {
+      "position": "#3",
+      "innings": 6,
+      "runs": 117,
+      "average": 20.2,
+      "strikeRate": 137.2,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "70"
+    },
+    {
+      "position": "#4",
+      "innings": 2,
+      "runs": 39,
+      "average": 20.2,
+      "strikeRate": 137.2,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "70"
+    }
+  ],
+  "radarMetrics": {
+    "power": 77,
+    "consistency": 42,
+    "tempo": 73
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

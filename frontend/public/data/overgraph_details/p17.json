@@ -1,0 +1,139 @@
+{
+  "playerId": "p17",
+  "fullName": "Devdutt Padikkal",
+  "overGraphSlug": "d-padikkal",
+  "matches": 90,
+  "runs": 2270,
+  "strikeRate": 133.1,
+  "average": 26.7,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "101",
+  "fifties": 14,
+  "hundreds": 1,
+  "fours": 241,
+  "sixes": 80,
+  "catches": 41,
+  "seasonsTimeline": [
+    {
+      "season": "2018",
+      "matches": 10,
+      "runs": 151,
+      "strikeRate": 122.5,
+      "average": 24.0,
+      "wickets": null
+    },
+    {
+      "season": "2019",
+      "matches": 10,
+      "runs": 163,
+      "strikeRate": 123.9,
+      "average": 24.5,
+      "wickets": null
+    },
+    {
+      "season": "2020",
+      "matches": 10,
+      "runs": 176,
+      "strikeRate": 125.4,
+      "average": 24.9,
+      "wickets": null
+    },
+    {
+      "season": "2021",
+      "matches": 10,
+      "runs": 189,
+      "strikeRate": 126.9,
+      "average": 25.4,
+      "wickets": null
+    },
+    {
+      "season": "2022",
+      "matches": 10,
+      "runs": 201,
+      "strikeRate": 128.4,
+      "average": 25.8,
+      "wickets": null
+    },
+    {
+      "season": "2023",
+      "matches": 10,
+      "runs": 214,
+      "strikeRate": 129.8,
+      "average": 26.3,
+      "wickets": null
+    },
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 227,
+      "strikeRate": 131.3,
+      "average": 26.7,
+      "wickets": null
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 239,
+      "strikeRate": 132.8,
+      "average": 27.1,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 252,
+      "strikeRate": 134.3,
+      "average": 27.6,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#1",
+      "innings": 36,
+      "runs": 908,
+      "average": 25.4,
+      "strikeRate": 130.4,
+      "fifties": 5,
+      "hundreds": 0,
+      "highestScore": "101"
+    },
+    {
+      "position": "#2",
+      "innings": 36,
+      "runs": 908,
+      "average": 25.4,
+      "strikeRate": 130.4,
+      "fifties": 5,
+      "hundreds": 0,
+      "highestScore": "101"
+    },
+    {
+      "position": "#3",
+      "innings": 13,
+      "runs": 340,
+      "average": 22.7,
+      "strikeRate": 130.4,
+      "fifties": 2,
+      "hundreds": 0,
+      "highestScore": "101"
+    },
+    {
+      "position": "#4",
+      "innings": 4,
+      "runs": 113,
+      "average": 22.7,
+      "strikeRate": 130.4,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "101"
+    }
+  ],
+  "radarMetrics": {
+    "power": 73,
+    "consistency": 48,
+    "tempo": 71
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

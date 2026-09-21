@@ -1,0 +1,34 @@
+{
+  "playerId": "p196",
+  "fullName": "Dilshan Madushanka",
+  "overGraphSlug": "d-madushanka",
+  "matches": 1,
+  "runs": 0,
+  "strikeRate": 0.0,
+  "average": null,
+  "wickets": 1,
+  "economy": 9.0,
+  "highestScore": "0",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 0,
+  "sixes": 0,
+  "catches": 2,
+  "seasonsTimeline": [
+    {
+      "season": "2026",
+      "matches": 1,
+      "runs": null,
+      "strikeRate": 0.0,
+      "wickets": 1,
+      "economy": 8.55
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 66,
+    "consistency": 45,
+    "tempo": 65
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

@@ -1,0 +1,73 @@
+{
+  "playerId": "p276",
+  "fullName": "Abhimanyu Mithun",
+  "overGraphSlug": "a-mithun",
+  "matches": 16,
+  "runs": 34,
+  "strikeRate": 130.8,
+  "average": 6.8,
+  "wickets": 7,
+  "economy": 9.8,
+  "highestScore": "11",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 4,
+  "sixes": 1,
+  "catches": 7,
+  "seasonsTimeline": [
+    {
+      "season": "2025",
+      "matches": 8,
+      "runs": 10,
+      "strikeRate": 120.3,
+      "average": 6.1,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 8,
+      "runs": 17,
+      "strikeRate": 126.9,
+      "average": 6.6,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 4,
+      "runs": 10,
+      "average": 5.8,
+      "strikeRate": 128.2,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "11"
+    },
+    {
+      "position": "#4",
+      "innings": 6,
+      "runs": 13,
+      "average": 6.5,
+      "strikeRate": 128.2,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "11"
+    },
+    {
+      "position": "#5",
+      "innings": 4,
+      "runs": 10,
+      "average": 5.8,
+      "strikeRate": 137.3,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "11"
+    }
+  ],
+  "radarMetrics": {
+    "power": 71,
+    "consistency": 40,
+    "tempo": 61
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

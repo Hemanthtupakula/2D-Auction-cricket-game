@@ -1,0 +1,34 @@
+{
+  "playerId": "p71",
+  "fullName": "Manav Suthar",
+  "overGraphSlug": "mj-suthar",
+  "matches": 5,
+  "runs": 1,
+  "strikeRate": 50.0,
+  "average": 1.0,
+  "wickets": 2,
+  "economy": 11.8,
+  "highestScore": "1",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 0,
+  "sixes": 0,
+  "catches": 2,
+  "seasonsTimeline": [
+    {
+      "season": "2026",
+      "matches": 5,
+      "runs": 0,
+      "strikeRate": 46.0,
+      "average": 0.9,
+      "wickets": 2
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 40,
+    "consistency": 40,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

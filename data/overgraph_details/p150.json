@@ -1,0 +1,34 @@
+{
+  "playerId": "p150",
+  "fullName": "Pravin Dubey",
+  "overGraphSlug": "p-dubey",
+  "matches": 5,
+  "runs": 23,
+  "strikeRate": 69.7,
+  "average": 23.0,
+  "wickets": 2,
+  "economy": 8.5,
+  "highestScore": "16",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 2,
+  "sixes": 0,
+  "catches": 1,
+  "seasonsTimeline": [
+    {
+      "season": "2026",
+      "matches": 5,
+      "runs": 13,
+      "strikeRate": 64.1,
+      "average": 20.7,
+      "wickets": 2
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 40,
+    "consistency": 41,
+    "tempo": 41
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

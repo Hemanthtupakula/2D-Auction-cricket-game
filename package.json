@@ -1,0 +1,25 @@
+{
+  "name": "auction-xi",
+  "version": "1.0.0",
+  "description": "Auction XI — Multiplayer Cricket Auction Arena",
+  "private": true,
+  "scripts": {
+    "install:all": "npm --prefix frontend install",
+    "dev:backend": "mvn -f backend/pom.xml spring-boot:run",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "build:frontend": "npm --prefix frontend run build",
+    "preview:frontend": "npm --prefix frontend run preview",
+    "tunnel": "cloudflared tunnel --url http://localhost:5173",
+    "live": "node scripts/start-live.mjs",
+    "start:live": "node scripts/start-live.mjs",
+    "test:backend": "mvn -f backend/pom.xml test",
+    "test": "npm run test:backend",
+    "players:sync": "node scripts/players-sync.mjs",
+    "players:report": "node scripts/players-report.mjs",
+    "media:audit": "node scripts/media-audit.mjs",
+    "media:sync": "node scripts/media-sync.mjs",
+    "media:verify": "node scripts/media-verify.mjs",
+    "media:report": "node scripts/media-report.mjs",
+    "media:rights-report": "node scripts/media-rights-report.mjs"
+  }
+}

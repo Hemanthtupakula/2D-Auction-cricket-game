@@ -1,0 +1,34 @@
+{
+  "playerId": "p74",
+  "fullName": "M Siddharth",
+  "overGraphSlug": "m-siddharth",
+  "matches": 9,
+  "runs": 0,
+  "strikeRate": 0.0,
+  "average": null,
+  "wickets": 9,
+  "economy": 9.1,
+  "highestScore": "0",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 0,
+  "sixes": 0,
+  "catches": 3,
+  "seasonsTimeline": [
+    {
+      "season": "2026",
+      "matches": 9,
+      "runs": null,
+      "strikeRate": 0.0,
+      "wickets": 9,
+      "economy": 8.64
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 66,
+    "consistency": 45,
+    "tempo": 65
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

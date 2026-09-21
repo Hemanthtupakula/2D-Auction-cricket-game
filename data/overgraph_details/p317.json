@@ -1,0 +1,34 @@
+{
+  "playerId": "p317",
+  "fullName": "Sai Sudharsan",
+  "overGraphSlug": "s-sudharsan",
+  "matches": 25,
+  "runs": 1034,
+  "strikeRate": 139.2,
+  "average": 47.0,
+  "wickets": 0,
+  "economy": null,
+  "highestScore": "103",
+  "fifties": 6,
+  "hundreds": 1,
+  "fours": 106,
+  "sixes": 26,
+  "catches": 11,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 14,
+      "runs": 155,
+      "strikeRate": 139.2,
+      "average": 47.0,
+      "wickets": 0
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 69,
+    "consistency": 94,
+    "tempo": 79
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

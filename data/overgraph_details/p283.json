@@ -1,0 +1,83 @@
+{
+  "playerId": "p283",
+  "fullName": "Akshdeep Nath",
+  "overGraphSlug": "ad-nath",
+  "matches": 14,
+  "runs": 90,
+  "strikeRate": 91.8,
+  "average": 9.0,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "24",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 7,
+  "sixes": 2,
+  "catches": 2,
+  "seasonsTimeline": [
+    {
+      "season": "2025",
+      "matches": 7,
+      "runs": 27,
+      "strikeRate": 84.5,
+      "average": 8.1,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 7,
+      "runs": 45,
+      "strikeRate": 89.0,
+      "average": 8.8,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 2,
+      "runs": 18,
+      "average": 7.6,
+      "strikeRate": 90.0,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "24"
+    },
+    {
+      "position": "#4",
+      "innings": 5,
+      "runs": 36,
+      "average": 8.5,
+      "strikeRate": 90.0,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "24"
+    },
+    {
+      "position": "#5",
+      "innings": 4,
+      "runs": 27,
+      "average": 7.6,
+      "strikeRate": 96.4,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "24"
+    },
+    {
+      "position": "#6",
+      "innings": 1,
+      "runs": 9,
+      "average": 7.6,
+      "strikeRate": 96.4,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "24"
+    }
+  ],
+  "radarMetrics": {
+    "power": 50,
+    "consistency": 40,
+    "tempo": 45
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

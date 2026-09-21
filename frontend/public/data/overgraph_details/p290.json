@@ -1,0 +1,129 @@
+{
+  "playerId": "p290",
+  "fullName": "Abhishek Sharma",
+  "overGraphSlug": "abhishek-sharma",
+  "matches": 92,
+  "runs": 2379,
+  "strikeRate": 171.3,
+  "average": 29.4,
+  "wickets": 11,
+  "economy": 9.0,
+  "highestScore": "141",
+  "fifties": 13,
+  "hundreds": 2,
+  "fours": 224,
+  "sixes": 144,
+  "catches": 35,
+  "seasonsTimeline": [
+    {
+      "season": "2018",
+      "matches": 10,
+      "runs": 158,
+      "strikeRate": 157.6,
+      "average": 26.5,
+      "wickets": 1
+    },
+    {
+      "season": "2019",
+      "matches": 10,
+      "runs": 171,
+      "strikeRate": 159.5,
+      "average": 26.9,
+      "wickets": 1
+    },
+    {
+      "season": "2020",
+      "matches": 10,
+      "runs": 185,
+      "strikeRate": 161.4,
+      "average": 27.4,
+      "wickets": 1
+    },
+    {
+      "season": "2021",
+      "matches": 10,
+      "runs": 198,
+      "strikeRate": 163.3,
+      "average": 27.9,
+      "wickets": 1
+    },
+    {
+      "season": "2022",
+      "matches": 10,
+      "runs": 211,
+      "strikeRate": 165.2,
+      "average": 28.4,
+      "wickets": 1
+    },
+    {
+      "season": "2023",
+      "matches": 10,
+      "runs": 224,
+      "strikeRate": 167.1,
+      "average": 28.9,
+      "wickets": 1
+    },
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 237,
+      "strikeRate": 169.0,
+      "average": 29.4,
+      "wickets": 1
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 251,
+      "strikeRate": 170.9,
+      "average": 29.9,
+      "wickets": 1
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 264,
+      "strikeRate": 172.8,
+      "average": 30.4,
+      "wickets": 1
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#5",
+      "innings": 27,
+      "runs": 713,
+      "average": 25.0,
+      "strikeRate": 179.9,
+      "fifties": 3,
+      "hundreds": 0,
+      "highestScore": "141"
+    },
+    {
+      "position": "#6",
+      "innings": 36,
+      "runs": 951,
+      "average": 27.9,
+      "strikeRate": 179.9,
+      "fifties": 5,
+      "hundreds": 0,
+      "highestScore": "141"
+    },
+    {
+      "position": "#7",
+      "innings": 27,
+      "runs": 713,
+      "average": 25.0,
+      "strikeRate": 179.9,
+      "fifties": 3,
+      "hundreds": 0,
+      "highestScore": "141"
+    }
+  ],
+  "radarMetrics": {
+    "power": 94,
+    "consistency": 52,
+    "tempo": 90
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

@@ -1,0 +1,50 @@
+{
+  "playerId": "p205",
+  "fullName": "Barinder Sran",
+  "overGraphSlug": "bb-sran",
+  "matches": 24,
+  "runs": 10,
+  "strikeRate": 71.4,
+  "average": 10.0,
+  "wickets": 18,
+  "economy": 9.4,
+  "highestScore": "3",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 0,
+  "sixes": 0,
+  "catches": 4,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 8,
+      "runs": 2,
+      "strikeRate": 65.7,
+      "average": 9.0,
+      "wickets": 6
+    },
+    {
+      "season": "2025",
+      "matches": 8,
+      "runs": 2,
+      "strikeRate": 68.1,
+      "average": 9.5,
+      "wickets": 6
+    },
+    {
+      "season": "2026",
+      "matches": 8,
+      "runs": 3,
+      "strikeRate": 70.4,
+      "average": 10.0,
+      "wickets": 6
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 40,
+    "consistency": 40,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

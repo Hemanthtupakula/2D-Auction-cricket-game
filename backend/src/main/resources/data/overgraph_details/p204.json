@@ -1,0 +1,74 @@
+{
+  "playerId": "p204",
+  "fullName": "Siddarth Kaul",
+  "overGraphSlug": "s-kaul",
+  "matches": 55,
+  "runs": 20,
+  "strikeRate": 55.6,
+  "average": 5.0,
+  "wickets": 58,
+  "economy": 8.6,
+  "highestScore": "7",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 1,
+  "sixes": 0,
+  "catches": 8,
+  "seasonsTimeline": [
+    {
+      "season": "2021",
+      "matches": 9,
+      "runs": 2,
+      "strikeRate": 51.2,
+      "average": 4.5,
+      "wickets": 9
+    },
+    {
+      "season": "2022",
+      "matches": 9,
+      "runs": 2,
+      "strikeRate": 52.1,
+      "average": 4.6,
+      "wickets": 9
+    },
+    {
+      "season": "2023",
+      "matches": 9,
+      "runs": 2,
+      "strikeRate": 53.0,
+      "average": 4.8,
+      "wickets": 9
+    },
+    {
+      "season": "2024",
+      "matches": 9,
+      "runs": 2,
+      "strikeRate": 53.9,
+      "average": 4.9,
+      "wickets": 9
+    },
+    {
+      "season": "2025",
+      "matches": 9,
+      "runs": 3,
+      "strikeRate": 54.9,
+      "average": 5.0,
+      "wickets": 9
+    },
+    {
+      "season": "2026",
+      "matches": 9,
+      "runs": 3,
+      "strikeRate": 55.8,
+      "average": 5.1,
+      "wickets": 9
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 40,
+    "consistency": 40,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

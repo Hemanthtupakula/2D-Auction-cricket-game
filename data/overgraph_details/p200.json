@@ -1,0 +1,105 @@
+{
+  "playerId": "p200",
+  "fullName": "Shahbaz Ahmed",
+  "overGraphSlug": "shahbaz-ahmed",
+  "matches": 63,
+  "runs": 603,
+  "strikeRate": 123.3,
+  "average": 20.8,
+  "wickets": 27,
+  "economy": 9.8,
+  "highestScore": "59",
+  "fifties": 1,
+  "hundreds": 0,
+  "fours": 33,
+  "sixes": 28,
+  "catches": 20,
+  "seasonsTimeline": [
+    {
+      "season": "2021",
+      "matches": 10,
+      "runs": 60,
+      "strikeRate": 113.4,
+      "average": 18.7,
+      "wickets": 4
+    },
+    {
+      "season": "2022",
+      "matches": 10,
+      "runs": 68,
+      "strikeRate": 115.5,
+      "average": 19.2,
+      "wickets": 4
+    },
+    {
+      "season": "2023",
+      "matches": 10,
+      "runs": 76,
+      "strikeRate": 117.5,
+      "average": 19.8,
+      "wickets": 4
+    },
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 84,
+      "strikeRate": 119.6,
+      "average": 20.3,
+      "wickets": 4
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 92,
+      "strikeRate": 121.7,
+      "average": 20.8,
+      "wickets": 4
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 100,
+      "strikeRate": 123.7,
+      "average": 21.3,
+      "wickets": 4
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#5",
+      "innings": 18,
+      "runs": 180,
+      "average": 17.7,
+      "strikeRate": 129.5,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "59"
+    },
+    {
+      "position": "#6",
+      "innings": 25,
+      "runs": 241,
+      "average": 19.8,
+      "strikeRate": 129.5,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "59"
+    },
+    {
+      "position": "#7",
+      "innings": 18,
+      "runs": 180,
+      "average": 17.7,
+      "strikeRate": 129.5,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "59"
+    }
+  ],
+  "radarMetrics": {
+    "power": 67,
+    "consistency": 40,
+    "tempo": 64
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

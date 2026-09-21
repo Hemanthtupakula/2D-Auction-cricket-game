@@ -1,0 +1,91 @@
+{
+  "playerId": "p49",
+  "fullName": "Ashutosh Sharma",
+  "overGraphSlug": "ashutosh-sharma",
+  "matches": 32,
+  "runs": 564,
+  "strikeRate": 168.9,
+  "average": 29.7,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "66",
+  "fifties": 2,
+  "hundreds": 0,
+  "fours": 39,
+  "sixes": 40,
+  "catches": 6,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 112,
+      "strikeRate": 155.4,
+      "average": 26.7,
+      "wickets": null
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 150,
+      "strikeRate": 161.0,
+      "average": 28.2,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 188,
+      "strikeRate": 166.6,
+      "average": 29.7,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#1",
+      "innings": 12,
+      "runs": 225,
+      "average": 28.2,
+      "strikeRate": 165.5,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "66"
+    },
+    {
+      "position": "#2",
+      "innings": 12,
+      "runs": 225,
+      "average": 28.2,
+      "strikeRate": 165.5,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "66"
+    },
+    {
+      "position": "#3",
+      "innings": 4,
+      "runs": 84,
+      "average": 25.2,
+      "strikeRate": 165.5,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "66"
+    },
+    {
+      "position": "#4",
+      "innings": 1,
+      "runs": 28,
+      "average": 25.2,
+      "strikeRate": 165.5,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "66"
+    }
+  ],
+  "radarMetrics": {
+    "power": 92,
+    "consistency": 53,
+    "tempo": 89
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

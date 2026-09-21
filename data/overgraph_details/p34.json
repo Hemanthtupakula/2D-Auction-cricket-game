@@ -1,0 +1,66 @@
+{
+  "playerId": "p34",
+  "fullName": "Josh Hazlewood",
+  "overGraphSlug": "jr-hazlewood",
+  "matches": 52,
+  "runs": 19,
+  "strikeRate": 63.3,
+  "average": 19.0,
+  "wickets": 72,
+  "economy": 8.6,
+  "highestScore": "7",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 1,
+  "sixes": 0,
+  "catches": 8,
+  "seasonsTimeline": [
+    {
+      "season": "2022",
+      "matches": 10,
+      "runs": 2,
+      "strikeRate": 58.2,
+      "average": 17.1,
+      "wickets": 14
+    },
+    {
+      "season": "2023",
+      "matches": 10,
+      "runs": 2,
+      "strikeRate": 59.5,
+      "average": 17.7,
+      "wickets": 14
+    },
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 3,
+      "strikeRate": 60.8,
+      "average": 18.2,
+      "wickets": 14
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 3,
+      "strikeRate": 62.0,
+      "average": 18.8,
+      "wickets": 14
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 3,
+      "strikeRate": 63.3,
+      "average": 19.4,
+      "wickets": 14
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 40,
+    "consistency": 40,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

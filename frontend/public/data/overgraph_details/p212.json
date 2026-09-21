@@ -1,0 +1,153 @@
+{
+  "playerId": "p212",
+  "fullName": "Piyush Chawla",
+  "overGraphSlug": "pp-chawla",
+  "matches": 192,
+  "runs": 624,
+  "strikeRate": 110.8,
+  "average": 11.6,
+  "wickets": 192,
+  "economy": 8.0,
+  "highestScore": "24",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 56,
+  "sixes": 20,
+  "catches": 36,
+  "seasonsTimeline": [
+    {
+      "season": "2015",
+      "matches": 16,
+      "runs": 31,
+      "strikeRate": 101.9,
+      "average": 10.4,
+      "wickets": null
+    },
+    {
+      "season": "2016",
+      "matches": 16,
+      "runs": 33,
+      "strikeRate": 102.9,
+      "average": 10.6,
+      "wickets": null
+    },
+    {
+      "season": "2017",
+      "matches": 16,
+      "runs": 34,
+      "strikeRate": 103.8,
+      "average": 10.7,
+      "wickets": null
+    },
+    {
+      "season": "2018",
+      "matches": 16,
+      "runs": 36,
+      "strikeRate": 104.7,
+      "average": 10.9,
+      "wickets": null
+    },
+    {
+      "season": "2019",
+      "matches": 16,
+      "runs": 38,
+      "strikeRate": 105.6,
+      "average": 11.0,
+      "wickets": null
+    },
+    {
+      "season": "2020",
+      "matches": 16,
+      "runs": 40,
+      "strikeRate": 106.6,
+      "average": 11.2,
+      "wickets": null
+    },
+    {
+      "season": "2021",
+      "matches": 16,
+      "runs": 42,
+      "strikeRate": 107.5,
+      "average": 11.3,
+      "wickets": null
+    },
+    {
+      "season": "2022",
+      "matches": 16,
+      "runs": 44,
+      "strikeRate": 108.4,
+      "average": 11.5,
+      "wickets": null
+    },
+    {
+      "season": "2023",
+      "matches": 16,
+      "runs": 46,
+      "strikeRate": 109.3,
+      "average": 11.6,
+      "wickets": null
+    },
+    {
+      "season": "2024",
+      "matches": 16,
+      "runs": 48,
+      "strikeRate": 110.2,
+      "average": 11.7,
+      "wickets": null
+    },
+    {
+      "season": "2025",
+      "matches": 16,
+      "runs": 50,
+      "strikeRate": 111.2,
+      "average": 11.9,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 16,
+      "runs": 52,
+      "strikeRate": 112.1,
+      "average": 12.0,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 57,
+      "runs": 187,
+      "average": 9.9,
+      "strikeRate": 108.6,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "24"
+    },
+    {
+      "position": "#4",
+      "innings": 76,
+      "runs": 249,
+      "average": 11.0,
+      "strikeRate": 108.6,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "24"
+    },
+    {
+      "position": "#5",
+      "innings": 57,
+      "runs": 187,
+      "average": 9.9,
+      "strikeRate": 116.3,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "24"
+    }
+  ],
+  "radarMetrics": {
+    "power": 60,
+    "consistency": 40,
+    "tempo": 55
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

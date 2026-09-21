@@ -1,0 +1,83 @@
+{
+  "playerId": "p15",
+  "fullName": "Jake Fraser-McGurk",
+  "overGraphSlug": "j-fraser-mcgurk",
+  "matches": 15,
+  "runs": 385,
+  "strikeRate": 199.5,
+  "average": 25.7,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "84",
+  "fifties": 4,
+  "hundreds": 0,
+  "fours": 39,
+  "sixes": 30,
+  "catches": 6,
+  "seasonsTimeline": [
+    {
+      "season": "2025",
+      "matches": 7,
+      "runs": 115,
+      "strikeRate": 183.5,
+      "average": 23.1,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 7,
+      "runs": 192,
+      "strikeRate": 193.5,
+      "average": 25.1,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#1",
+      "innings": 6,
+      "runs": 154,
+      "average": 24.4,
+      "strikeRate": 195.5,
+      "fifties": 1,
+      "hundreds": 0,
+      "highestScore": "84"
+    },
+    {
+      "position": "#2",
+      "innings": 6,
+      "runs": 154,
+      "average": 24.4,
+      "strikeRate": 195.5,
+      "fifties": 1,
+      "hundreds": 0,
+      "highestScore": "84"
+    },
+    {
+      "position": "#3",
+      "innings": 2,
+      "runs": 57,
+      "average": 21.8,
+      "strikeRate": 195.5,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "84"
+    },
+    {
+      "position": "#4",
+      "innings": 1,
+      "runs": 19,
+      "average": 21.8,
+      "strikeRate": 195.5,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "84"
+    }
+  ],
+  "radarMetrics": {
+    "power": 99,
+    "consistency": 46,
+    "tempo": 99
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

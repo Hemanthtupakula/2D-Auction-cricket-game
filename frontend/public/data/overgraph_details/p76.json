@@ -1,0 +1,121 @@
+{
+  "playerId": "p76",
+  "fullName": "Kane Williamson",
+  "overGraphSlug": "ks-williamson",
+  "matches": 79,
+  "runs": 2128,
+  "strikeRate": 125.6,
+  "average": 36.1,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "89",
+  "fifties": 18,
+  "hundreds": 0,
+  "fours": 186,
+  "sixes": 64,
+  "catches": 40,
+  "seasonsTimeline": [
+    {
+      "season": "2019",
+      "matches": 9,
+      "runs": 159,
+      "strikeRate": 115.6,
+      "average": 32.5,
+      "wickets": null
+    },
+    {
+      "season": "2020",
+      "matches": 9,
+      "runs": 174,
+      "strikeRate": 117.1,
+      "average": 33.2,
+      "wickets": null
+    },
+    {
+      "season": "2021",
+      "matches": 9,
+      "runs": 190,
+      "strikeRate": 118.7,
+      "average": 33.8,
+      "wickets": null
+    },
+    {
+      "season": "2022",
+      "matches": 9,
+      "runs": 205,
+      "strikeRate": 120.3,
+      "average": 34.5,
+      "wickets": null
+    },
+    {
+      "season": "2023",
+      "matches": 9,
+      "runs": 220,
+      "strikeRate": 121.8,
+      "average": 35.2,
+      "wickets": null
+    },
+    {
+      "season": "2024",
+      "matches": 9,
+      "runs": 235,
+      "strikeRate": 123.4,
+      "average": 35.9,
+      "wickets": null
+    },
+    {
+      "season": "2025",
+      "matches": 9,
+      "runs": 250,
+      "strikeRate": 125.0,
+      "average": 36.6,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 9,
+      "runs": 266,
+      "strikeRate": 126.5,
+      "average": 37.2,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 23,
+      "runs": 638,
+      "average": 30.7,
+      "strikeRate": 123.1,
+      "fifties": 5,
+      "hundreds": 0,
+      "highestScore": "89"
+    },
+    {
+      "position": "#4",
+      "innings": 31,
+      "runs": 851,
+      "average": 34.3,
+      "strikeRate": 123.1,
+      "fifties": 7,
+      "hundreds": 0,
+      "highestScore": "89"
+    },
+    {
+      "position": "#5",
+      "innings": 23,
+      "runs": 638,
+      "average": 30.7,
+      "strikeRate": 131.9,
+      "fifties": 5,
+      "hundreds": 0,
+      "highestScore": "89"
+    }
+  ],
+  "radarMetrics": {
+    "power": 69,
+    "consistency": 64,
+    "tempo": 72
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

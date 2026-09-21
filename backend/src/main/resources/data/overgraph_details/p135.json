@@ -1,0 +1,65 @@
+{
+  "playerId": "p135",
+  "fullName": "Himmat Singh",
+  "overGraphSlug": "himmat-singh",
+  "matches": 9,
+  "runs": 92,
+  "strikeRate": 133.3,
+  "average": 30.7,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "40",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 5,
+  "sixes": 5,
+  "catches": 1,
+  "seasonsTimeline": [
+    {
+      "season": "2026",
+      "matches": 9,
+      "runs": 55,
+      "strikeRate": 122.6,
+      "average": 27.6,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 2,
+      "runs": 27,
+      "average": 26.1,
+      "strikeRate": 130.6,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "40"
+    },
+    {
+      "position": "#4",
+      "innings": 3,
+      "runs": 36,
+      "average": 29.2,
+      "strikeRate": 130.6,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "40"
+    },
+    {
+      "position": "#5",
+      "innings": 2,
+      "runs": 27,
+      "average": 26.1,
+      "strikeRate": 140.0,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "40"
+    }
+  ],
+  "radarMetrics": {
+    "power": 73,
+    "consistency": 55,
+    "tempo": 73
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

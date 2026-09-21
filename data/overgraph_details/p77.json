@@ -1,0 +1,73 @@
+{
+  "playerId": "p77",
+  "fullName": "Glenn Phillips",
+  "overGraphSlug": "gd-phillips",
+  "matches": 14,
+  "runs": 132,
+  "strikeRate": 121.1,
+  "average": 12.0,
+  "wickets": 2,
+  "economy": 8.0,
+  "highestScore": "25",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 7,
+  "sixes": 8,
+  "catches": 10,
+  "seasonsTimeline": [
+    {
+      "season": "2025",
+      "matches": 7,
+      "runs": 39,
+      "strikeRate": 111.4,
+      "average": 10.8,
+      "wickets": 1
+    },
+    {
+      "season": "2026",
+      "matches": 7,
+      "runs": 66,
+      "strikeRate": 117.5,
+      "average": 11.7,
+      "wickets": 1
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#5",
+      "innings": 4,
+      "runs": 39,
+      "average": 10.2,
+      "strikeRate": 127.2,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "25"
+    },
+    {
+      "position": "#6",
+      "innings": 5,
+      "runs": 52,
+      "average": 11.4,
+      "strikeRate": 127.2,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "25"
+    },
+    {
+      "position": "#7",
+      "innings": 4,
+      "runs": 39,
+      "average": 10.2,
+      "strikeRate": 127.2,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "25"
+    }
+  ],
+  "radarMetrics": {
+    "power": 66,
+    "consistency": 40,
+    "tempo": 59
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

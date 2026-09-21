@@ -1,0 +1,58 @@
+{
+  "playerId": "p301",
+  "fullName": "Kartik Tyagi",
+  "overGraphSlug": "kartik-tyagi",
+  "matches": 34,
+  "runs": 24,
+  "strikeRate": 92.3,
+  "average": 3.4,
+  "wickets": 33,
+  "economy": 10.0,
+  "highestScore": "7",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 2,
+  "sixes": 1,
+  "catches": 6,
+  "seasonsTimeline": [
+    {
+      "season": "2023",
+      "matches": 8,
+      "runs": 3,
+      "strikeRate": 84.9,
+      "average": 3.1,
+      "wickets": 8
+    },
+    {
+      "season": "2024",
+      "matches": 8,
+      "runs": 4,
+      "strikeRate": 87.2,
+      "average": 3.2,
+      "wickets": 8
+    },
+    {
+      "season": "2025",
+      "matches": 8,
+      "runs": 5,
+      "strikeRate": 89.5,
+      "average": 3.3,
+      "wickets": 8
+    },
+    {
+      "season": "2026",
+      "matches": 8,
+      "runs": 6,
+      "strikeRate": 91.8,
+      "average": 3.4,
+      "wickets": 8
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 50,
+    "consistency": 40,
+    "tempo": 43
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

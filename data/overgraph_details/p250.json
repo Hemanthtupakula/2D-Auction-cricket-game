@@ -1,0 +1,113 @@
+{
+  "playerId": "p250",
+  "fullName": "Ayush Badoni",
+  "overGraphSlug": "a-badoni",
+  "matches": 66,
+  "runs": 1178,
+  "strikeRate": 140.9,
+  "average": 25.6,
+  "wickets": 4,
+  "economy": 9.2,
+  "highestScore": "74",
+  "fifties": 7,
+  "hundreds": 0,
+  "fours": 96,
+  "sixes": 47,
+  "catches": 18,
+  "seasonsTimeline": [
+    {
+      "season": "2020",
+      "matches": 9,
+      "runs": 100,
+      "strikeRate": 129.6,
+      "average": 23.0,
+      "wickets": 0
+    },
+    {
+      "season": "2021",
+      "matches": 9,
+      "runs": 112,
+      "strikeRate": 131.6,
+      "average": 23.6,
+      "wickets": 0
+    },
+    {
+      "season": "2022",
+      "matches": 9,
+      "runs": 123,
+      "strikeRate": 133.7,
+      "average": 24.1,
+      "wickets": 0
+    },
+    {
+      "season": "2023",
+      "matches": 9,
+      "runs": 134,
+      "strikeRate": 135.7,
+      "average": 24.7,
+      "wickets": 0
+    },
+    {
+      "season": "2024",
+      "matches": 9,
+      "runs": 145,
+      "strikeRate": 137.7,
+      "average": 25.2,
+      "wickets": 0
+    },
+    {
+      "season": "2025",
+      "matches": 9,
+      "runs": 157,
+      "strikeRate": 139.7,
+      "average": 25.8,
+      "wickets": 0
+    },
+    {
+      "season": "2026",
+      "matches": 9,
+      "runs": 168,
+      "strikeRate": 141.7,
+      "average": 26.3,
+      "wickets": 0
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#5",
+      "innings": 19,
+      "runs": 353,
+      "average": 21.8,
+      "strikeRate": 147.9,
+      "fifties": 2,
+      "hundreds": 0,
+      "highestScore": "74"
+    },
+    {
+      "position": "#6",
+      "innings": 26,
+      "runs": 471,
+      "average": 24.3,
+      "strikeRate": 147.9,
+      "fifties": 2,
+      "hundreds": 0,
+      "highestScore": "74"
+    },
+    {
+      "position": "#7",
+      "innings": 19,
+      "runs": 353,
+      "average": 21.8,
+      "strikeRate": 147.9,
+      "fifties": 2,
+      "hundreds": 0,
+      "highestScore": "74"
+    }
+  ],
+  "radarMetrics": {
+    "power": 77,
+    "consistency": 46,
+    "tempo": 74
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

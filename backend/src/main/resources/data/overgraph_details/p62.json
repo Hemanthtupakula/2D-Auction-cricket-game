@@ -1,0 +1,75 @@
+{
+  "playerId": "p62",
+  "fullName": "Vishnu Vinod",
+  "overGraphSlug": "vishnu-vinod",
+  "matches": 7,
+  "runs": 71,
+  "strikeRate": 109.2,
+  "average": 11.8,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "30",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 4,
+  "sixes": 4,
+  "catches": 0,
+  "seasonsTimeline": [
+    {
+      "season": "2026",
+      "matches": 7,
+      "runs": 42,
+      "strikeRate": 100.5,
+      "average": 10.6,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 1,
+      "runs": 14,
+      "average": 10.0,
+      "strikeRate": 107.0,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "30"
+    },
+    {
+      "position": "#4",
+      "innings": 2,
+      "runs": 28,
+      "average": 11.2,
+      "strikeRate": 107.0,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "30"
+    },
+    {
+      "position": "#5",
+      "innings": 2,
+      "runs": 21,
+      "average": 10.0,
+      "strikeRate": 114.7,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "30"
+    },
+    {
+      "position": "#6",
+      "innings": 1,
+      "runs": 7,
+      "average": 10.0,
+      "strikeRate": 114.7,
+      "fifties": 0,
+      "hundreds": 0,
+      "highestScore": "30"
+    }
+  ],
+  "radarMetrics": {
+    "power": 60,
+    "consistency": 40,
+    "tempo": 54
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

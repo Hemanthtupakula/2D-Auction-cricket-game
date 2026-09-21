@@ -1,0 +1,34 @@
+{
+  "playerId": "p120",
+  "fullName": "Musheer Khan",
+  "overGraphSlug": "musheer-khan",
+  "matches": 1,
+  "runs": 0,
+  "strikeRate": 0.0,
+  "average": 0.0,
+  "wickets": 1,
+  "economy": 13.5,
+  "highestScore": "0",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 0,
+  "sixes": 0,
+  "catches": 0,
+  "seasonsTimeline": [
+    {
+      "season": "2026",
+      "matches": 1,
+      "runs": null,
+      "strikeRate": 0.0,
+      "wickets": 1,
+      "economy": 12.82
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 66,
+    "consistency": 45,
+    "tempo": 65
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

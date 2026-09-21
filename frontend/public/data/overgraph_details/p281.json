@@ -1,0 +1,34 @@
+{
+  "playerId": "p281",
+  "fullName": "Vijay Zol",
+  "overGraphSlug": "vh-zol",
+  "matches": 3,
+  "runs": 29,
+  "strikeRate": 111.5,
+  "average": 14.5,
+  "wickets": 0,
+  "economy": 0.0,
+  "highestScore": "16",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 3,
+  "sixes": 1,
+  "catches": 0,
+  "seasonsTimeline": [
+    {
+      "season": "2026",
+      "matches": 3,
+      "runs": 17,
+      "strikeRate": 102.6,
+      "average": 13.1,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 61,
+    "consistency": 40,
+    "tempo": 56
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

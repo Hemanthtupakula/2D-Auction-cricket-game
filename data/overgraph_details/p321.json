@@ -1,0 +1,34 @@
+{
+  "playerId": "p321",
+  "fullName": "Rajat Patidar",
+  "overGraphSlug": "r-patidar",
+  "matches": 27,
+  "runs": 799,
+  "strikeRate": 158.5,
+  "average": 34.7,
+  "wickets": 0,
+  "economy": null,
+  "highestScore": "112*",
+  "fifties": 7,
+  "hundreds": 1,
+  "fours": 56,
+  "sixes": 48,
+  "catches": 12,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 14,
+      "runs": 119,
+      "strikeRate": 158.5,
+      "average": 34.7,
+      "wickets": 0
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 79,
+    "consistency": 69,
+    "tempo": 89
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

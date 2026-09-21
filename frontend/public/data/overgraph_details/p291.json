@@ -1,0 +1,163 @@
+{
+  "playerId": "p291",
+  "fullName": "Shubman Gill",
+  "overGraphSlug": "shubman-gill",
+  "matches": 134,
+  "runs": 4598,
+  "strikeRate": 142.1,
+  "average": 40.3,
+  "wickets": null,
+  "economy": null,
+  "highestScore": "129",
+  "fifties": 32,
+  "hundreds": 5,
+  "fours": 446,
+  "sixes": 152,
+  "catches": 57,
+  "seasonsTimeline": [
+    {
+      "season": "2015",
+      "matches": 11,
+      "runs": 229,
+      "strikeRate": 130.7,
+      "average": 36.3,
+      "wickets": null
+    },
+    {
+      "season": "2016",
+      "matches": 11,
+      "runs": 243,
+      "strikeRate": 131.9,
+      "average": 36.8,
+      "wickets": null
+    },
+    {
+      "season": "2017",
+      "matches": 11,
+      "runs": 257,
+      "strikeRate": 133.1,
+      "average": 37.3,
+      "wickets": null
+    },
+    {
+      "season": "2018",
+      "matches": 11,
+      "runs": 271,
+      "strikeRate": 134.3,
+      "average": 37.8,
+      "wickets": null
+    },
+    {
+      "season": "2019",
+      "matches": 11,
+      "runs": 285,
+      "strikeRate": 135.5,
+      "average": 38.3,
+      "wickets": null
+    },
+    {
+      "season": "2020",
+      "matches": 11,
+      "runs": 299,
+      "strikeRate": 136.7,
+      "average": 38.8,
+      "wickets": null
+    },
+    {
+      "season": "2021",
+      "matches": 11,
+      "runs": 313,
+      "strikeRate": 137.8,
+      "average": 39.3,
+      "wickets": null
+    },
+    {
+      "season": "2022",
+      "matches": 11,
+      "runs": 327,
+      "strikeRate": 139.0,
+      "average": 39.8,
+      "wickets": null
+    },
+    {
+      "season": "2023",
+      "matches": 11,
+      "runs": 341,
+      "strikeRate": 140.2,
+      "average": 40.3,
+      "wickets": null
+    },
+    {
+      "season": "2024",
+      "matches": 11,
+      "runs": 355,
+      "strikeRate": 141.4,
+      "average": 40.8,
+      "wickets": null
+    },
+    {
+      "season": "2025",
+      "matches": 11,
+      "runs": 369,
+      "strikeRate": 142.6,
+      "average": 41.3,
+      "wickets": null
+    },
+    {
+      "season": "2026",
+      "matches": 11,
+      "runs": 383,
+      "strikeRate": 143.8,
+      "average": 41.8,
+      "wickets": null
+    }
+  ],
+  "positionBreakdown": [
+    {
+      "position": "#3",
+      "innings": 26,
+      "runs": 919,
+      "average": 34.3,
+      "strikeRate": 139.3,
+      "fifties": 6,
+      "hundreds": 1,
+      "highestScore": "129"
+    },
+    {
+      "position": "#4",
+      "innings": 53,
+      "runs": 1839,
+      "average": 38.3,
+      "strikeRate": 139.3,
+      "fifties": 12,
+      "hundreds": 2,
+      "highestScore": "129"
+    },
+    {
+      "position": "#5",
+      "innings": 40,
+      "runs": 1379,
+      "average": 34.3,
+      "strikeRate": 149.2,
+      "fifties": 9,
+      "hundreds": 1,
+      "highestScore": "129"
+    },
+    {
+      "position": "#6",
+      "innings": 13,
+      "runs": 459,
+      "average": 34.3,
+      "strikeRate": 149.2,
+      "fifties": 3,
+      "hundreds": 0,
+      "highestScore": "129"
+    }
+  ],
+  "radarMetrics": {
+    "power": 78,
+    "consistency": 72,
+    "tempo": 82
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

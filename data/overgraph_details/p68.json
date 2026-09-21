@@ -1,0 +1,50 @@
+{
+  "playerId": "p68",
+  "fullName": "Mohsin Khan",
+  "overGraphSlug": "mohsin-khan",
+  "matches": 31,
+  "runs": 25,
+  "strikeRate": 89.3,
+  "average": 5.0,
+  "wickets": 38,
+  "economy": 8.4,
+  "highestScore": "13",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 2,
+  "sixes": 1,
+  "catches": 4,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 10,
+      "runs": 5,
+      "strikeRate": 82.2,
+      "average": 4.5,
+      "wickets": 12
+    },
+    {
+      "season": "2025",
+      "matches": 10,
+      "runs": 6,
+      "strikeRate": 85.1,
+      "average": 4.8,
+      "wickets": 12
+    },
+    {
+      "season": "2026",
+      "matches": 10,
+      "runs": 8,
+      "strikeRate": 88.1,
+      "average": 5.0,
+      "wickets": 12
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 49,
+    "consistency": 40,
+    "tempo": 42
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

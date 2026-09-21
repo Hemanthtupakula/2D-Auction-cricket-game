@@ -1,0 +1,122 @@
+{
+  "playerId": "p102",
+  "fullName": "Sandeep Sharma",
+  "overGraphSlug": "sandeep-sharma",
+  "matches": 142,
+  "runs": 60,
+  "strikeRate": 80.0,
+  "average": 10.0,
+  "wickets": 151,
+  "economy": 8.2,
+  "highestScore": "9",
+  "fifties": 0,
+  "hundreds": 0,
+  "fours": 4,
+  "sixes": 0,
+  "catches": 19,
+  "seasonsTimeline": [
+    {
+      "season": "2015",
+      "matches": 11,
+      "runs": 3,
+      "strikeRate": 73.6,
+      "average": 9.0,
+      "wickets": 12
+    },
+    {
+      "season": "2016",
+      "matches": 11,
+      "runs": 3,
+      "strikeRate": 74.3,
+      "average": 9.1,
+      "wickets": 12
+    },
+    {
+      "season": "2017",
+      "matches": 11,
+      "runs": 3,
+      "strikeRate": 74.9,
+      "average": 9.2,
+      "wickets": 12
+    },
+    {
+      "season": "2018",
+      "matches": 11,
+      "runs": 3,
+      "strikeRate": 75.6,
+      "average": 9.4,
+      "wickets": 12
+    },
+    {
+      "season": "2019",
+      "matches": 11,
+      "runs": 3,
+      "strikeRate": 76.3,
+      "average": 9.5,
+      "wickets": 12
+    },
+    {
+      "season": "2020",
+      "matches": 11,
+      "runs": 3,
+      "strikeRate": 76.9,
+      "average": 9.6,
+      "wickets": 12
+    },
+    {
+      "season": "2021",
+      "matches": 11,
+      "runs": 4,
+      "strikeRate": 77.6,
+      "average": 9.8,
+      "wickets": 12
+    },
+    {
+      "season": "2022",
+      "matches": 11,
+      "runs": 4,
+      "strikeRate": 78.3,
+      "average": 9.9,
+      "wickets": 12
+    },
+    {
+      "season": "2023",
+      "matches": 11,
+      "runs": 4,
+      "strikeRate": 78.9,
+      "average": 10.0,
+      "wickets": 12
+    },
+    {
+      "season": "2024",
+      "matches": 11,
+      "runs": 4,
+      "strikeRate": 79.6,
+      "average": 10.1,
+      "wickets": 12
+    },
+    {
+      "season": "2025",
+      "matches": 11,
+      "runs": 4,
+      "strikeRate": 80.3,
+      "average": 10.2,
+      "wickets": 12
+    },
+    {
+      "season": "2026",
+      "matches": 11,
+      "runs": 5,
+      "strikeRate": 80.9,
+      "average": 10.4,
+      "wickets": 12
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 44,
+    "consistency": 40,
+    "tempo": 40
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

@@ -1,0 +1,12 @@
+[
+  {"id":"MI_MUMBAI","franchise":"MI","venue":"Wankhede Stadium","city":"Mumbai","straightBoundaryM":65,"squareBoundaryM":71},
+  {"id":"CSK_CHENNAI","franchise":"CSK","venue":"MA Chidambaram Stadium","city":"Chennai","straightBoundaryM":65,"squareBoundaryM":71},
+  {"id":"RCB_BENGALURU","franchise":"RCB","venue":"M. Chinnaswamy Stadium","city":"Bengaluru","straightBoundaryM":65,"squareBoundaryM":67},
+  {"id":"KKR_KOLKATA","franchise":"KKR","venue":"Eden Gardens","city":"Kolkata","straightBoundaryM":71,"squareBoundaryM":66},
+  {"id":"SRH_HYDERABAD","franchise":"SRH","venue":"Rajiv Gandhi International Cricket Stadium","city":"Hyderabad","straightBoundaryM":71,"squareBoundaryM":68},
+  {"id":"RR_JAIPUR","franchise":"RR","venue":"Sawai Mansingh Stadium","city":"Jaipur","straightBoundaryM":68,"squareBoundaryM":68},
+  {"id":"DC_DELHI","franchise":"DC","venue":"Arun Jaitley Stadium","city":"Delhi","straightBoundaryM":57,"squareBoundaryM":64},
+  {"id":"PBKS_NEW_CHANDIGARH","franchise":"PBKS","venue":"Maharaja Yadavindra Singh International Cricket Stadium","city":"New Chandigarh / Mullanpur","straightBoundaryM":74,"squareBoundaryM":65.5},
+  {"id":"GT_AHMEDABAD","franchise":"GT","venue":"Narendra Modi Stadium","city":"Ahmedabad","straightBoundaryM":66,"squareBoundaryM":68.5},
+  {"id":"LSG_LUCKNOW","franchise":"LSG","venue":"BRSABV Ekana Cricket Stadium","city":"Lucknow","straightBoundaryM":75,"squareBoundaryM":76}
+]

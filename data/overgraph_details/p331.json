@@ -1,0 +1,34 @@
+{
+  "playerId": "p331",
+  "fullName": "Cameron Green",
+  "overGraphSlug": "c-green",
+  "matches": 29,
+  "runs": 707,
+  "strikeRate": 153.7,
+  "average": 39.3,
+  "wickets": 16,
+  "economy": 9.1,
+  "highestScore": "100*",
+  "fifties": 3,
+  "hundreds": 1,
+  "fours": 63,
+  "sixes": 33,
+  "catches": 16,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 14,
+      "runs": 106,
+      "strikeRate": 153.7,
+      "average": 39.3,
+      "wickets": 16
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 76,
+    "consistency": 78,
+    "tempo": 86
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}

@@ -1,0 +1,130 @@
+{
+  "matches" : [ {
+    "matchId" : "7e7173e9",
+    "homeFranchise" : "KKR",
+    "awayFranchise" : "MI",
+    "homeRuns" : 18,
+    "homeWickets" : 0,
+    "homeBalls" : 12,
+    "awayRuns" : 20,
+    "awayWickets" : 1,
+    "awayBalls" : 10,
+    "winnerFranchise" : "MI",
+    "resultText" : "MI won by 3 wickets — KKR 18/0 vs MI 20/1",
+    "overs" : 2,
+    "fixtureId" : "",
+    "completedAt" : "2026-09-17T18:52:21.079770Z",
+    "players" : [ {
+      "playerId" : "p310",
+      "name" : "Dhruv Jurel",
+      "team" : "MI",
+      "runs" : 19,
+      "wickets" : 0
+    }, {
+      "playerId" : "p287",
+      "name" : "Rashid Khan",
+      "team" : "KKR",
+      "runs" : 18,
+      "wickets" : 1
+    }, {
+      "playerId" : "p329",
+      "name" : "Jofra Archer",
+      "team" : "MI",
+      "runs" : 1,
+      "wickets" : 0
+    } ]
+  }, {
+    "matchId" : "2ddac2bf",
+    "homeFranchise" : "KKR",
+    "awayFranchise" : "MI",
+    "homeRuns" : 21,
+    "homeWickets" : 0,
+    "homeBalls" : 12,
+    "awayRuns" : 7,
+    "awayWickets" : 1,
+    "awayBalls" : 12,
+    "winnerFranchise" : "KKR",
+    "resultText" : "KKR won by 14 runs — KKR 21/0 vs MI 7/1",
+    "overs" : 2,
+    "fixtureId" : "",
+    "completedAt" : "2026-09-17T18:55:20.919786600Z",
+    "players" : [ {
+      "playerId" : "p245",
+      "name" : "Ravindra Jadeja",
+      "team" : "KKR",
+      "runs" : 0,
+      "wickets" : 1
+    }, {
+      "playerId" : "p287",
+      "name" : "Rashid Khan",
+      "team" : "KKR",
+      "runs" : 21,
+      "wickets" : 0
+    }, {
+      "playerId" : "p331",
+      "name" : "Cameron Green",
+      "team" : "MI",
+      "runs" : 3,
+      "wickets" : 0
+    }, {
+      "playerId" : "p329",
+      "name" : "Jofra Archer",
+      "team" : "MI",
+      "runs" : 4,
+      "wickets" : 0
+    } ]
+  }, {
+    "matchId" : "f631195b",
+    "homeFranchise" : "MI",
+    "awayFranchise" : "KKR",
+    "homeRuns" : 19,
+    "homeWickets" : 2,
+    "homeBalls" : 12,
+    "awayRuns" : 8,
+    "awayWickets" : 2,
+    "awayBalls" : 12,
+    "winnerFranchise" : "MI",
+    "resultText" : "MI won by 11 runs — MI 19/2 vs KKR 8/2",
+    "overs" : 2,
+    "fixtureId" : "",
+    "completedAt" : "2026-09-17T18:56:53.840274700Z",
+    "players" : [ {
+      "playerId" : "p245",
+      "name" : "Ravindra Jadeja",
+      "team" : "KKR",
+      "runs" : 0,
+      "wickets" : 1
+    }, {
+      "playerId" : "p310",
+      "name" : "Dhruv Jurel",
+      "team" : "MI",
+      "runs" : 6,
+      "wickets" : 0
+    }, {
+      "playerId" : "p331",
+      "name" : "Cameron Green",
+      "team" : "MI",
+      "runs" : 13,
+      "wickets" : 1
+    }, {
+      "playerId" : "p287",
+      "name" : "Rashid Khan",
+      "team" : "KKR",
+      "runs" : 3,
+      "wickets" : 1
+    }, {
+      "playerId" : "p329",
+      "name" : "Jofra Archer",
+      "team" : "MI",
+      "runs" : 0,
+      "wickets" : 1
+    }, {
+      "playerId" : "p296",
+      "name" : "Andre Russell",
+      "team" : "KKR",
+      "runs" : 5,
+      "wickets" : 0
+    } ]
+  } ],
+  "achievements" : [ ]
+}

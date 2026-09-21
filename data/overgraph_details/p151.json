@@ -1,0 +1,34 @@
+{
+  "playerId": "p151",
+  "fullName": "Virat Kohli",
+  "overGraphSlug": "v-kohli",
+  "matches": 252,
+  "runs": 8004,
+  "strikeRate": 131.9,
+  "average": 38.7,
+  "wickets": 4,
+  "economy": 8.8,
+  "highestScore": "113*",
+  "fifties": 55,
+  "hundreds": 8,
+  "fours": 705,
+  "sixes": 272,
+  "catches": 114,
+  "seasonsTimeline": [
+    {
+      "season": "2024",
+      "matches": 14,
+      "runs": 1200,
+      "strikeRate": 131.9,
+      "average": 38.7,
+      "wickets": 4
+    }
+  ],
+  "positionBreakdown": [],
+  "radarMetrics": {
+    "power": 65,
+    "consistency": 77,
+    "tempo": 75
+  },
+  "source": "OverGraph (https://www.overgraph.in)"
+}
