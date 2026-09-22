@@ -1,0 +1,67 @@
+{
+  "ajay_07": {
+    "id": "ajay_07",
+    "name": "AJAY",
+    "jerseyNumber": 7,
+    "role": "BATTER",
+    "assetUrl": "/assets/players/friends/ajay_07.glb",
+    "faceTextureUrl": "/assets/players/friends/ajay_07_face.png",
+    "teamCode": "HKT",
+    "kitPrimary": 1054752,
+    "kitSecondary": 14132794,
+    "likenessSource": "reference-assets/ajay_07_face_reference.jpg",
+    "consentRequired": true
+  },
+  "akshay_18": {
+    "id": "akshay_18",
+    "name": "AKSHAY",
+    "jerseyNumber": 18,
+    "role": "BOWLER",
+    "assetUrl": "/assets/players/friends/akshay_18.glb",
+    "faceTextureUrl": "/assets/players/friends/akshay_18_face.png",
+    "teamCode": "HKT",
+    "kitPrimary": 1054752,
+    "kitSecondary": 14132794,
+    "likenessSource": "reference-assets/akshay_18_face_reference.jpg",
+    "consentRequired": true
+  },
+  "gokul_11": {
+    "id": "gokul_11",
+    "name": "GOKUL",
+    "jerseyNumber": 11,
+    "role": "BATTER",
+    "assetUrl": "/assets/players/friends/gokul_11.glb",
+    "faceTextureUrl": "/assets/players/friends/gokul_11_face.png",
+    "teamCode": "HKT",
+    "kitPrimary": 1054752,
+    "kitSecondary": 14132794,
+    "likenessSource": "reference-assets/gokul_11_face_reference.jpg",
+    "consentRequired": true
+  },
+  "hemanth_naidu_27": {
+    "id": "hemanth_naidu_27",
+    "name": "HEMANTH NAIDU",
+    "jerseyNumber": 27,
+    "role": "BOWLER",
+    "assetUrl": "/assets/players/friends/hemanth_naidu_27.glb",
+    "faceTextureUrl": "/assets/players/friends/hemanth_naidu_27_face.png",
+    "teamCode": "HKT",
+    "kitPrimary": 1054752,
+    "kitSecondary": 14132794,
+    "likenessSource": "reference-assets/hemanth_naidu_27_face_reference.jpg",
+    "consentRequired": true
+  },
+  "hkt_17": {
+    "id": "hkt_17",
+    "name": "HKT",
+    "jerseyNumber": 17,
+    "role": "KEEPER",
+    "assetUrl": "/assets/players/friends/hkt_17.glb",
+    "faceTextureUrl": "/assets/players/friends/hkt_17_face.png",
+    "teamCode": "HKT",
+    "kitPrimary": 1054752,
+    "kitSecondary": 14132794,
+    "likenessSource": "reference-assets/hkt_17_face_reference.jpg",
+    "consentRequired": true
+  }
+}
