@@ -1,0 +1,10 @@
+{
+  "runtimeIdentities": [
+    {"id":"ajay-07","displayName":"AJAY","jerseyNumber":7,"role":"BATTER","reference":"reference-assets/ajay_07_reference.jpg"},
+    {"id":"akshay-18","displayName":"AKSHAY","jerseyNumber":18,"role":"BOWLER","reference":"reference-assets/akshay_18_reference.jpg"},
+    {"id":"gokul-11","displayName":"GOKUL","jerseyNumber":11,"role":"BATTER","reference":"reference-assets/gokul_11_reference.jpg"},
+    {"id":"hemanth-naidu-27","displayName":"HEMANTH NAIDU","jerseyNumber":27,"role":"BOWLER","reference":"reference-assets/hemanth_naidu_27_reference.jpg"},
+    {"id":"hkt-17","displayName":"HKT","jerseyNumber":17,"role":"KEEPER","reference":"reference-assets/hkt_17_reference.jpg"}
+  ],
+  "note":"Reference photos are development inputs. Runtime UI identity is limited to the game names above. Final GLB/UV assets require consented likeness production and are not fabricated by this package."
+}

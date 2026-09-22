@@ -1,3 +1,4 @@
+
 export type PlayerRole='BATTER'|'BOWLER'|'FIELDER'|'KEEPER'|'NON_STRIKER';
 export type DeliveryKind='PACE'|'SWING'|'CUTTER'|'SLOWER'|'YORKER'|'BOUNCER';
 export type BatterIntent='DEFENSIVE'|'NORMAL'|'LOFT'|'LEAVE';
@@ -10,16 +11,40 @@ export type KeeperState='CROUCH'|'READY'|'SHIFT_LEFT'|'SHIFT_RIGHT'|'COLLECT'|'C
 export type PresentationState=BatterState|BowlerState|FielderState|KeeperState;
 export type PlayerArchetype='COMPACT_BATTER'|'AGGRESSIVE_BATTER'|'TECHNICAL_BATTER'|'FAST_BOWLER'|'SWING_BOWLER'|'SPIN_BOWLER'|'ATHLETIC_FIELDER'|'STANDARD_FIELDER'|'KEEPER';
 
-export interface PlayerIdentity {
- id:string; name:string; role:PlayerRole; archetype?:PlayerArchetype; jerseyNumber?:number; teamCode?:string;
- kitPrimary?:number; kitSecondary?:number; skinTone?:number; hairColor?:number; heightScale?:number;
- assetUrl?:string; animationSet?:string;
+export interface AnimationClipMap{[state:string]:string[];}
+export interface PlayerAssetManifestEntry{id:string;url:string;role:PlayerRole;animationSet?:string;scale?:number;}
+
+/** Runtime identity intentionally contains only the game's chosen identity. Reference-photo identity is never shown to the game UI. */
+export interface FriendLikenessProfile{
+  likenessId:string;
+  displayName:string;
+  jerseyNumber:number;
+  role:PlayerRole;
+  archetype?:PlayerArchetype;
+  referencePhotoUrl?:string;
+  glbUrl?:string;
+  faceTextureUrl?:string;
+  animationSet?:string;
+  kitPrimary?:number;
+  kitSecondary?:number;
+  skinTone?:number;
+  hairColor?:number;
+  heightScale?:number;
 }
-export interface AuthoritativeBallPresentation {
- ballId:string; deliveryKind:DeliveryKind; batterIntent:BatterIntent; outcome:Outcome; speedKph:number;
- timingBand:TimingBand; aimX?:number; aimZ?:number; trajectorySeed?:number; contactQuality?:number;
- contactHeight?:number; direction?:number; runCount?:number; wicketType?:string;
+
+export interface PlayerIdentity{
+  id:string; name:string; role:PlayerRole; archetype?:PlayerArchetype;
+  jerseyNumber?:number; teamCode?:string; kitPrimary?:number; kitSecondary?:number;
+  skinTone?:number; hairColor?:number; heightScale?:number;
+  assetUrl?:string; faceTextureUrl?:string; animationSet?:string; clipMap?:AnimationClipMap;
+  likenessId?:string;
 }
-export interface TransformPose {x:number;y:number;z:number;yaw:number;lean:number;stride:number;armSwing:number;batAngle:number;headYaw:number;}
-export interface PlayerAssetManifestEntry {id:string;url:string;role:PlayerRole;animationSet?:string;scale?:number;}
-export interface AnimationClipMap { [state:string]: string[]; }
+
+export interface AuthoritativeBallPresentation{
+  ballId:string; deliveryKind:DeliveryKind; batterIntent:BatterIntent; outcome:Outcome;
+  speedKph:number; timingBand:TimingBand; aimX?:number; aimZ?:number; trajectorySeed?:number;
+  contactQuality?:number; contactHeight?:number; direction?:number; runCount?:number; wicketType?:string;
+}
+export interface TransformPose{x:number;y:number;z:number;yaw:number;lean:number;stride:number;armSwing:number;batAngle:number;headYaw:number;}
+export interface FaceTextureOptions{headMeshNameHints?:string[];skinMaterialNameHints?:string[];roughness?:number;metalness?:number;}
+export interface FaceLikenessAsset extends FriendLikenessProfile{photoOnly?:boolean;}
