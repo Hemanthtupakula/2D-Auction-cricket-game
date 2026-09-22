@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+<defs><linearGradient id="j" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#e8edf2"/><stop offset="1" stop-color="#a9b2bc"/></linearGradient></defs>
+<rect width="1200" height="800" fill="none"/>
+<!-- 12 reusable broadcast player silhouettes. Transparent atlas, intentionally generic/no likeness. -->
+<g fill="url(#j)" stroke="#18212b" stroke-width="8" stroke-linejoin="round">
+<g transform="translate(50 40)"><circle cx="70" cy="55" r="34"/><path d="M40 95h60l30 180H10z"/><path d="M38 110L-5 220M102 110l45 85"/><path d="M45 275L15 430M85 275l40 155"/></g>
+<g transform="translate(250 40)"><circle cx="70" cy="55" r="34"/><path d="M40 95h60l30 180H10z"/><path d="M42 115L5 205M98 115l72 45"/><path d="M45 275L5 425M90 275l15 155"/></g>
+<g transform="translate(450 40)"><circle cx="70" cy="55" r="34"/><path d="M40 95h60l30 180H10z"/><path d="M42 115L-20 155M98 115l15 105"/><path d="M45 275L-5 410M90 275l65 125"/></g>
+<g transform="translate(650 40)"><circle cx="70" cy="55" r="34"/><path d="M40 95h60l30 180H10z"/><path d="M42 115L0 260M98 115l70 145"/><path d="M45 275L10 430M90 275l25 155"/></g>
+<g transform="translate(850 40)"><circle cx="70" cy="55" r="34"/><path d="M40 95h60l30 180H10z"/><path d="M42 115L-15 75M98 115l45 45"/><path d="M45 275L20 425M90 275l-20 145"/></g>
+<g transform="translate(1050 40)"><circle cx="70" cy="55" r="34"/><path d="M40 95h60l30 180H10z"/><path d="M42 115L-10 190M98 115l55 75"/><path d="M45 275L-5 390M90 275l70 115"/></g>
+<g transform="translate(50 420)"><circle cx="70" cy="55" r="34"/><path d="M40 95h60l30 180H10z"/><path d="M42 115L-15 185M98 115l50 70"/><path d="M45 275L10 420M90 275l30 145"/></g>
+<g transform="translate(250 420)"><circle cx="70" cy="55" r="34"/><path d="M40 95h60l30 180H10z"/><path d="M42 115L-10 150M98 115l60 40"/><path d="M45 275L-20 415M90 275l70 140"/></g>
+<g transform="translate(450 420)"><circle cx="70" cy="55" r="34"/><path d="M40 95h60l30 180H10z"/><path d="M42 115L-25 115M98 115l85 0"/><path d="M45 275L10 425M90 275l-5 150"/></g>
+<g transform="translate(650 420)"><circle cx="70" cy="55" r="34"/><path d="M40 95h60l30 180H10z"/><path d="M42 115L0 220M98 115l45 105"/><path d="M45 275L-5 425M90 275l45 140"/></g>
+<g transform="translate(850 420)"><circle cx="70" cy="55" r="34"/><path d="M40 95h60l30 180H10z"/><path d="M42 115L-30 235M98 115l65 120"/><path d="M45 275L20 420M90 275l-30 145"/></g>
+<g transform="translate(1050 420)"><circle cx="70" cy="55" r="34"/><path d="M40 95h60l30 180H10z"/><path d="M42 115L-10 230M98 115l55 115"/><path d="M45 275L-5 410M90 275l70 145"/></g>
+</g></svg>

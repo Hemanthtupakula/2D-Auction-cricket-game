@@ -1,0 +1,16 @@
+.auctionxi-25d-stage{position:relative;width:100%;min-height:620px;height:min(76vh,820px);overflow:hidden;background:#070b12;border:1px solid rgba(255,255,255,.08);border-radius:22px;box-shadow:0 30px 90px rgba(0,0,0,.45);isolation:isolate}
+.auctionxi-25d-canvas{position:absolute;inset:0}.auctionxi-25d-canvas canvas{display:block;width:100%;height:100%}
+.auctionxi-25d-vignette{position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 45%,transparent 28%,rgba(0,0,0,.08) 58%,rgba(0,0,0,.62) 100%),linear-gradient(180deg,rgba(4,7,12,.7),transparent 24%,transparent 74%,rgba(4,7,12,.82))}
+.auctionxi-25d-topbar{position:absolute;left:22px;right:22px;top:18px;display:flex;justify-content:space-between;align-items:flex-start;pointer-events:none;color:#fff;text-shadow:0 2px 12px #000}
+.auctionxi-25d-kicker{font:800 10px/1.2 system-ui,sans-serif;letter-spacing:.22em;color:#aebbd0}.auctionxi-25d-stadium{margin-top:4px;font:900 18px/1.1 system-ui,sans-serif;letter-spacing:.06em}
+.auctionxi-25d-status{display:flex;align-items:center;gap:7px;padding:7px 11px;border-radius:999px;background:rgba(8,12,19,.66);border:1px solid rgba(255,255,255,.12);font:900 10px/1 system-ui,sans-serif;letter-spacing:.12em}
+.auctionxi-live-dot{width:7px;height:7px;border-radius:50%;background:#38f09b;box-shadow:0 0 15px #38f09b}
+.auctionxi-25d-camera{position:absolute;top:72px;right:20px;display:flex;gap:5px;padding:5px;border-radius:12px;background:rgba(5,9,15,.6);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(10px)}
+.auctionxi-25d-camera button{border:0;border-radius:8px;padding:7px 9px;color:#9eabc0;background:transparent;font:800 9px/1 system-ui,sans-serif;cursor:pointer}
+.auctionxi-25d-camera button.active{color:#fff;background:rgba(255,255,255,.13)}
+.auctionxi-25d-bottom{position:absolute;left:18px;right:18px;bottom:18px;display:grid;grid-template-columns:110px 1fr 120px;gap:8px}
+.auctionxi-25d-ball-card{min-height:62px;padding:10px 12px;border-radius:13px;background:rgba(7,11,18,.72);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(14px);color:#fff}
+.auctionxi-25d-ball-card .label{display:block;color:#76849a;font:900 8px/1 system-ui,sans-serif;letter-spacing:.18em;margin-bottom:6px}
+.auctionxi-25d-ball-card strong{display:block;font:800 12px/1.25 system-ui,sans-serif}.auctionxi-25d-ball-card.wide strong{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.result-four,.result-six{color:#ffe17c}.result-wicket{color:#ff6978}.result-dot{color:#aebbd0}
+@media(max-width:800px){.auctionxi-25d-stage{min-height:520px;height:72vh;border-radius:15px}.auctionxi-25d-bottom{grid-template-columns:72px 1fr 78px;left:10px;right:10px;bottom:10px}.auctionxi-25d-camera{top:66px;right:10px}.auctionxi-25d-camera button{padding:6px;font-size:8px}}

@@ -33,6 +33,7 @@ scratch/
 .system_generated/
 *.tmp
 *.bak
+issue prompt.txt
 
 # Archives & Nested Backups
 *.zip
