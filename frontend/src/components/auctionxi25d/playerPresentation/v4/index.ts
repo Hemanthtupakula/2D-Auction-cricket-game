@@ -5,3 +5,5 @@ export * from './faceLikeness';
 export * from './assetAdapter';
 export * from './assetManifest';
 export * from './ProductionCricketPlayerRig';
+export * from './skeletalAnimation';
+export * from './animationController';

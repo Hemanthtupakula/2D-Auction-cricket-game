@@ -1,0 +1,16 @@
+{
+  "phase": "V4.4",
+  "baseline": "V4.3",
+  "newFiles": [
+    "frontend/src/components/auctionxi25d/playerPresentation/v4/skeletalAnimation.ts",
+    "frontend/src/components/auctionxi25d/playerPresentation/v4/animationController.ts"
+  ],
+  "integrationFiles": [
+    "frontend/src/components/auctionxi25d/playerPresentation/v4/assetAdapter.ts",
+    "frontend/src/components/auctionxi25d/playerPresentation/v4/ProductionCricketPlayerRig.ts"
+  ],
+  "backendUntouched": true,
+  "gameplayAuthorityUntouched": true,
+  "usesAuthoredClipsWhenAvailable": true,
+  "proceduralSkeletalFallback": true
+}

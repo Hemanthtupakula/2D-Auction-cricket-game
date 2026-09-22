@@ -10,7 +10,7 @@ function poseFor(state:PresentationState,t:number,a:PlayerArchetype):TransformPo
 
 export class ProductionCricketPlayerRig{
  readonly group=new THREE.Group();private players=new Map<string,RuntimePlayer>();private adapter:PlayerAssetAdapter;private hybrid:HybridCricketAssetAdapter|null=null;private event:AuthoritativeBallPresentation|null=null;private phase='RESET';private clock=0;
- constructor(adapter?:PlayerAssetAdapter){if(adapter)this.adapter=adapter;else{const cache=new GLTFCricketAssetCache();this.hybrid=new HybridCricketAssetAdapter(cache,new ProceduralCricketAssetAdapter());this.adapter=this.hybrid;}this.group.name='AuctionXI-V4.2-FriendLikenessPlayers';}
+ constructor(adapter?:PlayerAssetAdapter){if(adapter)this.adapter=adapter;else{const cache=new GLTFCricketAssetCache();this.hybrid=new HybridCricketAssetAdapter(cache,new ProceduralCricketAssetAdapter());this.adapter=this.hybrid;}this.group.name='AuctionXI-V4.4-SkeletalFriendLikenessPlayers';}
  static withAssetCache(cache:GLTFCricketAssetCache){return new ProductionCricketPlayerRig(new HybridCricketAssetAdapter(cache,new ProceduralCricketAssetAdapter()));}
  static resolveFriend(nameOrId?:string,jerseyNumber?:number):PlayerIdentity|null{const q=(nameOrId||'').trim().toLowerCase();const p=AUCTION_XI_FRIEND_PROFILES.find(x=>x.likenessId.toLowerCase()===q||x.displayName.toLowerCase()===q||String(x.jerseyNumber)===String(jerseyNumber??''));return p?profileToIdentity(p,'AUCTION_XI'):null;}
  registerFriendProfiles(teamCode='AUCTION_XI'){return AUCTION_XI_FRIEND_PROFILES.map(p=>profileToIdentity(p,teamCode));}
