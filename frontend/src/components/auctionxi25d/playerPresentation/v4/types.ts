@@ -9,6 +9,17 @@ export type FielderState='IDLE'|'READY'|'REACT'|'SPRINT'|'DIVE'|'PICKUP'|'THROW'
 export type KeeperState='CROUCH'|'READY'|'SHIFT_LEFT'|'SHIFT_RIGHT'|'COLLECT'|'CATCH'|'APPEAL'|'CELEBRATE';
 export type PresentationState=BatterState|BowlerState|FielderState|KeeperState;
 export type PlayerArchetype='COMPACT_BATTER'|'AGGRESSIVE_BATTER'|'TECHNICAL_BATTER'|'FAST_BOWLER'|'SWING_BOWLER'|'SPIN_BOWLER'|'ATHLETIC_FIELDER'|'STANDARD_FIELDER'|'KEEPER';
-export interface PlayerIdentity{id:string;name:string;role:PlayerRole;archetype?:PlayerArchetype;jerseyNumber?:number;teamCode?:string;kitPrimary?:number;kitSecondary?:number;}
-export interface AuthoritativeBallPresentation{ballId:string;deliveryKind:DeliveryKind;batterIntent:BatterIntent;outcome:Outcome;speedKph:number;timingBand:TimingBand;aimX?:number;aimZ?:number;trajectorySeed?:number;contactQuality?:number;contactHeight?:number;direction?:number;runCount?:number;wicketType?:string;}
-export interface TransformPose{x:number;y:number;z:number;yaw:number;lean:number;stride:number;armSwing:number;batAngle:number;headYaw:number;}
+
+export interface PlayerIdentity {
+ id:string; name:string; role:PlayerRole; archetype?:PlayerArchetype; jerseyNumber?:number; teamCode?:string;
+ kitPrimary?:number; kitSecondary?:number; skinTone?:number; hairColor?:number; heightScale?:number;
+ assetUrl?:string; animationSet?:string;
+}
+export interface AuthoritativeBallPresentation {
+ ballId:string; deliveryKind:DeliveryKind; batterIntent:BatterIntent; outcome:Outcome; speedKph:number;
+ timingBand:TimingBand; aimX?:number; aimZ?:number; trajectorySeed?:number; contactQuality?:number;
+ contactHeight?:number; direction?:number; runCount?:number; wicketType?:string;
+}
+export interface TransformPose {x:number;y:number;z:number;yaw:number;lean:number;stride:number;armSwing:number;batAngle:number;headYaw:number;}
+export interface PlayerAssetManifestEntry {id:string;url:string;role:PlayerRole;animationSet?:string;scale?:number;}
+export interface AnimationClipMap { [state:string]: string[]; }
