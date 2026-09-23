@@ -11,7 +11,6 @@ import {
 } from '../services/api';
 import { MiniMatch3DCanvas } from './MiniMatch3DCanvas';
 import { MiniMatchFieldMap, FieldPreset } from './MiniMatchFieldMap';
-import { buildPresentationFeed } from './auctionxi25d/livePresentation/buildPresentationFeed';
 import { MiniMatchScorecardDrawer } from './MiniMatchScorecardDrawer';
 import { LiveMatchDebugPanel } from './LiveMatchDebugPanel';
 import { BallReplayDebugModal } from './BallReplayDebugModal';
@@ -526,11 +525,6 @@ export const MiniMatch2DArena: React.FC<MiniMatch2DArenaProps> = ({
 
   const bowlerId = matchAny.currentBowlerId;
   const bowlerName = (bowlerId && matchAny.playerNames?.[bowlerId]) || matchAny.bowlerName || 'Bowler';
-
-  const presentationFeed = useMemo(
-    () => buildPresentationFeed(match),
-    [match],
-  );
   const bowlerBalls = (bowlerId && matchAny.ballsBowledByBowler?.[bowlerId]) ?? 0;
   const bowlerOvers = `${Math.floor(bowlerBalls / 6)}.${bowlerBalls % 6}`;
   const bowlerMaidens = '0';
@@ -722,9 +716,6 @@ export const MiniMatch2DArena: React.FC<MiniMatch2DArenaProps> = ({
           deliveryType={selectedDelivery}
           bowlingSpeed={selectedSpeed}
           batIntent={battingIntent}
-          balls={presentationFeed.balls}
-          lastBall={presentationFeed.lastBall}
-          players={presentationFeed.players}
         />
 
         {/* BOTTOM-LEFT TACTICAL FIELD MINI-MAP OVERLAY */}

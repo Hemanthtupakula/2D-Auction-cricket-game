@@ -1,0 +1,16 @@
+{
+  "phase": "V4.5",
+  "title": "Live Match Presentation Binding",
+  "baselineCommit": "2c522cf2b2fe5c60552b1de8dfbe4ce9d29ada37",
+  "implementation": [
+    "frontend/src/components/auctionxi25d/livePresentation/buildPresentationFeed.ts",
+    "frontend/src/components/MiniMatch2DArena.tsx"
+  ],
+  "installer": "scripts/apply_v45_live_presentation.py",
+  "verification": "scripts/verify_v45.ps1",
+  "backendAuthorityPreserved": true,
+  "validation": [
+    "npm run build:frontend",
+    "npm run test:backend"
+  ]
+}
