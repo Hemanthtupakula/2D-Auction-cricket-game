@@ -54,7 +54,7 @@ export class DreamMatchPresentation {
       timingBand: e.timingBand,
       direction: e.target ? ('x' in e.target ? e.target.x : 0) : 0,
       runCount: e.outcome === 'SIX' ? 6 : e.outcome === 'FOUR' ? 4 : e.outcome === 'THREE' ? 3 : e.outcome === 'TWO' ? 2 : e.outcome === 'ONE' ? 1 : 0,
-      wicketType: e.outcome === 'WICKET' ? 'bowled' : undefined,
+      wicketType: e.wicketType || (e.outcome === 'WICKET' ? 'bowled' : undefined),
     };
     this.players.v4Rig.playBall(v4Ball);
 
@@ -80,25 +80,32 @@ export class DreamMatchPresentation {
       }
     }
 
+    const timings = this.ball.getTimings();
+    const releaseTime = Math.max(0.38, timings.bounceTime - 0.06);
+    const contactTime = timings.contactTime;
+    const presentationEnd = Math.max(2.6, timings.totalDuration + 0.55);
+
     this.camera.set('BOWLER_VIEW');
 
     this.timeline
-      .add('runup', 0, 0.38, (t) => {
+      .add('runup', 0, Math.min(releaseTime, 0.38), (t) => {
         this.players.v4Rig.setPhase('DELIVERY');
         if (e.bowlerId && t > 0.45) this.players.state(e.bowlerId, 'BOWLER', 'RUNUP');
       })
-      .add('release', 0.38, 0.62, (t) => {
-        if (e.bowlerId && t > 0.35) this.players.state(e.bowlerId, 'BOWLER', `RELEASE_${e.deliveryKind}`);
+      .add('release', Math.min(0.34, releaseTime), Math.min(0.62, releaseTime + 0.22), (t) => {
+        if (e.bowlerId && t > 0.35) {
+          this.players.state(e.bowlerId, 'BOWLER', `RELEASE_${e.deliveryKind}`);
+        }
       })
-      .add('flight', 0.55, 1.5, (t) => {
-        this.camera.set(t < 0.35 ? 'DELIVERY_TRACK' : 'CONTACT_VIEW');
+      .add('flight', Math.min(0.52, releaseTime), Math.max(contactTime, 0.66), (t) => {
+        this.camera.set(t < 0.32 ? 'DELIVERY_TRACK' : 'CONTACT_VIEW');
         if (t > 0.3) this.players.v4Rig.setPhase('FIELDING');
       })
-      .add('response', 1.05, 1.65, () => {
+      .add('response', contactTime, contactTime + 0.34, (t) => {
         this.players.v4Rig.setPhase('CONTACT');
-        if (e.strikerId) this.players.state(e.strikerId, 'BATTER', this.batterState(e));
+        if (e.strikerId && t >= 0.05) this.players.state(e.strikerId, 'BATTER', this.batterState(e));
       })
-      .add('result', 1.55, 2.6, (t) => {
+      .add('result', Math.max(contactTime + 0.18, timings.totalDuration - 0.35), presentationEnd, (t) => {
         this.players.v4Rig.setPhase('RESULT');
         this.applyOutcome(e, t);
       });
@@ -145,7 +152,7 @@ export class DreamMatchPresentation {
   update(dt: number, cam: THREE.PerspectiveCamera) {
     this.elapsed += dt;
     this.timeline.tick();
-    this.ball.update(Math.min(1, this.elapsed / 1.7));
+    this.ball.update(this.elapsed);
     this.players.update(dt, this.elapsed);
     this.world.update(dt);
     this.fx.update(dt);

@@ -23,6 +23,7 @@ function normalisePlayers(input: PresentationPlayer[] | undefined): Presentation
   return [
     { id: "bowler", name: "Bowler", role: "BOWLER", x: 0, z: -7.5 },
     { id: "batter", name: "Batter", role: "BATTER", x: 0, z: 8.2 },
+    { id: "nonstriker", name: "Non-striker", role: "BATTER", x: -1.2, z: -7.5 },
     { id: "keeper", name: "WK", role: "KEEPER", x: 0, z: 10 },
     { id: "cover", role: "FIELDER", x: 5.2, z: 4.5 },
     { id: "midon", role: "FIELDER", x: 5.4, z: -1 },
@@ -46,22 +47,16 @@ function mapDeliveryKind(val?: string): DeliveryKind {
 }
 
 function mapSpeed(val?: string | number): number {
-  if (typeof val === "number") return val;
+  if (typeof val === "number" && Number.isFinite(val)) return val;
   if (!val) return 138;
   const num = parseFloat(String(val).replace(/[^\d.]/g, ""));
-  return isNaN(num) || num <= 0 ? 138 : num;
+  return Number.isFinite(num) && num > 0 ? num : 138;
 }
 
 function mapBatterIntent(val?: string): BatterIntent {
   const s = (val || "NORMAL").toUpperCase();
   if (s.includes("DEF")) return "DEFENSIVE";
-  if (
-    s.includes("LOFT") ||
-    s.includes("PULL") ||
-    s.includes("SIX") ||
-    s.includes("FOUR")
-  )
-    return "LOFT";
+  if (s.includes("LOFT") || s.includes("PULL") || s.includes("SIX") || s.includes("FOUR")) return "LOFT";
   if (s.includes("LEAVE")) return "LEAVE";
   return "NORMAL";
 }
@@ -89,15 +84,18 @@ function mapOutcome(ball: PresentationBall): Outcome {
   if (o.includes("NO_BALL") || o.includes("NO BALL")) return "NO_BALL";
   if (o.includes("RUN_OUT") || o.includes("RUN OUT")) return "RUN_OUT";
   if (o.includes("BYE")) return "BYE";
+  if (o.includes("LEG_BYE") || o.includes("LEG BYE")) return "LEG_BYE";
   return "DOT";
 }
 
-function normalizeToDreamBall(
+function normaliseToDreamBall(
   ball: PresentationBall,
   players?: PresentationPlayer[]
 ): AuthoritativeBallEvent {
   const normalizedPlayers = normalisePlayers(players);
-  const striker = normalizedPlayers.find((p) => p.role === "BATTER");
+  const batters = normalizedPlayers.filter((p) => p.role === "BATTER");
+  const striker = batters[0];
+  const nonStriker = batters[1];
   const bowler = normalizedPlayers.find((p) => p.role === "BOWLER");
   const fielders = normalizedPlayers
     .filter((p) => p.role !== "BATTER" && p.role !== "BOWLER")
@@ -115,8 +113,8 @@ function normalizeToDreamBall(
 
   const ballId =
     ball.ballNumber != null
-      ? String(ball.ballNumber)
-      : `${ball.overNumber ?? 0}.${ball.ballInOver ?? 1}`;
+      ? `${ball.innings ?? 0}-${ball.ballNumber}`
+      : `${ball.innings ?? 0}-${ball.overNumber ?? 0}.${ball.ballInOver ?? 1}`;
 
   return {
     ballId,
@@ -124,17 +122,19 @@ function normalizeToDreamBall(
     ball: typeof ball.ballInOver === "number" ? ball.ballInOver : 1,
     deliveryKind: mapDeliveryKind(ball.delivery || ball.bowlPlan),
     speed: mapSpeed(ball.speed),
-    batterIntent: mapBatterIntent(ball.shotIntent),
-    timingBand: mapTimingBand(
-      (ball as any).timing || (ball as any).timingBand || ball.shotIntent
-    ),
+    batterIntent: mapBatterIntent(ball.shotIntent || ball.shot),
+    timingBand: mapTimingBand(ball.timingBand || ball.timing),
     outcome: mapOutcome(ball),
     target,
-    strikerId: striker?.id || "batter",
-    nonStrikerId: "nonstriker",
-    bowlerId: bowler?.id || "bowler",
+    strikerId: striker?.id || ball.batterId || "batter",
+    nonStrikerId: nonStriker?.id || "nonstriker",
+    bowlerId: bowler?.id || ball.bowlerId || "bowler",
+    line: ball.line,
+    length: ball.length,
+    shot: ball.shot || ball.shotIntent,
+    wicketType: ball.wicketType,
     fielders,
-    timestamp: Date.now(),
+    timestamp: ball.deliveryEpochMs || Date.now(),
   };
 }
 
@@ -158,12 +158,7 @@ export const MiniMatch25DStage: React.FC<MiniMatch25DProps> = ({
 
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x07110d);
-    const camera = new THREE.PerspectiveCamera(
-      48,
-      mount.clientWidth / Math.max(1, mount.clientHeight),
-      0.1,
-      100
-    );
+    const camera = new THREE.PerspectiveCamera(48, mount.clientWidth / Math.max(1, mount.clientHeight), 0.1, 100);
     camera.position.set(0, 4.2, 10.5);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
@@ -191,9 +186,7 @@ export const MiniMatch25DStage: React.FC<MiniMatch25DProps> = ({
       dream.players.position(p.id, (p.role || "FIELDER") as Role, p.x, p.z);
     });
 
-    if (currentCamera) {
-      dream.camera.set(currentCamera as any);
-    }
+    if (currentCamera) dream.camera.set(currentCamera as any);
 
     let frame = 0;
     let previous = performance.now();
@@ -220,9 +213,7 @@ export const MiniMatch25DStage: React.FC<MiniMatch25DProps> = ({
       cancelAnimationFrame(frame);
       ro.disconnect();
       renderer.dispose();
-      if (mount.contains(renderer.domElement)) {
-        mount.removeChild(renderer.domElement);
-      }
+      if (mount.contains(renderer.domElement)) mount.removeChild(renderer.domElement);
       dream.resetForNextBall();
       scene.remove(dream.root);
       dreamPresentationRef.current = null;
@@ -254,17 +245,14 @@ export const MiniMatch25DStage: React.FC<MiniMatch25DProps> = ({
     }
     if (!dreamPresentationRef.current) return;
 
-    const key = `${ball.innings || 0}-${ball.ballNumber || balls.length}-${ball.outcome || ""}-${ball.runs || 0}`;
+    const key = `${ball.innings || 0}-${ball.ballNumber || balls.length}-${ball.outcome || ""}-${ball.runs || 0}-${ball.timing || ""}`;
     if (key === stateRef.current.lastBallKey) return;
     stateRef.current.lastBallKey = key;
 
-    const dreamBall = normalizeToDreamBall(ball, players);
+    const dreamBall = normaliseToDreamBall(ball, players);
     dreamPresentationRef.current.playBall(dreamBall);
 
-    const timer = setTimeout(() => {
-      onPresentationComplete?.();
-    }, 2800);
-
+    const timer = setTimeout(() => onPresentationComplete?.(), 3200);
     return () => clearTimeout(timer);
   }, [balls, lastBall, players, onPresentationComplete]);
 
@@ -277,54 +265,38 @@ export const MiniMatch25DStage: React.FC<MiniMatch25DProps> = ({
           <div className="auctionxi-25d-kicker">AUCTION XI • LIVE MATCH</div>
           <div className="auctionxi-25d-stadium">{stadiumName}</div>
         </div>
-        <div className="auctionxi-25d-status">
-          <span className="auctionxi-live-dot" />
-          LIVE
-        </div>
+        <div className="auctionxi-25d-status"><span className="auctionxi-live-dot" />LIVE</div>
       </div>
       <div className="auctionxi-25d-camera">
-        {(["BATTER_VIEW", "BOWLER_VIEW", "BALL_FOLLOW"] as PresentationCamera[]).map(
-          (c) => (
-            <button
-              key={c}
-              type="button"
-              className={currentCamera === c ? "active" : ""}
-              onClick={() => {
-                dreamPresentationRef.current?.camera.set(c as any);
-                onCameraChange?.(c);
-              }}
-            >
-              {c.replace("_", " ")}
-            </button>
-          )
-        )}
+        {(["BATTER_VIEW", "BOWLER_VIEW", "BALL_FOLLOW"] as PresentationCamera[]).map((c) => (
+          <button
+            key={c}
+            type="button"
+            className={currentCamera === c ? "active" : ""}
+            onClick={() => {
+              dreamPresentationRef.current?.camera.set(c as any);
+              onCameraChange?.(c);
+            }}
+          >
+            {c.replace("_", " ")}
+          </button>
+        ))}
       </div>
       <div className="auctionxi-25d-bottom">
         <div className="auctionxi-25d-ball-card">
           <span className="label">BALL</span>
-          <strong>
-            {lastBall?.overNumber != null
-              ? `${Number(lastBall.overNumber) + 1}.${lastBall.ballInOver ?? ""}`
-              : "—"}
-          </strong>
+          <strong>{lastBall?.overNumber != null ? `${Number(lastBall.overNumber) + 1}.${lastBall.ballInOver ?? ""}` : "—"}</strong>
         </div>
         <div className="auctionxi-25d-ball-card wide">
           <span className="label">COMMENTARY</span>
-          <strong>
-            {lastBall?.commentary || "Read the delivery. Choose your response."}
-          </strong>
+          <strong>{lastBall?.commentary || "Read the delivery. Choose your response."}</strong>
         </div>
         <div className="auctionxi-25d-ball-card">
           <span className="label">RESULT</span>
-          <strong
-            className={`result-${String(lastBall?.outcome || "DOT").toLowerCase()}`}
-          >
-            {lastBall?.outcome || "READY"}
-          </strong>
+          <strong className={`result-${String(lastBall?.outcome || "DOT").toLowerCase()}`}>{lastBall?.outcome || "READY"}</strong>
         </div>
       </div>
     </section>
   );
 };
 export default MiniMatch25DStage;
-

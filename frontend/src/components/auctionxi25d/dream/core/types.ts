@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-
 export type DeliveryKind='PACE'|'SWING'|'CUTTER'|'SLOWER'|'YORKER'|'BOUNCER';
 export type BatterIntent='DEFENSIVE'|'NORMAL'|'LOFT'|'LEAVE';
 export type TimingBand='VERY_EARLY'|'EARLY'|'GOOD'|'PERFECT'|'LATE'|'VERY_LATE';
@@ -13,8 +12,13 @@ export interface AuthoritativeBallEvent {
   batterIntent:BatterIntent; timingBand:TimingBand;
   outcome:Outcome;
   target?:THREE.Vector3|{x:number;z:number};
-  trajectory?:{bounceX:number;bounceZ:number;endX:number;endZ:number;arc:number;spin?:number};
+  trajectory?:{
+    bounceX:number; bounceZ:number; endX:number; endZ:number; arc:number; spin?:number;
+    contactX?:number; contactZ?:number; contactY?:number;
+    bounceTime?:number; contactTime?:number; totalDuration?:number;
+  };
   strikerId?:string; nonStrikerId?:string; bowlerId?:string;
+  line?:string; length?:string; shot?:string; wicketType?:string;
   fielders?:Array<{id:string;x:number;z:number;role?:Role}>;
   timestamp?:number;
 }

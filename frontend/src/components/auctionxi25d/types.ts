@@ -8,10 +8,12 @@ export type PresentationOutcome =
 
 export interface PresentationBall {
   innings?: number; ballNumber?: number; overNumber?: number; ballInOver?: number;
+  batterId?: string; bowlerId?: string;
   batterName?: string; bowlerName?: string; outcome?: PresentationOutcome | string;
   runs?: number; wicket?: boolean; commentary?: string; shotIntent?: string;
-  bowlPlan?: string; legalBall?: boolean; delivery?: string; speed?: string;
+  bowlPlan?: string; legalBall?: boolean; delivery?: string; speed?: string | number;
   aimX?: number; aimZ?: number; deliveryEpochMs?: number; batEpochMs?: number;
+  line?: string; length?: string; shot?: string; timing?: string; timingBand?: string; wicketType?: string;
 }
 
 export interface PresentationPlayer {

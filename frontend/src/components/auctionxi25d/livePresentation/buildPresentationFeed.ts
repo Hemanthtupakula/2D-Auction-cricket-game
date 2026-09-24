@@ -34,6 +34,16 @@ const presentationIdentityOf = (player: Player): string => {
   return FRIEND_NAME_ALIASES[normalise(displayName)] || player.id;
 };
 
+const presentationSpeedOf = (deliveryType?: string): number => {
+  const value = normalise(deliveryType);
+  if (value.includes("bouncer")) return 146;
+  if (value.includes("yorker")) return 141;
+  if (value.includes("swing")) return 134;
+  if (value.includes("cutter")) return 128;
+  if (value.includes("slower")) return 112;
+  return 138;
+};
+
 const isKeeper = (player: Player): boolean => {
   const role = normalise(player.role);
   const specialism = normalise((player as Player & { specialism?: string }).specialism);
@@ -52,10 +62,6 @@ const pushPlayer = (
   if (!player?.id) return;
 
   out.push({
-    // Friend identities intentionally use the configured display name as the
-    // presentation ID so the existing V4.4 ProductionCricketPlayerRig can
-    // resolve the corresponding friend GLB/face profile without changing
-    // authoritative match IDs.
     id: presentationIdentityOf(player),
     name: displayNameOf(player),
     teamCode,
@@ -115,9 +121,6 @@ export function buildPresentationFeed(match: MiniMatch): LivePresentationFeed {
     pushPlayer(players, player, "FIELDER", bowlingTeam, x, z);
   });
 
-  // The V4 presentation normalizer already consumes shotIntent/bowlPlan.
-  // Bridge the richer authoritative MiniMatch fields into that contract
-  // without modifying the authoritative MatchBall itself.
   const balls: PresentationBall[] = (match.ballLog || []).map((ball: MatchBall) => ({
     ...ball,
     batterId: ball.batterId,
@@ -126,7 +129,14 @@ export function buildPresentationFeed(match: MiniMatch): LivePresentationFeed {
     bowlerName: ball.bowlerName,
     shotIntent: ball.shot || ball.shotIntent,
     bowlPlan: ball.deliveryType || ball.bowlPlan,
-    delivery: ball.deliveryType || (ball as MatchBall & { delivery?: string }).delivery,
+    delivery: ball.deliveryType || undefined,
+    speed: presentationSpeedOf(ball.deliveryType),
+    line: ball.line,
+    length: ball.length,
+    shot: ball.shot,
+    timing: ball.timing,
+    timingBand: ball.timing,
+    wicketType: ball.wicketType,
   }));
 
   return {

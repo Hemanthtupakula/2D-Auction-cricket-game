@@ -1,0 +1,19 @@
+{
+  "phase": "V4.6",
+  "title": "Deterministic Ball Flight & Contact Presentation",
+  "baseline": "d1272e1",
+  "implementation": [
+    "frontend/src/components/auctionxi25d/dream/ball/trajectory.ts",
+    "frontend/src/components/auctionxi25d/dream/ball/director.ts",
+    "frontend/src/components/auctionxi25d/dream/core/types.ts",
+    "frontend/src/components/auctionxi25d/dream/presentation/director.ts",
+    "frontend/src/components/auctionxi25d/MiniMatch25DStage.tsx",
+    "frontend/src/components/auctionxi25d/livePresentation/buildPresentationFeed.ts",
+    "frontend/src/components/auctionxi25d/types.ts"
+  ],
+  "backendAuthorityPreserved": true,
+  "verification": [
+    "npm run build:frontend",
+    "npm run test:backend"
+  ]
+}
