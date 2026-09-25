@@ -5,7 +5,6 @@ import type {PlayerDirector} from '../players/rig';
 import type {DreamCameraDirector} from '../camera/director';
 
 export type FieldingSequence = 'FIELD' | 'BOUNDARY' | 'CATCH' | 'RUN_OUT';
-
 type FieldingActorState = 'REACT' | 'SPRINT' | 'DIVE' | 'PICKUP' | 'THROW' | 'CATCH' | 'MISS' | 'CELEBRATE';
 
 interface FieldingActor {
@@ -83,20 +82,17 @@ function sequenceFor(event: AuthoritativeBallEvent): FieldingSequence {
 function fieldTarget(event: AuthoritativeBallEvent, trajectory: BallTrajectory): THREE.Vector3 {
   const seed = hashSeed(`${event.ballId}|${event.shot ?? ''}|${event.outcome}|${event.wicketType ?? ''}`);
   const sequence = sequenceFor(event);
-
   if (sequence === 'RUN_OUT') {
     const wicket = normalise(event.wicketType);
     const z = wicket.includes('non') ? -7.5 : 8.2;
     return new THREE.Vector3((random01(seed, 8) - 0.5) * 0.22, 0, z);
   }
-
   if (sequence === 'CATCH') {
     const direction = shotVector(event.shot, seed);
     const distance = normalise(event.shot).includes('edge') ? 3.6 : 5.2 + random01(seed, 12) * 2.0;
     const height = event.batterIntent === 'LOFT' || event.outcome === 'WICKET' ? 2.0 + random01(seed, 19) * 1.8 : 1.35;
     return trajectory.contact.clone().addScaledVector(direction, distance).setY(height);
   }
-
   const result = trajectory.end.clone();
   result.x = clamp(result.x, -22, 22);
   result.z = clamp(result.z, -24, 24);
@@ -124,10 +120,7 @@ export class FieldingDirector {
   private cameraTriggered = false;
   private target = new THREE.Vector3();
 
-  constructor(
-    private readonly players: PlayerDirector,
-    private readonly camera?: DreamCameraDirector,
-  ) {}
+  constructor(private readonly players: PlayerDirector, private readonly camera?: DreamCameraDirector) {}
 
   begin(event: AuthoritativeBallEvent, trajectory: BallTrajectory): void {
     this.reset();
@@ -255,17 +248,14 @@ export class FieldingDirector {
   update(elapsed: number): void {
     if (!this.started || this.finished) return;
     let allDone = true;
-
     this.actors.forEach((actor) => {
       if (actor.completed) return;
       allDone = false;
       const local = elapsed - actor.chaseDelay;
-
       if (local < 0) {
         this.players.state(actor.id, actor.role, 'REACT');
         return;
       }
-
       if (local <= actor.chaseDuration) {
         const q = clamp(local / actor.chaseDuration, 0, 1);
         const eased = q * q * (3 - 2 * q);
@@ -274,7 +264,6 @@ export class FieldingDirector {
         this.players.state(actor.id, actor.role, actor.state === 'CATCH' ? 'SPRINT' : actor.state);
         return;
       }
-
       const holdTime = local - actor.chaseDuration;
       if (holdTime <= actor.holdDuration) {
         this.players.offset(actor.id, actor.targetOffset);
@@ -289,14 +278,12 @@ export class FieldingDirector {
         } else {
           this.players.state(actor.id, actor.role, 'PICKUP');
         }
-
         if (!this.cameraTriggered && (this.sequence === 'CATCH' || this.sequence === 'RUN_OUT')) {
           this.camera?.set('FIELDING_VIEW');
           this.cameraTriggered = true;
         }
         return;
       }
-
       const returnTime = holdTime - actor.holdDuration;
       if (returnTime <= actor.returnDuration) {
         const q = clamp(returnTime / actor.returnDuration, 0, 1);
@@ -306,19 +293,12 @@ export class FieldingDirector {
         this.players.state(actor.id, actor.role, 'REACT');
         return;
       }
-
       this.players.offset(actor.id, new THREE.Vector3());
-      if (this.sequence === 'CATCH' || this.sequence === 'RUN_OUT') {
-        this.players.state(actor.id, actor.role, 'CELEBRATE');
-      } else {
-        this.players.state(actor.id, actor.role, 'READY');
-      }
+      if (this.sequence === 'CATCH' || this.sequence === 'RUN_OUT') this.players.state(actor.id, actor.role, 'CELEBRATE');
+      else this.players.state(actor.id, actor.role, 'READY');
       actor.completed = true;
     });
-
-    if (allDone) {
-      this.finished = true;
-    }
+    if (allDone) this.finished = true;
   }
 
   reset(): void {
@@ -336,6 +316,10 @@ export class FieldingDirector {
 
   getSequence(): FieldingSequence {
     return this.sequence;
+  }
+
+  getTarget(): THREE.Vector3 {
+    return this.target.clone();
   }
 
   private actorFor(

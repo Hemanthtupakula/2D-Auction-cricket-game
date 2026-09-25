@@ -44,6 +44,10 @@ export class BallDirector {
     return this.trajectory;
   }
 
+  getPosition(): THREE.Vector3 {
+    return this.ball.position.clone();
+  }
+
   getTimings() {
     return {
       bounceTime: this.trajectory?.bounceTime ?? 0.42,

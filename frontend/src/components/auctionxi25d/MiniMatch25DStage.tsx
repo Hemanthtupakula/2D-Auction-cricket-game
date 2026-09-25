@@ -1,20 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { DreamMatchPresentation } from "./dream/presentation/director";
-import type {
-  AuthoritativeBallEvent,
-  DeliveryKind,
-  BatterIntent,
-  TimingBand,
-  Outcome,
-  Role,
-} from "./dream/core/types";
-import type {
-  MiniMatch25DProps,
-  PresentationCamera,
-  PresentationPlayer,
-  PresentationBall,
-} from "./types";
+import type { AuthoritativeBallEvent, DeliveryKind, BatterIntent, TimingBand, Outcome, Role } from "./dream/core/types";
+import type { MiniMatch25DProps, PresentationCamera, PresentationPlayer, PresentationBall } from "./types";
 export type { MiniMatch25DProps };
 import "./stage.css";
 
@@ -88,10 +76,7 @@ function mapOutcome(ball: PresentationBall): Outcome {
   return "DOT";
 }
 
-function normaliseToDreamBall(
-  ball: PresentationBall,
-  players?: PresentationPlayer[]
-): AuthoritativeBallEvent {
+function normaliseToDreamBall(ball: PresentationBall, players?: PresentationPlayer[]): AuthoritativeBallEvent {
   const normalizedPlayers = normalisePlayers(players);
   const batters = normalizedPlayers.filter((p) => p.role === "BATTER");
   const striker = batters[0];
@@ -99,22 +84,14 @@ function normaliseToDreamBall(
   const bowler = normalizedPlayers.find((p) => p.role === "BOWLER");
   const fielders = normalizedPlayers
     .filter((p) => p.role !== "BATTER" && p.role !== "BOWLER")
-    .map((f) => ({
-      id: f.id,
-      x: f.x,
-      z: f.z,
-      role: (f.role || "FIELDER") as Role,
-    }));
+    .map((f) => ({ id: f.id, x: f.x, z: f.z, role: (f.role || "FIELDER") as Role }));
 
-  let target: { x: number; z: number } | undefined = undefined;
-  if (typeof ball.aimX === "number" && typeof ball.aimZ === "number") {
-    target = { x: ball.aimX, z: ball.aimZ };
-  }
+  let target: { x: number; z: number } | undefined;
+  if (typeof ball.aimX === "number" && typeof ball.aimZ === "number") target = { x: ball.aimX, z: ball.aimZ };
 
-  const ballId =
-    ball.ballNumber != null
-      ? `${ball.innings ?? 0}-${ball.ballNumber}`
-      : `${ball.innings ?? 0}-${ball.overNumber ?? 0}.${ball.ballInOver ?? 1}`;
+  const ballId = ball.ballNumber != null
+    ? `${ball.innings ?? 0}-${ball.ballNumber}`
+    : `${ball.innings ?? 0}-${ball.overNumber ?? 0}.${ball.ballInOver ?? 1}`;
 
   return {
     ballId,
@@ -182,11 +159,8 @@ export const MiniMatch25DStage: React.FC<MiniMatch25DProps> = ({
     dreamPresentationRef.current = dream;
     scene.add(dream.root);
 
-    normalisePlayers(players).forEach((p) => {
-      dream.players.position(p.id, (p.role || "FIELDER") as Role, p.x, p.z);
-    });
-
-    if (currentCamera) dream.camera.set(currentCamera as any);
+    normalisePlayers(players).forEach((p) => dream.players.position(p.id, (p.role || "FIELDER") as Role, p.x, p.z));
+    if (currentCamera) dream.camera.setManual(currentCamera as any);
 
     let frame = 0;
     let previous = performance.now();
@@ -232,9 +206,7 @@ export const MiniMatch25DStage: React.FC<MiniMatch25DProps> = ({
   }, [players, stadiumName]);
 
   useEffect(() => {
-    if (currentCamera && dreamPresentationRef.current) {
-      dreamPresentationRef.current.camera.set(currentCamera as any);
-    }
+    if (currentCamera && dreamPresentationRef.current) dreamPresentationRef.current.camera.setManual(currentCamera as any);
   }, [currentCamera]);
 
   useEffect(() => {
@@ -269,32 +241,18 @@ export const MiniMatch25DStage: React.FC<MiniMatch25DProps> = ({
       </div>
       <div className="auctionxi-25d-camera">
         {(["BATTER_VIEW", "BOWLER_VIEW", "BALL_FOLLOW"] as PresentationCamera[]).map((c) => (
-          <button
-            key={c}
-            type="button"
-            className={currentCamera === c ? "active" : ""}
-            onClick={() => {
-              dreamPresentationRef.current?.camera.set(c as any);
-              onCameraChange?.(c);
-            }}
-          >
+          <button key={c} type="button" className={currentCamera === c ? "active" : ""} onClick={() => {
+            dreamPresentationRef.current?.camera.setManual(c as any);
+            onCameraChange?.(c);
+          }}>
             {c.replace("_", " ")}
           </button>
         ))}
       </div>
       <div className="auctionxi-25d-bottom">
-        <div className="auctionxi-25d-ball-card">
-          <span className="label">BALL</span>
-          <strong>{lastBall?.overNumber != null ? `${Number(lastBall.overNumber) + 1}.${lastBall.ballInOver ?? ""}` : "—"}</strong>
-        </div>
-        <div className="auctionxi-25d-ball-card wide">
-          <span className="label">COMMENTARY</span>
-          <strong>{lastBall?.commentary || "Read the delivery. Choose your response."}</strong>
-        </div>
-        <div className="auctionxi-25d-ball-card">
-          <span className="label">RESULT</span>
-          <strong className={`result-${String(lastBall?.outcome || "DOT").toLowerCase()}`}>{lastBall?.outcome || "READY"}</strong>
-        </div>
+        <div className="auctionxi-25d-ball-card"><span className="label">BALL</span><strong>{lastBall?.overNumber != null ? `${Number(lastBall.overNumber) + 1}.${lastBall.ballInOver ?? ""}` : "—"}</strong></div>
+        <div className="auctionxi-25d-ball-card wide"><span className="label">COMMENTARY</span><strong>{lastBall?.commentary || "Read the delivery. Choose your response."}</strong></div>
+        <div className="auctionxi-25d-ball-card"><span className="label">RESULT</span><strong className={`result-${String(lastBall?.outcome || "DOT").toLowerCase()}`}>{lastBall?.outcome || "READY"}</strong></div>
       </div>
     </section>
   );

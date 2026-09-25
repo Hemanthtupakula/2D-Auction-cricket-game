@@ -82,11 +82,20 @@ export class DreamMatchPresentation {
     if (trajectory) this.fielding.begin(e, trajectory);
 
     const timings = this.ball.getTimings();
+    const resolvedTrajectory = this.ball.getTrajectory();
+    if (resolvedTrajectory) {
+      this.camera.beginBall(
+        e,
+        timings,
+        resolvedTrajectory,
+        this.fielding.getSequence(),
+        this.fielding.getTarget(),
+      );
+    }
+
     const releaseTime = Math.max(0.38, timings.bounceTime - 0.06);
     const contactTime = timings.contactTime;
     const presentationEnd = Math.max(3.4, timings.totalDuration + 1.05);
-
-    this.camera.set('BOWLER_VIEW');
 
     this.timeline
       .add('runup', 0, Math.min(releaseTime, 0.38), (t) => {
@@ -97,7 +106,6 @@ export class DreamMatchPresentation {
         if (e.bowlerId && t > 0.35) this.players.state(e.bowlerId, 'BOWLER', `RELEASE_${e.deliveryKind}`);
       })
       .add('flight', Math.min(0.52, releaseTime), Math.max(contactTime, 0.66), (t) => {
-        this.camera.set(t < 0.32 ? 'DELIVERY_TRACK' : 'CONTACT_VIEW');
         if (t > 0.3) this.players.v4Rig.setPhase('FIELDING');
       })
       .add('response', contactTime, contactTime + 0.34, (t) => {
@@ -128,14 +136,10 @@ export class DreamMatchPresentation {
     const big = e.outcome === 'FOUR' || e.outcome === 'SIX';
     const wicket = e.outcome === 'WICKET' || e.outcome === 'RUN_OUT';
     if (wicket) {
-      this.camera.set('WICKET_VIEW');
       this.fx.burst('WICKET');
       if (e.strikerId && e.outcome === 'WICKET') this.players.state(e.strikerId, 'BATTER', 'DISMISS');
     } else if (big) {
-      this.camera.set('BOUNDARY_VIEW');
       this.fx.burst(e.outcome);
-    } else {
-      this.camera.set('BALL_FOLLOW');
     }
   }
 
@@ -147,7 +151,20 @@ export class DreamMatchPresentation {
     this.players.update(dt, this.elapsed);
     this.world.update(dt);
     this.fx.update(dt);
-    this.camera.update(cam, dt);
+
+    const activeTrajectory = this.ball.getTrajectory();
+    const fieldTarget = this.fielding.getTarget();
+    this.camera.update(cam, dt, {
+      elapsed: this.elapsed,
+      points: {
+        ball: this.ball.getPosition(),
+        contact: activeTrajectory?.contact,
+        fieldTarget,
+        batter: new THREE.Vector3(0, 0.8, 7.8),
+        wicket: new THREE.Vector3(0, 0.8, 8.2),
+        boundary: activeTrajectory?.end,
+      },
+    });
   }
 
   resetForNextBall() {

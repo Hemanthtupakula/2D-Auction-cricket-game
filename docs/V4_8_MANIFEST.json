@@ -1,0 +1,18 @@
+{
+  "phase": "V4.8",
+  "title": "Broadcast / Cinematic Camera Director",
+  "baselineCommit": "76efd38",
+  "payload": [
+    "frontend/src/components/auctionxi25d/dream/camera/director.ts",
+    "frontend/src/components/auctionxi25d/dream/camera/cinematic.ts",
+    "frontend/src/components/auctionxi25d/dream/presentation/director.ts",
+    "frontend/src/components/auctionxi25d/dream/ball/director.ts",
+    "frontend/src/components/auctionxi25d/dream/fielding/FieldingDirector.ts",
+    "frontend/src/components/auctionxi25d/MiniMatch25DStage.tsx"
+  ],
+  "backendAuthorityPreserved": true,
+  "validation": [
+    "npm run build:frontend",
+    "npm run test:backend"
+  ]
+}
