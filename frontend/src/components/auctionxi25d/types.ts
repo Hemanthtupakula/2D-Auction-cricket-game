@@ -34,6 +34,17 @@ export interface MiniMatch25DProps {
   players?: PresentationPlayer[];
   battingTeam?: string; bowlingTeam?: string; stadiumName?: string;
   interactive?: boolean;
+  aimX?: number;
+  aimZ?: number;
+  canAim?: boolean;
+  onAimChange?: (x: number, z: number) => void;
+  onAimLock?: () => void;
+  isDelivering?: boolean;
+  isBatSwinging?: boolean;
+  deliveryType?: string;
+  bowlingSpeed?: string;
+  batIntent?: string;
+  viewMode?: PresentationCamera;
   onCameraChange?: (camera: PresentationCamera) => void;
   onPresentationComplete?: () => void;
 }

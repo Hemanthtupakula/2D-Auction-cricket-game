@@ -67,19 +67,91 @@ function normaliseToDreamBall(ball: PresentationBall, players?: PresentationPlay
 }
 
 export const MiniMatch25DStage: React.FC<MiniMatch25DProps> = ({
-  className = "", balls = [], lastBall = null, players, stadiumName = "WANKHEDE STADIUM", currentCamera = "BATTER_VIEW", onCameraChange, onPresentationComplete,
+  className = "",
+  balls = [],
+  lastBall = null,
+  players,
+  stadiumName = "WANKHEDE STADIUM",
+  currentCamera = "BATTER_VIEW",
+  onCameraChange,
+  onPresentationComplete,
+  aimX = 0,
+  aimZ = 2,
+  canAim = false,
+  onAimChange,
+  onAimLock,
+  isDelivering = false,
+  isBatSwinging = false,
+  deliveryType = "PACE",
+  bowlingSpeed = "MEDIUM",
+  batIntent = "NORMAL",
+  viewMode,
 }) => {
   const mountRef = useRef<HTMLDivElement | null>(null);
-  const stateRef = useRef({ lastBallKey: "" });
+  const stateRef = useRef({ lastBallKey: "", previewKey: "", wasBatSwinging: false });
   const dreamPresentationRef = useRef<DreamMatchPresentation | null>(null);
+  const aimMarkerRef = useRef<THREE.Group | null>(null);
+  const draggingAimRef = useRef(false);
+
+  const updateAimFromPointer = (event: React.PointerEvent<HTMLElement>) => {
+    if (!canAim || !mountRef.current || !onAimChange) return;
+    const rendererCanvas = event.currentTarget.querySelector('canvas');
+    if (!rendererCanvas) return;
+    const rect = rendererCanvas.getBoundingClientRect();
+    const pointer = new THREE.Vector2(
+      ((event.clientX - rect.left) / Math.max(1, rect.width)) * 2 - 1,
+      -((event.clientY - rect.top) / Math.max(1, rect.height)) * 2 + 1,
+    );
+    const camera = (rendererCanvas as HTMLCanvasElement & { __auctionXiCamera?: THREE.PerspectiveCamera }).__auctionXiCamera;
+    if (!camera) return;
+    const raycaster = new THREE.Raycaster();
+    raycaster.setFromCamera(pointer, camera);
+    const plane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
+    const hit = new THREE.Vector3();
+    if (!raycaster.ray.intersectPlane(plane, hit)) return;
+    const x = THREE.MathUtils.clamp(hit.x, -1.2, 1.2);
+    const z = THREE.MathUtils.clamp(hit.z, -1.5, 6);
+    onAimChange(Number(x.toFixed(3)), Number(z.toFixed(3)));
+  };
+
+  const previewEvent = (): AuthoritativeBallEvent => {
+    const normalized = String(bowlingSpeed || "MEDIUM").toUpperCase();
+    const speed = normalized.includes("FAST") ? 150 : normalized.includes("SLOW") ? 112 : 138;
+    const striker = normalisePlayers(players).find((p) => p.role === "BATTER");
+    const nonStriker = normalisePlayers(players).filter((p) => p.role === "BATTER")[1];
+    const bowler = normalisePlayers(players).find((p) => p.role === "BOWLER");
+    const fielders = normalisePlayers(players)
+      .filter((p) => p.role !== "BATTER" && p.role !== "BOWLER")
+      .map((f) => ({ id: f.id, x: f.x, z: f.z, role: (f.role || "FIELDER") as Role }));
+    const previewId = `preview-${Date.now()}`;
+    return {
+      ballId: previewId,
+      over: 0,
+      ball: 1,
+      deliveryKind: mapDeliveryKind(deliveryType),
+      speed,
+      batterIntent: mapBatterIntent(batIntent),
+      timingBand: "GOOD",
+      outcome: "DOT",
+      target: { x: aimX, z: aimZ },
+      strikerId: striker?.id || "batter",
+      nonStrikerId: nonStriker?.id || "nonstriker",
+      bowlerId: bowler?.id || "bowler",
+      fielders,
+      timestamp: Date.now(),
+    };
+  };
 
   useEffect(() => {
-    const mount = mountRef.current; if (!mount) return;
+    const mount = mountRef.current;
+    if (!mount) return;
+
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x050910);
     scene.fog = new THREE.FogExp2(0x07110d, 0.0065);
     const camera = new THREE.PerspectiveCamera(50, mount.clientWidth / Math.max(1, mount.clientHeight), 0.1, 140);
     camera.position.set(0, 6.8, 17.5);
+
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -89,46 +161,168 @@ export const MiniMatch25DStage: React.FC<MiniMatch25DProps> = ({
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     renderer.setSize(mount.clientWidth, mount.clientHeight);
     mount.appendChild(renderer.domElement);
+    (renderer.domElement as HTMLCanvasElement & { __auctionXiCamera?: THREE.PerspectiveCamera }).__auctionXiCamera = camera;
 
     scene.add(new THREE.HemisphereLight(0x9bc8ff, 0x102019, 1.65));
     const key = new THREE.DirectionalLight(0xfff4df, 3.8);
-    key.position.set(10, 18, 8); key.castShadow = true; key.shadow.mapSize.set(2048, 2048);
-    key.shadow.camera.near = 1; key.shadow.camera.far = 60; key.shadow.camera.left = -30; key.shadow.camera.right = 30; key.shadow.camera.top = 30; key.shadow.camera.bottom = -30;
+    key.position.set(10, 18, 8);
+    key.castShadow = true;
+    key.shadow.mapSize.set(2048, 2048);
+    key.shadow.camera.near = 1;
+    key.shadow.camera.far = 60;
+    key.shadow.camera.left = -30;
+    key.shadow.camera.right = 30;
+    key.shadow.camera.top = 30;
+    key.shadow.camera.bottom = -30;
     scene.add(key);
-    const fill = new THREE.DirectionalLight(0x9fc7ff, 1.25); fill.position.set(-12, 10, -10); scene.add(fill);
+    const fill = new THREE.DirectionalLight(0x9fc7ff, 1.25);
+    fill.position.set(-12, 10, -10);
+    scene.add(fill);
 
     const dream = new DreamMatchPresentation();
-    dreamPresentationRef.current = dream; scene.add(dream.root);
-    normalisePlayers(players).forEach((p) => dream.players.position(p.id, (p.role || "FIELDER") as Role, p.x, p.z, p.visualProfileId, p.name));
-    if (currentCamera) dream.camera.setManual(currentCamera as any);
+    dreamPresentationRef.current = dream;
+    scene.add(dream.root);
+    normalisePlayers(players).forEach((p) =>
+      dream.players.position(p.id, (p.role || "FIELDER") as Role, p.x, p.z, p.visualProfileId, p.name),
+    );
 
-    let frame = 0; let previous = performance.now();
-    const resize = () => { const w = mount.clientWidth || 1; const h = mount.clientHeight || 1; camera.aspect = w / h; camera.updateProjectionMatrix(); renderer.setSize(w, h); };
-    const ro = new ResizeObserver(resize); ro.observe(mount);
-    const tick = (now: number) => { const dt = Math.min(0.05, (now - previous) / 1000); previous = now; dream.update(dt, camera); renderer.render(scene, camera); frame = requestAnimationFrame(tick); };
+    const aimMarker = new THREE.Group();
+    const ring = new THREE.Mesh(
+      new THREE.RingGeometry(0.20, 0.28, 32),
+      new THREE.MeshBasicMaterial({ color: 0x19d9ff, transparent: true, opacity: 0.95, side: THREE.DoubleSide }),
+    );
+    ring.rotation.x = -Math.PI / 2;
+    aimMarker.add(ring);
+    const center = new THREE.Mesh(
+      new THREE.CircleGeometry(0.055, 24),
+      new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.92, side: THREE.DoubleSide }),
+    );
+    center.rotation.x = -Math.PI / 2;
+    center.position.y = 0.012;
+    aimMarker.add(center);
+    aimMarker.position.y = 0.17;
+    scene.add(aimMarker);
+    aimMarkerRef.current = aimMarker;
+
+    if (currentCamera) dream.camera.setManual((viewMode || currentCamera) as any);
+
+    let frame = 0;
+    let previous = performance.now();
+    const resize = () => {
+      const w = mount.clientWidth || 1;
+      const h = mount.clientHeight || 1;
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h);
+      (renderer.domElement as HTMLCanvasElement & { __auctionXiCamera?: THREE.PerspectiveCamera }).__auctionXiCamera = camera;
+    };
+    const ro = new ResizeObserver(resize);
+    ro.observe(mount);
+    const tick = (now: number) => {
+      const dt = Math.min(0.05, (now - previous) / 1000);
+      previous = now;
+      const marker = aimMarkerRef.current;
+      if (marker) {
+        marker.visible = canAim || isDelivering;
+        marker.position.x = aimX;
+        marker.position.z = aimZ;
+        const pulse = 1 + Math.sin(now * 0.008) * 0.08;
+        marker.scale.setScalar(pulse);
+      }
+      dream.update(dt, camera);
+      renderer.render(scene, camera);
+      frame = requestAnimationFrame(tick);
+    };
     frame = requestAnimationFrame(tick);
-    return () => { cancelAnimationFrame(frame); ro.disconnect(); renderer.dispose(); if (mount.contains(renderer.domElement)) mount.removeChild(renderer.domElement); dream.resetForNextBall(); scene.remove(dream.root); dreamPresentationRef.current = null; scene.traverse((o) => { const m = o as THREE.Mesh; if (m.geometry) m.geometry.dispose(); if (m.material) { const ms = Array.isArray(m.material) ? m.material : [m.material]; ms.forEach((x) => { (x as THREE.MeshStandardMaterial).map?.dispose(); x.dispose(); }); } }); };
+
+    return () => {
+      cancelAnimationFrame(frame);
+      ro.disconnect();
+      renderer.dispose();
+      if (mount.contains(renderer.domElement)) mount.removeChild(renderer.domElement);
+      dream.resetForNextBall();
+      scene.remove(dream.root);
+      scene.remove(aimMarker);
+      aimMarkerRef.current = null;
+      dreamPresentationRef.current = null;
+      scene.traverse((o) => {
+        const m = o as THREE.Mesh;
+        if (m.geometry) m.geometry.dispose();
+        if (m.material) {
+          const ms = Array.isArray(m.material) ? m.material : [m.material];
+          ms.forEach((x) => (x as THREE.MeshStandardMaterial).map?.dispose());
+        }
+      });
+    };
   }, [players, stadiumName]);
 
-  useEffect(() => { if (currentCamera && dreamPresentationRef.current) dreamPresentationRef.current.camera.setManual(currentCamera as any); }, [currentCamera]);
+  useEffect(() => {
+    const dream = dreamPresentationRef.current;
+    if (currentCamera && dream && !isDelivering) dream.camera.setManual((viewMode || currentCamera) as any);
+  }, [currentCamera, viewMode, isDelivering]);
+
+  useEffect(() => {
+    const dream = dreamPresentationRef.current;
+    if (!dream || !isDelivering) return;
+    const key = `${deliveryType}|${bowlingSpeed}|${aimX.toFixed(3)}|${aimZ.toFixed(3)}`;
+    if (key === stateRef.current.previewKey) return;
+    stateRef.current.previewKey = key;
+    dream.playDeliveryPreview(previewEvent());
+  }, [isDelivering, deliveryType, bowlingSpeed, aimX, aimZ, players]);
+
+  useEffect(() => {
+    if (!isBatSwinging || stateRef.current.wasBatSwinging) return;
+    const dream = dreamPresentationRef.current;
+    const striker = normalisePlayers(players).find((p) => p.role === "BATTER");
+    if (dream && striker) {
+      const intent = String(batIntent || "NORMAL").toUpperCase();
+      dream.players.state(striker.id, "BATTER", intent.includes("DEF") ? "DEFENSIVE" : intent.includes("LOFT") ? "LOFT" : "DRIVE");
+    }
+    stateRef.current.wasBatSwinging = true;
+  }, [isBatSwinging, batIntent, players]);
+
+  useEffect(() => {
+    if (!isBatSwinging) stateRef.current.wasBatSwinging = false;
+  }, [isBatSwinging]);
+
   useEffect(() => {
     const ball = lastBall || balls[balls.length - 1];
-    if (!ball) { dreamPresentationRef.current?.resetForNextBall(); return; }
+    if (!ball) return;
     if (!dreamPresentationRef.current) return;
     const key = `${ball.innings || 0}-${ball.ballNumber || balls.length}-${ball.outcome || ""}-${ball.runs || 0}-${ball.timing || ""}`;
     if (key === stateRef.current.lastBallKey) return;
     stateRef.current.lastBallKey = key;
-    const dreamBall = normaliseToDreamBall(ball, players); dreamPresentationRef.current.playBall(dreamBall);
-    const timer = setTimeout(() => onPresentationComplete?.(), 3600); return () => clearTimeout(timer);
+    stateRef.current.previewKey = "";
+    const dreamBall = normaliseToDreamBall(ball, players);
+    dreamPresentationRef.current.playBall(dreamBall);
+    const timer = setTimeout(() => onPresentationComplete?.(), 3600);
+    return () => clearTimeout(timer);
   }, [balls, lastBall, players, onPresentationComplete]);
 
   return (
-    <section className={`auctionxi-25d-stage ${className}`}>
+    <section
+      className={`auctionxi-25d-stage ${className}`}
+      onPointerDown={(event) => {
+        if (!canAim) return;
+        draggingAimRef.current = true;
+        event.currentTarget.setPointerCapture?.(event.pointerId);
+        updateAimFromPointer(event);
+      }}
+      onPointerMove={(event) => { if (draggingAimRef.current) updateAimFromPointer(event); }}
+      onPointerUp={(event) => {
+        if (!draggingAimRef.current) return;
+        draggingAimRef.current = false;
+        event.currentTarget.releasePointerCapture?.(event.pointerId);
+        onAimLock?.();
+      }}
+      onPointerCancel={() => { draggingAimRef.current = false; }}
+    >
       <div className="auctionxi-25d-canvas" ref={mountRef} />
       <div className="auctionxi-25d-vignette" />
+      {canAim && <div className="auctionxi-25d-aim-hint">DRAG CIRCLE TO AIM • RELEASE TO LOCK</div>}
       <div className="auctionxi-25d-topbar"><div><div className="auctionxi-25d-kicker">AUCTION XI • LIVE MATCH</div><div className="auctionxi-25d-stadium">{stadiumName}</div></div><div className="auctionxi-25d-status"><span className="auctionxi-live-dot" />LIVE</div></div>
       <div className="auctionxi-25d-camera">{(["BATTER_VIEW", "BOWLER_VIEW", "BALL_FOLLOW"] as PresentationCamera[]).map((c) => (<button key={c} type="button" className={currentCamera === c ? "active" : ""} onClick={() => { dreamPresentationRef.current?.camera.setManual(c as any); onCameraChange?.(c); }}>{c.replace("_", " ")}</button>))}</div>
-      <div className="auctionxi-25d-bottom"><div className="auctionxi-25d-ball-card"><span className="label">BALL</span><strong>{lastBall?.overNumber != null ? `${Number(lastBall.overNumber) + 1}.${lastBall.ballInOver ?? ""}` : "—"}</strong></div><div className="auctionxi-25d-ball-card wide"><span className="label">COMMENTARY</span><strong>{lastBall?.commentary || "Broadcast ready — awaiting delivery."}</strong></div><div className="auctionxi-25d-ball-card"><span className="label">RESULT</span><strong className={`result-${String(lastBall?.outcome || "DOT").toLowerCase()}`}>{lastBall?.outcome || "READY"}</strong></div></div>
+      <div className="auctionxi-25d-bottom"><div className="auctionxi-25d-ball-card"><span className="label">BALL</span><strong>{lastBall?.overNumber != null ? `${Number(lastBall.overNumber) + 1}.${lastBall.ballInOver ?? ""}` : "—"}</strong></div><div className="auctionxi-25d-ball-card wide"><span className="label">COMMENTARY</span><strong>{lastBall?.commentary || (isDelivering ? "Delivery in flight…" : "Broadcast ready — awaiting delivery.")}</strong></div><div className="auctionxi-25d-ball-card"><span className="label">RESULT</span><strong className={`result-${String(lastBall?.outcome || "DOT").toLowerCase()}`}>{lastBall?.outcome || (isDelivering ? "IN FLIGHT" : "READY")}</strong></div></div>
     </section>
   );
 };
