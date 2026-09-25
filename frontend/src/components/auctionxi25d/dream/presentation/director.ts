@@ -7,6 +7,7 @@ import {DreamCameraDirector} from '../camera/director';
 import {DreamStadiumWorld} from '../stadium/world';
 import {BroadcastFX} from '../fx/broadcastFx';
 import {FieldingDirector} from '../fielding/FieldingDirector';
+import {UmpireDirector} from '../officials/UmpireDirector';
 import type {AuthoritativeBallPresentation, Outcome as V4Outcome} from '../../playerPresentation/v4/types';
 
 export class DreamMatchPresentation {
@@ -16,13 +17,14 @@ export class DreamMatchPresentation {
   readonly ball = new BallDirector();
   readonly camera = new DreamCameraDirector();
   readonly fx = new BroadcastFX();
+  readonly officials = new UmpireDirector();
   readonly timeline = new PresentationTimeline();
   readonly fielding = new FieldingDirector(this.players, this.camera);
   private current?: AuthoritativeBallEvent;
   private elapsed = 0;
 
   constructor() {
-    this.root.add(this.world.group, this.players.group, this.ball.group, this.fx.group);
+    this.root.add(this.world.group, this.players.group, this.ball.group, this.fx.group, this.officials.group);
   }
 
   getCurrentBall() {
@@ -35,6 +37,8 @@ export class DreamMatchPresentation {
     this.timeline.reset();
     this.ball.begin(e);
     this.players.reset();
+    this.world.onBall(e);
+    this.officials.onBall(e);
 
     const v4Outcome: V4Outcome =
       e.outcome === 'SIX' ? 'SIX' :
@@ -150,6 +154,7 @@ export class DreamMatchPresentation {
     this.fielding.update(this.elapsed);
     this.players.update(dt, this.elapsed);
     this.world.update(dt);
+    this.officials.update(dt);
     this.fx.update(dt);
 
     const activeTrajectory = this.ball.getTrajectory();
@@ -174,6 +179,8 @@ export class DreamMatchPresentation {
     this.fielding.reset();
     this.ball.reset();
     this.players.reset();
+    this.officials.reset();
+    this.world.reset();
     this.camera.set('BATTER_VIEW', true);
   }
 }

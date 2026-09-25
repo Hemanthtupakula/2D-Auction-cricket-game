@@ -1,0 +1,18 @@
+{
+  "phase": "V4.9",
+  "title": "Stadium / Crowd / Umpire / Match Atmosphere",
+  "baselineCommit": "8a5035e",
+  "payload": [
+    "frontend/src/components/auctionxi25d/dream/stadium/world.ts",
+    "frontend/src/components/auctionxi25d/dream/officials/UmpireDirector.ts",
+    "frontend/src/components/auctionxi25d/dream/presentation/director.ts",
+    "frontend/src/components/auctionxi25d/dream/index.ts"
+  ],
+  "backendAuthorityPreserved": true,
+  "auctionRosterUnchanged": true,
+  "likenessLayerUnchanged": true,
+  "validation": [
+    "npm run build:frontend",
+    "npm run test:backend"
+  ]
+}

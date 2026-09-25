@@ -4,4 +4,5 @@ export * from './players/rig';
 export * from './ball/director';
 export * from './camera/director';
 export * from './stadium/world';
+export * from './officials/UmpireDirector';
 export * from './ui/BroadcastOverlay';
