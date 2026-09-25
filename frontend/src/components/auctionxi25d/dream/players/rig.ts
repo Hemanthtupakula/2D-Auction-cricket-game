@@ -21,6 +21,10 @@ export class PlayerDirector {
     this.v4Rig.transitionPlayer(id, state as any);
   }
 
+  offset(id: string, offset: THREE.Vector3): void {
+    this.v4Rig.setPlayerPresentationOffset(id, offset);
+  }
+
   update(dt: number, _time?: number): void {
     this.v4Rig.update(dt);
   }

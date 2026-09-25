@@ -6,6 +6,7 @@ import {BallDirector} from '../ball/director';
 import {DreamCameraDirector} from '../camera/director';
 import {DreamStadiumWorld} from '../stadium/world';
 import {BroadcastFX} from '../fx/broadcastFx';
+import {FieldingDirector} from '../fielding/FieldingDirector';
 import type {AuthoritativeBallPresentation, Outcome as V4Outcome} from '../../playerPresentation/v4/types';
 
 export class DreamMatchPresentation {
@@ -16,6 +17,7 @@ export class DreamMatchPresentation {
   readonly camera = new DreamCameraDirector();
   readonly fx = new BroadcastFX();
   readonly timeline = new PresentationTimeline();
+  readonly fielding = new FieldingDirector(this.players, this.camera);
   private current?: AuthoritativeBallEvent;
   private elapsed = 0;
 
@@ -60,11 +62,7 @@ export class DreamMatchPresentation {
 
     if (e.bowlerId) {
       this.players.position(e.bowlerId, 'BOWLER', 0, -7.5);
-      this.players.state(
-        e.bowlerId,
-        'BOWLER',
-        e.deliveryKind === 'BOUNCER' ? 'RUNUP' : e.deliveryKind === 'YORKER' ? 'RELEASE_YORKER' : 'READY'
-      );
+      this.players.state(e.bowlerId, 'BOWLER', e.deliveryKind === 'BOUNCER' ? 'RUNUP' : e.deliveryKind === 'YORKER' ? 'RELEASE_YORKER' : 'READY');
     }
     if (e.strikerId) {
       this.players.position(e.strikerId, 'BATTER', 0, 8.2);
@@ -80,10 +78,13 @@ export class DreamMatchPresentation {
       }
     }
 
+    const trajectory = this.ball.getTrajectory();
+    if (trajectory) this.fielding.begin(e, trajectory);
+
     const timings = this.ball.getTimings();
     const releaseTime = Math.max(0.38, timings.bounceTime - 0.06);
     const contactTime = timings.contactTime;
-    const presentationEnd = Math.max(2.6, timings.totalDuration + 0.55);
+    const presentationEnd = Math.max(3.4, timings.totalDuration + 1.05);
 
     this.camera.set('BOWLER_VIEW');
 
@@ -93,9 +94,7 @@ export class DreamMatchPresentation {
         if (e.bowlerId && t > 0.45) this.players.state(e.bowlerId, 'BOWLER', 'RUNUP');
       })
       .add('release', Math.min(0.34, releaseTime), Math.min(0.62, releaseTime + 0.22), (t) => {
-        if (e.bowlerId && t > 0.35) {
-          this.players.state(e.bowlerId, 'BOWLER', `RELEASE_${e.deliveryKind}`);
-        }
+        if (e.bowlerId && t > 0.35) this.players.state(e.bowlerId, 'BOWLER', `RELEASE_${e.deliveryKind}`);
       })
       .add('flight', Math.min(0.52, releaseTime), Math.max(contactTime, 0.66), (t) => {
         this.camera.set(t < 0.32 ? 'DELIVERY_TRACK' : 'CONTACT_VIEW');
@@ -118,12 +117,9 @@ export class DreamMatchPresentation {
     if (e.timingBand === 'VERY_EARLY' || e.timingBand === 'VERY_LATE') return 'MISS';
     if (e.outcome === 'WICKET') return 'DISMISS';
     switch (e.batterIntent) {
-      case 'DEFENSIVE':
-        return 'DEFENSIVE';
-      case 'LOFT':
-        return 'LOFT';
-      default:
-        return 'DRIVE';
+      case 'DEFENSIVE': return 'DEFENSIVE';
+      case 'LOFT': return 'LOFT';
+      default: return 'DRIVE';
     }
   }
 
@@ -134,18 +130,12 @@ export class DreamMatchPresentation {
     if (wicket) {
       this.camera.set('WICKET_VIEW');
       this.fx.burst('WICKET');
-      if (e.strikerId) this.players.state(e.strikerId, 'BATTER', 'DISMISS');
+      if (e.strikerId && e.outcome === 'WICKET') this.players.state(e.strikerId, 'BATTER', 'DISMISS');
     } else if (big) {
       this.camera.set('BOUNDARY_VIEW');
       this.fx.burst(e.outcome);
     } else {
       this.camera.set('BALL_FOLLOW');
-    }
-    if (e.fielders) {
-      for (const f of e.fielders) {
-        if (wicket) this.players.state(f.id, f.role === 'KEEPER' ? 'KEEPER' : 'FIELDER', 'REACT');
-        else if (big) this.players.state(f.id, f.role === 'KEEPER' ? 'KEEPER' : 'FIELDER', 'SPRINT');
-      }
     }
   }
 
@@ -153,6 +143,7 @@ export class DreamMatchPresentation {
     this.elapsed += dt;
     this.timeline.tick();
     this.ball.update(this.elapsed);
+    this.fielding.update(this.elapsed);
     this.players.update(dt, this.elapsed);
     this.world.update(dt);
     this.fx.update(dt);
@@ -163,6 +154,7 @@ export class DreamMatchPresentation {
     this.current = undefined;
     this.elapsed = 0;
     this.timeline.reset();
+    this.fielding.reset();
     this.ball.reset();
     this.players.reset();
     this.camera.set('BATTER_VIEW', true);

@@ -40,6 +40,10 @@ export class BallDirector {
     );
   }
 
+  getTrajectory(): BallTrajectory | null {
+    return this.trajectory;
+  }
+
   getTimings() {
     return {
       bounceTime: this.trajectory?.bounceTime ?? 0.42,
@@ -61,40 +65,40 @@ export class BallDirector {
     if (!this.trajectory) return this.ball.position.clone();
     const t = clamp(progress, 0, 1);
     const tr = this.trajectory;
-    if (t <= 1) {
-      const elapsed = t * tr.totalDuration;
-      if (elapsed <= tr.bounceTime) {
-        const q = clamp(elapsed / Math.max(0.001, tr.bounceTime), 0, 1);
-        const eased = q * q * (3 - 2 * q);
-        const point = tr.start.clone().lerp(tr.bounce, eased);
-        point.y += Math.sin(q * Math.PI) * tr.bounceArc;
-        point.x += Math.sin(q * Math.PI) * tr.lateralCurve;
-        return point;
-      }
-      if (elapsed <= tr.contactTime) {
-        const q = clamp(
-          (elapsed - tr.bounceTime) / Math.max(0.001, tr.contactTime - tr.bounceTime),
-          0,
-          1,
-        );
-        const eased = q * q * (3 - 2 * q);
-        const point = tr.bounce.clone().lerp(tr.contact, eased);
-        point.y = THREE.MathUtils.lerp(0.08, tr.contact.y, eased) + Math.sin(q * Math.PI) * 0.34;
-        point.x += Math.sin(q * Math.PI) * tr.lateralCurve * 0.45;
-        return point;
-      }
+    const elapsed = t * tr.totalDuration;
+
+    if (elapsed <= tr.bounceTime) {
+      const q = clamp(elapsed / Math.max(0.001, tr.bounceTime), 0, 1);
+      const eased = q * q * (3 - 2 * q);
+      const point = tr.start.clone().lerp(tr.bounce, eased);
+      point.y += Math.sin(q * Math.PI) * tr.bounceArc;
+      point.x += Math.sin(q * Math.PI) * tr.lateralCurve;
+      return point;
+    }
+
+    if (elapsed <= tr.contactTime) {
       const q = clamp(
-        (elapsed - tr.contactTime) / Math.max(0.001, tr.totalDuration - tr.contactTime),
+        (elapsed - tr.bounceTime) / Math.max(0.001, tr.contactTime - tr.bounceTime),
         0,
         1,
       );
       const eased = q * q * (3 - 2 * q);
-      const point = tr.contact.clone().lerp(tr.end, eased);
-      point.y = THREE.MathUtils.lerp(tr.contact.y, tr.end.y, eased) + Math.sin(q * Math.PI) * tr.postContactArc;
-      point.x += Math.sin(q * Math.PI) * tr.spin;
+      const point = tr.bounce.clone().lerp(tr.contact, eased);
+      point.y = THREE.MathUtils.lerp(0.08, tr.contact.y, eased) + Math.sin(q * Math.PI) * 0.34;
+      point.x += Math.sin(q * Math.PI) * tr.lateralCurve * 0.45;
       return point;
     }
-    return tr.end.clone();
+
+    const q = clamp(
+      (elapsed - tr.contactTime) / Math.max(0.001, tr.totalDuration - tr.contactTime),
+      0,
+      1,
+    );
+    const eased = q * q * (3 - 2 * q);
+    const point = tr.contact.clone().lerp(tr.end, eased);
+    point.y = THREE.MathUtils.lerp(tr.contact.y, tr.end.y, eased) + Math.sin(q * Math.PI) * tr.postContactArc;
+    point.x += Math.sin(q * Math.PI) * tr.spin;
+    return point;
   }
 
   update(elapsedSeconds: number): void {

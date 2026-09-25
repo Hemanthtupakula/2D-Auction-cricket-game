@@ -1,0 +1,19 @@
+{
+  "phase": "V4.7",
+  "title": "Fielding, Catching, Interception & Run-Out Presentation",
+  "baselineCommit": "af10c78",
+  "authoritativeBoundaryPreserved": true,
+  "newRuntime": [
+    "frontend/src/components/auctionxi25d/dream/fielding/FieldingDirector.ts"
+  ],
+  "modifiedRuntime": [
+    "frontend/src/components/auctionxi25d/dream/ball/director.ts",
+    "frontend/src/components/auctionxi25d/dream/presentation/director.ts",
+    "frontend/src/components/auctionxi25d/dream/players/rig.ts",
+    "frontend/src/components/auctionxi25d/playerPresentation/v4/ProductionCricketPlayerRig.ts"
+  ],
+  "validation": [
+    "npm run build:frontend",
+    "npm run test:backend"
+  ]
+}
