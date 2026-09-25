@@ -19,6 +19,8 @@ export interface PresentationBall {
 export interface PresentationPlayer {
   id: string; name?: string; teamCode?: string; x: number; z: number;
   role?: "BATTER" | "BOWLER" | "FIELDER" | "KEEPER";
+  /** Presentation-only visual reference. Never replaces the authoritative player id/name. */
+  visualProfileId?: string;
   spriteUrl?: string; accent?: string;
 }
 

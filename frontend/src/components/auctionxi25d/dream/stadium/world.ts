@@ -1,424 +1,144 @@
 import * as THREE from 'three';
 import type { AuthoritativeBallEvent } from '../core/types';
 
-interface CrowdActor {
-  root: THREE.Group;
-  phase: number;
-  lift: number;
-  baseY: number;
+type UmpireSignal='NONE'|'FOUR'|'SIX'|'WICKET'|'WIDE'|'NO_BALL'|'RUN_OUT';
+
+const hash=(value:string)=>{let h=2166136261>>>0;for(let i=0;i<value.length;i+=1){h^=value.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;};
+
+function labelTexture(title:string,subtitle:string,accent='#39e7c5'):THREE.CanvasTexture{
+  const canvas=document.createElement('canvas'); canvas.width=1024; canvas.height=256;
+  const ctx=canvas.getContext('2d'); if(!ctx) throw new Error('Canvas context unavailable');
+  const bg=ctx.createLinearGradient(0,0,1024,256);bg.addColorStop(0,'#061019');bg.addColorStop(1,'#0b1c24');ctx.fillStyle=bg;ctx.fillRect(0,0,1024,256);
+  ctx.fillStyle=accent;ctx.fillRect(0,0,18,256);ctx.fillRect(1006,0,18,256);
+  ctx.fillStyle='#ffffff';ctx.font='900 58px Arial';ctx.fillText(title,48,106);
+  ctx.fillStyle='#a9b7c7';ctx.font='700 28px Arial';ctx.fillText(subtitle,50,156);
+  const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;texture.needsUpdate=true;return texture;
 }
 
-const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
+function addShadowMesh(root:THREE.Object3D,mesh:THREE.Mesh,receive=true){mesh.castShadow=true;mesh.receiveShadow=receive;root.add(mesh);return mesh;}
 
-function seeded(seed: number): number {
-  let x = (seed ^ 0x9e3779b9) >>> 0;
-  x = Math.imul(x ^ (x >>> 16), 0x85ebca6b);
-  x = Math.imul(x ^ (x >>> 13), 0xc2b2ae35);
-  return ((x ^ (x >>> 16)) >>> 0) / 4294967296;
-}
+export class DreamStadiumWorld{
+  group=new THREE.Group();
+  lights=new THREE.Group();
+  crowd=new THREE.Group();
+  private screens=new THREE.Group();
+  private umpires=new THREE.Group();
+  private umpireArms:THREE.Object3D[]=[];
+  private pulse=0;
+  private crowdEnergy=0.25;
+  private signal:'NONE'|UmpireSignal='NONE';
+  private signalTimer=0;
+  private ledPhase=0;
 
-function outcomeExcitement(event: AuthoritativeBallEvent): number {
-  switch (event.outcome) {
-    case 'SIX': return 1.35;
-    case 'FOUR': return 1.05;
-    case 'WICKET':
-    case 'RUN_OUT': return 1.45;
-    case 'THREE':
-    case 'TWO': return 0.55;
-    case 'ONE': return 0.28;
-    default: return 0.08;
-  }
-}
+  constructor(){this.group.name='AuctionXI-V4.10-BroadcastStadium';this.build();}
 
-export class DreamStadiumWorld {
-  readonly group = new THREE.Group();
-  readonly lights = new THREE.Group();
-  readonly crowd = new THREE.Group();
+  private build(){
+    const grassMat=new THREE.MeshStandardMaterial({color:0x124a2d,roughness:0.96,metalness:0});
+    const grass=addShadowMesh(this.group,new THREE.Mesh(new THREE.PlaneGeometry(84,84),grassMat));grass.rotation.x=-Math.PI/2;grass.receiveShadow=true;
 
-  private readonly crowdActors: CrowdActor[] = [];
-  private readonly animatedLights: THREE.PointLight[] = [];
-  private readonly ledMaterials: THREE.MeshStandardMaterial[] = [];
-  private pulse = 0;
-  private excitement = 0.12;
-  private targetExcitement = 0.12;
-  private eventFlash = 0;
+    const outfield=new THREE.Mesh(new THREE.CircleGeometry(29,96),new THREE.MeshStandardMaterial({color:0x1e633a,roughness:1}));outfield.rotation.x=-Math.PI/2;outfield.position.y=.006;this.group.add(outfield);
 
-  constructor() {
-    this.group.name = 'auction-xi-v4-9-stadium-world';
-    this.build();
-  }
-
-  private build(): void {
-    this.buildSky();
-    this.buildOutfield();
-    this.buildPitch();
-    this.buildBoundary();
-    this.buildStands();
-    this.buildScreens();
-    this.buildFloodlights();
-    this.buildCrowd();
-    this.group.add(this.lights, this.crowd);
-  }
-
-  private buildSky(): void {
-    const sky = new THREE.Mesh(
-      new THREE.SphereGeometry(58, 40, 24),
-      new THREE.MeshBasicMaterial({
-        color: 0x071321,
-        side: THREE.BackSide,
-        depthWrite: false,
-      }),
-    );
-    sky.position.y = 5;
-    sky.name = 'night-sky-dome';
-    this.group.add(sky);
-
-    const starPositions: number[] = [];
-    for (let i = 0; i < 240; i += 1) {
-      const theta = seeded(i * 13 + 9) * Math.PI * 2;
-      const phi = Math.acos(0.08 + seeded(i * 17 + 3) * 0.72);
-      const radius = 46 + seeded(i * 19 + 5) * 8;
-      const x = radius * Math.sin(phi) * Math.cos(theta);
-      const y = Math.abs(radius * Math.cos(phi)) + 14;
-      const z = radius * Math.sin(phi) * Math.sin(theta);
-      starPositions.push(x, y, z);
+    const pitchBase=addShadowMesh(this.group,new THREE.Mesh(new THREE.BoxGeometry(6.1,.18,24.3),new THREE.MeshStandardMaterial({color:0x9f8659,roughness:.82})));pitchBase.position.set(0,.08,0);
+    const pitch=new THREE.Mesh(new THREE.PlaneGeometry(5.85,24),new THREE.MeshStandardMaterial({color:0xcab07e,roughness:.88}));pitch.rotation.x=-Math.PI/2;pitch.position.y=.19;this.group.add(pitch);
+    for(const z of[-8.7,8.7]){
+      const crease=addShadowMesh(this.group,new THREE.Mesh(new THREE.BoxGeometry(5.45,.025,.045),new THREE.MeshStandardMaterial({color:0xf4f4f0,roughness:.5})));crease.position.set(0,.215,z);
+      const inner=addShadowMesh(this.group,new THREE.Mesh(new THREE.BoxGeometry(2.0,.02,.025),new THREE.MeshStandardMaterial({color:0xecebe2})));inner.position.set(0,.218,z-.42*(z>0?1:-1));
+      for(const x of[-.18,0,.18]){const st=addShadowMesh(this.group,new THREE.Mesh(new THREE.CylinderGeometry(.025,.025,.72,8),new THREE.MeshStandardMaterial({color:0xf0f0f0,roughness:.4})));st.position.set(x,.56,z);}
+      const bail=addShadowMesh(this.group,new THREE.Mesh(new THREE.BoxGeometry(.18,.04,.04),new THREE.MeshStandardMaterial({color:0xf0d47a,emissive:0x664400,emissiveIntensity:.4})));bail.position.set(0,.95,z); 
     }
-    const starGeometry = new THREE.BufferGeometry();
-    starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starPositions, 3));
-    const stars = new THREE.Points(
-      starGeometry,
-      new THREE.PointsMaterial({ color: 0xa8c8ff, size: 0.08, transparent: true, opacity: 0.52 }),
-    );
-    stars.name = 'ambient-stars';
-    this.group.add(stars);
+
+    const boundary=addShadowMesh(this.group,new THREE.Mesh(new THREE.TorusGeometry(28.2,.11,10,128),new THREE.MeshStandardMaterial({color:0xf5f6ef,roughness:.42,metalness:.15})),false);boundary.rotation.x=Math.PI/2;boundary.position.y=.08;
+    const led=addShadowMesh(this.group,new THREE.Mesh(new THREE.TorusGeometry(28.55,.16,8,128),new THREE.MeshStandardMaterial({color:0x36e7c3,emissive:0x0b7d6c,emissiveIntensity:2.4,roughness:.25,metalness:.55})),false);led.rotation.x=Math.PI/2;led.position.y=.075;led.userData.ledRing=true;
+
+    this.buildStands();this.buildRoof();this.buildScreens();this.buildLights();this.buildUmpires();this.group.add(this.lights,this.crowd,this.screens,this.umpires);
   }
 
-  private buildOutfield(): void {
-    const grass = new THREE.Mesh(
-      new THREE.CircleGeometry(34, 128),
-      new THREE.MeshStandardMaterial({ color: 0x174b2a, roughness: 1 }),
-    );
-    grass.rotation.x = -Math.PI / 2;
-    grass.position.y = 0;
-    grass.name = 'outfield';
-    grass.receiveShadow = true;
-    this.group.add(grass);
-
-    for (let i = 0; i < 7; i += 1) {
-      const radius = 9 + i * 3.1;
-      const band = new THREE.Mesh(
-        new THREE.RingGeometry(radius, radius + 0.07, 128),
-        new THREE.MeshBasicMaterial({
-          color: i % 2 === 0 ? 0x2b6a38 : 0x225b31,
-          transparent: true,
-          opacity: 0.34,
-          side: THREE.DoubleSide,
-        }),
-      );
-      band.rotation.x = -Math.PI / 2;
-      band.position.y = 0.012 + i * 0.0005;
-      this.group.add(band);
-    }
-  }
-
-  private buildPitch(): void {
-    const pitch = new THREE.Mesh(
-      new THREE.PlaneGeometry(6, 24),
-      new THREE.MeshStandardMaterial({ color: 0xb79a6a, roughness: 0.92 }),
-    );
-    pitch.rotation.x = -Math.PI / 2;
-    pitch.position.y = 0.018;
-    pitch.receiveShadow = true;
-    pitch.name = 'cricket-pitch';
-    this.group.add(pitch);
-
-    const pitchShadow = new THREE.Mesh(
-      new THREE.PlaneGeometry(6.25, 24.3),
-      new THREE.MeshBasicMaterial({ color: 0x0b2c18, transparent: true, opacity: 0.12 }),
-    );
-    pitchShadow.rotation.x = -Math.PI / 2;
-    pitchShadow.position.y = 0.012;
-    this.group.add(pitchShadow);
-
-    for (const z of [-8.7, 8.7]) {
-      const crease = new THREE.Mesh(
-        new THREE.BoxGeometry(5.2, 0.018, 0.045),
-        new THREE.MeshStandardMaterial({ color: 0xffffff, emissive: 0x202020 }),
-      );
-      crease.position.set(0, 0.058, z);
-      this.group.add(crease);
-
-      for (const x of [-0.16, 0, 0.16]) {
-        const stump = new THREE.Mesh(
-          new THREE.CylinderGeometry(0.028, 0.028, 0.72, 10),
-          new THREE.MeshStandardMaterial({ color: 0xf5f5f5, roughness: 0.55 }),
-        );
-        stump.position.set(x, 0.39, z);
-        this.group.add(stump);
-      }
-
-      for (const x of [-0.08, 0.08]) {
-        const bail = new THREE.Mesh(
-          new THREE.BoxGeometry(0.16, 0.025, 0.025),
-          new THREE.MeshStandardMaterial({ color: 0xf5f5f5 }),
-        );
-        bail.position.set(x, 0.76, z);
-        this.group.add(bail);
+  private buildStands(){
+    const standMat=new THREE.MeshStandardMaterial({color:0x111923,roughness:.78,metalness:.16});
+    const tierMat=new THREE.MeshStandardMaterial({color:0x182735,roughness:.72,metalness:.12});
+    const railMat=new THREE.MeshStandardMaterial({color:0x283846,roughness:.45,metalness:.5});
+    const crowdMats=[0x273947,0x31526a,0x3d7b82,0x2d5e52].map(c=>new THREE.MeshStandardMaterial({color:c,roughness:.9}));
+    for(let seg=0;seg<32;seg+=1){
+      const angle=(seg/32)*Math.PI*2;
+      const seed=hash(`stand-${seg}`);
+      for(let tier=0;tier<3;tier+=1){
+        const radius=31.0+tier*2.6;
+        const width=5.8;
+        const block=new THREE.Mesh(new THREE.BoxGeometry(width,1.55,4.3),tierMat);
+        block.position.set(Math.cos(angle)*radius,1.25+tier*1.9,Math.sin(angle)*radius);block.rotation.y=-angle;block.castShadow=true;block.receiveShadow=true;this.group.add(block);
+        const rail=new THREE.Mesh(new THREE.BoxGeometry(width-.22,.08,4.5),railMat);rail.position.set(block.position.x,block.position.y+1.0,block.position.z);rail.rotation.y=-angle;this.group.add(rail);
+        for(let row=0;row<7;row+=1){
+          const r=radius-.82+(row*.25);const y=2.0+tier*1.9+(row%2)*.05;
+          const c=new THREE.Mesh(new THREE.CapsuleGeometry(.09,.16,5,6),crowdMats[(seed+row*13)%crowdMats.length]);
+          c.position.set(Math.cos(angle)*r,y,Math.sin(angle)*r);c.rotation.y=-angle+Math.PI/2;this.crowd.add(c);
+        }
       }
     }
-
-    const pitchGlow = new THREE.Mesh(
-      new THREE.PlaneGeometry(5.92, 23.6),
-      new THREE.MeshBasicMaterial({ color: 0xffd28f, transparent: true, opacity: 0.035 }),
-    );
-    pitchGlow.rotation.x = -Math.PI / 2;
-    pitchGlow.position.y = 0.061;
-    this.group.add(pitchGlow);
+    const fascia=new THREE.Mesh(new THREE.TorusGeometry(35.4,.48,12,160),standMat);fascia.rotation.x=Math.PI/2;fascia.position.y=1.0;this.group.add(fascia);
   }
 
-  private buildBoundary(): void {
-    const rope = new THREE.Mesh(
-      new THREE.TorusGeometry(28, 0.10, 10, 128),
-      new THREE.MeshStandardMaterial({
-        color: 0xffffff,
-        emissive: 0x123322,
-        emissiveIntensity: 0.18,
-        roughness: 0.7,
-      }),
-    );
-    rope.rotation.x = Math.PI / 2;
-    rope.position.y = 0.06;
-    rope.name = 'boundary-rope';
-    this.group.add(rope);
-
-    const led = new THREE.Mesh(
-      new THREE.TorusGeometry(27.25, 0.055, 8, 128),
-      new THREE.MeshStandardMaterial({
-        color: 0x39f5c8,
-        emissive: 0x39f5c8,
-        emissiveIntensity: 1.2,
-        roughness: 0.35,
-      }),
-    );
-    led.rotation.x = Math.PI / 2;
-    led.position.y = 0.12;
-    this.group.add(led);
-    this.ledMaterials.push(led.material as THREE.MeshStandardMaterial);
+  private buildRoof(){
+    const roofMat=new THREE.MeshStandardMaterial({color:0x0b1017,roughness:.56,metalness:.35,transparent:true,opacity:.94});
+    const roof=new THREE.Mesh(new THREE.TorusGeometry(39,.75,12,160),roofMat);roof.position.y=14.4;roof.rotation.x=Math.PI/2;this.group.add(roof);
+    const ring=new THREE.Mesh(new THREE.TorusGeometry(34.7,.08,8,128),new THREE.MeshStandardMaterial({color:0x36e7c3,emissive:0x0c7f6b,emissiveIntensity:1.7,metalness:.65,roughness:.28}));ring.position.y=12.6;ring.rotation.x=Math.PI/2;this.group.add(ring);
+    for(let i=0;i<16;i+=1){const a=i*Math.PI/8;const brace=new THREE.Mesh(new THREE.BoxGeometry(.22,13,.22),new THREE.MeshStandardMaterial({color:0x28343f,metalness:.8,roughness:.4}));brace.position.set(Math.cos(a)*34.5,6.6,Math.sin(a)*34.5);brace.rotation.z=Math.PI/2.0;brace.rotation.y=-a;this.group.add(brace);}
   }
 
-  private buildStands(): void {
-    const tiers = [
-      { inner: 14.5, outer: 18.0, y: 0.55 },
-      { inner: 18.5, outer: 22.0, y: 1.35 },
-      { inner: 22.5, outer: 26.1, y: 2.15 },
-      { inner: 26.6, outer: 31.5, y: 3.0 },
+  private buildScreens(){
+    const entries=[
+      {pos:new THREE.Vector3(0,8,-35),rot:0,title:'AUCTION XI',subtitle:'WANKHEDE • LIVE MATCH'},
+      {pos:new THREE.Vector3(35,8,0),rot:-Math.PI/2,title:'AUCTION XI',subtitle:'PLAY • COMPETE • WIN'},
+      {pos:new THREE.Vector3(0,8,35),rot:Math.PI,title:'LIVE CRICKET',subtitle:'2D + 3D BROADCAST'},
+      {pos:new THREE.Vector3(-35,8,0),rot:Math.PI/2,title:'AUCTION XI',subtitle:'MATCH CENTER'},
     ];
-
-    tiers.forEach((tier, index) => {
-      const seats = new THREE.Mesh(
-        new THREE.RingGeometry(tier.inner, tier.outer, 128, 3),
-        new THREE.MeshStandardMaterial({
-          color: index < 2 ? 0x15202b : 0x101821,
-          roughness: 0.96,
-          metalness: 0.06,
-        }),
-      );
-      seats.rotation.x = -Math.PI / 2;
-      seats.position.y = tier.y;
-      seats.name = `stand-tier-${index + 1}`;
-      this.group.add(seats);
-
-      const fascia = new THREE.Mesh(
-        new THREE.TorusGeometry((tier.inner + tier.outer) / 2, 0.28, 7, 128),
-        new THREE.MeshStandardMaterial({ color: 0x080d13, metalness: 0.45, roughness: 0.52 }),
-      );
-      fascia.rotation.x = Math.PI / 2;
-      fascia.position.y = tier.y + 0.22;
-      this.group.add(fascia);
-    });
-
-    const roof = new THREE.Mesh(
-      new THREE.TorusGeometry(29.9, 0.38, 8, 128),
-      new THREE.MeshStandardMaterial({ color: 0x0a1119, metalness: 0.72, roughness: 0.34 }),
-    );
-    roof.rotation.x = Math.PI / 2;
-    roof.position.y = 6.4;
-    this.group.add(roof);
-
-    const canopy = new THREE.Mesh(
-      new THREE.RingGeometry(30.2, 36, 128, 1),
-      new THREE.MeshStandardMaterial({
-        color: 0x0b141e,
-        transparent: true,
-        opacity: 0.86,
-        roughness: 0.7,
-        side: THREE.DoubleSide,
-      }),
-    );
-    canopy.rotation.x = -Math.PI / 2;
-    canopy.position.y = 6.25;
-    this.group.add(canopy);
+    entries.forEach((e,index)=>{const tex=labelTexture(e.title,e.subtitle,index%2===0?'#39e7c5':'#4d9cff');const mat=new THREE.MeshBasicMaterial({map:tex,transparent:true,side:THREE.DoubleSide,opacity:.96});const screen=new THREE.Mesh(new THREE.PlaneGeometry(10.5,3.0),mat);screen.position.copy(e.pos);screen.rotation.y=e.rot;this.screens.add(screen);});
   }
 
-  private buildScreens(): void {
-    const screenMaterial = new THREE.MeshStandardMaterial({
-      color: 0x0e1721,
-      emissive: 0x0e3140,
-      emissiveIntensity: 0.72,
-      roughness: 0.44,
-      metalness: 0.22,
-    });
-    const frameMaterial = new THREE.MeshStandardMaterial({ color: 0x070c11, metalness: 0.7, roughness: 0.36 });
-
-    [
-      { x: 0, z: -25.6, ry: 0 },
-      { x: 0, z: 25.6, ry: Math.PI },
-      { x: 25.6, z: 0, ry: Math.PI / 2 },
-      { x: -25.6, z: 0, ry: -Math.PI / 2 },
-    ].forEach((screen, index) => {
-      const group = new THREE.Group();
-      group.name = `stadium-screen-${index + 1}`;
-      group.position.set(screen.x, 3.0, screen.z);
-      group.rotation.y = screen.ry;
-
-      const frame = new THREE.Mesh(new THREE.BoxGeometry(7.0, 3.2, 0.24), frameMaterial);
-      const panel = new THREE.Mesh(new THREE.PlaneGeometry(6.45, 2.55), screenMaterial);
-      panel.position.z = screen.z < 0 ? 0.13 : -0.13;
-      group.add(frame, panel);
-
-      const led = new THREE.Mesh(
-        new THREE.BoxGeometry(7.2, 0.12, 0.04),
-        new THREE.MeshStandardMaterial({
-          color: 0x39f5c8,
-          emissive: 0x39f5c8,
-          emissiveIntensity: 1.4,
-        }),
-      );
-      led.position.y = -1.65;
-      group.add(led);
-      this.ledMaterials.push(led.material as THREE.MeshStandardMaterial);
-      this.group.add(group);
-    });
-  }
-
-  private buildFloodlights(): void {
-    const towerPositions = [
-      [18, 0, 18],
-      [-18, 0, 18],
-      [18, 0, -18],
-      [-18, 0, -18],
-      [0, 0, -24],
-      [0, 0, 24],
-    ] as const;
-
-    towerPositions.forEach(([x, _y, z], index) => {
-      const tower = new THREE.Mesh(
-        new THREE.CylinderGeometry(0.10, 0.18, 11, 8),
-        new THREE.MeshStandardMaterial({ color: 0x34383e, metalness: 0.82, roughness: 0.35 }),
-      );
-      tower.position.set(x, 5.2, z);
-      tower.name = `floodlight-tower-${index + 1}`;
-      this.lights.add(tower);
-
-      const panel = new THREE.Mesh(
-        new THREE.BoxGeometry(1.4, 0.55, 0.18),
-        new THREE.MeshStandardMaterial({
-          color: 0xf4f4f4,
-          emissive: 0xffffff,
-          emissiveIntensity: 0.75,
-          metalness: 0.15,
-          roughness: 0.38,
-        }),
-      );
-      panel.position.set(x, 10.85, z);
-      panel.lookAt(0, 0.5, 0);
-      this.lights.add(panel);
-
-      const light = new THREE.PointLight(0xffffff, 26, 34, 1.6);
-      light.position.set(x, 10.5, z);
-      this.animatedLights.push(light);
-      this.lights.add(light);
-    });
-  }
-
-  private buildCrowd(): void {
-    const palette = [0x3b4858, 0x53697d, 0x8a6f50, 0x385d4a, 0x6e4567, 0x5e5e5e];
-    let actorIndex = 0;
-
-    for (let ring = 0; ring < 4; ring += 1) {
-      const radius = 15.3 + ring * 3.0;
-      const count = 68 + ring * 18;
-      const y = 0.74 + ring * 0.78;
-      for (let i = 0; i < count; i += 1) {
-        const angle = (i / count) * Math.PI * 2 + ring * 0.17;
-        const radialJitter = (seeded(actorIndex * 11 + 2) - 0.5) * 0.42;
-        const person = new THREE.Group();
-        person.position.set(
-          Math.cos(angle) * (radius + radialJitter),
-          y,
-          Math.sin(angle) * (radius + radialJitter),
-        );
-        person.rotation.y = -angle + Math.PI / 2;
-
-        const color = palette[Math.floor(seeded(actorIndex * 29 + 7) * palette.length)];
-        const shirt = new THREE.Mesh(
-          new THREE.CylinderGeometry(0.07, 0.10, 0.23, 6),
-          new THREE.MeshStandardMaterial({ color, roughness: 0.95 }),
-        );
-        shirt.position.y = 0.22;
-
-        const head = new THREE.Mesh(
-          new THREE.SphereGeometry(0.075, 7, 6),
-          new THREE.MeshStandardMaterial({ color: 0x9f755a, roughness: 1 }),
-        );
-        head.position.y = 0.39;
-        person.add(shirt, head);
-        this.crowd.add(person);
-        this.crowdActors.push({
-          root: person,
-          phase: seeded(actorIndex * 31 + 4) * Math.PI * 2,
-          lift: 0.02 + seeded(actorIndex * 37 + 6) * 0.035,
-          baseY: y,
-        });
-        actorIndex += 1;
-      }
+  private buildLights(){
+    for(let i=0;i<6;i+=1){
+      const a=(i/6)*Math.PI*2+.2;const x=Math.cos(a)*25.5;const z=Math.sin(a)*25.5;
+      const pole=new THREE.Mesh(new THREE.CylinderGeometry(.14,.22,12,10),new THREE.MeshStandardMaterial({color:0x27323c,roughness:.43,metalness:.75}));pole.position.set(x,6,z);pole.castShadow=true;this.lights.add(pole);
+      const head=new THREE.Mesh(new THREE.BoxGeometry(1.6,.34,.65),new THREE.MeshStandardMaterial({color:0xd6dbe1,emissive:0xeaf5ff,emissiveIntensity:2.5,roughness:.22,metalness:.45}));head.position.set(x,12,z);head.rotation.y=-a+Math.PI/2;this.lights.add(head);
+      for(let lamp=0;lamp<4;lamp+=1){const dx=((lamp%2)-.5)*.7;const dz=(Math.floor(lamp/2)-.5)*.25;const bulb=new THREE.Mesh(new THREE.SphereGeometry(.06,8,8),new THREE.MeshBasicMaterial({color:0xffffff}));bulb.position.set(x+dx*Math.cos(a)-dz*Math.sin(a),12.0,z+dx*Math.sin(a)+dz*Math.cos(a));this.lights.add(bulb);}
+      const light=new THREE.PointLight(0xd7efff,38,38,2);light.position.set(x,11.4,z);light.castShadow=false;this.lights.add(light);
     }
   }
 
-  onBall(event: AuthoritativeBallEvent): void {
-    this.targetExcitement = outcomeExcitement(event);
-    this.eventFlash = 1;
+  private buildUmpires(){
+    const create=(name:string,pos:THREE.Vector3)=>{
+      const root=new THREE.Group();root.name=`umpire-${name}`;root.position.copy(pos);
+      const body=new THREE.Mesh(new THREE.CapsuleGeometry(.18,.72,7,10),new THREE.MeshStandardMaterial({color:0x111820,roughness:.74}));body.position.y=.68;root.add(body);
+      const head=new THREE.Mesh(new THREE.SphereGeometry(.16,12,10),new THREE.MeshStandardMaterial({color:0x8d5d40,roughness:.84}));head.position.y=1.28;root.add(head);
+      const hat=new THREE.Mesh(new THREE.CylinderGeometry(.2,.2,.08,16),new THREE.MeshStandardMaterial({color:0x171d25,roughness:.55,metalness:.15}));hat.position.y=1.47;root.add(hat);
+      const armMat=new THREE.MeshStandardMaterial({color:0x17222b,roughness:.74});
+      const left=new THREE.Mesh(new THREE.CapsuleGeometry(.055,.34,5,7),armMat);left.position.set(-.24,.78,0);root.add(left);
+      const right=left.clone();right.position.x=.24;root.add(right);
+      this.umpireArms.push(left,right);(left.userData as any).base=-1;(right.userData as any).base=1;
+      this.umpires.add(root);
+    };
+    create('bowler-end',new THREE.Vector3(1.9,0,0));
+    create('square-leg',new THREE.Vector3(-7.4,0,2.4));
   }
 
-  update(dt: number): void {
-    this.pulse += Math.max(0, dt);
-    this.excitement = THREE.MathUtils.damp(this.excitement, this.targetExcitement, 3.2, Math.max(0, dt));
-    this.targetExcitement = Math.max(0.08, this.targetExcitement - dt * 0.16);
-    this.eventFlash = Math.max(0, this.eventFlash - dt * 1.4);
-
-    this.crowdActors.forEach((actor) => {
-      const wave = Math.sin(this.pulse * (2.4 + actor.lift * 5) + actor.phase);
-      const active = 0.5 + 0.5 * Math.max(-1, Math.min(1, wave));
-      actor.root.position.y = actor.baseY + wave * actor.lift * (0.35 + this.excitement * 0.65);
-      actor.root.rotation.z = wave * 0.045 * (0.2 + this.excitement);
-      if (active > 0.92 && this.excitement > 1.0) {
-        actor.root.rotation.z += 0.08;
-      }
-    });
-
-    this.animatedLights.forEach((light, index) => {
-      light.intensity = 23 + Math.sin(this.pulse * 1.8 + index * 0.8) * 1.6 + this.eventFlash * 7;
-    });
-
-    const ledPulse = 0.85 + 0.65 * (0.5 + 0.5 * Math.sin(this.pulse * 3.2));
-    this.ledMaterials.forEach((material, index) => {
-      material.emissiveIntensity = ledPulse + this.eventFlash * (index % 2 === 0 ? 1.4 : 0.8);
-    });
+  reactToBall(event:AuthoritativeBallEvent){
+    const outcome=event.outcome;
+    const next:UmpireSignal = outcome==='FOUR'?'FOUR':outcome==='SIX'?'SIX':outcome==='WIDE'?'WIDE':outcome==='NO_BALL'?'NO_BALL':outcome==='RUN_OUT'?'RUN_OUT':outcome==='WICKET'?'WICKET':'NONE';
+    this.signal=next;this.signalTimer=next==='NONE'?0:1.6;this.crowdEnergy=next==='SIX'||next==='WICKET'?1:next==='FOUR'?.78:.5;
   }
 
-  reset(): void {
-    this.targetExcitement = 0.12;
-    this.excitement = clamp(this.excitement, 0.08, 0.35);
-    this.eventFlash = 0;
+  update(dt:number){
+    this.pulse+=dt;this.ledPhase+=dt*5;this.crowdEnergy=Math.max(.2,this.crowdEnergy-dt*.38);
+    this.crowd.children.forEach((c,index)=>{const seed=(index+1)*.73;c.position.y=Math.max(.4,c.position.y+(Math.sin(this.pulse*(1.2+seed*.2)+index)*.006*this.crowdEnergy));c.rotation.z=Math.sin(this.pulse*1.7+index)*.06*this.crowdEnergy;});
+    this.lights.children.forEach((obj,index)=>{if(obj instanceof THREE.PointLight)obj.intensity=35+Math.sin(this.pulse*2.2+index)*2+this.crowdEnergy*7;});
+    const led=this.group.children.find(o=>o instanceof THREE.Mesh && o.geometry instanceof THREE.TorusGeometry && o.userData.ledRing) as THREE.Mesh|undefined;if(led&&led.material instanceof THREE.MeshStandardMaterial)led.material.emissiveIntensity=1.7+Math.sin(this.ledPhase)*.45+this.crowdEnergy*2.5;
+    if(this.signalTimer>0){this.signalTimer=Math.max(0,this.signalTimer-dt);this.applySignal();}else{this.signal='NONE';this.neutralArms();}
+  }
+
+  private neutralArms(){
+    for(const arm of this.umpireArms){const base=Number((arm.userData as any).base||1);arm.rotation.z=0;arm.rotation.x=0;arm.position.y=.78;arm.position.x=.24*base;}
+  }
+
+  private applySignal(){
+    this.umpireArms.forEach((arm,index)=>{const base=Number((arm.userData as any).base||1);arm.position.x=.24*base;arm.rotation.z=0;arm.rotation.x=0;switch(this.signal){case'SIX':case'WIDE':arm.rotation.z=base*Math.PI/2;break;case'FOUR':arm.rotation.z=-base*.95;break;case'WICKET':case'RUN_OUT':if(index%2===1)arm.rotation.x=-1.55;else arm.rotation.x=-.18;break;case'NO_BALL':if(index%2===0)arm.rotation.z=-base*.9;break;default:break;}});
   }
 }

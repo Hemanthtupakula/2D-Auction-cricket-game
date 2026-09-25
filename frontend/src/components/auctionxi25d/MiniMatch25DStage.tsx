@@ -33,32 +33,9 @@ function mapDeliveryKind(val?: string): DeliveryKind {
   if (d.includes("SLOW")) return "SLOWER";
   return "PACE";
 }
-
-function mapSpeed(val?: string | number): number {
-  if (typeof val === "number" && Number.isFinite(val)) return val;
-  if (!val) return 138;
-  const num = parseFloat(String(val).replace(/[^\d.]/g, ""));
-  return Number.isFinite(num) && num > 0 ? num : 138;
-}
-
-function mapBatterIntent(val?: string): BatterIntent {
-  const s = (val || "NORMAL").toUpperCase();
-  if (s.includes("DEF")) return "DEFENSIVE";
-  if (s.includes("LOFT") || s.includes("PULL") || s.includes("SIX") || s.includes("FOUR")) return "LOFT";
-  if (s.includes("LEAVE")) return "LEAVE";
-  return "NORMAL";
-}
-
-function mapTimingBand(val?: string): TimingBand {
-  const t = (val || "GOOD").toUpperCase();
-  if (t.includes("PERFECT")) return "PERFECT";
-  if (t.includes("VERY_EARLY")) return "VERY_EARLY";
-  if (t.includes("EARLY")) return "EARLY";
-  if (t.includes("VERY_LATE")) return "VERY_LATE";
-  if (t.includes("LATE")) return "LATE";
-  return "GOOD";
-}
-
+function mapSpeed(val?: string | number): number { if (typeof val === "number" && Number.isFinite(val)) return val; if (!val) return 138; const num = parseFloat(String(val).replace(/[^\d.]/g, "")); return Number.isFinite(num) && num > 0 ? num : 138; }
+function mapBatterIntent(val?: string): BatterIntent { const s = (val || "NORMAL").toUpperCase(); if (s.includes("DEF")) return "DEFENSIVE"; if (s.includes("LOFT") || s.includes("PULL") || s.includes("SIX") || s.includes("FOUR")) return "LOFT"; if (s.includes("LEAVE")) return "LEAVE"; return "NORMAL"; }
+function mapTimingBand(val?: string): TimingBand { const t = (val || "GOOD").toUpperCase(); if (t.includes("PERFECT")) return "PERFECT"; if (t.includes("VERY_EARLY")) return "VERY_EARLY"; if (t.includes("EARLY")) return "EARLY"; if (t.includes("VERY_LATE")) return "VERY_LATE"; if (t.includes("LATE")) return "LATE"; return "GOOD"; }
 function mapOutcome(ball: PresentationBall): Outcome {
   if (ball.wicket) return "WICKET";
   const o = String(ball.outcome || "").toUpperCase();
@@ -71,189 +48,87 @@ function mapOutcome(ball: PresentationBall): Outcome {
   if (o.includes("WIDE")) return "WIDE";
   if (o.includes("NO_BALL") || o.includes("NO BALL")) return "NO_BALL";
   if (o.includes("RUN_OUT") || o.includes("RUN OUT")) return "RUN_OUT";
-  if (o.includes("BYE")) return "BYE";
-  if (o.includes("LEG_BYE") || o.includes("LEG BYE")) return "LEG_BYE";
   return "DOT";
 }
-
 function normaliseToDreamBall(ball: PresentationBall, players?: PresentationPlayer[]): AuthoritativeBallEvent {
   const normalizedPlayers = normalisePlayers(players);
   const batters = normalizedPlayers.filter((p) => p.role === "BATTER");
-  const striker = batters[0];
-  const nonStriker = batters[1];
-  const bowler = normalizedPlayers.find((p) => p.role === "BOWLER");
-  const fielders = normalizedPlayers
-    .filter((p) => p.role !== "BATTER" && p.role !== "BOWLER")
-    .map((f) => ({ id: f.id, x: f.x, z: f.z, role: (f.role || "FIELDER") as Role }));
-
+  const striker = batters[0]; const nonStriker = batters[1]; const bowler = normalizedPlayers.find((p) => p.role === "BOWLER");
+  const fielders = normalizedPlayers.filter((p) => p.role !== "BATTER" && p.role !== "BOWLER").map((f) => ({ id: f.id, x: f.x, z: f.z, role: (f.role || "FIELDER") as Role }));
   let target: { x: number; z: number } | undefined;
   if (typeof ball.aimX === "number" && typeof ball.aimZ === "number") target = { x: ball.aimX, z: ball.aimZ };
-
-  const ballId = ball.ballNumber != null
-    ? `${ball.innings ?? 0}-${ball.ballNumber}`
-    : `${ball.innings ?? 0}-${ball.overNumber ?? 0}.${ball.ballInOver ?? 1}`;
-
+  const ballId = ball.ballNumber != null ? `${ball.innings ?? 0}-${ball.ballNumber}` : `${ball.innings ?? 0}-${ball.overNumber ?? 0}.${ball.ballInOver ?? 1}`;
   return {
-    ballId,
-    over: typeof ball.overNumber === "number" ? ball.overNumber : 0,
-    ball: typeof ball.ballInOver === "number" ? ball.ballInOver : 1,
-    deliveryKind: mapDeliveryKind(ball.delivery || ball.bowlPlan),
-    speed: mapSpeed(ball.speed),
-    batterIntent: mapBatterIntent(ball.shotIntent || ball.shot),
-    timingBand: mapTimingBand(ball.timingBand || ball.timing),
-    outcome: mapOutcome(ball),
-    target,
-    strikerId: striker?.id || ball.batterId || "batter",
-    nonStrikerId: nonStriker?.id || "nonstriker",
-    bowlerId: bowler?.id || ball.bowlerId || "bowler",
-    line: ball.line,
-    length: ball.length,
-    shot: ball.shot || ball.shotIntent,
-    wicketType: ball.wicketType,
-    fielders,
-    timestamp: ball.deliveryEpochMs || Date.now(),
+    ballId, over: typeof ball.overNumber === "number" ? ball.overNumber : 0, ball: typeof ball.ballInOver === "number" ? ball.ballInOver : 1,
+    deliveryKind: mapDeliveryKind(ball.delivery || ball.bowlPlan), speed: mapSpeed(ball.speed), batterIntent: mapBatterIntent(ball.shotIntent || ball.shot), timingBand: mapTimingBand(ball.timingBand || ball.timing), outcome: mapOutcome(ball), target,
+    strikerId: striker?.id || ball.batterId || "batter", nonStrikerId: nonStriker?.id || "nonstriker", bowlerId: bowler?.id || ball.bowlerId || "bowler",
+    line: ball.line, length: ball.length, shot: ball.shot || ball.shotIntent, wicketType: ball.wicketType, fielders, timestamp: ball.deliveryEpochMs || Date.now(),
   };
 }
 
 export const MiniMatch25DStage: React.FC<MiniMatch25DProps> = ({
-  className = "",
-  balls = [],
-  lastBall = null,
-  players,
-  stadiumName = "WANKHEDE STADIUM",
-  currentCamera = "BATTER_VIEW",
-  onCameraChange,
-  onPresentationComplete,
+  className = "", balls = [], lastBall = null, players, stadiumName = "WANKHEDE STADIUM", currentCamera = "BATTER_VIEW", onCameraChange, onPresentationComplete,
 }) => {
   const mountRef = useRef<HTMLDivElement | null>(null);
   const stateRef = useRef({ lastBallKey: "" });
   const dreamPresentationRef = useRef<DreamMatchPresentation | null>(null);
 
   useEffect(() => {
-    const mount = mountRef.current;
-    if (!mount) return;
-
+    const mount = mountRef.current; if (!mount) return;
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x07110d);
-    const camera = new THREE.PerspectiveCamera(48, mount.clientWidth / Math.max(1, mount.clientHeight), 0.1, 100);
-    camera.position.set(0, 4.2, 10.5);
-
+    scene.background = new THREE.Color(0x050910);
+    scene.fog = new THREE.FogExp2(0x07110d, 0.0065);
+    const camera = new THREE.PerspectiveCamera(50, mount.clientWidth / Math.max(1, mount.clientHeight), 0.1, 140);
+    camera.position.set(0, 6.8, 17.5);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.15;
     renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     renderer.setSize(mount.clientWidth, mount.clientHeight);
     mount.appendChild(renderer.domElement);
 
-    scene.add(new THREE.HemisphereLight(0x9bc8ff, 0x142018, 1.4));
-    const key = new THREE.DirectionalLight(0xfff4df, 3.2);
-    key.position.set(8, 16, 8);
-    key.castShadow = true;
+    scene.add(new THREE.HemisphereLight(0x9bc8ff, 0x102019, 1.65));
+    const key = new THREE.DirectionalLight(0xfff4df, 3.8);
+    key.position.set(10, 18, 8); key.castShadow = true; key.shadow.mapSize.set(2048, 2048);
+    key.shadow.camera.near = 1; key.shadow.camera.far = 60; key.shadow.camera.left = -30; key.shadow.camera.right = 30; key.shadow.camera.top = 30; key.shadow.camera.bottom = -30;
     scene.add(key);
-
-    const fill = new THREE.DirectionalLight(0x9fc7ff, 1.1);
-    fill.position.set(-12, 8, -8);
-    scene.add(fill);
+    const fill = new THREE.DirectionalLight(0x9fc7ff, 1.25); fill.position.set(-12, 10, -10); scene.add(fill);
 
     const dream = new DreamMatchPresentation();
-    dreamPresentationRef.current = dream;
-    scene.add(dream.root);
-
-    normalisePlayers(players).forEach((p) => dream.players.position(p.id, (p.role || "FIELDER") as Role, p.x, p.z));
+    dreamPresentationRef.current = dream; scene.add(dream.root);
+    normalisePlayers(players).forEach((p) => dream.players.position(p.id, (p.role || "FIELDER") as Role, p.x, p.z, p.visualProfileId, p.name));
     if (currentCamera) dream.camera.setManual(currentCamera as any);
 
-    let frame = 0;
-    let previous = performance.now();
-    const resize = () => {
-      const w = mount.clientWidth || 1;
-      const h = mount.clientHeight || 1;
-      camera.aspect = w / h;
-      camera.updateProjectionMatrix();
-      renderer.setSize(w, h);
-    };
-    const ro = new ResizeObserver(resize);
-    ro.observe(mount);
-
-    const tick = (now: number) => {
-      const dt = Math.min(0.05, (now - previous) / 1000);
-      previous = now;
-      dream.update(dt, camera);
-      renderer.render(scene, camera);
-      frame = requestAnimationFrame(tick);
-    };
+    let frame = 0; let previous = performance.now();
+    const resize = () => { const w = mount.clientWidth || 1; const h = mount.clientHeight || 1; camera.aspect = w / h; camera.updateProjectionMatrix(); renderer.setSize(w, h); };
+    const ro = new ResizeObserver(resize); ro.observe(mount);
+    const tick = (now: number) => { const dt = Math.min(0.05, (now - previous) / 1000); previous = now; dream.update(dt, camera); renderer.render(scene, camera); frame = requestAnimationFrame(tick); };
     frame = requestAnimationFrame(tick);
-
-    return () => {
-      cancelAnimationFrame(frame);
-      ro.disconnect();
-      renderer.dispose();
-      if (mount.contains(renderer.domElement)) mount.removeChild(renderer.domElement);
-      dream.resetForNextBall();
-      scene.remove(dream.root);
-      dreamPresentationRef.current = null;
-      scene.traverse((o) => {
-        const m = o as THREE.Mesh;
-        if (m.geometry) m.geometry.dispose();
-        if (m.material) {
-          const ms = Array.isArray(m.material) ? m.material : [m.material];
-          ms.forEach((x) => {
-            (x as THREE.MeshStandardMaterial).map?.dispose();
-            x.dispose();
-          });
-        }
-      });
-    };
+    return () => { cancelAnimationFrame(frame); ro.disconnect(); renderer.dispose(); if (mount.contains(renderer.domElement)) mount.removeChild(renderer.domElement); dream.resetForNextBall(); scene.remove(dream.root); dreamPresentationRef.current = null; scene.traverse((o) => { const m = o as THREE.Mesh; if (m.geometry) m.geometry.dispose(); if (m.material) { const ms = Array.isArray(m.material) ? m.material : [m.material]; ms.forEach((x) => { (x as THREE.MeshStandardMaterial).map?.dispose(); x.dispose(); }); } }); };
   }, [players, stadiumName]);
 
-  useEffect(() => {
-    if (currentCamera && dreamPresentationRef.current) dreamPresentationRef.current.camera.setManual(currentCamera as any);
-  }, [currentCamera]);
-
+  useEffect(() => { if (currentCamera && dreamPresentationRef.current) dreamPresentationRef.current.camera.setManual(currentCamera as any); }, [currentCamera]);
   useEffect(() => {
     const ball = lastBall || balls[balls.length - 1];
-    if (!ball) {
-      dreamPresentationRef.current?.resetForNextBall();
-      return;
-    }
+    if (!ball) { dreamPresentationRef.current?.resetForNextBall(); return; }
     if (!dreamPresentationRef.current) return;
-
     const key = `${ball.innings || 0}-${ball.ballNumber || balls.length}-${ball.outcome || ""}-${ball.runs || 0}-${ball.timing || ""}`;
     if (key === stateRef.current.lastBallKey) return;
     stateRef.current.lastBallKey = key;
-
-    const dreamBall = normaliseToDreamBall(ball, players);
-    dreamPresentationRef.current.playBall(dreamBall);
-
-    const timer = setTimeout(() => onPresentationComplete?.(), 3200);
-    return () => clearTimeout(timer);
+    const dreamBall = normaliseToDreamBall(ball, players); dreamPresentationRef.current.playBall(dreamBall);
+    const timer = setTimeout(() => onPresentationComplete?.(), 3600); return () => clearTimeout(timer);
   }, [balls, lastBall, players, onPresentationComplete]);
 
   return (
     <section className={`auctionxi-25d-stage ${className}`}>
       <div className="auctionxi-25d-canvas" ref={mountRef} />
       <div className="auctionxi-25d-vignette" />
-      <div className="auctionxi-25d-topbar">
-        <div>
-          <div className="auctionxi-25d-kicker">AUCTION XI • LIVE MATCH</div>
-          <div className="auctionxi-25d-stadium">{stadiumName}</div>
-        </div>
-        <div className="auctionxi-25d-status"><span className="auctionxi-live-dot" />LIVE</div>
-      </div>
-      <div className="auctionxi-25d-camera">
-        {(["BATTER_VIEW", "BOWLER_VIEW", "BALL_FOLLOW"] as PresentationCamera[]).map((c) => (
-          <button key={c} type="button" className={currentCamera === c ? "active" : ""} onClick={() => {
-            dreamPresentationRef.current?.camera.setManual(c as any);
-            onCameraChange?.(c);
-          }}>
-            {c.replace("_", " ")}
-          </button>
-        ))}
-      </div>
-      <div className="auctionxi-25d-bottom">
-        <div className="auctionxi-25d-ball-card"><span className="label">BALL</span><strong>{lastBall?.overNumber != null ? `${Number(lastBall.overNumber) + 1}.${lastBall.ballInOver ?? ""}` : "—"}</strong></div>
-        <div className="auctionxi-25d-ball-card wide"><span className="label">COMMENTARY</span><strong>{lastBall?.commentary || "Read the delivery. Choose your response."}</strong></div>
-        <div className="auctionxi-25d-ball-card"><span className="label">RESULT</span><strong className={`result-${String(lastBall?.outcome || "DOT").toLowerCase()}`}>{lastBall?.outcome || "READY"}</strong></div>
-      </div>
+      <div className="auctionxi-25d-topbar"><div><div className="auctionxi-25d-kicker">AUCTION XI • LIVE MATCH</div><div className="auctionxi-25d-stadium">{stadiumName}</div></div><div className="auctionxi-25d-status"><span className="auctionxi-live-dot" />LIVE</div></div>
+      <div className="auctionxi-25d-camera">{(["BATTER_VIEW", "BOWLER_VIEW", "BALL_FOLLOW"] as PresentationCamera[]).map((c) => (<button key={c} type="button" className={currentCamera === c ? "active" : ""} onClick={() => { dreamPresentationRef.current?.camera.setManual(c as any); onCameraChange?.(c); }}>{c.replace("_", " ")}</button>))}</div>
+      <div className="auctionxi-25d-bottom"><div className="auctionxi-25d-ball-card"><span className="label">BALL</span><strong>{lastBall?.overNumber != null ? `${Number(lastBall.overNumber) + 1}.${lastBall.ballInOver ?? ""}` : "—"}</strong></div><div className="auctionxi-25d-ball-card wide"><span className="label">COMMENTARY</span><strong>{lastBall?.commentary || "Broadcast ready — awaiting delivery."}</strong></div><div className="auctionxi-25d-ball-card"><span className="label">RESULT</span><strong className={`result-${String(lastBall?.outcome || "DOT").toLowerCase()}`}>{lastBall?.outcome || "READY"}</strong></div></div>
     </section>
   );
 };

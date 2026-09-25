@@ -1,4 +1,3 @@
-
 export type PlayerRole='BATTER'|'BOWLER'|'FIELDER'|'KEEPER'|'NON_STRIKER';
 export type DeliveryKind='PACE'|'SWING'|'CUTTER'|'SLOWER'|'YORKER'|'BOUNCER';
 export type BatterIntent='DEFENSIVE'|'NORMAL'|'LOFT'|'LEAVE';
@@ -38,6 +37,8 @@ export interface PlayerIdentity{
   skinTone?:number; hairColor?:number; heightScale?:number;
   assetUrl?:string; faceTextureUrl?:string; animationSet?:string; clipMap?:AnimationClipMap;
   likenessId?:string;
+  /** Visual-only profile selector. Never replaces id/name/role. */
+  visualProfileId?:string;
 }
 
 export interface AuthoritativeBallPresentation{

@@ -51,6 +51,7 @@ class GLTFPlayerAsset implements ProductionPlayerAsset{
   const coverage=this.skeletal.getCoverage();
   this.root.userData.playerId=identity.id;
   this.root.userData.realAsset=true;
+  this.root.userData.visualProfileId=identity.visualProfileId;
   this.root.userData.likenessId=identity.likenessId;
   this.root.userData.displayName=identity.name;
   this.root.userData.jerseyNumber=identity.jerseyNumber;
@@ -67,14 +68,12 @@ class GLTFPlayerAsset implements ProductionPlayerAsset{
   this.root.position.y=damp(this.root.position.y,p.y,12,d);
   this.root.position.z=damp(this.root.position.z,p.z,12,d);
   this.root.rotation.y=dampAngle(this.root.rotation.y,p.yaw,12,d);
-  this.root.rotation.z=damp(this.root.rotation.z,p.lean,12,d);
+  this.root.rotation.z=dampAngle(this.root.rotation.z,p.lean,12,d);
   this.root.userData.batAngle=p.batAngle;
   this.root.userData.armSwing=p.armSwing;
 
   this.animController.update(d);
-  if(!this.hasActiveClip){
-   this.skeletal.update(this.currentState,p,this.identity.archetype,this.time,d);
-  }
+  if(!this.hasActiveClip)this.skeletal.update(this.currentState,p,this.identity.archetype,this.time,d);
  }
 
  setState(state:PresentationState){
@@ -89,13 +88,7 @@ class GLTFPlayerAsset implements ProductionPlayerAsset{
  dispose(){
   this.animController.stop();
   this.mixer.stopAllAction();
-  this.root.traverse(o=>{
-   const m=o as THREE.Mesh;
-   if(m.geometry)m.geometry.dispose();
-   const a=m.material as THREE.Material|THREE.Material[];
-   if(Array.isArray(a))a.forEach(x=>x.dispose());
-   else a?.dispose();
-  });
+  this.root.traverse(o=>{const m=o as THREE.Mesh;if(m.geometry)m.geometry.dispose();const a=m.material as THREE.Material|THREE.Material[];if(Array.isArray(a))a.forEach(x=>x.dispose());else a?.dispose();});
  }
 }
 
@@ -117,6 +110,7 @@ export class HybridCricketAssetAdapter implements PlayerAssetAdapter{
    return scene?new GLTFPlayerAsset(scene,this.cache.getAnimations(p.assetUrl),p,p.faceTextureUrl?this.cache.getFaceTexture(p.faceTextureUrl):undefined):null;
   }catch{return null;}
  }
+ async preloadProfiles(profiles:PlayerIdentity[]):Promise<void>{await this.cache.preloadProfiles(profiles);}
 }
 
 export class ProceduralCricketAssetAdapter implements PlayerAssetAdapter{
@@ -139,36 +133,12 @@ export class ProceduralCricketAssetAdapter implements PlayerAssetAdapter{
   helmet.position.y=1.055;root.add(helmet);
   const hair=new THREE.Mesh(new THREE.SphereGeometry(.105,12,8,0,Math.PI*2,0,Math.PI*.35),dark);
   hair.position.y=1.08;root.add(hair);
-  for(const x of[-.075,.075]){
-   const leg=new THREE.Mesh(new THREE.CapsuleGeometry(.058,.38,6,8),secondary);
-   leg.position.set(x,.27,0);root.add(leg);
-   const shoe=new THREE.Mesh(new THREE.BoxGeometry(.12,.055,.24),dark);
-   shoe.position.set(x,.045,.035);root.add(shoe);
-  }
-  for(const x of[-.19,.19]){
-   const arm=new THREE.Mesh(new THREE.CapsuleGeometry(.045,.29,6,8),primary);
-   arm.position.set(x,.67,0);root.add(arm);
-   const glove=new THREE.Mesh(new THREE.SphereGeometry(.055,10,8),secondary);
-   glove.position.set(x,.48,.01);root.add(glove);
-  }
+  for(const x of[-.075,.075]){const leg=new THREE.Mesh(new THREE.CapsuleGeometry(.058,.38,6,8),secondary);leg.position.set(x,.27,0);root.add(leg);const shoe=new THREE.Mesh(new THREE.BoxGeometry(.12,.055,.24),dark);shoe.position.set(x,.045,.035);root.add(shoe);}
+  for(const x of[-.19,.19]){const arm=new THREE.Mesh(new THREE.CapsuleGeometry(.045,.29,6,8),primary);arm.position.set(x,.67,0);root.add(arm);const glove=new THREE.Mesh(new THREE.SphereGeometry(.055,10,8),secondary);glove.position.set(x,.48,.01);root.add(glove);}
   const bat=new THREE.Mesh(new THREE.BoxGeometry(.045,.52,.075),new THREE.MeshStandardMaterial({color:0xc99555,roughness:.7}));
   bat.position.set(.2,.56,.08);bat.rotation.z=.18;root.add(bat);
   let state:PresentationState=p.role==='KEEPER'?'CROUCH':p.role==='BOWLER'?'IDLE':'READY';
-  return{
-   root,
-   applyPose(q,dt){
-    root.position.x=damp(root.position.x,q.x,12,dt);
-    root.position.y=damp(root.position.y,q.y,12,dt);
-    root.position.z=damp(root.position.z,q.z,12,dt);
-    root.rotation.y=dampAngle(root.rotation.y,q.yaw,12,dt);
-    root.rotation.z=damp(root.rotation.z,q.lean,12,dt);
-    root.userData.batAngle=q.batAngle;
-    root.userData.armSwing=q.armSwing;
-    root.userData.animationState=state;
-   },
-   setState(s){state=s;root.userData.animationState=s;},
-   dispose(){root.traverse(o=>{const m=o as THREE.Mesh;if(m.geometry)m.geometry.dispose();const a=m.material as THREE.Material|THREE.Material[];Array.isArray(a)?a.forEach(x=>x.dispose()):a?.dispose();});}
-  };
+  return{root,applyPose(q,dt){root.position.x=damp(root.position.x,q.x,12,dt);root.position.y=damp(root.position.y,q.y,12,dt);root.position.z=damp(root.position.z,q.z,12,dt);root.rotation.y=dampAngle(root.rotation.y,q.yaw,12,dt);root.rotation.z=dampAngle(root.rotation.z,q.lean,12,dt);root.userData.batAngle=q.batAngle;root.userData.armSwing=q.armSwing;root.userData.animationState=state;},setState(s){state=s;root.userData.animationState=s;},dispose(){root.traverse(o=>{const m=o as THREE.Mesh;if(m.geometry)m.geometry.dispose();const a=m.material as THREE.Material|THREE.Material[];Array.isArray(a)?a.forEach(x=>x.dispose()):a?.dispose();});}};
  }
 }
 

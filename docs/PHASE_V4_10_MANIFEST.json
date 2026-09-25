@@ -1,0 +1,25 @@
+{
+  "phase": "V4.10",
+  "title": "Visual Reality Pass",
+  "baselineCommit": "8a5035e",
+  "authorityPreserved": true,
+  "auctionDataChanged": false,
+  "visualProfileLayer": true,
+  "payload": [
+    "frontend/src/components/auctionxi25d/playerPresentation/v4/visualProfileResolver.ts",
+    "frontend/src/components/auctionxi25d/playerPresentation/v4/types.ts",
+    "frontend/src/components/auctionxi25d/playerPresentation/v4/assetAdapter.ts",
+    "frontend/src/components/auctionxi25d/playerPresentation/v4/ProductionCricketPlayerRig.ts",
+    "frontend/src/components/auctionxi25d/livePresentation/buildPresentationFeed.ts",
+    "frontend/src/components/auctionxi25d/dream/players/rig.ts",
+    "frontend/src/components/auctionxi25d/dream/stadium/world.ts",
+    "frontend/src/components/auctionxi25d/dream/camera/director.ts",
+    "frontend/src/components/auctionxi25d/dream/presentation/director.ts",
+    "frontend/src/components/auctionxi25d/MiniMatch25DStage.tsx",
+    "frontend/src/components/auctionxi25d/types.ts"
+  ],
+  "checks": [
+    "npm run build:frontend",
+    "npm run test:backend"
+  ]
+}

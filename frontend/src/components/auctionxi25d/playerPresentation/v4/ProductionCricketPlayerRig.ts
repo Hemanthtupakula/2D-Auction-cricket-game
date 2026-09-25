@@ -6,14 +6,8 @@ import {AUCTION_XI_FRIEND_PROFILES} from './assetManifest';
 import {profileToIdentity} from './faceLikeness';
 
 interface RuntimePlayer{
-  identity:PlayerIdentity;
-  asset:ProductionPlayerAsset;
-  state:PresentationState;
-  started:number;
-  archetype:PlayerArchetype;
-  home:THREE.Vector3;
-  offset:THREE.Vector3;
-  yaw:number;
+  identity:PlayerIdentity; asset:ProductionPlayerAsset; state:PresentationState; started:number;
+  archetype:PlayerArchetype; home:THREE.Vector3; offset:THREE.Vector3; yaw:number;
 }
 
 function poseFor(state:PresentationState,t:number,a:PlayerArchetype):TransformPose{
@@ -61,8 +55,13 @@ export class ProductionCricketPlayerRig{
 
   constructor(adapter?:PlayerAssetAdapter){
     if(adapter)this.adapter=adapter;
-    else{const cache=new GLTFCricketAssetCache();this.hybrid=new HybridCricketAssetAdapter(cache,new ProceduralCricketAssetAdapter());this.adapter=this.hybrid;}
-    this.group.name='AuctionXI-V4.4-SkeletalFriendLikenessPlayers';
+    else{
+      const cache=new GLTFCricketAssetCache();
+      this.hybrid=new HybridCricketAssetAdapter(cache,new ProceduralCricketAssetAdapter());
+      this.adapter=this.hybrid;
+      void this.hybrid.preloadProfiles(AUCTION_XI_FRIEND_PROFILES.map(p=>profileToIdentity(p,'AUCTION_XI')));
+    }
+    this.group.name='AuctionXI-V4.10-VisualRealityPlayers';
   }
 
   static withAssetCache(cache:GLTFCricketAssetCache){return new ProductionCricketPlayerRig(new HybridCricketAssetAdapter(cache,new ProceduralCricketAssetAdapter()));}
@@ -78,11 +77,31 @@ export class ProductionCricketPlayerRig{
   }
   addPlayer(input:PlayerIdentity,position:THREE.Vector3,yaw=0){
     if(this.players.has(input.id))return;
-    const matched=AUCTION_XI_FRIEND_PROFILES.find(p=>p.likenessId===input.likenessId||p.displayName.toLowerCase()===input.name.toLowerCase()||p.jerseyNumber===input.jerseyNumber);
-    const identity=matched?{...profileToIdentity(matched,input.teamCode||'AUCTION_XI'),...input,role:input.role||matched.role,name:input.name||matched.displayName,jerseyNumber:input.jerseyNumber??matched.jerseyNumber,archetype:input.archetype??matched.archetype,assetUrl:input.assetUrl??matched.glbUrl,faceTextureUrl:input.faceTextureUrl??matched.faceTextureUrl,likenessId:input.likenessId??matched.likenessId}:input;
+    const matched=AUCTION_XI_FRIEND_PROFILES.find(p=>
+      p.likenessId===input.visualProfileId ||
+      p.likenessId===input.likenessId ||
+      p.displayName.toLowerCase()===input.name.toLowerCase() ||
+      p.jerseyNumber===input.jerseyNumber
+    );
+    const identity=matched?{
+      ...profileToIdentity(matched,input.teamCode||'AUCTION_XI'),
+      ...input,
+      role:input.role||matched.role,
+      name:input.name||matched.displayName,
+      jerseyNumber:input.jerseyNumber??matched.jerseyNumber,
+      archetype:input.archetype??matched.archetype,
+      assetUrl:input.assetUrl??matched.glbUrl,
+      faceTextureUrl:input.faceTextureUrl??matched.faceTextureUrl,
+      likenessId:input.likenessId??matched.likenessId,
+      visualProfileId:input.visualProfileId??matched.likenessId,
+    }:input;
     const asset=this.adapter.createPlayer(identity);
     asset.root.position.copy(position);asset.root.rotation.y=yaw;
-    asset.root.userData.playerName=identity.name;asset.root.userData.jerseyNumber=identity.jerseyNumber;asset.root.userData.teamCode=identity.teamCode;asset.root.userData.likenessId=identity.likenessId;
+    asset.root.userData.playerName=identity.name;
+    asset.root.userData.jerseyNumber=identity.jerseyNumber;
+    asset.root.userData.teamCode=identity.teamCode;
+    asset.root.userData.likenessId=identity.likenessId;
+    asset.root.userData.visualProfileId=identity.visualProfileId;
     this.group.add(asset.root);
     const runtime:RuntimePlayer={identity,asset,state:identity.role==='KEEPER'?'CROUCH':identity.role==='BOWLER'?'IDLE':'READY',started:this.clock,archetype:identity.archetype??this.defaultArchetype(identity.role),home:position.clone(),offset:new THREE.Vector3(),yaw};
     this.players.set(identity.id,runtime);
@@ -98,24 +117,8 @@ export class ProductionCricketPlayerRig{
   clear(){for(const id of [...this.players.keys()])this.removePlayer(id)}
   playBall(e:AuthoritativeBallPresentation){this.event=e;this.phase='PRE_BALL';this.clock=0;this.setAll()}
   setPhase(phase:string){this.phase=phase;if(this.event)this.setAll()}
-  resetForNextBall(){
-    this.phase='RESET';
-    for(const p of this.players.values()){
-      p.offset.set(0,0,0);
-      p.asset.root.position.copy(p.home);
-    }
-    if(this.event)this.setAll();
-    this.event=null;
-  }
-  update(dt:number){
-    const d=Math.max(0,dt);this.clock+=d;
-    for(const p of this.players.values()){
-      const local=Math.max(0,this.clock-p.started);
-      const pose=poseFor(p.state,local,p.archetype);
-      const worldPose:TransformPose={...pose,x:p.home.x+p.offset.x+pose.x,y:p.home.y+p.offset.y+pose.y,z:p.home.z+p.offset.z+pose.z};
-      p.asset.applyPose(worldPose,d);
-    }
-  }
+  resetForNextBall(){this.phase='RESET';for(const p of this.players.values()){p.offset.set(0,0,0);p.asset.root.position.copy(p.home)}if(this.event)this.setAll();this.event=null}
+  update(dt:number){const d=Math.max(0,dt);this.clock+=d;for(const p of this.players.values()){const local=Math.max(0,this.clock-p.started);const pose=poseFor(p.state,local,p.archetype);const worldPose:TransformPose={...pose,x:p.home.x+p.offset.x+pose.x,y:p.home.y+p.offset.y+pose.y,z:p.home.z+p.offset.z+pose.z};p.asset.applyPose(worldPose,d)}}
   transitionPlayer(id:string,state:PresentationState){const p=this.players.get(id);if(!p)return;p.state=state;p.started=this.clock;p.asset.setState(state)}
   setPlayerPosition(id:string,pos:THREE.Vector3,yaw?:number){const p=this.players.get(id);if(!p)return;p.home.copy(pos);p.offset.set(0,0,0);p.asset.root.position.copy(pos);if(yaw!==undefined){p.yaw=yaw;p.asset.root.rotation.y=yaw}}
   setPlayerPresentationOffset(id:string,offset:THREE.Vector3){const p=this.players.get(id);if(!p)return;p.offset.copy(offset)}
