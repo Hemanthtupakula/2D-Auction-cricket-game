@@ -17,11 +17,18 @@ export interface PresentationBall {
 }
 
 export interface PresentationPlayer {
-  id: string; name?: string; teamCode?: string; x: number; z: number;
+  /** Authoritative player ID. Never replaced by a visual/likeness ID. */
+  id: string;
+  name?: string;
+  teamCode?: string;
+  x: number;
+  z: number;
   role?: "BATTER" | "BOWLER" | "FIELDER" | "KEEPER";
-  /** Presentation-only visual reference. Never replaces the authoritative player id/name. */
+  spriteUrl?: string;
+  accent?: string;
+  /** Presentation-only face/model reference. Does not alter auction identity. */
   visualProfileId?: string;
-  spriteUrl?: string; accent?: string;
+  jerseyNumber?: number;
 }
 
 export interface MiniMatch25DProps {
@@ -34,17 +41,17 @@ export interface MiniMatch25DProps {
   players?: PresentationPlayer[];
   battingTeam?: string; bowlingTeam?: string; stadiumName?: string;
   interactive?: boolean;
+  /** Bowling interaction state from the authoritative 2D arena. */
   aimX?: number;
   aimZ?: number;
   canAim?: boolean;
-  onAimChange?: (x: number, z: number) => void;
-  onAimLock?: () => void;
   isDelivering?: boolean;
   isBatSwinging?: boolean;
   deliveryType?: string;
-  bowlingSpeed?: string;
+  bowlingSpeed?: string | number;
   batIntent?: string;
-  viewMode?: PresentationCamera;
+  onAimChange?: (x: number, z: number) => void;
+  onAimLock?: () => void;
   onCameraChange?: (camera: PresentationCamera) => void;
   onPresentationComplete?: () => void;
 }

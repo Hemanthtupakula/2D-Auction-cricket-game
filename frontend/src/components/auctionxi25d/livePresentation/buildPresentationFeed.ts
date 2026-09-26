@@ -1,10 +1,15 @@
 import type { MiniMatch, MatchBall, Player } from "../../../types";
 import type { PresentationBall, PresentationPlayer } from "../types";
-import { resolveVisualProfile } from "../playerPresentation/v4/visualProfileResolver";
 
-const normalise = (value: unknown) => String(value ?? "").trim().toLowerCase().replace(/[_\-]+/g, " ").replace(/\s+/g, " ");
-const displayNameOf = (player: Player): string => String(player.fullName || player.shortName || (player as Player & { name?: string }).name || player.id || "PLAYER").trim();
-const specialismOf = (player: Player): string => String((player as Player & { specialism?: string }).specialism || "").trim();
+const normalise = (value: unknown) =>
+  String(value ?? "")
+    .trim()
+    .toLowerCase()
+    .replace(/[_\-]+/g, " ")
+    .replace(/\s+/g, " ");
+
+const displayNameOf = (player: Player): string =>
+  String(player.fullName || player.shortName || (player as Player & { name?: string }).name || player.id || "PLAYER").trim();
 
 const presentationSpeedOf = (deliveryType?: string): number => {
   const value = normalise(deliveryType);
@@ -18,27 +23,39 @@ const presentationSpeedOf = (deliveryType?: string): number => {
 
 const isKeeper = (player: Player): boolean => {
   const role = normalise(player.role);
-  const specialism = normalise(specialismOf(player));
-  return role.includes("keeper") || role.includes("wicket") || specialism.includes("keeper") || specialism.includes("wicket");
+  const specialism = normalise((player as Player & { specialism?: string }).specialism);
+  return role.includes("keeper") || role.includes("wicket") ||
+    specialism.includes("keeper") || specialism.includes("wicket");
 };
 
 const pushPlayer = (
-  out: PresentationPlayer[], player: Player | undefined, role: PresentationPlayer["role"], teamCode: string, x: number, z: number,
+  out: PresentationPlayer[],
+  player: Player | undefined,
+  role: PresentationPlayer["role"],
+  teamCode: string,
+  x: number,
+  z: number,
 ) => {
   if (!player?.id) return;
+
+  // IMPORTANT: player.id remains the authoritative auction/match identity.
+  // A separate presentation resolver in PlayerDirector chooses the visual likeness.
   out.push({
-    // AUTHORITATIVE PLAYER ID — never replaced by the visual likeness id.
     id: player.id,
     name: displayNameOf(player),
     teamCode,
     x,
     z,
     role,
-    visualProfileId: resolveVisualProfile(player.id, player.role, specialismOf(player)),
+    jerseyNumber: Number((player as Player & { jerseyNumber?: number }).jerseyNumber) || undefined,
   });
 };
 
-export interface LivePresentationFeed { players: PresentationPlayer[]; balls: PresentationBall[]; lastBall: PresentationBall | null; }
+export interface LivePresentationFeed {
+  players: PresentationPlayer[];
+  balls: PresentationBall[];
+  lastBall: PresentationBall | null;
+}
 
 export function buildPresentationFeed(match: MiniMatch): LivePresentationFeed {
   const innings = Number(match.innings || 1);
@@ -52,16 +69,31 @@ export function buildPresentationFeed(match: MiniMatch): LivePresentationFeed {
   const bowler = bowlingXi.find((player) => player.id === match.currentBowlerId);
   const keeper = bowlingXi.find(isKeeper);
 
-  const reserved = new Set([striker?.id, nonStriker?.id, bowler?.id, keeper?.id].filter((id): id is string => Boolean(id)));
-  const fieldPositions: Array<[number, number]> = [[-6.4, 2.5],[6.4, 2.5],[-5.6, -1.5],[5.6, -1.5],[-8.2, -5.5],[8.2, -5.5],[0, -11.5]];
-  const fielders = bowlingXi.filter((player) => player?.id && !reserved.has(player.id)).slice(0, fieldPositions.length);
-  const players: PresentationPlayer[] = [];
+  const reserved = new Set(
+    [striker?.id, nonStriker?.id, bowler?.id, keeper?.id].filter(
+      (id): id is string => Boolean(id),
+    ),
+  );
 
+  const fieldPositions: Array<[number, number]> = [
+    [-6.4, 2.5], [6.4, 2.5], [-5.6, -1.5], [5.6, -1.5],
+    [-8.2, -5.5], [8.2, -5.5], [0, -11.5],
+  ];
+
+  const fielders = bowlingXi
+    .filter((player) => player?.id && !reserved.has(player.id))
+    .slice(0, fieldPositions.length);
+
+  const players: PresentationPlayer[] = [];
   pushPlayer(players, striker, "BATTER", battingTeam, 0, 8.2);
   pushPlayer(players, nonStriker, "BATTER", battingTeam, -1.2, -7.5);
   pushPlayer(players, bowler, "BOWLER", bowlingTeam, 0, -7.5);
   pushPlayer(players, keeper, "KEEPER", bowlingTeam, 0, 10);
-  fielders.forEach((player, index) => { const [x, z] = fieldPositions[index]; pushPlayer(players, player, "FIELDER", bowlingTeam, x, z); });
+
+  fielders.forEach((player, index) => {
+    const [x, z] = fieldPositions[index];
+    pushPlayer(players, player, "FIELDER", bowlingTeam, x, z);
+  });
 
   const balls: PresentationBall[] = (match.ballLog || []).map((ball: MatchBall) => ({
     ...ball,

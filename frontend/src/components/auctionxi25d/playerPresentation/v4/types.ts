@@ -13,7 +13,6 @@ export type PlayerArchetype='COMPACT_BATTER'|'AGGRESSIVE_BATTER'|'TECHNICAL_BATT
 export interface AnimationClipMap{[state:string]:string[];}
 export interface PlayerAssetManifestEntry{id:string;url:string;role:PlayerRole;animationSet?:string;scale?:number;}
 
-/** Runtime identity intentionally contains only the game's chosen identity. Reference-photo identity is never shown to the game UI. */
 export interface FriendLikenessProfile{
   likenessId:string;
   displayName:string;
@@ -32,12 +31,17 @@ export interface FriendLikenessProfile{
 }
 
 export interface PlayerIdentity{
-  id:string; name:string; role:PlayerRole; archetype?:PlayerArchetype;
+  /** Authoritative game/auction player ID. */
+  id:string;
+  /** Authoritative game/auction display name. */
+  name:string;
+  role:PlayerRole;
+  archetype?:PlayerArchetype;
   jerseyNumber?:number; teamCode?:string; kitPrimary?:number; kitSecondary?:number;
   skinTone?:number; hairColor?:number; heightScale?:number;
   assetUrl?:string; faceTextureUrl?:string; animationSet?:string; clipMap?:AnimationClipMap;
   likenessId?:string;
-  /** Visual-only profile selector. Never replaces id/name/role. */
+  /** Presentation-only visual profile. Never replaces id/name/role. */
   visualProfileId?:string;
 }
 
