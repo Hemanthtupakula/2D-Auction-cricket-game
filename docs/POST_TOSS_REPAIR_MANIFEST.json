@@ -1,0 +1,9 @@
+{
+  "baseline": "eea6e68",
+  "title": "Post-Toss Blank Screen Repair",
+  "targets": [
+    "frontend/src/components/MatchScreen.tsx",
+    "frontend/src/App.tsx"
+  ],
+  "goal": "Prevent blank-screen failure after toss and keep authoritative match setup recoverable"
+}

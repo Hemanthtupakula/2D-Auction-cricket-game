@@ -24,6 +24,41 @@ import { Trophy, Shield, AlertCircle, ArrowRight, Sparkles, CheckCircle2, Users 
 export type AppRoute = 'HOME' | 'CREATE' | 'JOIN' | 'ROOM';
 export type AppMode = 'INITIALIZING' | 'HOME' | 'ROOM_JOIN_CREATE' | 'LOBBY' | 'AUCTION' | 'STOPPED' | 'COMPLETED';
 
+class MatchScreenErrorBoundary extends React.Component<
+  { children: React.ReactNode },
+  { error: Error | null }
+> {
+  state = { error: null as Error | null };
+
+  static getDerivedStateFromError(error: Error) {
+    return { error };
+  }
+
+  componentDidCatch(error: Error) {
+    console.error('[MATCH_SCREEN_RUNTIME]', error);
+  }
+
+  render() {
+    if (this.state.error) {
+      return (
+        <div className="fixed inset-0 z-[80] bg-[#070a12] text-white flex items-center justify-center p-6">
+          <div className="w-full max-w-lg rounded-3xl border border-rose-500/30 bg-slate-950 p-6 shadow-2xl">
+            <div className="text-xs font-black tracking-[0.18em] text-rose-400 uppercase">Match Runtime Recovery</div>
+            <h2 className="mt-2 text-xl font-black">The match screen hit a runtime error.</h2>
+            <p className="mt-2 text-sm text-slate-400">Your authoritative server match is preserved. Reload to resume from its current state.</p>
+            <pre className="mt-4 max-h-28 overflow-auto rounded-xl bg-black/40 p-3 text-[10px] text-rose-300 whitespace-pre-wrap">{this.state.error.message}</pre>
+            <div className="mt-4 flex gap-2">
+              <button type="button" onClick={() => window.location.reload()} className="px-4 py-2.5 rounded-xl bg-amber-500 text-slate-950 font-black text-xs">RELOAD MATCH</button>
+              <button type="button" onClick={() => this.setState({ error: null })} className="px-4 py-2.5 rounded-xl bg-slate-800 text-slate-200 font-black text-xs">TRY AGAIN</button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
 function parseRoute(): { route: AppRoute; roomCode?: string } {
   if (typeof window === 'undefined') return { route: 'HOME' };
   const pathname = window.location.pathname.replace(/\/+$/, '') || '/';
@@ -1099,8 +1134,16 @@ export const App: React.FC = () => {
           </button>
 </div>
 
-        <Suspense fallback={null}>
-          <MatchScreen
+        <Suspense fallback={
+          <div className="fixed inset-0 z-[80] bg-[#070a12] flex items-center justify-center text-white">
+            <div className="text-center">
+              <div className="w-9 h-9 mx-auto border-2 border-amber-500 border-t-transparent rounded-full animate-spin" />
+              <div className="mt-3 text-xs font-black text-slate-300">LOADING MATCH ENGINE...</div>
+            </div>
+          </div>
+        }>
+          <MatchScreenErrorBoundary>
+            <MatchScreen
             onNewMatch={() => setActiveMatchId(null)}
             roomCode={roomCode}
             currentMemberId={currentMemberId}
@@ -1110,8 +1153,9 @@ export const App: React.FC = () => {
             matchId={activeMatchId}
             fixtureLabel={activeFixtureLabel}
             lastEvent={lastEvent}
-            onMatchStarted={(id) => setActiveMatchId(id)}
-          />
+              onMatchStarted={(id) => setActiveMatchId(id)}
+            />
+          </MatchScreenErrorBoundary>
           <SeasonScreen
             roomCode={roomCode}
             currentMemberId={currentMemberId}

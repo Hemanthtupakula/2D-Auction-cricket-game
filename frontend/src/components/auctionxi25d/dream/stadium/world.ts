@@ -126,6 +126,17 @@ export class DreamStadiumWorld{
     this.signal=next;this.signalTimer=next==='NONE'?0:1.6;this.crowdEnergy=next==='SIX'||next==='WICKET'?1:next==='FOUR'?.78:.5;
   }
 
+  onBall(event:AuthoritativeBallEvent){
+    this.reactToBall(event);
+  }
+
+  reset(){
+    this.signal='NONE';
+    this.signalTimer=0;
+    this.crowdEnergy=0.25;
+    this.neutralArms();
+  }
+
   update(dt:number){
     this.pulse+=dt;this.ledPhase+=dt*5;this.crowdEnergy=Math.max(.2,this.crowdEnergy-dt*.38);
     this.crowd.children.forEach((c,index)=>{const seed=(index+1)*.73;c.position.y=Math.max(.4,c.position.y+(Math.sin(this.pulse*(1.2+seed*.2)+index)*.006*this.crowdEnergy));c.rotation.z=Math.sin(this.pulse*1.7+index)*.06*this.crowdEnergy;});

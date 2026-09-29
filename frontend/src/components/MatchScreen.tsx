@@ -136,6 +136,30 @@ export const MatchScreen: React.FC<MatchScreenProps> = ({
       .catch((e) => setError(e instanceof Error ? e.message : 'Failed to load match'));
   }, [isOpen, activeMatchId, roomCode]);
 
+  // Post-toss setup states are polled briefly as a safety net in case
+  // a Cloudflare/WebSocket delivery is delayed during owner hand-off.
+  const POST_TOSS_REFRESH_INTERVAL = 1500;
+  useEffect(() => {
+    if (!isOpen || !activeMatchId) return;
+    const setupStates = new Set([
+      'XI_PREVIEW', 'TOSS_SELECTION', 'TOSS_LOCKED', 'TOSS_RESULT',
+      'BAT_OR_BOWL_SELECTION', 'INITIAL_BATTER_SELECTION',
+      'BOWLER_SELECTION', 'BATTERS_LOCKED', 'BOWLER_LOCKED', 'BALL_READY',
+    ]);
+    if (!match || !setupStates.has(match.status)) return;
+
+    const timer = window.setInterval(() => {
+      api.getMatch(roomCode, activeMatchId)
+        .then((next) => {
+          setMatch(next);
+          setBalls(next.ballLog || []);
+        })
+        .catch(() => {});
+    }, POST_TOSS_REFRESH_INTERVAL);
+
+    return () => window.clearInterval(timer);
+  }, [isOpen, activeMatchId, roomCode, match?.status]);
+
   // 10-second XI preview timer trigger
   useEffect(() => {
     if (match?.status === 'XI_PREVIEW') {
@@ -347,6 +371,13 @@ export const MatchScreen: React.FC<MatchScreenProps> = ({
   }, [match, balls]);
 
   if (!isOpen) return null;
+
+  // Defensive normalization: the authoritative API normally supplies both
+  // Playing XIs, but a transient post-toss snapshot must never crash React.
+  const safeHomeXi: Player[] = Array.isArray(match?.homeXi) ? match!.homeXi : [];
+  const safeAwayXi: Player[] = Array.isArray(match?.awayXi) ? match!.awayXi : [];
+  const battingXi: Player[] = match?.innings === 1 ? safeHomeXi : safeAwayXi;
+  const bowlingXi: Player[] = match?.innings === 1 ? safeAwayXi : safeHomeXi;
 
   const totalMatchOvers = match?.overs || matchOvers || 2;
   const totalMatchBalls = totalMatchOvers * 6;
@@ -833,7 +864,7 @@ export const MatchScreen: React.FC<MatchScreenProps> = ({
                             className="w-full bg-slate-900 border border-slate-700 text-white rounded-lg px-2.5 py-1.5 text-xs font-bold"
                           >
                             <option value="">-- Pick Striker --</option>
-                            {(match.innings === 1 ? match.homeXi : match.awayXi).map((p) => (
+                            {battingXi.map((p) => (
                               <option key={p.id} value={p.id}>{p.shortName || p.fullName} ({Math.round(battingRating(p))})</option>
                             ))}
                           </select>
@@ -886,7 +917,7 @@ export const MatchScreen: React.FC<MatchScreenProps> = ({
                           className="w-full bg-slate-900 border border-slate-700 text-white rounded-lg px-2.5 py-1.5 text-xs font-bold"
                         >
                           <option value="">-- Pick Bowler --</option>
-                          {(match.innings === 1 ? match.awayXi : match.homeXi).map((p) => {
+                          {bowlingXi.map((p) => {
                             const disabled = isBowlerDisabled(p.id);
                             const isPrev = p.id === match?.currentBowlerId;
                             return (
@@ -923,7 +954,7 @@ export const MatchScreen: React.FC<MatchScreenProps> = ({
                 </p>
                 {iAmBatting && match && (
                   <div className="flex flex-wrap justify-center gap-2 pt-2">
-                    {(match.innings === 1 ? match.homeXi : match.awayXi)
+                    {battingXi
                       .filter((p) => !match.dismissedBatterIds?.includes(p.id) && p.id !== match.currentNonStrikerId)
                       .map((p) => (
                         <button
