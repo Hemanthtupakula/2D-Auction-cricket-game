@@ -76,6 +76,15 @@ export class ProductionCricketPlayerRig{
     const p=AUCTION_XI_FRIEND_PROFILES.find(x=>x.likenessId===likenessId);if(!p)return;
     this.addPlayer(profileToIdentity(p,teamCode),position,yaw);
   }
+  async preloadVisuals(identities: PlayerIdentity[]): Promise<void> {
+    if (!this.hybrid) return;
+    const unique = new Map<string, PlayerIdentity>();
+    for (const identity of identities) {
+      if (identity.assetUrl) unique.set(identity.visualProfileId || identity.id, identity);
+    }
+    await this.hybrid.preloadProfiles([...unique.values()]);
+  }
+
   addPlayer(input:PlayerIdentity,position:THREE.Vector3,yaw=0){
     if(this.players.has(input.id))return;
     const matched=AUCTION_XI_FRIEND_PROFILES.find(p=>

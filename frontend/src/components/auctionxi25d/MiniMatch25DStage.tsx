@@ -77,11 +77,11 @@ function mapOutcome(ball: PresentationBall): Outcome {
 function normaliseToDreamBall(ball: PresentationBall, players?: PresentationPlayer[]): AuthoritativeBallEvent {
   const normalizedPlayers = normalisePlayers(players);
   const batters = normalizedPlayers.filter((p) => p.role === "BATTER");
-  const striker = batters[0];
-  const nonStriker = batters[1];
-  const bowler = normalizedPlayers.find((p) => p.role === "BOWLER");
+  const striker = normalizedPlayers.find((p) => p.id === ball.batterId) || batters[0];
+  const nonStriker = batters.find((p) => p.id !== striker?.id) || batters[1];
+  const bowler = normalizedPlayers.find((p) => p.id === ball.bowlerId) || normalizedPlayers.find((p) => p.role === "BOWLER");
   const fielders = normalizedPlayers
-    .filter((p) => p.role !== "BATTER" && p.role !== "BOWLER")
+    .filter((p) => p.id !== striker?.id && p.id !== bowler?.id && p.role !== "BATTER")
     .map((f) => ({ id: f.id, x: f.x, z: f.z, role: (f.role || "FIELDER") as Role }));
 
   const target = typeof ball.aimX === "number" && typeof ball.aimZ === "number"
@@ -176,8 +176,13 @@ export const MiniMatch25DStage: React.FC<MiniMatch25DProps> = ({
   const dreamPresentationRef = useRef<DreamMatchPresentation | null>(null);
   const aimVisualRef = useRef<{ ring: THREE.Mesh; dot: THREE.Mesh; line: THREE.Line } | null>(null);
   const aimValuesRef = useRef({ x: aimX, z: aimZ, canAim });
+  const playersRef = useRef(players);
+  const onAimChangeRef = useRef(onAimChange);
+  const mountedRef = useRef(true);
 
   aimValuesRef.current = { x: aimX, z: aimZ, canAim };
+  playersRef.current = players;
+  onAimChangeRef.current = onAimChange;
 
   useEffect(() => {
     const mount = mountRef.current;
@@ -210,8 +215,12 @@ export const MiniMatch25DStage: React.FC<MiniMatch25DProps> = ({
     dreamPresentationRef.current = dream;
     scene.add(dream.root);
 
-    normalisePlayers(players).forEach((p) => {
-      dream.players.position(p.id, (p.role || "FIELDER") as Role, p.x, p.z, p.name);
+    dream.players.group.visible = false;
+    const initialPlayers = normalisePlayers(playersRef.current);
+    void dream.players.preloadVisuals(initialPlayers).then(() => {
+      if (!mountedRef.current || dreamPresentationRef.current !== dream) return;
+      dream.players.syncPlayers(initialPlayers);
+      dream.players.group.visible = true;
     });
     if (currentCamera) dream.camera.setManual(currentCamera as any, true);
 
@@ -271,7 +280,7 @@ export const MiniMatch25DStage: React.FC<MiniMatch25DProps> = ({
       if (!raycaster.ray.intersectPlane(pitchPlane, hit)) return;
       const x = THREE.MathUtils.clamp(hit.x, -1.45, 1.45);
       const z = THREE.MathUtils.clamp(hit.z, -1.5, 6.0);
-      onAimChange?.(x, z);
+      onAimChangeRef.current?.(x, z);
     };
     let dragging = false;
     const down = (event: PointerEvent) => {
@@ -319,6 +328,7 @@ export const MiniMatch25DStage: React.FC<MiniMatch25DProps> = ({
       renderer.domElement.removeEventListener("pointermove", move);
       renderer.domElement.removeEventListener("pointerup", up);
       renderer.domElement.removeEventListener("pointercancel", up);
+      mountedRef.current = false;
       renderer.dispose();
       if (mount.contains(renderer.domElement)) mount.removeChild(renderer.domElement);
       dream.resetForNextBall();
@@ -338,7 +348,21 @@ export const MiniMatch25DStage: React.FC<MiniMatch25DProps> = ({
         }
       });
     };
-  }, [players, stadiumName, onAimChange]);
+  }, [stadiumName]);
+
+  useEffect(() => {
+    const dream = dreamPresentationRef.current;
+    if (!dream || !players || players.length < 7) return;
+    const current = normalisePlayers(players);
+    let cancelled = false;
+    dream.players.group.visible = false;
+    void dream.players.preloadVisuals(current).then(() => {
+      if (cancelled || !mountedRef.current || dreamPresentationRef.current !== dream) return;
+      dream.players.syncPlayers(current);
+      dream.players.group.visible = true;
+    });
+    return () => { cancelled = true; };
+  }, [players]);
 
   useEffect(() => {
     if (currentCamera && dreamPresentationRef.current && !isDelivering) {
@@ -360,7 +384,7 @@ export const MiniMatch25DStage: React.FC<MiniMatch25DProps> = ({
     if (!ball) return;
     if (!dreamPresentationRef.current) return;
 
-    const key = `${ball.innings || 0}-${ball.ballNumber || balls.length}-${ball.outcome || ""}-${ball.runs || 0}-${ball.timing || ""}`;
+    const key = `${ball.innings || 0}-${ball.ballNumber || balls.length}-${ball.batterId || ""}-${ball.bowlerId || ""}-${ball.outcome || ""}-${ball.runs || 0}-${ball.timing || ""}`;
     if (key === stateRef.current.lastBallKey) return;
     stateRef.current.lastBallKey = key;
     stateRef.current.previewKey = "";
@@ -388,8 +412,8 @@ export const MiniMatch25DStage: React.FC<MiniMatch25DProps> = ({
         </div>
         <div className="auctionxi-25d-status"><span className="auctionxi-live-dot" />LIVE</div>
       </div>
-      <div className="auctionxi-25d-camera">
-        {(["BATTER_VIEW", "BOWLER_VIEW", "BALL_FOLLOW"] as PresentationCamera[]).map((c) => (
+      <div className="auctionxi-25d-camera" aria-label="Broadcast camera views">
+        {(["BATTER_VIEW", "BOWLER_VIEW", "DELIVERY_TRACK", "CONTACT_VIEW", "BALL_FOLLOW", "FIELDING_VIEW", "BOUNDARY_VIEW", "WICKET_VIEW", "CELEBRATION_VIEW"] as PresentationCamera[]).map((c) => (
           <button key={c} type="button" className={currentCamera === c ? "active" : ""} onClick={() => {
             dreamPresentationRef.current?.camera.setManual(c as any);
             onCameraChange?.(c);

@@ -15,8 +15,8 @@ export class BallDirector {
 
   constructor() {
     this.ball = new THREE.Mesh(
-      new THREE.SphereGeometry(0.07, 18, 12),
-      new THREE.MeshStandardMaterial({ color: 0xc71818, roughness: 0.28, metalness: 0.04 }),
+      new THREE.SphereGeometry(0.11, 22, 16),
+      new THREE.MeshStandardMaterial({ color: 0xe31b23, emissive: 0x6a0000, emissiveIntensity: 2.4, roughness: 0.22, metalness: 0.03 }),
     );
     this.ball.castShadow = true;
     this.ball.name = 'auction-xi-cricket-ball';
@@ -27,7 +27,7 @@ export class BallDirector {
     );
     this.trail = new THREE.Line(
       geometry,
-      new THREE.LineBasicMaterial({ transparent: true, opacity: 0.52 }),
+      new THREE.LineBasicMaterial({ color: 0xff6b6b, transparent: true, opacity: 0.78 }),
     );
     this.trail.name = 'auction-xi-ball-trail';
     this.group.add(this.trail);

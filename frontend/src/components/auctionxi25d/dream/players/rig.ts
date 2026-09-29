@@ -29,6 +29,7 @@ function visualProfileFor(id: string, role: Role): string {
 export class PlayerDirector {
   readonly v4Rig = new ProductionCricketPlayerRig();
   readonly group: THREE.Group = this.v4Rig.group;
+  private activeIds = new Set<string>();
 
   position(id: string, role: Role, x: number, z: number, name?: string): void {
     const v4Role: PlayerRole =
@@ -43,6 +44,29 @@ export class PlayerDirector {
     };
     this.v4Rig.addPlayer(identity, new THREE.Vector3(x, 0, z));
     this.v4Rig.setPlayerPosition(id, new THREE.Vector3(x, 0, z));
+    this.activeIds.add(id);
+  }
+
+  async preloadVisuals(players: Array<{ id: string; role?: Role; x: number; z: number; name?: string }>): Promise<void> {
+    const identities = players.map((player) => ({
+      id: player.id,
+      name: player.name || player.id,
+      role: player.role === "BATTER" ? "BATTER" as const : player.role === "BOWLER" ? "BOWLER" as const : player.role === "KEEPER" ? "KEEPER" as const : "FIELDER" as const,
+      visualProfileId: player.role === "KEEPER" ? "hkt-17" : player.role === "BOWLER" ? "akshay-18" : player.role === "BATTER" ? "ajay-07" : "gokul-11",
+    }));
+    await this.v4Rig.preloadVisuals(identities);
+  }
+
+  syncPlayers(players: Array<{ id: string; role?: Role; x: number; z: number; name?: string }>): void {
+    if (players.length < 7) return;
+    const nextIds = new Set(players.map((player) => player.id).filter(Boolean));
+    for (const id of this.activeIds) {
+      if (!nextIds.has(id)) this.v4Rig.removePlayer(id);
+    }
+    for (const player of players) {
+      this.position(player.id, (player.role || "FIELDER") as Role, player.x, player.z, player.name);
+    }
+    this.activeIds = nextIds;
   }
 
   state(id: string, _role: Role, state: PresentationState): void {

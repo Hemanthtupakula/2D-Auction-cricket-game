@@ -64,9 +64,12 @@ export function buildPresentationFeed(match: MiniMatch): LivePresentationFeed {
   const battingXi = innings === 1 ? (match.homeXi || []) : (match.awayXi || []);
   const bowlingXi = innings === 1 ? (match.awayXi || []) : (match.homeXi || []);
 
-  const striker = battingXi.find((player) => player.id === match.currentStrikerId);
-  const nonStriker = battingXi.find((player) => player.id === match.currentNonStrikerId);
-  const bowler = bowlingXi.find((player) => player.id === match.currentBowlerId);
+  const lastBall = (match.ballLog || []).length ? (match.ballLog || [])[match.ballLog.length - 1] : null;
+  const strikerIdForPresentation = lastBall?.batterId || match.currentStrikerId;
+  const bowlerIdForPresentation = lastBall?.bowlerId || match.currentBowlerId;
+  const striker = battingXi.find((player) => player.id === strikerIdForPresentation);
+  const nonStriker = battingXi.find((player) => player.id !== striker?.id && player.id === match.currentNonStrikerId) || battingXi.find((player) => player.id !== striker?.id);
+  const bowler = bowlingXi.find((player) => player.id === bowlerIdForPresentation);
   const keeper = bowlingXi.find(isKeeper);
 
   const reserved = new Set(
@@ -76,8 +79,10 @@ export function buildPresentationFeed(match: MiniMatch): LivePresentationFeed {
   );
 
   const fieldPositions: Array<[number, number]> = [
-    [-6.4, 2.5], [6.4, 2.5], [-5.6, -1.5], [5.6, -1.5],
-    [-8.2, -5.5], [8.2, -5.5], [0, -11.5],
+    [-6.4, 2.5], [6.4, 2.5],
+    [-5.6, -1.5], [5.6, -1.5],
+    [-8.2, -5.5], [8.2, -5.5],
+    [0, -11.5], [-3.8, -8.8], [3.8, -8.8],
   ];
 
   const fielders = bowlingXi

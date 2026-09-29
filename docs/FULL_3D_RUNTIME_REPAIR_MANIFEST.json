@@ -1,0 +1,13 @@
+{
+  "baseline": "68063ad",
+  "title": "Full 3D Runtime Repair",
+  "scope": [
+    "persistent WebGL scene",
+    "real GLB preload",
+    "full Playing XI presentation",
+    "authoritative batter/bowler binding",
+    "full V4.8 camera suite",
+    "visible cricket ball and trail"
+  ],
+  "identityPolicy": "original auction player IDs/names/stats remain authoritative; likeness is presentation-only"
+}
